@@ -22,7 +22,7 @@ title: Data Story
 author: Atila Madai
 email: madaister@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Awesome description by Atila Madai. Data Analysis using python in Jupyter and Microsoft Power BI.
+  Data Analysis using Python with Jupyter Notebooks and Microsoft Power BI, by Atila Madai.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://atimad.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: atimadai
