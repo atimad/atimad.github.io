@@ -1,0 +1,13 @@
+---
+title: "Atila Madai – Blog"
+listing:
+  contents: posts     # look in the posts/ folder
+  sort: "date desc"   # newest first
+  type: default       # blog‐style list
+  categories: true    # show a category filter sidebar
+  filter-ui: true     # show tag/category dropdowns
+---
+
+Welcome to my new Quarto blog! 🚀
+
+Here you’ll find posts about data, agents, automation, and visual storytelling.

@@ -1,0 +1,18 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Atila Madai"
+  site-url: "https://atimad.github.io"
+  navbar:
+    right:
+      - text: About
+        href: about.qmd
+      - text: Home
+        href: index.qmd
+
+format:
+  html:
+    toc: true
+    code-fold: true

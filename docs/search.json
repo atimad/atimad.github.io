@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "posts/covid19-analysis/index.html",
+    "href": "posts/covid19-analysis/index.html",
+    "title": "COVID-19 Data Analysis",
+    "section": "",
+    "text": "Presented in Microsoft Power BI using Python and DAX."
+  },
+  {
+    "objectID": "posts/covid19-analysis/index.html#covid-19",
+    "href": "posts/covid19-analysis/index.html#covid-19",
+    "title": "COVID-19 Data Analysis",
+    "section": "",
+    "text": "Presented in Microsoft Power BI using Python and DAX."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Demonstration of practical usage of languages such as:\n\nPython\nPower Query (M language)\nDAX\n\nto analyze and visualize data.\nAnalyzed data is presented mainly with Jupyter Notebook or with Microsoft Power BI, but future visualization may include different solutions."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Atila Madai – Blog",
+    "section": "",
+    "text": "Welcome to my new Quarto blog! 🚀\nHere you’ll find posts about data, agents, automation, and visual storytelling.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nCOVID-19 Data Analysis\n\n\n\ndata\n\ncovid\n\n\n\n\n\n\n\n\n\nApr 27, 2020\n\n\nAtila Madai\n\n\n\n\n\nNo matching items"
+  }
+]
