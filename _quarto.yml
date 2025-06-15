@@ -5,14 +5,54 @@ project:
 website:
   title: "Atila Madai"
   site-url: "https://atimad.github.io"
-  navbar:
-    right:
-      - text: About
-        href: about.qmd
-      - text: Home
+  sidebar:
+    style: docked
+    background: "#0d1117"      # your preferred dark bg
+    foreground: "#c9d1d9"      # your preferred text color
+    logo: "images/logo.svg"
+    logo-alt: "My Logo"
+    search: true
+    tools:
+      - icon: home
         href: index.qmd
+      # — uncomment if you create an about.qmd —
+      # - icon: info-circle
+      #   href: about.qmd
+    contents:
+      - index.qmd
+      # — uncomment to enable once you create these pages —
+      # - section: "Categories"
+      #   contents:
+      #     - categories.qmd
+      # - section: "Archives"
+      #   contents:
+      #     - archives.qmd
+      # - presentations.qmd
+########################################
+#  navbar:
+#    right:
+#      - text: About
+#        href: about.qmd
+#      - text: Home
+#        href: index.qmd
 
 format:
   html:
+    theme:
+      light: slate      # or any Bootswatch name you like
+      dark: darkly       # nice dark theme for nighttime reading
+    respect-user-color-scheme: true
     toc: true
+    toc-location: right
+    page-layout: article
     code-fold: true
+
+#margin-header: |
+#      ### Recently Updated
+#      - [One Pipeline to Rule Them All](/posts/one-pipeline-to-rule-them-all/)
+#      - [From Wrist to Dashboard](/posts/from-wrist-to-dashboard/)
+#      - [Fabric-cicd, Kicking the tyres](/posts/fabric-cicd-kicking-the-tyres/)
+#margin-footer: |
+#      ### Trending Tags
+#      [dax](/tags/dax) · [data-viz](/tags/data-viz) · [svg](/tags/svg) · [pbip](/tags/pbip)
+#      [powerbi](/tags/powerbi) · [powerquery](/tags/powerquery) · [python](/tags/python)
