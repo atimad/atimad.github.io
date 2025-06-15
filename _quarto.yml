@@ -7,10 +7,10 @@ website:
   site-url: "https://atimad.github.io"
   sidebar:
     style: docked
-    background: "#0d1117"      # your preferred dark bg
+    background: "#2A3439"      # your preferred dark bg
     foreground: "#c9d1d9"      # your preferred text color
-    logo: "images/logo.svg"
-    logo-alt: "My Logo"
+    #logo: "images/logo.svg"
+    #logo-alt: "My Logo"
     search: true
     tools:
       - icon: home
@@ -18,8 +18,8 @@ website:
       # — uncomment if you create an about.qmd —
       # - icon: info-circle
       #   href: about.qmd
-    contents:
-      - index.qmd
+    contents: posts
+      #- index.qmd
       # — uncomment to enable once you create these pages —
       # - section: "Categories"
       #   contents:
@@ -29,23 +29,29 @@ website:
       #     - archives.qmd
       # - presentations.qmd
 ########################################
-#  navbar:
-#    right:
-#      - text: About
-#        href: about.qmd
-#      - text: Home
-#        href: index.qmd
+#  website:
+  navbar:
+    background: secondary
+    logo: "images/logo.svg"
+    logo-alt: "My Logo"
+    search: true
+    left:
+      - text: "Home"
+        href: index.qmd
+      #- talks.qmd
+      - about.qmd 
 
 format:
   html:
     theme:
-      light: slate      # or any Bootswatch name you like
+      light: cosmo      # or any Bootswatch name you like
       dark: darkly       # nice dark theme for nighttime reading
     respect-user-color-scheme: true
     toc: true
     toc-location: right
     page-layout: article
     code-fold: true
+    css: styles.scss
 
 #margin-header: |
 #      ### Recently Updated

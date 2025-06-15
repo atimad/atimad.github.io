@@ -1,0 +1,55 @@
+/* in styles.scss */
+
+.quarto-color-scheme-toggle {
+  /* 1) transparent background & crisp border */
+  background-color: transparent !important;
+  border: 2px solid #58a6ff !important;  
+  border-radius: 0.5rem !important;
+
+  /* 2) fixed square size, centered icon */
+  width: 2.25rem !important;
+  height: 2.25rem !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important;
+  margin: 0.5rem auto !important;
+
+  /* 3) subtle shadow off by default */
+  box-shadow: none !important;
+  transition: background-color .2s, box-shadow .2s;
+}
+
+.quarto-color-scheme-toggle .bi {
+  /* 4) accent‐blue icon */
+  color: #58a6ff !important;
+  font-size: 1.3rem !important;
+}
+
+.quarto-color-scheme-toggle:hover {
+  /* 5) on hover, light blue glow */
+  background-color: rgba(88, 166, 255, 0.1) !important;
+  box-shadow: 0 0 8px rgba(88, 166, 255, 0.4) !important;
+}
+.quarto-color-scheme-toggle:focus {
+  /* 6) on focus, blue glow */
+  box-shadow: 0 0 8px rgba(88, 166, 255, 0.6) !important;
+}
+/* Remove the blue box around the toggle */
+.quarto-color-scheme-toggle {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0.25rem !important;  /* optional spacing around the icon */
+}
+
+/* Keep the icon colored */
+.quarto-color-scheme-toggle .bi {
+  color: #58a6ff !important;
+}
+/* Ensure the icon is centered */
+.quarto-color-scheme-toggle {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}

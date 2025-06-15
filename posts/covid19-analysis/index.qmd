@@ -2,9 +2,9 @@
 title: "COVID-19 Data Analysis"
 author: Atila Madai
 date: 2020-04-27
-categories: [data, covid]
+categories: [data-viz, Power BI]
 tags: [Power BI, DAX]
-listing: true
+#listing: true
 format: html
 ---
 

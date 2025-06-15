@@ -2,14 +2,14 @@
 title: "Adventure Works Cycles: Cost & Elasticity Analysis"
 author: "Atila Madai"
 date: 2025-06-15
-categories: [data-viz, analytics]
+categories: [data-viz, analytics, notebook, python]
 tags: [python, notebook]
 format:
   html:
     # this enables the little metadata block (author + date) at the top of the page
     metadata-block: true
 ---
-
+Presented with Jupyter Notebook using Python
 ---
 jupyter: python3
 ---
