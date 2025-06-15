@@ -1,5 +1,0 @@
----
-title: "Data Story"
----
-
-Welcome to **Data Story**, a blog about exploring and visualizing data using Python and Microsoft Power BI.
