@@ -393,6 +393,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link" data-scroll-target="#executive-summary">Executive Summary</a></li>
   <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a></li>
   </ul></li>
+  </ul></li>
+  <li><a href="#top10-elasticity-scores-observation" id="toc-top10-elasticity-scores-observation" class="nav-link" data-scroll-target="#top10-elasticity-scores-observation">Top‐10 elasticity scores observation:</a>
+  <ul class="collapse">
   <li><a href="#observations" id="toc-observations" class="nav-link" data-scroll-target="#observations">Observations</a>
   <ul class="collapse">
   <li><a href="#category-level-findings" id="toc-category-level-findings" class="nav-link" data-scroll-target="#category-level-findings">Category-Level Findings</a></li>
@@ -478,18 +481,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>Elasticity_{FR vs US} = %ΔQty / %ΔPrice</code></pre>
 <p>– calculated only where % Δ Price ≠ 0.</p></li>
 </ol>
-<div id="c612afa9" class="cell" data-execution_count="1">
+<div id="835cc528" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"Cycles.csv"</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Show columns</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Columns:"</span>, df.columns.tolist())</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"Cycles.csv"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Show columns</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Columns:"</span>, df.columns.tolist())</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Columns: ['SalesOrderNumber', 'OrderDate', 'DueDate', 'ShipDate', 'Sales_Person', 'Sales_Region', 'Sales_Province', 'Sales_City', 'Sales_Postal_Code', 'Customer_Code', 'Customer_Name', 'Customer_Region', 'Customer_Province', 'Customer_City', 'Customer_Postal_Code', 'LineItem_Id', 'Product_Category', 'Product_Sub_Category', 'Product_Name', 'Product_Code', 'Unit_Cost', 'UnitPrice', 'UnitPriceDiscount', 'OrderQty', 'Unit_Freight_Cost']</code></pre>
@@ -653,7 +657,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="8fa88162" class="cell" data-execution_count="2">
+<div id="4a46ae2f" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Category-level pivots</span></span>
@@ -698,7 +702,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  dtype: float64)</code></pre>
 </div>
 </div>
-<div id="e64eac51" class="cell" data-execution_count="3">
+<div id="7e2b918c" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plots</span></span>
@@ -725,7 +729,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="2e1a5505" class="cell" data-execution_count="4">
+<div id="064fe15a" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subcategory-level pivots</span></span>
@@ -883,7 +887,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  dtype: float64)</code></pre>
 </div>
 </div>
-<div id="f62f5f6c" class="cell" data-execution_count="5">
+<div id="53192cc4" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model-level elasticity (top 10 by absolute elasticity)</span></span>
@@ -893,28 +897,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>pct_price_mod <span class="op">=</span> (unit_cost_mod[<span class="st">'France'</span>] <span class="op">-</span> unit_cost_mod[<span class="st">'United States'</span>]) <span class="op">/</span> unit_cost_mod[<span class="st">'United States'</span>] <span class="op">*</span> <span class="dv">100</span></span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>pct_qty_mod <span class="op">=</span> (sales_vol_mod[<span class="st">'France'</span>] <span class="op">-</span> sales_vol_mod[<span class="st">'United States'</span>]) <span class="op">/</span> sales_vol_mod[<span class="st">'United States'</span>] <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>elasticity_mod <span class="op">=</span> (pct_qty_mod <span class="op">/</span> pct_price_mod).<span class="bu">round</span>(<span class="dv">2</span>)</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Top 10 most elastic models</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>elasticity_mod.<span class="bu">abs</span>().sort_values(ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Mask out tiny price differences (&lt;1%)</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> pct_price_mod.<span class="bu">abs</span>() <span class="op">&gt;=</span> <span class="fl">1.0</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>elasticity_mod <span class="op">=</span> (pct_qty_mod <span class="op">/</span> pct_price_mod).<span class="bu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>elasticity_mod <span class="op">=</span> elasticity_mod.where(mask)                 <span class="op">\</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>                               .replace([np.inf, <span class="op">-</span>np.inf], np.nan) <span class="op">\</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>                               .dropna()</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Top 10 most elastic models</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>top10 <span class="op">=</span> elasticity_mod.<span class="bu">abs</span>().sort_values(ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">10</span>)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(top10)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell-output cell-output-stdout">
 <pre><code>Product_Name
-Full-Finger Gloves, L        inf
-Cable Lock                   inf
-HL Mountain Front Wheel      inf
-HL Mountain Rear Wheel       inf
-HL Headset                   inf
-HL Fork                      inf
-LL Fork                      inf
-HL Road Rear Wheel           inf
-HL Road Front Wheel          inf
-HL Road Frame - Black, 48    inf
+Mountain-500 Silver, 48             88.21
+Mountain-200 Black, 42              86.16
+Road-750 Black, 52                  85.32
+Water Bottle - 30 oz.               82.64
+AWC Logo Cap                        81.29
+Bike Wash - Dissolver               81.20
+Touring-3000 Yellow, 54             79.64
+Touring-1000 Yellow, 60             78.69
+ML Mountain Frame-W - Silver, 40    76.93
+HL Touring Frame - Blue, 54         76.23
 dtype: float64</code></pre>
 </div>
 </div>
 </section>
 </section>
+</section>
+<section id="top10-elasticity-scores-observation" class="level1">
+<h1>Top‐10 elasticity scores observation:</h1>
+<p>Both premium bikes and everyday accessories are highly price‐sensitive</p>
+<p>Mountain and touring frames (e.g.&nbsp;“Mountain-500 Silver, 48” and “Touring-3000 Yellow, 54”) sit at the top of the list, alongside low-ticket items like water bottles and logo caps.</p>
+<p>A 1 % price differential in France vs.&nbsp;the U.S. corresponds to roughly an 80 % swing in units sold for these SKUs.</p>
+<p>Cross‐sectional elasticity may overstate pure price impact</p>
+<p>These figures come from a one-time, region-to-region comparison. The enormous volume gaps likely reflect not just price but also factors like local availability, marketing, or distribution.</p>
+<p>Particularly for high-end frames, inventory constraints or channel differences could be driving most of the demand gap.</p>
+<p>Actionable implications</p>
+<p>For accessories (water bottles, caps, bike wash), the data suggests genuine price leverage: targeted promotions or localized pricing in France could yield big volume gains.</p>
+<p>For bicycle frames, price reductions alone may not unlock sales—you’ll want to pair any pricing experiments with improved local stocking, dealer incentives, or marketing support.</p>
+<p>Next steps</p>
+<p>Run controlled price tests (A/B or time-series experiments) on a small set of these high-elasticity SKUs to separate price effects from distribution/marketing factors.</p>
+<p>Audit inventory levels and marketing spend in France for those top models to see if non-price barriers are the real bottleneck.</p>
+<p>In short, these SKUs are your “riskiest” and most “reward‐rich” candidates for deeper pricing experiments—but make sure you account for non-price variables before writing off your frame sales or doubling down on discounts.</p>
 <section id="observations" class="level2">
 <h2 class="anchored" data-anchor-id="observations">Observations</h2>
 <section id="category-level-findings" class="level3">
