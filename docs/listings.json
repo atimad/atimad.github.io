@@ -2,17 +2,19 @@
   {
     "listing": "/tags.html",
     "items": [
-      "/posts/covid19-analysis/index.html"
-    ]
-  },
-  {
-    "listing": "/index.html",
-    "items": [
+      "/posts/cycles-analysis/index.html",
       "/posts/covid19-analysis/index.html"
     ]
   },
   {
     "listing": "/posts/covid19-analysis/index.html",
     "items": []
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/cycles-analysis/index.html",
+      "/posts/covid19-analysis/index.html"
+    ]
   }
 ]

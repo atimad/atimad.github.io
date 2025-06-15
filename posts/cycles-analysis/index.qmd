@@ -1,0 +1,162 @@
+---
+title: "Adventure Works Cycles: Cost & Elasticity Analysis"
+author: "Atila Madai"
+date: 2025-06-15
+categories: [data-viz, analytics]
+tags: [python, notebook]
+format:
+  html:
+    # this enables the little metadata block (author + date) at the top of the page
+    metadata-block: true
+---
+
+---
+jupyter: python3
+---
+
+
+# Adventure Works Cycles  
+## A Data-Driven Pricing & Demand Story
+
+### Executive Summary
+- **France vs. U.S.**: Despite only minor price differences (± 6 %), **French sales volumes** are **90–93 % lower** across all categories.
+- **Price Elasticity**: Accessories and Clothing behave as expected (higher price → lower demand), but Bikes and Components buck the trend—suggesting non-price factors at play.
+- **Subcategory Signals**: “Road Bikes” and “Saddles” show extreme elasticity metrics, driven by tiny price shifts but massive volume gaps—hinting at availability or channel issues.
+- **Model-Level Noise**: At the individual model level, price elasticity calculations become unstable (near-zero price gaps → inflated elasticities), so granular pricing tweaks should be approached cautiously.
+
+### Methodology
+1. **Data Prep**
+   - Loaded `Cycles.csv`
+   - Created `TotalFreight = OrderQty × Unit_Freight_Cost`
+2. **Aggregations**
+   - **Category**: Mean (UnitPrice), sum (OrderQty), sum (TotalFreight) by Sales_Region
+   - **Subcategory** & **Model**: Same pivots, then % differences vs. U.S.
+3. **Elasticity**
+   ```
+   Elasticity_{FR vs US} = %ΔQty / %ΔPrice
+   ```
+   – calculated only where % Δ Price ≠ 0.
+
+```{python}
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load data
+df = pd.read_csv("Cycles.csv")
+
+# Show columns
+print("Columns:", df.columns.tolist())
+df.head()
+```
+
+```{python}
+
+# Category-level pivots
+cat = 'Product_Category'
+unit_cost_cat = df.pivot_table(index=cat, columns='Sales_Region', values='Unit_Cost', aggfunc='mean')
+freight_cost_col = [c for c in df.columns if 'freight' in c.lower()][0]
+freight_cost_cat = df.pivot_table(index=cat, columns='Sales_Region', values=freight_cost_col, aggfunc='sum')
+sales_vol_cat = df.pivot_table(index=cat, columns='Sales_Region', values='OrderQty', aggfunc='sum')
+
+# % differences
+pct_price_cat = (unit_cost_cat['France'] - unit_cost_cat['United States']) / unit_cost_cat['United States'] * 100
+pct_qty_cat = (sales_vol_cat['France'] - sales_vol_cat['United States']) / sales_vol_cat['United States'] * 100
+elasticity_cat = (pct_qty_cat / pct_price_cat).round(2)
+
+# Display tables
+unit_cost_cat, freight_cost_cat, sales_vol_cat, elasticity_cat
+```
+
+```{python}
+
+# Plots
+unit_cost_cat.plot(kind='bar', figsize=(8,4), title='Avg Unit Cost by Region & Category')
+plt.ylabel('Unit Cost')
+plt.show()
+
+sales_vol_cat.plot(kind='bar', figsize=(8,4), title='Total Units Sold by Region & Category')
+plt.ylabel('Units Sold')
+plt.show()
+```
+
+```{python}
+
+# Subcategory-level pivots
+subcat = 'Product_Sub_Category'
+unit_cost_sub = df.pivot_table(index=subcat, columns='Sales_Region', values='Unit_Cost', aggfunc='mean')
+freight_cost_sub = df.pivot_table(index=subcat, columns='Sales_Region', values=freight_cost_col, aggfunc='sum')
+sales_vol_sub = df.pivot_table(index=subcat, columns='Sales_Region', values='OrderQty', aggfunc='sum')
+
+pct_price_sub = (unit_cost_sub['France'] - unit_cost_sub['United States']) / unit_cost_sub['United States'] * 100
+pct_qty_sub = (sales_vol_sub['France'] - sales_vol_sub['United States']) / sales_vol_sub['United States'] * 100
+elasticity_sub = (pct_qty_sub / pct_price_sub).round(2)
+
+unit_cost_sub, freight_cost_sub, sales_vol_sub, elasticity_sub
+```
+
+```{python}
+
+# Model-level elasticity (top 10 by absolute elasticity)
+model = 'Product_Name'
+unit_cost_mod = df.pivot_table(index=model, columns='Sales_Region', values='Unit_Cost', aggfunc='mean')
+sales_vol_mod = df.pivot_table(index=model, columns='Sales_Region', values='OrderQty', aggfunc='sum')
+
+pct_price_mod = (unit_cost_mod['France'] - unit_cost_mod['United States']) / unit_cost_mod['United States'] * 100
+pct_qty_mod = (sales_vol_mod['France'] - sales_vol_mod['United States']) / sales_vol_mod['United States'] * 100
+elasticity_mod = (pct_qty_mod / pct_price_mod).round(2)
+
+# Top 10 most elastic models
+elasticity_mod.abs().sort_values(ascending=False).head(10)
+```
+
+
+## Observations
+
+### Category-Level Findings  
+| Category       | Δ Price (FR vs. US) | Δ Qty (FR vs. US) | Elasticity |
+|:---------------|--------------------:|------------------:|-----------:|
+| **Accessories**| +1.4 %              | –88.7 %           | –61.9      |
+| **Bikes**      | –6.2 %              | –92.5 %           | 14.8       |
+| **Clothing**   | +5.1 %              | –90.9 %           | –17.9      |
+| **Components** | –8.8 %              | –89.4 %           | 10.2       |
+
+- **Accessories & Clothing** behave normally: higher price → lower demand (elasticities –62 and –18).
+- **Bikes & Components** show **positive** elasticity (price ↓ → demand ↓), a counter-intuitive signal—implying **price isn’t the primary lever** in these categories (e.g. limited stock, brand perception, marketing).
+
+### Subcategory Insights  
+Top subcategories by FR vs. US elasticity:
+1. **Road Bikes**: 223  
+2. **Saddles**: 209  
+3. **Pedals**: 88  
+4. **Socks**: 58  
+5. **Bottom Brackets**: 20  
+
+> These extreme values arise from **tiny price gaps** (≪ 1 %) but **massive volume shortfalls** (–94 %), indicating potential **distribution**, **promotion**, or **catalog** discrepancies in France.
+
+### Model-Level Caveat  
+- At the **Product_Name** granularity, nearly all models have **identical average prices** in France vs. the U.S., so the elasticity formula divides by (essentially) zero, producing **infinite** or **unstable** values.  
+- **Lesson**: Model-level pricing tweaks require a richer dataset (e.g., time-series price changes or promotional flags) rather than a simple cross-sectional snapshot.
+
+### Freight Patterns  
+- Total freight spend in France is **90–92 % lower** across categories—mirroring the volume drops.  
+- **No freight-cost inefficiencies**: per-unit freight in FR ≈ per-unit in US, so logistics costs scale linearly with volume.
+
+### Business Implications & Recommendations  
+1. **Price Isn’t Everything**  
+   - For **Bikes** & **Components**, improve **availability**, **marketing**, or **distribution** rather than chasing small price adjustments.  
+2. **Focus on Price-Sensitive Categories**  
+   - **Accessories** & **Clothing** show clear negative elasticity—consider targeted **promotions**, **bundles**, or **localized pricing** in France.  
+3. **Audit Subcategory Gaps**  
+   - Road Bikes & Saddles: investigate **catalog completeness**, **brand visibility**, and **local partnerships**.  
+4. **Gather Better Model-Level Data**  
+   - Introduce **A/B price tests** or **time-series analysis** to truly measure demand sensitivity at the SKU level.  
+5. **Optimize Logistics**  
+   - With volume so low in France, explore **consolidated shipments** or **regional distribution centers** to reduce per-unit freight.
+
+### Next Steps  
+- **Deeper Qualitative Research**: customer surveys or focus groups in France to understand non-price barriers.  
+- **Marketing Experiments**: small price changes on Accessories/Clothing to validate elasticity estimates.  
+- **Data Enrichment**: append promotional flags, competitor pricing, or time stamps to enable robust SKU-level elasticity models.  
+- **Operational Review**: partner with logistics to evaluate regional freight strategies and warehousing options.
+
