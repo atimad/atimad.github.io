@@ -2,9 +2,15 @@ project:
   type: website
   output-dir: docs
 
+execute:
+  freeze: true
+
 website:
   title: "Atila Madai"
   site-url: "https://atimad.github.io"
+  drafts:
+    - posts/Dynamic Hotel Pricing Optimization/index.qmd
+  draft-mode: visible
   sidebar:
     style: docked
     background: "#2A3439"      # your preferred dark bg

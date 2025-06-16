@@ -3,12 +3,14 @@
     "listing": "/tags.html",
     "items": [
       "/posts/cycles-analysis/index.html",
-      "/posts/covid19-analysis/index.html"
+      "/posts/covid19-analysis/index.html",
+      "/posts/Dynamic Hotel Pricing Optimization/index.html"
     ]
   },
   {
     "listing": "/index.html",
     "items": [
+      "/posts/Dynamic Hotel Pricing Optimization/index.html",
       "/posts/cycles-analysis/index.html",
       "/posts/covid19-analysis/index.html"
     ]

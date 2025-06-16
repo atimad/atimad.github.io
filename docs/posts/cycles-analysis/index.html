@@ -374,6 +374,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Adventure Works Cycles: Cost &amp; Elasticity Analysis</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/Dynamic Hotel Pricing Optimization/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dynamic Pricing &amp; Demand Analysis Suite</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -481,7 +487,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>Elasticity_{FR vs US} = %ΔQty / %ΔPrice</code></pre>
 <p>– calculated only where % Δ Price ≠ 0.</p></li>
 </ol>
-<div id="835cc528" class="cell" data-execution_count="1">
+<div id="442fd7ec" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -657,7 +663,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="4a46ae2f" class="cell" data-execution_count="2">
+<div id="69980d6c" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Category-level pivots</span></span>
@@ -702,7 +708,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  dtype: float64)</code></pre>
 </div>
 </div>
-<div id="7e2b918c" class="cell" data-execution_count="3">
+<div id="0bdefeec" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plots</span></span>
@@ -729,7 +735,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="064fe15a" class="cell" data-execution_count="4">
+<div id="75dc0dc2" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subcategory-level pivots</span></span>
@@ -887,7 +893,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  dtype: float64)</code></pre>
 </div>
 </div>
-<div id="53192cc4" class="cell" data-execution_count="5">
+<div id="ef8d78ee" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model-level elasticity (top 10 by absolute elasticity)</span></span>

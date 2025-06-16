@@ -4,45 +4,7 @@
     "href": "tags.html",
     "title": "Tags",
     "section": "",
-    "text": "Adventure Works Cycles: Cost & Elasticity Analysis\n\n\n\n\n\n\n\n\nJun 15, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nCOVID-19 Data Analysis\n\n\n\n\n\n\n\n\nApr 27, 2020\n\n\nAtila Madai\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts/covid19-analysis/index.html",
-    "href": "posts/covid19-analysis/index.html",
-    "title": "COVID-19 Data Analysis",
-    "section": "",
-    "text": "Presented in Microsoft Power BI using Python and DAX.",
-    "crumbs": [
-      "Home",
-      "Posts",
-      "COVID-19 Data Analysis"
-    ]
-  },
-  {
-    "objectID": "posts/covid19-analysis/index.html#covid-19",
-    "href": "posts/covid19-analysis/index.html#covid-19",
-    "title": "COVID-19 Data Analysis",
-    "section": "",
-    "text": "Presented in Microsoft Power BI using Python and DAX.",
-    "crumbs": [
-      "Home",
-      "Posts",
-      "COVID-19 Data Analysis"
-    ]
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Demonstration of practical usage of languages such as:\n\nPython\nPower Query (M language)\nDAX\n\nto analyze and visualize data.\nAnalyzed data is presented mainly with Jupyter Notebook or with Microsoft Power BI, but future visualization may include different solutions."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Atila Madai – Blog",
-    "section": "",
-    "text": "Welcome to my new Quarto blog! 🚀\nHere you’ll find posts about data, agents, automation, and visual storytelling.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nAdventure Works Cycles: Cost & Elasticity Analysis\n\n\n\ndata-viz\n\nanalytics\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 15, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nCOVID-19 Data Analysis\n\n\n\ndata-viz\n\nPower BI\n\n\n\n\n\n\n\n\n\nApr 27, 2020\n\n\nAtila Madai\n\n\n\n\n\nNo matching items"
+    "text": "Adventure Works Cycles: Cost & Elasticity Analysis\n\n\n\n\n\n\n\n\nJun 15, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nCOVID-19 Data Analysis\n\n\n\n\n\n\n\n\nApr 27, 2020\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nDynamic Pricing & Demand Analysis Suite\n\n\n\n\n\n\n\n\nJun 16, 2025\n\n\nAtila Madai\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/cycles-analysis/index.html",
@@ -78,6 +40,196 @@
       "Home",
       "Posts",
       "Adventure Works Cycles: Cost & Elasticity Analysis"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Atila Madai – Blog",
+    "section": "",
+    "text": "Welcome to my new Quarto blog! 🚀\nHere you’ll find posts about data, agents, automation, and visual storytelling.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nDynamic Pricing & Demand Analysis Suite\n\n\n\ndata-viz\n\nXGBoost\n\nanalytics\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 16, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nAdventure Works Cycles: Cost & Elasticity Analysis\n\n\n\ndata-viz\n\nanalytics\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 15, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nCOVID-19 Data Analysis\n\n\n\ndata-viz\n\nPower BI\n\n\n\n\n\n\n\n\n\nApr 27, 2020\n\n\nAtila Madai\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "DynamicHotelPricingOptimization/notebooks/03_1_PriceElasticityModeling_XGBoost.out.html",
+    "href": "DynamicHotelPricingOptimization/notebooks/03_1_PriceElasticityModeling_XGBoost.out.html",
+    "title": "🏨 Dynamic Hotel Pricing Optimization",
+    "section": "",
+    "text": "Goal: Model complex, non-linear price elasticity using XGBoost.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\n# Filter to completed bookings\ndf = df[df['is_canceled'] == 0]\n\n# Basic feature engineering\ndf['reservation_status_date'] = pd.to_datetime(df['reservation_status_date'])\ndf['day_of_week'] = df['reservation_status_date'].dt.dayofweek\ndf['month'] = df['reservation_status_date'].dt.month\ndf['stay_length'] = df['stays_in_weekend_nights'] + df['stays_in_week_nights']\n\n# Keep useful columns\ndf_model = df[['adr', 'lead_time', 'day_of_week', 'month', 'stay_length', 'market_segment', 'hotel']].copy()\n\n\n\n\nCode\n# 2️⃣ Encode categorical features\n\nfrom sklearn.preprocessing import LabelEncoder\n\ndf_model['market_segment_encoded'] = LabelEncoder().fit_transform(df_model['market_segment'])\ndf_model['hotel_encoded'] = LabelEncoder().fit_transform(df_model['hotel'])\n\n\n\n\nCode\n# 3️⃣ Aggregate Bookings by Price & Features\n\n# Group data → each row will represent (adr, segment, hotel, etc.) → number of bookings\n# You can also do this as a time series → here simple aggregate per combination:\n\nagg_df = df_model.groupby(['adr', 'market_segment_encoded', 'hotel_encoded', 'day_of_week', 'month']) \\\n    .size().reset_index(name='bookings')\n\nagg_df.head()"
+  },
+  {
+    "objectID": "DynamicHotelPricingOptimization/notebooks/03_1_PriceElasticityModeling_XGBoost.out.html#advanced-elasticity-modeling-xgboost-regressor",
+    "href": "DynamicHotelPricingOptimization/notebooks/03_1_PriceElasticityModeling_XGBoost.out.html#advanced-elasticity-modeling-xgboost-regressor",
+    "title": "🏨 Dynamic Hotel Pricing Optimization",
+    "section": "",
+    "text": "Goal: Model complex, non-linear price elasticity using XGBoost.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\n# Filter to completed bookings\ndf = df[df['is_canceled'] == 0]\n\n# Basic feature engineering\ndf['reservation_status_date'] = pd.to_datetime(df['reservation_status_date'])\ndf['day_of_week'] = df['reservation_status_date'].dt.dayofweek\ndf['month'] = df['reservation_status_date'].dt.month\ndf['stay_length'] = df['stays_in_weekend_nights'] + df['stays_in_week_nights']\n\n# Keep useful columns\ndf_model = df[['adr', 'lead_time', 'day_of_week', 'month', 'stay_length', 'market_segment', 'hotel']].copy()\n\n\n\n\nCode\n# 2️⃣ Encode categorical features\n\nfrom sklearn.preprocessing import LabelEncoder\n\ndf_model['market_segment_encoded'] = LabelEncoder().fit_transform(df_model['market_segment'])\ndf_model['hotel_encoded'] = LabelEncoder().fit_transform(df_model['hotel'])\n\n\n\n\nCode\n# 3️⃣ Aggregate Bookings by Price & Features\n\n# Group data → each row will represent (adr, segment, hotel, etc.) → number of bookings\n# You can also do this as a time series → here simple aggregate per combination:\n\nagg_df = df_model.groupby(['adr', 'market_segment_encoded', 'hotel_encoded', 'day_of_week', 'month']) \\\n    .size().reset_index(name='bookings')\n\nagg_df.head()"
+  },
+  {
+    "objectID": "DynamicHotelPricingOptimization/notebooks/01_EDA_Dynamic_Hotel_Pricing_Optimization.out.html",
+    "href": "DynamicHotelPricingOptimization/notebooks/01_EDA_Dynamic_Hotel_Pricing_Optimization.out.html",
+    "title": "🏨 Dynamic Hotel Pricing Optimization",
+    "section": "",
+    "text": "Goal: Explore the dataset, understand key patterns and prepare features for modeling.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\ndf.shape\ndf.head()\n\n\n\n5 rows × 32 columns"
+  },
+  {
+    "objectID": "DynamicHotelPricingOptimization/notebooks/01_EDA_Dynamic_Hotel_Pricing_Optimization.out.html#eda---exploratory-data-analysis",
+    "href": "DynamicHotelPricingOptimization/notebooks/01_EDA_Dynamic_Hotel_Pricing_Optimization.out.html#eda---exploratory-data-analysis",
+    "title": "🏨 Dynamic Hotel Pricing Optimization",
+    "section": "",
+    "text": "Goal: Explore the dataset, understand key patterns and prepare features for modeling.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\ndf.shape\ndf.head()\n\n\n\n5 rows × 32 columns"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Demonstration of practical usage of languages such as:\n\nPython\nPower Query (M language)\nDAX\n\nto analyze and visualize data.\nAnalyzed data is presented mainly with Jupyter Notebook or with Microsoft Power BI, but future visualization may include different solutions."
+  },
+  {
+    "objectID": "DynamicHotelPricingOptimization/notebooks/02_DemandForecasting.out.html",
+    "href": "DynamicHotelPricingOptimization/notebooks/02_DemandForecasting.out.html",
+    "title": "🏨 Dynamic Hotel Pricing Optimization",
+    "section": "",
+    "text": "Goal: Build models to forecast demand (number of bookings) per hotel and date.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\n# Preprocess date columns\ndf['reservation_status_date'] = pd.to_datetime(df['reservation_status_date'])\n\n\n\n\nCode\n# 2️⃣ Aggregate Demand by Date\n\n# Example: total bookings per day\nbookings_by_date = df.groupby('reservation_status_date').size().reset_index(name='bookings')\n\nbookings_by_date.head()"
+  },
+  {
+    "objectID": "DynamicHotelPricingOptimization/notebooks/02_DemandForecasting.out.html#demand-forecasting",
+    "href": "DynamicHotelPricingOptimization/notebooks/02_DemandForecasting.out.html#demand-forecasting",
+    "title": "🏨 Dynamic Hotel Pricing Optimization",
+    "section": "",
+    "text": "Goal: Build models to forecast demand (number of bookings) per hotel and date.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\n# Preprocess date columns\ndf['reservation_status_date'] = pd.to_datetime(df['reservation_status_date'])\n\n\n\n\nCode\n# 2️⃣ Aggregate Demand by Date\n\n# Example: total bookings per day\nbookings_by_date = df.groupby('reservation_status_date').size().reset_index(name='bookings')\n\nbookings_by_date.head()"
+  },
+  {
+    "objectID": "DynamicHotelPricingOptimization/notebooks/03_PriceElasticityModeling.out.html",
+    "href": "DynamicHotelPricingOptimization/notebooks/03_PriceElasticityModeling.out.html",
+    "title": "🏨 Dynamic Hotel Pricing Optimization",
+    "section": "",
+    "text": "Goal: Model how booking demand responds to changes in price, and estimate optimal pricing zones.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\n# Filter to completed bookings only (exclude cancellations)\ndf = df[df['is_canceled'] == 0]\n\ndf.head()\n\n\n\n5 rows × 32 columns"
+  },
+  {
+    "objectID": "DynamicHotelPricingOptimization/notebooks/03_PriceElasticityModeling.out.html#price-elasticity-modeling",
+    "href": "DynamicHotelPricingOptimization/notebooks/03_PriceElasticityModeling.out.html#price-elasticity-modeling",
+    "title": "🏨 Dynamic Hotel Pricing Optimization",
+    "section": "",
+    "text": "Goal: Model how booking demand responds to changes in price, and estimate optimal pricing zones.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\n# Filter to completed bookings only (exclude cancellations)\ndf = df[df['is_canceled'] == 0]\n\ndf.head()\n\n\n\n5 rows × 32 columns"
+  },
+  {
+    "objectID": "posts/covid19-analysis/index.html",
+    "href": "posts/covid19-analysis/index.html",
+    "title": "COVID-19 Data Analysis",
+    "section": "",
+    "text": "Presented in Microsoft Power BI using Python and DAX.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "COVID-19 Data Analysis"
+    ]
+  },
+  {
+    "objectID": "posts/covid19-analysis/index.html#covid-19",
+    "href": "posts/covid19-analysis/index.html#covid-19",
+    "title": "COVID-19 Data Analysis",
+    "section": "",
+    "text": "Presented in Microsoft Power BI using Python and DAX.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "COVID-19 Data Analysis"
+    ]
+  },
+  {
+    "objectID": "posts/Dynamic Hotel Pricing Optimization/index.html",
+    "href": "posts/Dynamic Hotel Pricing Optimization/index.html",
+    "title": "Dynamic Pricing & Demand Analysis Suite",
+    "section": "",
+    "text": "This project explores how to build a trading floor-inspired, real-time dynamic pricing engine for hotel inventory.\nThe system leverages: - Advanced demand forecasting models - Price elasticity modeling under competition - Revenue optimization via mathematical and ML-based methods - Real-time simulation and visualization for business impact assessment\n\n\n\n\nThe global hotel market exceeds $1.3 trillion, with increasing adoption of dynamic pricing by major hotel chains and OTAs.\nBuilding a flexible, API-first, ML-driven pricing engine represents a major opportunity both for industry players and as a standalone service offering.\nInspired by companies building real-time, data-driven marketplaces, this project demonstrates how such a system can be designed and implemented for the travel and hospitality sector.\n\n\n\n\nDynamicHotelPricingOptimization/\n├── data/                      # Raw and processed data\n├── notebooks/                 # Jupyter notebooks with modeling and results\n├── src/                       # Python scripts for core functionality\n├── reports/                   # Generated visualizations and slides\n└── tests/                     # (Optional) unit tests\n\n\n\n\n\n\n#bash #pip install -r requirements.txt #\n\n\n\n\nPython 3.9+\nJupyter Notebook or Databricks\nGitHub for versioning\n\n\n\n\n\n\n✅ Initial EDA and feature engineering\n✅ Demand forecasting\n✅ Price elasticity modeling\n✅ Revenue optimization loop\n✅ Simulation and dashboarding\n\n\n\n\nAtila Madai\nThis Article is in development\n\nThis post combines four related notebooks exploring dynamic pricing and demand analytics:\n\nEDA: Dynamic Hotel Pricing Optimization\n\nDemand Forecasting\n\nPrice Elasticity Modeling\n\nPrice Elasticity Modeling with XGBoost",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Dynamic Pricing & Demand Analysis Suite"
+    ]
+  },
+  {
+    "objectID": "posts/Dynamic Hotel Pricing Optimization/index.html#eda---exploratory-data-analysis",
+    "href": "posts/Dynamic Hotel Pricing Optimization/index.html#eda---exploratory-data-analysis",
+    "title": "Dynamic Pricing & Demand Analysis Suite",
+    "section": "📊 01_EDA - Exploratory Data Analysis",
+    "text": "📊 01_EDA - Exploratory Data Analysis\nGoal: Explore the dataset, understand key patterns and prepare features for modeling.\n\n\n\n\n\n\n\n\n\nhotel\nis_canceled\nlead_time\narrival_date_year\narrival_date_month\narrival_date_week_number\narrival_date_day_of_month\nstays_in_weekend_nights\nstays_in_week_nights\nadults\n...\ndeposit_type\nagent\ncompany\ndays_in_waiting_list\ncustomer_type\nadr\nrequired_car_parking_spaces\ntotal_of_special_requests\nreservation_status\nreservation_status_date\n\n\n\n\n0\nResort Hotel\n0\n342\n2015\nJuly\n27\n1\n0\n0\n2\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n0.0\n0\n0\nCheck-Out\n2015-07-01\n\n\n1\nResort Hotel\n0\n737\n2015\nJuly\n27\n1\n0\n0\n2\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n0.0\n0\n0\nCheck-Out\n2015-07-01\n\n\n2\nResort Hotel\n0\n7\n2015\nJuly\n27\n1\n0\n1\n1\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n75.0\n0\n0\nCheck-Out\n2015-07-02\n\n\n3\nResort Hotel\n0\n13\n2015\nJuly\n27\n1\n0\n1\n1\n...\nNo Deposit\n304.0\nNaN\n0\nTransient\n75.0\n0\n0\nCheck-Out\n2015-07-02\n\n\n4\nResort Hotel\n0\n14\n2015\nJuly\n27\n1\n0\n2\n2\n...\nNo Deposit\n240.0\nNaN\n0\nTransient\n98.0\n0\n1\nCheck-Out\n2015-07-03\n\n\n\n\n5 rows × 32 columns\n\n\n\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 119390 entries, 0 to 119389\nData columns (total 32 columns):\n #   Column                          Non-Null Count   Dtype  \n---  ------                          --------------   -----  \n 0   hotel                           119390 non-null  object \n 1   is_canceled                     119390 non-null  int64  \n 2   lead_time                       119390 non-null  int64  \n 3   arrival_date_year               119390 non-null  int64  \n 4   arrival_date_month              119390 non-null  object \n 5   arrival_date_week_number        119390 non-null  int64  \n 6   arrival_date_day_of_month       119390 non-null  int64  \n 7   stays_in_weekend_nights         119390 non-null  int64  \n 8   stays_in_week_nights            119390 non-null  int64  \n 9   adults                          119390 non-null  int64  \n 10  children                        119386 non-null  float64\n 11  babies                          119390 non-null  int64  \n 12  meal                            119390 non-null  object \n 13  country                         118902 non-null  object \n 14  market_segment                  119390 non-null  object \n 15  distribution_channel            119390 non-null  object \n 16  is_repeated_guest               119390 non-null  int64  \n 17  previous_cancellations          119390 non-null  int64  \n 18  previous_bookings_not_canceled  119390 non-null  int64  \n 19  reserved_room_type              119390 non-null  object \n 20  assigned_room_type              119390 non-null  object \n 21  booking_changes                 119390 non-null  int64  \n 22  deposit_type                    119390 non-null  object \n 23  agent                           103050 non-null  float64\n 24  company                         6797 non-null    float64\n 25  days_in_waiting_list            119390 non-null  int64  \n 26  customer_type                   119390 non-null  object \n 27  adr                             119390 non-null  float64\n 28  required_car_parking_spaces     119390 non-null  int64  \n 29  total_of_special_requests       119390 non-null  int64  \n 30  reservation_status              119390 non-null  object \n 31  reservation_status_date         119390 non-null  object \ndtypes: float64(4), int64(16), object(12)\nmemory usage: 29.1+ MB\n\n\n\n\n\n\n\n\n\nis_canceled\nlead_time\narrival_date_year\narrival_date_week_number\narrival_date_day_of_month\nstays_in_weekend_nights\nstays_in_week_nights\nadults\nchildren\nbabies\nis_repeated_guest\nprevious_cancellations\nprevious_bookings_not_canceled\nbooking_changes\nagent\ncompany\ndays_in_waiting_list\nadr\nrequired_car_parking_spaces\ntotal_of_special_requests\n\n\n\n\ncount\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119386.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n103050.000000\n6797.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n\n\nmean\n0.370416\n104.011416\n2016.156554\n27.165173\n15.798241\n0.927599\n2.500302\n1.856403\n0.103890\n0.007949\n0.031912\n0.087118\n0.137097\n0.221124\n86.693382\n189.266735\n2.321149\n101.831122\n0.062518\n0.571363\n\n\nstd\n0.482918\n106.863097\n0.707476\n13.605138\n8.780829\n0.998613\n1.908286\n0.579261\n0.398561\n0.097436\n0.175767\n0.844336\n1.497437\n0.652306\n110.774548\n131.655015\n17.594721\n50.535790\n0.245291\n0.792798\n\n\nmin\n0.000000\n0.000000\n2015.000000\n1.000000\n1.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n1.000000\n6.000000\n0.000000\n-6.380000\n0.000000\n0.000000\n\n\n25%\n0.000000\n18.000000\n2016.000000\n16.000000\n8.000000\n0.000000\n1.000000\n2.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n9.000000\n62.000000\n0.000000\n69.290000\n0.000000\n0.000000\n\n\n50%\n0.000000\n69.000000\n2016.000000\n28.000000\n16.000000\n1.000000\n2.000000\n2.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n14.000000\n179.000000\n0.000000\n94.575000\n0.000000\n0.000000\n\n\n75%\n1.000000\n160.000000\n2017.000000\n38.000000\n23.000000\n2.000000\n3.000000\n2.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n229.000000\n270.000000\n0.000000\n126.000000\n0.000000\n1.000000\n\n\nmax\n1.000000\n737.000000\n2017.000000\n53.000000\n31.000000\n19.000000\n50.000000\n55.000000\n10.000000\n10.000000\n1.000000\n26.000000\n72.000000\n21.000000\n535.000000\n543.000000\n391.000000\n5400.000000\n8.000000\n5.000000\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nstay_length\nlead_time\nbooking_month\nweekday\n\n\n\n\n0\n0\n342\n7\n2\n\n\n1\n0\n737\n7\n2\n\n\n2\n1\n7\n7\n3\n\n\n3\n1\n13\n7\n3\n\n\n4\n2\n14\n7\n4\n\n\n\n\n\n\n\n\n\nCancellation Rate: 37.04%",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Dynamic Pricing & Demand Analysis Suite"
+    ]
+  },
+  {
+    "objectID": "posts/Dynamic Hotel Pricing Optimization/index.html#demand-forecasting",
+    "href": "posts/Dynamic Hotel Pricing Optimization/index.html#demand-forecasting",
+    "title": "Dynamic Pricing & Demand Analysis Suite",
+    "section": "2. Demand Forecasting",
+    "text": "2. Demand Forecasting",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Dynamic Pricing & Demand Analysis Suite"
+    ]
+  },
+  {
+    "objectID": "posts/Dynamic Hotel Pricing Optimization/index.html#demand-forecasting-1",
+    "href": "posts/Dynamic Hotel Pricing Optimization/index.html#demand-forecasting-1",
+    "title": "Dynamic Pricing & Demand Analysis Suite",
+    "section": "📈 02_Demand Forecasting",
+    "text": "📈 02_Demand Forecasting\nGoal: Build models to forecast demand (number of bookings) per hotel and date.\n\n\n\n\n\n\n\n\n\nreservation_status_date\nbookings\n\n\n\n\n0\n2014-10-17\n180\n\n\n1\n2014-11-18\n1\n\n\n2\n2015-01-01\n763\n\n\n3\n2015-01-02\n16\n\n\n4\n2015-01-18\n1",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Dynamic Pricing & Demand Analysis Suite"
+    ]
+  },
+  {
+    "objectID": "posts/Dynamic Hotel Pricing Optimization/index.html#price-elasticity-modeling",
+    "href": "posts/Dynamic Hotel Pricing Optimization/index.html#price-elasticity-modeling",
+    "title": "Dynamic Pricing & Demand Analysis Suite",
+    "section": "3. Price Elasticity Modeling",
+    "text": "3. Price Elasticity Modeling",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Dynamic Pricing & Demand Analysis Suite"
+    ]
+  },
+  {
+    "objectID": "posts/Dynamic Hotel Pricing Optimization/index.html#price-elasticity-modeling-1",
+    "href": "posts/Dynamic Hotel Pricing Optimization/index.html#price-elasticity-modeling-1",
+    "title": "Dynamic Pricing & Demand Analysis Suite",
+    "section": "📉 03_Price Elasticity Modeling",
+    "text": "📉 03_Price Elasticity Modeling\nGoal: Model how booking demand responds to changes in price, and estimate optimal pricing zones.\n\n\n\n\n\n\n\n\n\nhotel\nis_canceled\nlead_time\narrival_date_year\narrival_date_month\narrival_date_week_number\narrival_date_day_of_month\nstays_in_weekend_nights\nstays_in_week_nights\nadults\n...\ndeposit_type\nagent\ncompany\ndays_in_waiting_list\ncustomer_type\nadr\nrequired_car_parking_spaces\ntotal_of_special_requests\nreservation_status\nreservation_status_date\n\n\n\n\n0\nResort Hotel\n0\n342\n2015\nJuly\n27\n1\n0\n0\n2\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n0.0\n0\n0\nCheck-Out\n2015-07-01\n\n\n1\nResort Hotel\n0\n737\n2015\nJuly\n27\n1\n0\n0\n2\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n0.0\n0\n0\nCheck-Out\n2015-07-01\n\n\n2\nResort Hotel\n0\n7\n2015\nJuly\n27\n1\n0\n1\n1\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n75.0\n0\n0\nCheck-Out\n2015-07-02\n\n\n3\nResort Hotel\n0\n13\n2015\nJuly\n27\n1\n0\n1\n1\n...\nNo Deposit\n304.0\nNaN\n0\nTransient\n75.0\n0\n0\nCheck-Out\n2015-07-02\n\n\n4\nResort Hotel\n0\n14\n2015\nJuly\n27\n1\n0\n2\n2\n...\nNo Deposit\n240.0\nNaN\n0\nTransient\n98.0\n0\n1\nCheck-Out\n2015-07-03\n\n\n\n\n5 rows × 32 columns\n\n\n\n\n\n\n\n\n\n\n\n\nprice_bucket\nbookings\n\n\n\n\n0\n(0, 50]\n7706\n\n\n1\n(50, 100]\n33972\n\n\n2\n(100, 150]\n21520\n\n\n3\n(150, 200]\n7184\n\n\n4\n(200, 300]\n2848\n\n\n5\n(300, 500]\n187\n\n\n6\n(500, 1000]\n2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                            OLS Regression Results                            \n==============================================================================\nDep. Variable:               bookings   R-squared:                       0.598\nModel:                            OLS   Adj. R-squared:                  0.518\nMethod:                 Least Squares   F-statistic:                     7.441\nDate:                Mon, 09 Jun 2025   Prob (F-statistic):             0.0414\nTime:                        01:51:40   Log-Likelihood:                -14.821\nNo. Observations:                   7   AIC:                             33.64\nDf Residuals:                       5   BIC:                             33.53\nDf Model:                           1                                         \nCovariance Type:            nonrobust                                         \n==============================================================================\n                 coef    std err          t      P&gt;|t|      [0.025      0.975]\n------------------------------------------------------------------------------\nconst         19.5084      4.513      4.323      0.008       7.909      31.108\nprice_mid     -2.3678      0.868     -2.728      0.041      -4.599      -0.137\n==============================================================================\nOmnibus:                          nan   Durbin-Watson:                   1.033\nProb(Omnibus):                    nan   Jarque-Bera (JB):                1.053\nSkew:                          -0.709   Prob(JB):                        0.591\nKurtosis:                       1.734   Cond. No.                         27.0\n==============================================================================\n\nNotes:\n[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Dynamic Pricing & Demand Analysis Suite"
+    ]
+  },
+  {
+    "objectID": "posts/Dynamic Hotel Pricing Optimization/index.html#price-elasticity-modeling-xgboost",
+    "href": "posts/Dynamic Hotel Pricing Optimization/index.html#price-elasticity-modeling-xgboost",
+    "title": "Dynamic Pricing & Demand Analysis Suite",
+    "section": "4. Price Elasticity Modeling (XGBoost)",
+    "text": "4. Price Elasticity Modeling (XGBoost)",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Dynamic Pricing & Demand Analysis Suite"
+    ]
+  },
+  {
+    "objectID": "posts/Dynamic Hotel Pricing Optimization/index.html#advanced-elasticity-modeling-xgboost-regressor",
+    "href": "posts/Dynamic Hotel Pricing Optimization/index.html#advanced-elasticity-modeling-xgboost-regressor",
+    "title": "Dynamic Pricing & Demand Analysis Suite",
+    "section": "🚀 Advanced Elasticity Modeling → XGBoost Regressor",
+    "text": "🚀 Advanced Elasticity Modeling → XGBoost Regressor\nGoal: Model complex, non-linear price elasticity using XGBoost.\n\n\n\n\n\n\n\n\n\nadr\nmarket_segment_encoded\nhotel_encoded\nday_of_week\nmonth\nbookings\n\n\n\n\n0\n-6.38\n4\n1\n2\n3\n1\n\n\n1\n0.00\n0\n0\n1\n11\n1\n\n\n2\n0.00\n0\n0\n2\n6\n3\n\n\n3\n0.00\n0\n0\n4\n7\n1\n\n\n4\n0.00\n1\n0\n0\n1\n1\n\n\n\n\n\n\n\n\n\nRMSE: 2.99",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Dynamic Pricing & Demand Analysis Suite"
     ]
   }
 ]
