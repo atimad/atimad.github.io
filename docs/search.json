@@ -4,7 +4,7 @@
     "href": "tags.html",
     "title": "Tags",
     "section": "",
-    "text": "Adventure Works Cycles: Cost & Elasticity Analysis\n\n\n\n\n\n\n\n\nJun 15, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nCOVID-19 Data Analysis\n\n\n\n\n\n\n\n\nApr 27, 2020\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nDynamic Pricing & Demand Analysis Suite\n\n\n\n\n\n\n\n\nJun 16, 2025\n\n\nAtila Madai\n\n\n\n\n\nNo matching items"
+    "text": "Adventure Works Cycles: Cost & Elasticity Analysis\n\n\n\n\n\n\n\n\nJun 15, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nCOVID-19 Data Analysis\n\n\n\n\n\n\n\n\nApr 27, 2020\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nDynamic Pricing & Demand Analysis Suite\n\n\n\n\n\n\n\n\nJun 16, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nML QA Computer Vision Assessment\n\n\n\n\n\n\n\n\nJun 22, 2025\n\n\nAtila Madai\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/cycles-analysis/index.html",
@@ -43,46 +43,198 @@
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Atila Madai – Blog",
+    "objectID": "posts/Computer Vision/index.html",
+    "href": "posts/Computer Vision/index.html",
+    "title": "ML QA Computer Vision Assessment",
     "section": "",
-    "text": "Welcome to my new Quarto blog! 🚀\nHere you’ll find posts about data, agents, automation, and visual storytelling.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nDynamic Pricing & Demand Analysis Suite\n\n\n\ndata-viz\n\nXGBoost\n\nanalytics\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 16, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nAdventure Works Cycles: Cost & Elasticity Analysis\n\n\n\ndata-viz\n\nanalytics\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 15, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nCOVID-19 Data Analysis\n\n\n\ndata-viz\n\nPower BI\n\n\n\n\n\n\n\n\n\nApr 27, 2020\n\n\nAtila Madai\n\n\n\n\n\nNo matching items"
+    "text": "This notebook provides a robust framework for performing quality assurance (QA) on annotated image datasets used in computer vision (CV) pipelines for airport apron operations. These operations involve detecting and tracking aircraft, vehicles, ground crew, and equipment to ensure timely and safe turnaround processes. Reliable annotation is critical in such safety-critical environments, where every mislabeled object or faulty bounding box can undermine model accuracy and operational trust.\nWe focus on a synthetic dataset representing apron scenarios, using per-frame CSV annotations. The QA framework evaluates the correctness of bounding boxes, label consistency, and visual alignment before converting the data into the COCO format—a widely used standard for training object detection models.\n\n\n\n\nCSV Parsing (via pandas): Structured loading of annotation files\nBounding Box QA Checks: Ensure spatial validity and logical coherence\nVisual Validation: Overlay annotations on images for human-in-the-loop inspection\nCOCO Format Conversion: Interoperable export for ML pipelines\nSchema Revalidation: Final consistency checks after format transformation\n\n\n\n\nThe dataset includes synthetic images of airport apron scenes and CSV annotation files with the following structure:\n\nframe_id: Frame number or timestamp\nobject_id: Unique identifier per object\nobject_type: Class label (e.g., ‘aircraft’, ‘baggage_cart’, ‘person’)\nx_min, y_min, x_max, y_max: Bounding box coordinates\n\n\n\n\nflowchart TD\n    A[Load Annotation CSVs] --&gt; B[QA Sanity Checks]\n    B --&gt; C[Bounding Box Visual Overlay]\n    C --&gt; D[Convert to COCO Format]\n    D --&gt; E[Schema Re-validation]\n    E --&gt; F[Export QA-Ready Dataset]\n\n\n\n\nWang et al. (2022). Airport Apron Monitoring Using Deep Learning on Synthetic Imagery. DOI:10.3390/s22082983\nChen et al. (2023). Foreign Object Detection for Airport Runways Using YOLO. IEEE Access\nRaza et al. (2021). Visual QA for Surveillance in Critical Infrastructure. arXiv:2105.11100\n\n\n\n\nAt the end of this notebook, we will have: - Validated bounding box annotations - Visual verification of object labeling - Exported a clean, COCO-compatible dataset\nThis workflow provides a reliable, repeatable QA process that can be adapted to other CV use cases in airside, industrial, or transportation domains.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "ML QA Computer Vision Assessment"
+    ]
   },
   {
-    "objectID": "DynamicHotelPricingOptimization/notebooks/03_1_PriceElasticityModeling_XGBoost.out.html",
-    "href": "DynamicHotelPricingOptimization/notebooks/03_1_PriceElasticityModeling_XGBoost.out.html",
+    "objectID": "posts/Computer Vision/index.html#introduction",
+    "href": "posts/Computer Vision/index.html#introduction",
+    "title": "ML QA Computer Vision Assessment",
+    "section": "",
+    "text": "This notebook provides a robust framework for performing quality assurance (QA) on annotated image datasets used in computer vision (CV) pipelines for airport apron operations. These operations involve detecting and tracking aircraft, vehicles, ground crew, and equipment to ensure timely and safe turnaround processes. Reliable annotation is critical in such safety-critical environments, where every mislabeled object or faulty bounding box can undermine model accuracy and operational trust.\nWe focus on a synthetic dataset representing apron scenarios, using per-frame CSV annotations. The QA framework evaluates the correctness of bounding boxes, label consistency, and visual alignment before converting the data into the COCO format—a widely used standard for training object detection models.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "ML QA Computer Vision Assessment"
+    ]
+  },
+  {
+    "objectID": "posts/Computer Vision/index.html#techniques-used",
+    "href": "posts/Computer Vision/index.html#techniques-used",
+    "title": "ML QA Computer Vision Assessment",
+    "section": "",
+    "text": "CSV Parsing (via pandas): Structured loading of annotation files\nBounding Box QA Checks: Ensure spatial validity and logical coherence\nVisual Validation: Overlay annotations on images for human-in-the-loop inspection\nCOCO Format Conversion: Interoperable export for ML pipelines\nSchema Revalidation: Final consistency checks after format transformation",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "ML QA Computer Vision Assessment"
+    ]
+  },
+  {
+    "objectID": "posts/Computer Vision/index.html#dataset-description",
+    "href": "posts/Computer Vision/index.html#dataset-description",
+    "title": "ML QA Computer Vision Assessment",
+    "section": "",
+    "text": "The dataset includes synthetic images of airport apron scenes and CSV annotation files with the following structure:\n\nframe_id: Frame number or timestamp\nobject_id: Unique identifier per object\nobject_type: Class label (e.g., ‘aircraft’, ‘baggage_cart’, ‘person’)\nx_min, y_min, x_max, y_max: Bounding box coordinates",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "ML QA Computer Vision Assessment"
+    ]
+  },
+  {
+    "objectID": "posts/Computer Vision/index.html#pipeline-flow",
+    "href": "posts/Computer Vision/index.html#pipeline-flow",
+    "title": "ML QA Computer Vision Assessment",
+    "section": "",
+    "text": "flowchart TD\n    A[Load Annotation CSVs] --&gt; B[QA Sanity Checks]\n    B --&gt; C[Bounding Box Visual Overlay]\n    C --&gt; D[Convert to COCO Format]\n    D --&gt; E[Schema Re-validation]\n    E --&gt; F[Export QA-Ready Dataset]",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "ML QA Computer Vision Assessment"
+    ]
+  },
+  {
+    "objectID": "posts/Computer Vision/index.html#literature-standards",
+    "href": "posts/Computer Vision/index.html#literature-standards",
+    "title": "ML QA Computer Vision Assessment",
+    "section": "",
+    "text": "Wang et al. (2022). Airport Apron Monitoring Using Deep Learning on Synthetic Imagery. DOI:10.3390/s22082983\nChen et al. (2023). Foreign Object Detection for Airport Runways Using YOLO. IEEE Access\nRaza et al. (2021). Visual QA for Surveillance in Critical Infrastructure. arXiv:2105.11100",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "ML QA Computer Vision Assessment"
+    ]
+  },
+  {
+    "objectID": "posts/Computer Vision/index.html#outcome",
+    "href": "posts/Computer Vision/index.html#outcome",
+    "title": "ML QA Computer Vision Assessment",
+    "section": "",
+    "text": "At the end of this notebook, we will have: - Validated bounding box annotations - Visual verification of object labeling - Exported a clean, COCO-compatible dataset\nThis workflow provides a reliable, repeatable QA process that can be adapted to other CV use cases in airside, industrial, or transportation domains.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "ML QA Computer Vision Assessment"
+    ]
+  },
+  {
+    "objectID": "posts/Computer Vision/index.html#load-inference-data",
+    "href": "posts/Computer Vision/index.html#load-inference-data",
+    "title": "ML QA Computer Vision Assessment",
+    "section": "📥 Load Inference Data",
+    "text": "📥 Load Inference Data\n\n\nCode\ndata = pd.read_csv('../../_data/CV/synthetic_cv_data.csv')\ndata['timestamp'] = pd.to_datetime(data['timestamp'])\ndata.head()\n\n\n\n\n\n\n\n\n\ntimestamp\nbbox_area\nconfidence\nclass\n\n\n\n\n0\n2025-01-01 00:00:00\n2149.014246\n0.960352\npushback\n\n\n1\n2025-01-01 00:00:07\n1958.520710\n0.906746\nboarding\n\n\n2\n2025-01-01 00:00:14\n2194.306561\n0.787079\nboarding\n\n\n3\n2025-01-01 00:00:21\n2456.908957\n0.802327\nrefuelling\n\n\n4\n2025-01-01 00:00:28\n1929.753988\n0.840601\nboarding",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "ML QA Computer Vision Assessment"
+    ]
+  },
+  {
+    "objectID": "posts/Computer Vision/index.html#confidence-score-monitoring",
+    "href": "posts/Computer Vision/index.html#confidence-score-monitoring",
+    "title": "ML QA Computer Vision Assessment",
+    "section": "📉 Confidence Score Monitoring",
+    "text": "📉 Confidence Score Monitoring\nVisualize the rolling confidence mean to detect potential drift.\n\n\nCode\nrolling_avg = data['confidence'].rolling(50).mean()\n\nplt.figure(figsize=(12, 5))\nplt.plot(data['timestamp'], data['confidence'], alpha=0.3, label='Confidence')\nplt.plot(data['timestamp'], rolling_avg, color='red', label='Rolling Mean (50)')\nplt.axhline(0.6, linestyle='--', color='gray', label='Alert Threshold')\nplt.legend()\nplt.title('Confidence Score Over Time')\nplt.xlabel('Timestamp')\nplt.ylabel('Confidence')\nplt.show()",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "ML QA Computer Vision Assessment"
+    ]
+  },
+  {
+    "objectID": "posts/Computer Vision/index.html#alert-trigger",
+    "href": "posts/Computer Vision/index.html#alert-trigger",
+    "title": "ML QA Computer Vision Assessment",
+    "section": "🚨 Alert Trigger",
+    "text": "🚨 Alert Trigger\n\n\nCode\nif rolling_avg.iloc[-1] &lt; 0.6:\n    print(\"⚠️ ALERT: Confidence degradation detected!\")\nelse:\n    print(\"✅ System performance is stable.\")\n\n\n⚠️ ALERT: Confidence degradation detected!",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "ML QA Computer Vision Assessment"
+    ]
+  },
+  {
+    "objectID": "posts/Computer Vision/index.html#anomaly-detection-via-isolation-forest",
+    "href": "posts/Computer Vision/index.html#anomaly-detection-via-isolation-forest",
+    "title": "ML QA Computer Vision Assessment",
+    "section": "🤖 Anomaly Detection via Isolation Forest",
+    "text": "🤖 Anomaly Detection via Isolation Forest\n\n\nCode\nfeatures = data[['bbox_area', 'confidence']]\nmodel = IsolationForest(contamination=0.05, random_state=42)\ndata['anomaly'] = model.fit_predict(features)\ndata['anomaly'] = data['anomaly'].map({1: 'Normal', -1: 'Anomaly'})\ndata['anomaly'].value_counts()\n\n\nanomaly\nNormal     475\nAnomaly     25\nName: count, dtype: int64",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "ML QA Computer Vision Assessment"
+    ]
+  },
+  {
+    "objectID": "posts/Computer Vision/index.html#visualize-anomalies",
+    "href": "posts/Computer Vision/index.html#visualize-anomalies",
+    "title": "ML QA Computer Vision Assessment",
+    "section": "🔍 Visualize Anomalies",
+    "text": "🔍 Visualize Anomalies\n\n\nCode\nplt.figure(figsize=(12, 5))\ncolors = {'Normal': 'blue', 'Anomaly': 'red'}\nfor label, group in data.groupby('anomaly'):\n    plt.scatter(group['timestamp'], group['confidence'], c=colors[label], label=label, alpha=0.6)\nplt.title('Detected Anomalies in Confidence')\nplt.xlabel('Timestamp')\nplt.ylabel('Confidence')\nplt.legend()\nplt.show()",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "ML QA Computer Vision Assessment"
+    ]
+  },
+  {
+    "objectID": "posts/Computer Vision/index.html#mlflow-logging",
+    "href": "posts/Computer Vision/index.html#mlflow-logging",
+    "title": "ML QA Computer Vision Assessment",
+    "section": "📦 MLflow Logging",
+    "text": "📦 MLflow Logging\nLog model parameters, performance metrics, and version metadata using MLflow.\n\n\nCode\nimport mlflow\nimport mlflow.sklearn\n\n# Start an MLflow run\nwith mlflow.start_run(run_name=\"cv_qa_drift_monitoring\"):\n    mlflow.log_param(\"model_type\", \"IsolationForest\")\n    mlflow.log_param(\"contamination\", 0.05)\n    mlflow.log_metric(\"anomaly_count\", (data['anomaly'] == \"Anomaly\").sum())\n    mlflow.log_metric(\"mean_confidence\", data['confidence'].mean())\n    mlflow.log_metric(\"rolling_avg_last\", rolling_avg.iloc[-1])\n    mlflow.sklearn.log_model(model, \"model\")\n    mlflow.set_tag(\"version\", \"v1.0\")\n    mlflow.set_tag(\"context\", \"QA pipeline drift detection\")\n\nprint(\"✅ MLflow run logged.\")\n\n\n2025/06/22 20:25:38 WARNING mlflow.models.model: `artifact_path` is deprecated. Please use `name` instead.\n2025/06/22 20:25:52 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.\n\n\n✅ MLflow run logged.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "ML QA Computer Vision Assessment"
+    ]
+  },
+  {
+    "objectID": "posts/Computer Vision/index.html#simulated-kubectl-logs-for-ml-system-monitoring",
+    "href": "posts/Computer Vision/index.html#simulated-kubectl-logs-for-ml-system-monitoring",
+    "title": "ML QA Computer Vision Assessment",
+    "section": "🧩 Simulated kubectl Logs for ML System Monitoring",
+    "text": "🧩 Simulated kubectl Logs for ML System Monitoring\nReal-time ML pipelines are often deployed in Kubernetes pods. QA engineers frequently inspect pod logs and system status using kubectl. Below is a simulated log parser that mimics reading pod health and anomaly alerts from a log file.\n\n\nCode\nimport time\n\n# Simulated kubectl logs (mocked string output)\nkubectl_logs = \"\"\"\n[2025-06-20 08:01:13] pod/vision-inferencer Ready\n[2025-06-20 08:01:19] INFO: Inference pipeline started.\n[2025-06-20 08:01:22] WARN: Confidence dropped below 0.65\n[2025-06-20 08:01:25] ALERT: Detected anomaly cluster in frame stream 41\n[2025-06-20 08:01:30] pod/vision-inferencer Healthy\n\"\"\"\n\n# Display line-by-line to mimic real-time stream\nfor line in kubectl_logs.strip().split('\\n'):\n    print(line)\n    time.sleep(0.3)\n\n\n[2025-06-20 08:01:13] pod/vision-inferencer Ready\n[2025-06-20 08:01:19] INFO: Inference pipeline started.\n[2025-06-20 08:01:22] WARN: Confidence dropped below 0.65\n[2025-06-20 08:01:25] ALERT: Detected anomaly cluster in frame stream 41\n[2025-06-20 08:01:30] pod/vision-inferencer Healthy",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "ML QA Computer Vision Assessment"
+    ]
+  },
+  {
+    "objectID": "posts/Computer Vision/index.html#next-steps",
+    "href": "posts/Computer Vision/index.html#next-steps",
+    "title": "ML QA Computer Vision Assessment",
+    "section": "✅ Next Steps",
+    "text": "✅ Next Steps\n\nMonitor system metrics via Prometheus/Grafana\nDeploy QA checks in CI/CD with pytest\nIntegrate tracking with MLflow and experiment registry\nSimulate larger datasets with DVC for long-term monitoring",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "ML QA Computer Vision Assessment"
+    ]
+  },
+  {
+    "objectID": "DynamicHotelPricingOptimization/notebooks/03_PriceElasticityModeling.out.html",
+    "href": "DynamicHotelPricingOptimization/notebooks/03_PriceElasticityModeling.out.html",
     "title": "🏨 Dynamic Hotel Pricing Optimization",
     "section": "",
-    "text": "Goal: Model complex, non-linear price elasticity using XGBoost.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\n# Filter to completed bookings\ndf = df[df['is_canceled'] == 0]\n\n# Basic feature engineering\ndf['reservation_status_date'] = pd.to_datetime(df['reservation_status_date'])\ndf['day_of_week'] = df['reservation_status_date'].dt.dayofweek\ndf['month'] = df['reservation_status_date'].dt.month\ndf['stay_length'] = df['stays_in_weekend_nights'] + df['stays_in_week_nights']\n\n# Keep useful columns\ndf_model = df[['adr', 'lead_time', 'day_of_week', 'month', 'stay_length', 'market_segment', 'hotel']].copy()\n\n\n\n\nCode\n# 2️⃣ Encode categorical features\n\nfrom sklearn.preprocessing import LabelEncoder\n\ndf_model['market_segment_encoded'] = LabelEncoder().fit_transform(df_model['market_segment'])\ndf_model['hotel_encoded'] = LabelEncoder().fit_transform(df_model['hotel'])\n\n\n\n\nCode\n# 3️⃣ Aggregate Bookings by Price & Features\n\n# Group data → each row will represent (adr, segment, hotel, etc.) → number of bookings\n# You can also do this as a time series → here simple aggregate per combination:\n\nagg_df = df_model.groupby(['adr', 'market_segment_encoded', 'hotel_encoded', 'day_of_week', 'month']) \\\n    .size().reset_index(name='bookings')\n\nagg_df.head()"
+    "text": "Goal: Model how booking demand responds to changes in price, and estimate optimal pricing zones.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\n# Filter to completed bookings only (exclude cancellations)\ndf = df[df['is_canceled'] == 0]\n\ndf.head()\n\n\n\n5 rows × 32 columns"
   },
   {
-    "objectID": "DynamicHotelPricingOptimization/notebooks/03_1_PriceElasticityModeling_XGBoost.out.html#advanced-elasticity-modeling-xgboost-regressor",
-    "href": "DynamicHotelPricingOptimization/notebooks/03_1_PriceElasticityModeling_XGBoost.out.html#advanced-elasticity-modeling-xgboost-regressor",
+    "objectID": "DynamicHotelPricingOptimization/notebooks/03_PriceElasticityModeling.out.html#price-elasticity-modeling",
+    "href": "DynamicHotelPricingOptimization/notebooks/03_PriceElasticityModeling.out.html#price-elasticity-modeling",
     "title": "🏨 Dynamic Hotel Pricing Optimization",
     "section": "",
-    "text": "Goal: Model complex, non-linear price elasticity using XGBoost.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\n# Filter to completed bookings\ndf = df[df['is_canceled'] == 0]\n\n# Basic feature engineering\ndf['reservation_status_date'] = pd.to_datetime(df['reservation_status_date'])\ndf['day_of_week'] = df['reservation_status_date'].dt.dayofweek\ndf['month'] = df['reservation_status_date'].dt.month\ndf['stay_length'] = df['stays_in_weekend_nights'] + df['stays_in_week_nights']\n\n# Keep useful columns\ndf_model = df[['adr', 'lead_time', 'day_of_week', 'month', 'stay_length', 'market_segment', 'hotel']].copy()\n\n\n\n\nCode\n# 2️⃣ Encode categorical features\n\nfrom sklearn.preprocessing import LabelEncoder\n\ndf_model['market_segment_encoded'] = LabelEncoder().fit_transform(df_model['market_segment'])\ndf_model['hotel_encoded'] = LabelEncoder().fit_transform(df_model['hotel'])\n\n\n\n\nCode\n# 3️⃣ Aggregate Bookings by Price & Features\n\n# Group data → each row will represent (adr, segment, hotel, etc.) → number of bookings\n# You can also do this as a time series → here simple aggregate per combination:\n\nagg_df = df_model.groupby(['adr', 'market_segment_encoded', 'hotel_encoded', 'day_of_week', 'month']) \\\n    .size().reset_index(name='bookings')\n\nagg_df.head()"
-  },
-  {
-    "objectID": "DynamicHotelPricingOptimization/notebooks/01_EDA_Dynamic_Hotel_Pricing_Optimization.out.html",
-    "href": "DynamicHotelPricingOptimization/notebooks/01_EDA_Dynamic_Hotel_Pricing_Optimization.out.html",
-    "title": "🏨 Dynamic Hotel Pricing Optimization",
-    "section": "",
-    "text": "Goal: Explore the dataset, understand key patterns and prepare features for modeling.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\ndf.shape\ndf.head()\n\n\n\n5 rows × 32 columns"
-  },
-  {
-    "objectID": "DynamicHotelPricingOptimization/notebooks/01_EDA_Dynamic_Hotel_Pricing_Optimization.out.html#eda---exploratory-data-analysis",
-    "href": "DynamicHotelPricingOptimization/notebooks/01_EDA_Dynamic_Hotel_Pricing_Optimization.out.html#eda---exploratory-data-analysis",
-    "title": "🏨 Dynamic Hotel Pricing Optimization",
-    "section": "",
-    "text": "Goal: Explore the dataset, understand key patterns and prepare features for modeling.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\ndf.shape\ndf.head()\n\n\n\n5 rows × 32 columns"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Demonstration of practical usage of languages such as:\n\nPython\nPower Query (M language)\nDAX\n\nto analyze and visualize data.\nAnalyzed data is presented mainly with Jupyter Notebook or with Microsoft Power BI, but future visualization may include different solutions."
+    "text": "Goal: Model how booking demand responds to changes in price, and estimate optimal pricing zones.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\n# Filter to completed bookings only (exclude cancellations)\ndf = df[df['is_canceled'] == 0]\n\ndf.head()\n\n\n\n5 rows × 32 columns"
   },
   {
     "objectID": "DynamicHotelPricingOptimization/notebooks/02_DemandForecasting.out.html",
@@ -99,18 +251,46 @@
     "text": "Goal: Build models to forecast demand (number of bookings) per hotel and date.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\n# Preprocess date columns\ndf['reservation_status_date'] = pd.to_datetime(df['reservation_status_date'])\n\n\n\n\nCode\n# 2️⃣ Aggregate Demand by Date\n\n# Example: total bookings per day\nbookings_by_date = df.groupby('reservation_status_date').size().reset_index(name='bookings')\n\nbookings_by_date.head()"
   },
   {
-    "objectID": "DynamicHotelPricingOptimization/notebooks/03_PriceElasticityModeling.out.html",
-    "href": "DynamicHotelPricingOptimization/notebooks/03_PriceElasticityModeling.out.html",
-    "title": "🏨 Dynamic Hotel Pricing Optimization",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "Goal: Model how booking demand responds to changes in price, and estimate optimal pricing zones.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\n# Filter to completed bookings only (exclude cancellations)\ndf = df[df['is_canceled'] == 0]\n\ndf.head()\n\n\n\n5 rows × 32 columns"
+    "text": "Demonstration of practical usage of languages such as:\n\nPython\nPower Query (M language)\nDAX\n\nto analyze and visualize data.\nAnalyzed data is presented mainly with Jupyter Notebook or with Microsoft Power BI, but future visualization may include different solutions."
   },
   {
-    "objectID": "DynamicHotelPricingOptimization/notebooks/03_PriceElasticityModeling.out.html#price-elasticity-modeling",
-    "href": "DynamicHotelPricingOptimization/notebooks/03_PriceElasticityModeling.out.html#price-elasticity-modeling",
+    "objectID": "DynamicHotelPricingOptimization/notebooks/01_EDA_Dynamic_Hotel_Pricing_Optimization.out.html",
+    "href": "DynamicHotelPricingOptimization/notebooks/01_EDA_Dynamic_Hotel_Pricing_Optimization.out.html",
     "title": "🏨 Dynamic Hotel Pricing Optimization",
     "section": "",
-    "text": "Goal: Model how booking demand responds to changes in price, and estimate optimal pricing zones.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\n# Filter to completed bookings only (exclude cancellations)\ndf = df[df['is_canceled'] == 0]\n\ndf.head()\n\n\n\n5 rows × 32 columns"
+    "text": "Goal: Explore the dataset, understand key patterns and prepare features for modeling.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\ndf.shape\ndf.head()\n\n\n\n5 rows × 32 columns"
+  },
+  {
+    "objectID": "DynamicHotelPricingOptimization/notebooks/01_EDA_Dynamic_Hotel_Pricing_Optimization.out.html#eda---exploratory-data-analysis",
+    "href": "DynamicHotelPricingOptimization/notebooks/01_EDA_Dynamic_Hotel_Pricing_Optimization.out.html#eda---exploratory-data-analysis",
+    "title": "🏨 Dynamic Hotel Pricing Optimization",
+    "section": "",
+    "text": "Goal: Explore the dataset, understand key patterns and prepare features for modeling.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\ndf.shape\ndf.head()\n\n\n\n5 rows × 32 columns"
+  },
+  {
+    "objectID": "DynamicHotelPricingOptimization/notebooks/03_1_PriceElasticityModeling_XGBoost.out.html",
+    "href": "DynamicHotelPricingOptimization/notebooks/03_1_PriceElasticityModeling_XGBoost.out.html",
+    "title": "🏨 Dynamic Hotel Pricing Optimization",
+    "section": "",
+    "text": "Goal: Model complex, non-linear price elasticity using XGBoost.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\n# Filter to completed bookings\ndf = df[df['is_canceled'] == 0]\n\n# Basic feature engineering\ndf['reservation_status_date'] = pd.to_datetime(df['reservation_status_date'])\ndf['day_of_week'] = df['reservation_status_date'].dt.dayofweek\ndf['month'] = df['reservation_status_date'].dt.month\ndf['stay_length'] = df['stays_in_weekend_nights'] + df['stays_in_week_nights']\n\n# Keep useful columns\ndf_model = df[['adr', 'lead_time', 'day_of_week', 'month', 'stay_length', 'market_segment', 'hotel']].copy()\n\n\n\n\nCode\n# 2️⃣ Encode categorical features\n\nfrom sklearn.preprocessing import LabelEncoder\n\ndf_model['market_segment_encoded'] = LabelEncoder().fit_transform(df_model['market_segment'])\ndf_model['hotel_encoded'] = LabelEncoder().fit_transform(df_model['hotel'])\n\n\n\n\nCode\n# 3️⃣ Aggregate Bookings by Price & Features\n\n# Group data → each row will represent (adr, segment, hotel, etc.) → number of bookings\n# You can also do this as a time series → here simple aggregate per combination:\n\nagg_df = df_model.groupby(['adr', 'market_segment_encoded', 'hotel_encoded', 'day_of_week', 'month']) \\\n    .size().reset_index(name='bookings')\n\nagg_df.head()"
+  },
+  {
+    "objectID": "DynamicHotelPricingOptimization/notebooks/03_1_PriceElasticityModeling_XGBoost.out.html#advanced-elasticity-modeling-xgboost-regressor",
+    "href": "DynamicHotelPricingOptimization/notebooks/03_1_PriceElasticityModeling_XGBoost.out.html#advanced-elasticity-modeling-xgboost-regressor",
+    "title": "🏨 Dynamic Hotel Pricing Optimization",
+    "section": "",
+    "text": "Goal: Model complex, non-linear price elasticity using XGBoost.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\n# Filter to completed bookings\ndf = df[df['is_canceled'] == 0]\n\n# Basic feature engineering\ndf['reservation_status_date'] = pd.to_datetime(df['reservation_status_date'])\ndf['day_of_week'] = df['reservation_status_date'].dt.dayofweek\ndf['month'] = df['reservation_status_date'].dt.month\ndf['stay_length'] = df['stays_in_weekend_nights'] + df['stays_in_week_nights']\n\n# Keep useful columns\ndf_model = df[['adr', 'lead_time', 'day_of_week', 'month', 'stay_length', 'market_segment', 'hotel']].copy()\n\n\n\n\nCode\n# 2️⃣ Encode categorical features\n\nfrom sklearn.preprocessing import LabelEncoder\n\ndf_model['market_segment_encoded'] = LabelEncoder().fit_transform(df_model['market_segment'])\ndf_model['hotel_encoded'] = LabelEncoder().fit_transform(df_model['hotel'])\n\n\n\n\nCode\n# 3️⃣ Aggregate Bookings by Price & Features\n\n# Group data → each row will represent (adr, segment, hotel, etc.) → number of bookings\n# You can also do this as a time series → here simple aggregate per combination:\n\nagg_df = df_model.groupby(['adr', 'market_segment_encoded', 'hotel_encoded', 'day_of_week', 'month']) \\\n    .size().reset_index(name='bookings')\n\nagg_df.head()"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Atila Madai – Blog",
+    "section": "",
+    "text": "Welcome to my new Quarto blog! 🚀\nHere you’ll find posts about data, agents, automation, and visual storytelling.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nML QA Computer Vision Assessment\n\n\n\nComputer Vision\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 22, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nDynamic Pricing & Demand Analysis Suite\n\n\n\ndata-viz\n\nXGBoost\n\nanalytics\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 16, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nAdventure Works Cycles: Cost & Elasticity Analysis\n\n\n\ndata-viz\n\nanalytics\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 15, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nCOVID-19 Data Analysis\n\n\n\ndata-viz\n\nPower BI\n\n\n\n\n\n\n\n\n\nApr 27, 2020\n\n\nAtila Madai\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/covid19-analysis/index.html",
