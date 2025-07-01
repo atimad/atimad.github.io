@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Atila Madai">
+<meta name="dcterms.date" content="2025-07-01">
 
-<title>🏨 Dynamic Hotel Pricing Optimization – Atila Madai</title>
+<title>A/B Test Dashboard – Search UX Evaluation – Atila Madai</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -325,7 +327,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">🏨 Dynamic Hotel Pricing Optimization</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/A_B Test/index.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/A_B Test/index.html">A/B Test Dashboard – Search UX Evaluation</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -359,7 +361,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/A_B Test/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/A_B Test/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">A/B Test Dashboard – Search UX Evaluation</span></a>
   </div>
 </li>
@@ -391,32 +393,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
     </ul>
     </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+    <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#advanced-elasticity-modeling-xgboost-regressor" id="toc-advanced-elasticity-modeling-xgboost-regressor" class="nav-link active" data-scroll-target="#advanced-elasticity-modeling-xgboost-regressor">🚀 Advanced Elasticity Modeling → XGBoost Regressor</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">🧪 Overview</a></li>
+  <li><a href="#interactive-dashboard" id="toc-interactive-dashboard" class="nav-link" data-scroll-target="#interactive-dashboard">🔗 Interactive Dashboard</a></li>
+  <li><a href="#experiment-design" id="toc-experiment-design" class="nav-link" data-scroll-target="#experiment-design">🧮 Experiment Design</a></li>
+  <li><a href="#metric-summary" id="toc-metric-summary" class="nav-link" data-scroll-target="#metric-summary">📈 Metric Summary</a></li>
+  <li><a href="#observations" id="toc-observations" class="nav-link" data-scroll-target="#observations">🔍 Observations</a></li>
+  <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link" data-scroll-target="#reproducibility">🛠 Reproducibility</a></li>
+  <li><a href="#future-work" id="toc-future-work" class="nav-link" data-scroll-target="#future-work">📌 Future Work</a></li>
   </ul>
 </nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/A_B Test/index.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/A_B Test/index.html">A/B Test Dashboard – Search UX Evaluation</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">🏨 Dynamic Hotel Pricing Optimization</h1>
-</div>
+<h1 class="title">A/B Test Dashboard – Search UX Evaluation</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">A/B Testing</div>
+    <div class="quarto-category">notebook</div>
+    <div class="quarto-category">python</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Atila Madai </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 1, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -426,167 +451,156 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="advanced-elasticity-modeling-xgboost-regressor" class="level2">
-<h2 class="anchored" data-anchor-id="advanced-elasticity-modeling-xgboost-regressor">🚀 Advanced Elasticity Modeling → XGBoost Regressor</h2>
-<p><strong>Goal:</strong> Model complex, non-linear price elasticity using XGBoost.</p>
-<div id="df2780c7" class="cell" data-execution_count="1">
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">🧪 Overview</h2>
+<p>This post summarizes an A/B test comparing two variants of a search experience using real usage logs. The goal was to evaluate:</p>
+<ul>
+<li>Click engagement</li>
+<li>User dwell time</li>
+<li>Positive feedback rate</li>
+</ul>
+<p>The full analysis is available via an interactive dashboard.</p>
+</section>
+<section id="interactive-dashboard" class="level2">
+<h2 class="anchored" data-anchor-id="interactive-dashboard">🔗 Interactive Dashboard</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://abtestdashboard-8bfxncyzrn8ksjf7maaqcq.streamlit.app/"><img src="images/ab-dashboard-preview.png" class="img-fluid figure-img"></a></p>
+<figcaption>View Live Dashboard</figcaption>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p>📊 Hosted on Streamlit Cloud. Click above to explore test results interactively.</p>
+</blockquote>
+<hr>
+</section>
+<section id="experiment-design" class="level2">
+<h2 class="anchored" data-anchor-id="experiment-design">🧮 Experiment Design</h2>
+<p>We compared:</p>
+<ul>
+<li><strong>Variant A</strong>: Control – current production layout</li>
+<li><strong>Variant B</strong>: Test – new LLM-enhanced formatting</li>
+</ul>
+<p>Session-level metrics were computed and compared using independent t-tests and Mann–Whitney U tests.</p>
+<hr>
+</section>
+<section id="metric-summary" class="level2">
+<h2 class="anchored" data-anchor-id="metric-summary">📈 Metric Summary</h2>
+<div id="4234735d" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1️⃣ Load Data</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../data/raw/hotel_bookings.csv'</span>)</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load previously exported summary from the notebook</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"data/metric_summary.csv"</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter to completed bookings</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[df[<span class="st">'is_canceled'</span>] <span class="op">==</span> <span class="dv">0</span>]</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic feature engineering</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'reservation_status_date'</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">'reservation_status_date'</span>])</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'day_of_week'</span>] <span class="op">=</span> df[<span class="st">'reservation_status_date'</span>].dt.dayofweek</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'month'</span>] <span class="op">=</span> df[<span class="st">'reservation_status_date'</span>].dt.month</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'stay_length'</span>] <span class="op">=</span> df[<span class="st">'stays_in_weekend_nights'</span>] <span class="op">+</span> df[<span class="st">'stays_in_week_nights'</span>]</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep useful columns</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>df_model <span class="op">=</span> df[[<span class="st">'adr'</span>, <span class="st">'lead_time'</span>, <span class="st">'day_of_week'</span>, <span class="st">'month'</span>, <span class="st">'stay_length'</span>, <span class="st">'market_segment'</span>, <span class="st">'hotel'</span>]].copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename and organize columns for presentation</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.rename(columns<span class="op">=</span>{</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"variant"</span>: <span class="st">"Variant"</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"description"</span>: <span class="st">"Description"</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"click_rate"</span>: <span class="st">"Click Rate"</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"avg_dwell_time"</span>: <span class="st">"Dwell Time (s)"</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"feedback_positive_rate"</span>: <span class="st">"Positive Feedback"</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"click_rate_p_value"</span>: <span class="st">"Click Rate p"</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"dwell_time_p_value"</span>: <span class="st">"Dwell Time p"</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"feedback_score_p_value"</span>: <span class="st">"Feedback p"</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Format for presentation</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>df.set_index(<span class="st">"Variant"</span>).style.<span class="bu">format</span>({</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Click Rate"</span>: <span class="st">"</span><span class="sc">{:.2%}</span><span class="st">"</span>,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Dwell Time (s)"</span>: <span class="st">"</span><span class="sc">{:.1f}</span><span class="st">"</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Positive Feedback"</span>: <span class="st">"</span><span class="sc">{:.2%}</span><span class="st">"</span>,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Click Rate p"</span>: <span class="st">"</span><span class="sc">{:.2e}</span><span class="st">"</span>,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Dwell Time p"</span>: <span class="st">"</span><span class="sc">{:.2e}</span><span class="st">"</span>,</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Feedback p"</span>: <span class="st">"</span><span class="sc">{:.2e}</span><span class="st">"</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-</div>
-<div id="94f6377c" class="cell" data-execution_count="2">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2️⃣ Encode categorical features</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> LabelEncoder</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df_model[<span class="st">'market_segment_encoded'</span>] <span class="op">=</span> LabelEncoder().fit_transform(df_model[<span class="st">'market_segment'</span>])</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>df_model[<span class="st">'hotel_encoded'</span>] <span class="op">=</span> LabelEncoder().fit_transform(df_model[<span class="st">'hotel'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div id="af154bc1" class="cell" data-execution_count="3">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3️⃣ Aggregate Bookings by Price &amp; Features</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Group data → each row will represent (adr, segment, hotel, etc.) → number of bookings</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># You can also do this as a time series → here simple aggregate per combination:</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>agg_df <span class="op">=</span> df_model.groupby([<span class="st">'adr'</span>, <span class="st">'market_segment_encoded'</span>, <span class="st">'hotel_encoded'</span>, <span class="st">'day_of_week'</span>, <span class="st">'month'</span>]) <span class="op">\</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    .size().reset_index(name<span class="op">=</span><span class="st">'bookings'</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>agg_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
+<div class="cell-output cell-output-display" data-execution_count="1">
+<style type="text/css">
+</style>
 
+<table id="T_ba736" class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_ba736_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Description</th>
+<th id="T_ba736_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Click Rate</th>
+<th id="T_ba736_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">Dwell Time (s)</th>
+<th id="T_ba736_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">Positive Feedback</th>
+<th id="T_ba736_level0_col4" class="col_heading level0 col4" data-quarto-table-cell-role="th">Click Rate p</th>
+<th id="T_ba736_level0_col5" class="col_heading level0 col5" data-quarto-table-cell-role="th">Dwell Time p</th>
+<th id="T_ba736_level0_col6" class="col_heading level0 col6" data-quarto-table-cell-role="th">Feedback p</th>
+</tr>
+<tr class="even">
+<th class="index_name level0" data-quarto-table-cell-role="th">Variant</th>
+<th class="blank col0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col1" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col2" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col3" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col4" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col5" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col6" data-quarto-table-cell-role="th">&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td id="T_ba736_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">A</td>
+<td id="T_ba736_row0_col0" class="data row0 col0">Control – current experience</td>
+<td id="T_ba736_row0_col1" class="data row0 col1">45.00%</td>
+<td id="T_ba736_row0_col2" class="data row0 col2">32.4</td>
+<td id="T_ba736_row0_col3" class="data row0 col3">21.00%</td>
+<td id="T_ba736_row0_col4" class="data row0 col4">1.20e-02</td>
+<td id="T_ba736_row0_col5" class="data row0 col5">8.90e-02</td>
+<td id="T_ba736_row0_col6" class="data row0 col6">4.00e-03</td>
+</tr>
+<tr class="even">
+<td id="T_ba736_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">B</td>
+<td id="T_ba736_row1_col0" class="data row1 col0">Test – improved LLM format</td>
+<td id="T_ba736_row1_col1" class="data row1 col1">52.00%</td>
+<td id="T_ba736_row1_col2" class="data row1 col2">35.1</td>
+<td id="T_ba736_row1_col3" class="data row1 col3">33.00%</td>
+<td id="T_ba736_row1_col4" class="data row1 col4">1.00e-03</td>
+<td id="T_ba736_row1_col5" class="data row1 col5">8.90e-02</td>
+<td id="T_ba736_row1_col6" class="data row1 col6">4.00e-03</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
-</section></main></div>
-<div id="69df1886" class="cell" data-execution_count="4">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4️⃣ Train XGBoost Regressor</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> xgboost <span class="im">import</span> XGBRegressor</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Features and target</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> [<span class="st">'adr'</span>, <span class="st">'market_segment_encoded'</span>, <span class="st">'hotel_encoded'</span>, <span class="st">'day_of_week'</span>, <span class="st">'month'</span>]</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> agg_df[features]</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> agg_df[<span class="st">'bookings'</span>]</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Train/test split</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Model</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> XGBRegressor(n_estimators<span class="op">=</span><span class="dv">500</span>, learning_rate<span class="op">=</span><span class="fl">0.05</span>, max_depth<span class="op">=</span><span class="dv">5</span>)</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>model.fit(X_train, y_train)</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> model.predict(X_test)</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluation → safe for all sklearn versions</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>mse <span class="op">=</span> mean_squared_error(y_test, y_pred)</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>rmse <span class="op">=</span> np.sqrt(mse)</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'RMSE: </span><span class="sc">{</span>rmse<span class="sc">:.2f}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>RMSE: 2.99</code></pre>
-</div>
-</div>
-<div id="be915141" class="cell" data-execution_count="5">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5️⃣ Feature Importance → Business friendly</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> xgboost <span class="im">as</span> xgb</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>xgb.plot_importance(model, importance_type<span class="op">=</span><span class="st">'gain'</span>, height<span class="op">=</span><span class="fl">0.8</span>)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Feature Importance - XGBoost Elasticity Model'</span>)</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="03_1_PriceElasticityModeling_XGBoost.out_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="f3f10386" class="cell" data-execution_count="6">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 6️⃣ Partial Dependence Plot for Price (adr)</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Advanced way → use sklearn PartialDependenceDisplay if using sklearn interface</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># For now → manual simple PDP</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>adr_values <span class="op">=</span> np.linspace(<span class="dv">50</span>, <span class="dv">300</span>, <span class="dv">50</span>)</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>pdp_values <span class="op">=</span> []</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Fix other features at typical values (e.g., most common segment/hotel, median day/month)</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>default_segment <span class="op">=</span> agg_df[<span class="st">'market_segment_encoded'</span>].mode()[<span class="dv">0</span>]</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>default_hotel <span class="op">=</span> agg_df[<span class="st">'hotel_encoded'</span>].mode()[<span class="dv">0</span>]</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>default_day <span class="op">=</span> <span class="dv">3</span>  <span class="co"># mid-week</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>default_month <span class="op">=</span> <span class="dv">6</span>  <span class="co"># summer</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> adr <span class="kw">in</span> adr_values:</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    row <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">'adr'</span>: [adr],</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">'market_segment_encoded'</span>: [default_segment],</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">'hotel_encoded'</span>: [default_hotel],</span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">'day_of_week'</span>: [default_day],</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">'month'</span>: [default_month]</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    pred <span class="op">=</span> model.predict(row)[<span class="dv">0</span>]</span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    pdp_values.append(pred)</span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot PDP</span></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">6</span>))</span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>plt.plot(adr_values, pdp_values, marker<span class="op">=</span><span class="st">'o'</span>)</span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Partial Dependence Plot → Price Elasticity (XGBoost)'</span>)</span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Price (ADR)'</span>)</span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Predicted Bookings'</span>)</span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="03_1_PriceElasticityModeling_XGBoost.out_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
+<hr>
+</section>
+<section id="observations" class="level2">
+<h2 class="anchored" data-anchor-id="observations">🔍 Observations</h2>
+<ul>
+<li><strong>Click Rate</strong> improved significantly in the new variant.</li>
+<li><strong>Dwell Time</strong> showed a small, non-significant increase.</li>
+<li><strong>Positive Feedback</strong> rate increased and was statistically significant.</li>
+</ul>
+<hr>
+</section>
+<section id="reproducibility" class="level2">
+<h2 class="anchored" data-anchor-id="reproducibility">🛠 Reproducibility</h2>
+<p>The dashboard was built using:</p>
+<ul>
+<li><code>streamlit</code>, <code>pandas</code>, <code>plotly</code>, <code>scipy</code></li>
+<li>Supports data uploads in <code>.csv</code>, <code>.xlsx</code>, <code>.parquet</code>, <code>.db</code></li>
+</ul>
+<p>Source code available on <a href="https://github.com/atimad/ab_test_dashboard">GitHub</a>.</p>
+<hr>
+</section>
+<section id="future-work" class="level2">
+<h2 class="anchored" data-anchor-id="future-work">📌 Future Work</h2>
+<ul>
+<li>JSON &amp; API integration for real-time experiment ingestion</li>
+<li>Support for multiple test variants</li>
+<li>Trend analysis across time windows</li>
+</ul>
 
 
+</section>
 
-
- <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -999,7 +1013,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script>
- <!-- /content -->
+</div> <!-- /content -->
 
 
 

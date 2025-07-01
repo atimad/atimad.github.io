@@ -1,45 +1,225 @@
 [
   {
-    "objectID": "tags.html",
-    "href": "tags.html",
-    "title": "Tags",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Atila Madai – Blog",
     "section": "",
-    "text": "Adventure Works Cycles: Cost & Elasticity Analysis\n\n\n\n\n\n\n\n\nJun 15, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nCOVID-19 Data Analysis\n\n\n\n\n\n\n\n\nApr 27, 2020\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nDynamic Pricing & Demand Analysis Suite\n\n\n\n\n\n\n\n\nJun 16, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nML QA Computer Vision Assessment\n\n\n\n\n\n\n\n\nJun 22, 2025\n\n\nAtila Madai\n\n\n\n\n\nNo matching items"
+    "text": "Welcome to my new Quarto blog! 🚀\nHere you’ll find posts about data, agents, automation, and visual storytelling.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nA/B Test Dashboard – Search UX Evaluation\n\n\n\nA/B Testing\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJul 1, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nML QA Computer Vision Assessment\n\n\n\nComputer Vision\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 22, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nDynamic Pricing & Demand Analysis Suite\n\n\n\ndata-viz\n\nXGBoost\n\nanalytics\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 16, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nAdventure Works Cycles: Cost & Elasticity Analysis\n\n\n\ndata-viz\n\nanalytics\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 15, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nCOVID-19 Data Analysis\n\n\n\ndata-viz\n\nPower BI\n\n\n\n\n\n\n\n\n\nApr 27, 2020\n\n\nAtila Madai\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "posts/cycles-analysis/index.html",
-    "href": "posts/cycles-analysis/index.html",
-    "title": "Adventure Works Cycles: Cost & Elasticity Analysis",
+    "objectID": "posts/Dynamic Hotel Pricing Optimization/index.html",
+    "href": "posts/Dynamic Hotel Pricing Optimization/index.html",
+    "title": "Dynamic Pricing & Demand Analysis Suite",
     "section": "",
-    "text": "Presented with Jupyter Notebook using Python",
+    "text": "This project explores how to build a trading floor-inspired, real-time dynamic pricing engine for hotel inventory.\nThe system leverages: - Advanced demand forecasting models - Price elasticity modeling under competition - Revenue optimization via mathematical and ML-based methods - Real-time simulation and visualization for business impact assessment\n\n\n\n\nThe global hotel market exceeds $1.3 trillion, with increasing adoption of dynamic pricing by major hotel chains and OTAs.\nBuilding a flexible, API-first, ML-driven pricing engine represents a major opportunity both for industry players and as a standalone service offering.\nInspired by companies building real-time, data-driven marketplaces, this project demonstrates how such a system can be designed and implemented for the travel and hospitality sector.\n\n\n\n\nDynamicHotelPricingOptimization/\n├── data/                      # Raw and processed data\n├── notebooks/                 # Jupyter notebooks with modeling and results\n├── src/                       # Python scripts for core functionality\n├── reports/                   # Generated visualizations and slides\n└── tests/                     # (Optional) unit tests\n\n\n\n\n\n\n#bash #pip install -r requirements.txt #\n\n\n\n\nPython 3.9+\nJupyter Notebook or Databricks\nGitHub for versioning\n\n\n\n\n\n\n✅ Initial EDA and feature engineering\n✅ Demand forecasting\n✅ Price elasticity modeling\n✅ Revenue optimization loop\n✅ Simulation and dashboarding\n\n\n\n\nAtila Madai\nThis Article is in development\n\nThis post combines four related notebooks exploring dynamic pricing and demand analytics:\n\nEDA: Dynamic Hotel Pricing Optimization\n\nDemand Forecasting\n\nPrice Elasticity Modeling\n\nPrice Elasticity Modeling with XGBoost",
     "crumbs": [
       "Home",
       "Posts",
-      "Adventure Works Cycles: Cost & Elasticity Analysis"
+      "Dynamic Pricing & Demand Analysis Suite"
     ]
   },
   {
-    "objectID": "posts/cycles-analysis/index.html#a-data-driven-pricing-demand-story",
-    "href": "posts/cycles-analysis/index.html#a-data-driven-pricing-demand-story",
-    "title": "Adventure Works Cycles: Cost & Elasticity Analysis",
-    "section": "A Data-Driven Pricing & Demand Story",
-    "text": "A Data-Driven Pricing & Demand Story\n\nExecutive Summary\n\nFrance vs. U.S.: Despite only minor price differences (± 6 %), French sales volumes are 90–93 % lower across all categories.\nPrice Elasticity: Accessories and Clothing behave as expected (higher price → lower demand), but Bikes and Components buck the trend—suggesting non-price factors at play.\nSubcategory Signals: “Road Bikes” and “Saddles” show extreme elasticity metrics, driven by tiny price shifts but massive volume gaps—hinting at availability or channel issues.\nModel-Level Noise: At the individual model level, price elasticity calculations become unstable (near-zero price gaps → inflated elasticities), so granular pricing tweaks should be approached cautiously.\n\n\n\nMethodology\n\nData Prep\n\nLoaded Cycles.csv\nCreated TotalFreight = OrderQty × Unit_Freight_Cost\n\nAggregations\n\nCategory: Mean (UnitPrice), sum (OrderQty), sum (TotalFreight) by Sales_Region\nSubcategory & Model: Same pivots, then % differences vs. U.S.\n\nElasticity\nElasticity_{FR vs US} = %ΔQty / %ΔPrice\n– calculated only where % Δ Price ≠ 0.\n\n\n\nCode\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport numpy as np\n\n# Load data\ndf = pd.read_csv(\"Cycles.csv\")\n\n# Show columns\nprint(\"Columns:\", df.columns.tolist())\ndf.head()\n\n\nColumns: ['SalesOrderNumber', 'OrderDate', 'DueDate', 'ShipDate', 'Sales_Person', 'Sales_Region', 'Sales_Province', 'Sales_City', 'Sales_Postal_Code', 'Customer_Code', 'Customer_Name', 'Customer_Region', 'Customer_Province', 'Customer_City', 'Customer_Postal_Code', 'LineItem_Id', 'Product_Category', 'Product_Sub_Category', 'Product_Name', 'Product_Code', 'Unit_Cost', 'UnitPrice', 'UnitPriceDiscount', 'OrderQty', 'Unit_Freight_Cost']\n\n\n\n\n\n\n\n\n\nSalesOrderNumber\nOrderDate\nDueDate\nShipDate\nSales_Person\nSales_Region\nSales_Province\nSales_City\nSales_Postal_Code\nCustomer_Code\n...\nLineItem_Id\nProduct_Category\nProduct_Sub_Category\nProduct_Name\nProduct_Code\nUnit_Cost\nUnitPrice\nUnitPriceDiscount\nOrderQty\nUnit_Freight_Cost\n\n\n\n\n0\nSO43659\n7/1/05\n00:00.0\n00:00.0\nTsvi Reiter\nUnited States\nTennessee\nMemphis\n38103\nAW00029825\n...\n1\nBikes\nMountain Bikes\nMountain-100 Black, 42\nBK-M82B-42\n1898.0944\n3374.99\n0.0\n1\n51.3415\n\n\n1\nSO43659\n7/1/05\n00:00.0\n00:00.0\nTsvi Reiter\nUnited States\nTennessee\nMemphis\n38103\nAW00029825\n...\n2\nBikes\nMountain Bikes\nMountain-100 Black, 44\nBK-M82B-44\n1898.0944\n3374.99\n0.0\n3\n51.3415\n\n\n2\nSO43659\n7/1/05\n00:00.0\n00:00.0\nTsvi Reiter\nUnited States\nTennessee\nMemphis\n38103\nAW00029825\n...\n3\nBikes\nMountain Bikes\nMountain-100 Black, 48\nBK-M82B-48\n1898.0944\n3374.99\n0.0\n1\n51.3415\n\n\n3\nSO43659\n7/1/05\n00:00.0\n00:00.0\nTsvi Reiter\nUnited States\nTennessee\nMemphis\n38103\nAW00029825\n...\n4\nBikes\nMountain Bikes\nMountain-100 Silver, 38\nBK-M82S-38\n1912.1544\n3399.99\n0.0\n1\n51.3415\n\n\n4\nSO43659\n7/1/05\n00:00.0\n00:00.0\nTsvi Reiter\nUnited States\nTennessee\nMemphis\n38103\nAW00029825\n...\n5\nBikes\nMountain Bikes\nMountain-100 Silver, 42\nBK-M82S-42\n1912.1544\n3399.99\n0.0\n1\n51.3415\n\n\n\n\n5 rows × 25 columns\n\n\n\n\n\nCode\n# Category-level pivots\ncat = 'Product_Category'\nunit_cost_cat = df.pivot_table(index=cat, columns='Sales_Region', values='Unit_Cost', aggfunc='mean')\nfreight_cost_col = [c for c in df.columns if 'freight' in c.lower()][0]\nfreight_cost_cat = df.pivot_table(index=cat, columns='Sales_Region', values=freight_cost_col, aggfunc='sum')\nsales_vol_cat = df.pivot_table(index=cat, columns='Sales_Region', values='OrderQty', aggfunc='sum')\n\n# % differences\npct_price_cat = (unit_cost_cat['France'] - unit_cost_cat['United States']) / unit_cost_cat['United States'] * 100\npct_qty_cat = (sales_vol_cat['France'] - sales_vol_cat['United States']) / sales_vol_cat['United States'] * 100\nelasticity_cat = (pct_qty_cat / pct_price_cat).round(2)\n\n# Display tables\nunit_cost_cat, freight_cost_cat, sales_vol_cat, elasticity_cat\n\n\n(Sales_Region          France   Germany  United States\n Product_Category                                     \n Accessories        14.507226       NaN      14.117180\n Bikes             914.798149       NaN     948.374619\n Clothing           26.604215       NaN      25.545950\n Components        235.571009  187.1571     253.391532,\n Sales_Region          France  Germany  United States\n Product_Category                                    \n Accessories        7720.5917      NaN    108212.0911\n Bikes             49393.0802      NaN    769717.7454\n Clothing          20201.2851      NaN    272981.1064\n Components        45525.6095   6.2386    481917.1327,\n Sales_Region      France  Germany  United States\n Product_Category                                \n Accessories       1607.0      NaN        14185.0\n Bikes             3728.0      NaN        49816.0\n Clothing          3471.0      NaN        38280.0\n Components        3247.0      1.0        30690.0,\n Product_Category\n Accessories   -32.09\n Bikes          26.13\n Clothing      -21.95\n Components     12.71\n dtype: float64)\n\n\n\n\nCode\n# Plots\nunit_cost_cat.plot(kind='bar', figsize=(8,4), title='Avg Unit Cost by Region & Category')\nplt.ylabel('Unit Cost')\nplt.show()\n\nsales_vol_cat.plot(kind='bar', figsize=(8,4), title='Total Units Sold by Region & Category')\nplt.ylabel('Units Sold')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\n# Subcategory-level pivots\nsubcat = 'Product_Sub_Category'\nunit_cost_sub = df.pivot_table(index=subcat, columns='Sales_Region', values='Unit_Cost', aggfunc='mean')\nfreight_cost_sub = df.pivot_table(index=subcat, columns='Sales_Region', values=freight_cost_col, aggfunc='sum')\nsales_vol_sub = df.pivot_table(index=subcat, columns='Sales_Region', values='OrderQty', aggfunc='sum')\n\npct_price_sub = (unit_cost_sub['France'] - unit_cost_sub['United States']) / unit_cost_sub['United States'] * 100\npct_qty_sub = (sales_vol_sub['France'] - sales_vol_sub['United States']) / sales_vol_sub['United States'] * 100\nelasticity_sub = (pct_qty_sub / pct_price_sub).round(2)\n\nunit_cost_sub, freight_cost_sub, sales_vol_sub, elasticity_sub\n\n\n(Sales_Region              France   Germany  United States\n Product_Sub_Category                                     \n Bib-Shorts             37.120900       NaN      37.120900\n Bike Racks             48.085714       NaN      47.948718\n Bottles and Cages       2.011099       NaN       1.990584\n Bottom Brackets        42.936647       NaN      44.515716\n Brakes                 50.085829       NaN      49.959204\n Caps                    7.153043       NaN       7.072587\n Chains                  9.548262       NaN       9.495607\n Cleaners                3.138483       NaN       3.171744\n Cranksets             141.866803       NaN     140.717484\n Derailleurs            49.743743       NaN      48.923028\n Forks                  81.846989       NaN      87.409218\n Gloves                 11.626227       NaN      12.444145\n Handlebars             34.024471       NaN      35.821385\n Headsets               46.485822       NaN      43.930120\n Helmets                13.536517       NaN      13.336502\n Hydration Packs        21.734840       NaN      21.725383\n Jerseys                41.838134       NaN      40.568808\n Locks                  10.312500       NaN      10.312500\n Mountain Bikes        916.651389       NaN    1110.486589\n Mountain Frames       375.159127       NaN     432.770967\n Pedals                 28.955336       NaN      29.382142\n Pumps                   8.245900       NaN       8.245900\n Road Bikes            874.122605       NaN     854.381435\n Road Frames           407.991968  187.1571     351.382109\n Saddles                20.328470       NaN      20.386915\n Shorts                 26.889456       NaN      26.622523\n Socks                   3.572444       NaN       3.504293\n Tights                 30.933400       NaN      30.933400\n Tires and Tubes         0.917679       NaN       0.903168\n Touring Bikes         975.665949       NaN     963.680607\n Touring Frames        469.623209       NaN     458.568840\n Vests                  25.207272       NaN      25.173940\n Wheels                 99.259100       NaN      94.149571,\n Sales_Region              France  Germany  United States\n Product_Sub_Category                                    \n Bib-Shorts             1329.7918      NaN     16384.6830\n Bike Racks              745.6513      NaN      6388.7345\n Bottles and Cages       755.9858      NaN      6422.5446\n Bottom Brackets        1423.2917      NaN      6512.7490\n Brakes                 1591.9530      NaN      6189.3530\n Caps                   1421.2127      NaN     29752.2827\n Chains                  950.5269      NaN      3882.1148\n Cleaners                795.2591      NaN      6494.8324\n Cranksets              1525.6982      NaN      7356.8501\n Derailleurs            1602.6915      NaN      6554.5144\n Forks                   316.0508      NaN      4968.5927\n Gloves                 3874.4471      NaN     43783.7782\n Handlebars             3139.5591      NaN     37616.4719\n Headsets                373.9029      NaN      6571.9049\n Helmets                3430.7733      NaN     69106.0461\n Hydration Packs         586.3416      NaN      5118.7592\n Jerseys                5789.9833      NaN     86374.4603\n Locks                   431.9248      NaN      5962.8522\n Mountain Bikes         9408.1536      NaN    282830.7588\n Mountain Frames        8028.0800      NaN    138368.8863\n Pedals                 3723.3697      NaN     31979.5780\n Pumps                   507.6579      NaN      6266.4814\n Road Bikes            20912.6723      NaN    392086.8802\n Road Frames           11186.3243   6.2386    123448.1805\n Saddles                2448.9120      NaN     17432.8305\n Shorts                 3143.5634      NaN     29859.3489\n Socks                  1418.8909      NaN     32839.0750\n Tights                 1557.6650      NaN     21110.3864\n Tires and Tubes         466.9979      NaN      2451.8407\n Touring Bikes         19072.2543      NaN     94800.1064\n Touring Frames         6235.1344      NaN     38453.6253\n Vests                  1665.7309      NaN     12877.0919\n Wheels                 2980.1150      NaN     52581.4813,\n Sales_Region          France  Germany  United States\n Product_Sub_Category                                \n Bib-Shorts             147.0      NaN         1984.0\n Bike Racks             256.0      NaN         1360.0\n Bottles and Cages      191.0      NaN         1288.0\n Bottom Brackets         77.0      NaN          500.0\n Brakes                 113.0      NaN          540.0\n Caps                   267.0      NaN         3546.0\n Chains                  99.0      NaN          413.0\n Cleaners               181.0      NaN         1219.0\n Cranksets              130.0      NaN          583.0\n Derailleurs            139.0      NaN          568.0\n Forks                   40.0      NaN          415.0\n Gloves                 632.0      NaN         7007.0\n Handlebars             220.0      NaN         2549.0\n Headsets                40.0      NaN          672.0\n Helmets                649.0      NaN         7642.0\n Hydration Packs        150.0      NaN          937.0\n Jerseys               1132.0      NaN        10689.0\n Locks                   53.0      NaN          684.0\n Mountain Bikes         927.0      NaN        16450.0\n Mountain Frames        775.0      NaN         7628.0\n Pedals                 290.0      NaN         2447.0\n Pumps                   59.0      NaN          719.0\n Road Bikes            1727.0      NaN        27583.0\n Road Frames            669.0      1.0         7757.0\n Saddles                171.0      NaN         1172.0\n Shorts                 533.0      NaN         5507.0\n Socks                   94.0      NaN         3601.0\n Tights                 197.0      NaN         2997.0\n Tires and Tubes         68.0      NaN          336.0\n Touring Bikes         1074.0      NaN         5783.0\n Touring Frames         251.0      NaN         1755.0\n Vests                  469.0      NaN         2949.0\n Wheels                 233.0      NaN         3691.0,\n Product_Sub_Category\n Bib-Shorts              -inf\n Bike Racks           -284.12\n Bottles and Cages     -82.64\n Bottom Brackets        23.85\n Brakes               -311.98\n Caps                  -81.29\n Chains               -137.11\n Cleaners               81.20\n Cranksets             -95.13\n Derailleurs           -45.02\n Forks                  14.20\n Gloves                 13.84\n Handlebars             18.21\n Headsets              -16.17\n Helmets               -61.01\n Hydration Packs     -1929.64\n Jerseys               -28.58\n Locks                   -inf\n Mountain Bikes          5.41\n Mountain Frames         6.75\n Pedals                 60.68\n Pumps                   -inf\n Road Bikes            -40.57\n Road Frames            -5.67\n Saddles               297.93\n Shorts                -90.08\n Socks                 -50.08\n Tights                  -inf\n Tires and Tubes       -49.65\n Touring Bikes         -65.47\n Touring Frames        -35.55\n Vests                -635.14\n Wheels                -17.26\n dtype: float64)\n\n\n\n\nCode\n# Model-level elasticity (top 10 by absolute elasticity)\nmodel = 'Product_Name'\nunit_cost_mod = df.pivot_table(index=model, columns='Sales_Region', values='Unit_Cost', aggfunc='mean')\nsales_vol_mod = df.pivot_table(index=model, columns='Sales_Region', values='OrderQty', aggfunc='sum')\n\npct_price_mod = (unit_cost_mod['France'] - unit_cost_mod['United States']) / unit_cost_mod['United States'] * 100\npct_qty_mod = (sales_vol_mod['France'] - sales_vol_mod['United States']) / sales_vol_mod['United States'] * 100\n# Mask out tiny price differences (&lt;1%)\nmask = pct_price_mod.abs() &gt;= 1.0\nelasticity_mod = (pct_qty_mod / pct_price_mod).round(2)\nelasticity_mod = elasticity_mod.where(mask)                 \\\n                               .replace([np.inf, -np.inf], np.nan) \\\n                               .dropna()\n\n# Top 10 most elastic models\ntop10 = elasticity_mod.abs().sort_values(ascending=False).head(10)\nprint(top10)\n\n\nProduct_Name\nMountain-500 Silver, 48             88.21\nMountain-200 Black, 42              86.16\nRoad-750 Black, 52                  85.32\nWater Bottle - 30 oz.               82.64\nAWC Logo Cap                        81.29\nBike Wash - Dissolver               81.20\nTouring-3000 Yellow, 54             79.64\nTouring-1000 Yellow, 60             78.69\nML Mountain Frame-W - Silver, 40    76.93\nHL Touring Frame - Blue, 54         76.23\ndtype: float64",
+    "objectID": "posts/Dynamic Hotel Pricing Optimization/index.html#eda---exploratory-data-analysis",
+    "href": "posts/Dynamic Hotel Pricing Optimization/index.html#eda---exploratory-data-analysis",
+    "title": "Dynamic Pricing & Demand Analysis Suite",
+    "section": "📊 01_EDA - Exploratory Data Analysis",
+    "text": "📊 01_EDA - Exploratory Data Analysis\nGoal: Explore the dataset, understand key patterns and prepare features for modeling.\n\n\n\n\n\n\n\n\n\nhotel\nis_canceled\nlead_time\narrival_date_year\narrival_date_month\narrival_date_week_number\narrival_date_day_of_month\nstays_in_weekend_nights\nstays_in_week_nights\nadults\n...\ndeposit_type\nagent\ncompany\ndays_in_waiting_list\ncustomer_type\nadr\nrequired_car_parking_spaces\ntotal_of_special_requests\nreservation_status\nreservation_status_date\n\n\n\n\n0\nResort Hotel\n0\n342\n2015\nJuly\n27\n1\n0\n0\n2\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n0.0\n0\n0\nCheck-Out\n2015-07-01\n\n\n1\nResort Hotel\n0\n737\n2015\nJuly\n27\n1\n0\n0\n2\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n0.0\n0\n0\nCheck-Out\n2015-07-01\n\n\n2\nResort Hotel\n0\n7\n2015\nJuly\n27\n1\n0\n1\n1\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n75.0\n0\n0\nCheck-Out\n2015-07-02\n\n\n3\nResort Hotel\n0\n13\n2015\nJuly\n27\n1\n0\n1\n1\n...\nNo Deposit\n304.0\nNaN\n0\nTransient\n75.0\n0\n0\nCheck-Out\n2015-07-02\n\n\n4\nResort Hotel\n0\n14\n2015\nJuly\n27\n1\n0\n2\n2\n...\nNo Deposit\n240.0\nNaN\n0\nTransient\n98.0\n0\n1\nCheck-Out\n2015-07-03\n\n\n\n\n5 rows × 32 columns\n\n\n\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 119390 entries, 0 to 119389\nData columns (total 32 columns):\n #   Column                          Non-Null Count   Dtype  \n---  ------                          --------------   -----  \n 0   hotel                           119390 non-null  object \n 1   is_canceled                     119390 non-null  int64  \n 2   lead_time                       119390 non-null  int64  \n 3   arrival_date_year               119390 non-null  int64  \n 4   arrival_date_month              119390 non-null  object \n 5   arrival_date_week_number        119390 non-null  int64  \n 6   arrival_date_day_of_month       119390 non-null  int64  \n 7   stays_in_weekend_nights         119390 non-null  int64  \n 8   stays_in_week_nights            119390 non-null  int64  \n 9   adults                          119390 non-null  int64  \n 10  children                        119386 non-null  float64\n 11  babies                          119390 non-null  int64  \n 12  meal                            119390 non-null  object \n 13  country                         118902 non-null  object \n 14  market_segment                  119390 non-null  object \n 15  distribution_channel            119390 non-null  object \n 16  is_repeated_guest               119390 non-null  int64  \n 17  previous_cancellations          119390 non-null  int64  \n 18  previous_bookings_not_canceled  119390 non-null  int64  \n 19  reserved_room_type              119390 non-null  object \n 20  assigned_room_type              119390 non-null  object \n 21  booking_changes                 119390 non-null  int64  \n 22  deposit_type                    119390 non-null  object \n 23  agent                           103050 non-null  float64\n 24  company                         6797 non-null    float64\n 25  days_in_waiting_list            119390 non-null  int64  \n 26  customer_type                   119390 non-null  object \n 27  adr                             119390 non-null  float64\n 28  required_car_parking_spaces     119390 non-null  int64  \n 29  total_of_special_requests       119390 non-null  int64  \n 30  reservation_status              119390 non-null  object \n 31  reservation_status_date         119390 non-null  object \ndtypes: float64(4), int64(16), object(12)\nmemory usage: 29.1+ MB\n\n\n\n\n\n\n\n\n\nis_canceled\nlead_time\narrival_date_year\narrival_date_week_number\narrival_date_day_of_month\nstays_in_weekend_nights\nstays_in_week_nights\nadults\nchildren\nbabies\nis_repeated_guest\nprevious_cancellations\nprevious_bookings_not_canceled\nbooking_changes\nagent\ncompany\ndays_in_waiting_list\nadr\nrequired_car_parking_spaces\ntotal_of_special_requests\n\n\n\n\ncount\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119386.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n103050.000000\n6797.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n\n\nmean\n0.370416\n104.011416\n2016.156554\n27.165173\n15.798241\n0.927599\n2.500302\n1.856403\n0.103890\n0.007949\n0.031912\n0.087118\n0.137097\n0.221124\n86.693382\n189.266735\n2.321149\n101.831122\n0.062518\n0.571363\n\n\nstd\n0.482918\n106.863097\n0.707476\n13.605138\n8.780829\n0.998613\n1.908286\n0.579261\n0.398561\n0.097436\n0.175767\n0.844336\n1.497437\n0.652306\n110.774548\n131.655015\n17.594721\n50.535790\n0.245291\n0.792798\n\n\nmin\n0.000000\n0.000000\n2015.000000\n1.000000\n1.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n1.000000\n6.000000\n0.000000\n-6.380000\n0.000000\n0.000000\n\n\n25%\n0.000000\n18.000000\n2016.000000\n16.000000\n8.000000\n0.000000\n1.000000\n2.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n9.000000\n62.000000\n0.000000\n69.290000\n0.000000\n0.000000\n\n\n50%\n0.000000\n69.000000\n2016.000000\n28.000000\n16.000000\n1.000000\n2.000000\n2.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n14.000000\n179.000000\n0.000000\n94.575000\n0.000000\n0.000000\n\n\n75%\n1.000000\n160.000000\n2017.000000\n38.000000\n23.000000\n2.000000\n3.000000\n2.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n229.000000\n270.000000\n0.000000\n126.000000\n0.000000\n1.000000\n\n\nmax\n1.000000\n737.000000\n2017.000000\n53.000000\n31.000000\n19.000000\n50.000000\n55.000000\n10.000000\n10.000000\n1.000000\n26.000000\n72.000000\n21.000000\n535.000000\n543.000000\n391.000000\n5400.000000\n8.000000\n5.000000\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nstay_length\nlead_time\nbooking_month\nweekday\n\n\n\n\n0\n0\n342\n7\n2\n\n\n1\n0\n737\n7\n2\n\n\n2\n1\n7\n7\n3\n\n\n3\n1\n13\n7\n3\n\n\n4\n2\n14\n7\n4\n\n\n\n\n\n\n\n\n\nCancellation Rate: 37.04%",
     "crumbs": [
       "Home",
       "Posts",
-      "Adventure Works Cycles: Cost & Elasticity Analysis"
+      "Dynamic Pricing & Demand Analysis Suite"
     ]
   },
   {
-    "objectID": "posts/cycles-analysis/index.html#observations",
-    "href": "posts/cycles-analysis/index.html#observations",
-    "title": "Adventure Works Cycles: Cost & Elasticity Analysis",
-    "section": "Observations",
-    "text": "Observations\n\nCategory-Level Findings\n\n\n\n\n\n\n\n\n\nCategory\nΔ Price (FR vs. US)\nΔ Qty (FR vs. US)\nElasticity\n\n\n\n\nAccessories\n+1.4 %\n–88.7 %\n–61.9\n\n\nBikes\n–6.2 %\n–92.5 %\n14.8\n\n\nClothing\n+5.1 %\n–90.9 %\n–17.9\n\n\nComponents\n–8.8 %\n–89.4 %\n10.2\n\n\n\n\nAccessories & Clothing behave normally: higher price → lower demand (elasticities –62 and –18).\nBikes & Components show positive elasticity (price ↓ → demand ↓), a counter-intuitive signal—implying price isn’t the primary lever in these categories (e.g. limited stock, brand perception, marketing).\n\n\n\nSubcategory Insights\nTop subcategories by FR vs. US elasticity: 1. Road Bikes: 223\n2. Saddles: 209\n3. Pedals: 88\n4. Socks: 58\n5. Bottom Brackets: 20\n\nThese extreme values arise from tiny price gaps (≪ 1 %) but massive volume shortfalls (–94 %), indicating potential distribution, promotion, or catalog discrepancies in France.\n\n\n\nModel-Level Caveat\n\nAt the Product_Name granularity, nearly all models have identical average prices in France vs. the U.S., so the elasticity formula divides by (essentially) zero, producing infinite or unstable values.\n\nLesson: Model-level pricing tweaks require a richer dataset (e.g., time-series price changes or promotional flags) rather than a simple cross-sectional snapshot.\n\n\n\nFreight Patterns\n\nTotal freight spend in France is 90–92 % lower across categories—mirroring the volume drops.\n\nNo freight-cost inefficiencies: per-unit freight in FR ≈ per-unit in US, so logistics costs scale linearly with volume.\n\n\n\nBusiness Implications & Recommendations\n\nPrice Isn’t Everything\n\nFor Bikes & Components, improve availability, marketing, or distribution rather than chasing small price adjustments.\n\n\nFocus on Price-Sensitive Categories\n\nAccessories & Clothing show clear negative elasticity—consider targeted promotions, bundles, or localized pricing in France.\n\n\nAudit Subcategory Gaps\n\nRoad Bikes & Saddles: investigate catalog completeness, brand visibility, and local partnerships.\n\n\nGather Better Model-Level Data\n\nIntroduce A/B price tests or time-series analysis to truly measure demand sensitivity at the SKU level.\n\n\nOptimize Logistics\n\nWith volume so low in France, explore consolidated shipments or regional distribution centers to reduce per-unit freight.\n\n\n\n\nNext Steps\n\nDeeper Qualitative Research: customer surveys or focus groups in France to understand non-price barriers.\n\nMarketing Experiments: small price changes on Accessories/Clothing to validate elasticity estimates.\n\nData Enrichment: append promotional flags, competitor pricing, or time stamps to enable robust SKU-level elasticity models.\n\nOperational Review: partner with logistics to evaluate regional freight strategies and warehousing options.",
+    "objectID": "posts/Dynamic Hotel Pricing Optimization/index.html#demand-forecasting",
+    "href": "posts/Dynamic Hotel Pricing Optimization/index.html#demand-forecasting",
+    "title": "Dynamic Pricing & Demand Analysis Suite",
+    "section": "2. Demand Forecasting",
+    "text": "2. Demand Forecasting",
     "crumbs": [
       "Home",
       "Posts",
-      "Adventure Works Cycles: Cost & Elasticity Analysis"
+      "Dynamic Pricing & Demand Analysis Suite"
+    ]
+  },
+  {
+    "objectID": "posts/Dynamic Hotel Pricing Optimization/index.html#demand-forecasting-1",
+    "href": "posts/Dynamic Hotel Pricing Optimization/index.html#demand-forecasting-1",
+    "title": "Dynamic Pricing & Demand Analysis Suite",
+    "section": "📈 02_Demand Forecasting",
+    "text": "📈 02_Demand Forecasting\nGoal: Build models to forecast demand (number of bookings) per hotel and date.\n\n\n\n\n\n\n\n\n\nreservation_status_date\nbookings\n\n\n\n\n0\n2014-10-17\n180\n\n\n1\n2014-11-18\n1\n\n\n2\n2015-01-01\n763\n\n\n3\n2015-01-02\n16\n\n\n4\n2015-01-18\n1",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Dynamic Pricing & Demand Analysis Suite"
+    ]
+  },
+  {
+    "objectID": "posts/Dynamic Hotel Pricing Optimization/index.html#price-elasticity-modeling",
+    "href": "posts/Dynamic Hotel Pricing Optimization/index.html#price-elasticity-modeling",
+    "title": "Dynamic Pricing & Demand Analysis Suite",
+    "section": "3. Price Elasticity Modeling",
+    "text": "3. Price Elasticity Modeling",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Dynamic Pricing & Demand Analysis Suite"
+    ]
+  },
+  {
+    "objectID": "posts/Dynamic Hotel Pricing Optimization/index.html#price-elasticity-modeling-1",
+    "href": "posts/Dynamic Hotel Pricing Optimization/index.html#price-elasticity-modeling-1",
+    "title": "Dynamic Pricing & Demand Analysis Suite",
+    "section": "📉 03_Price Elasticity Modeling",
+    "text": "📉 03_Price Elasticity Modeling\nGoal: Model how booking demand responds to changes in price, and estimate optimal pricing zones.\n\n\n\n\n\n\n\n\n\nhotel\nis_canceled\nlead_time\narrival_date_year\narrival_date_month\narrival_date_week_number\narrival_date_day_of_month\nstays_in_weekend_nights\nstays_in_week_nights\nadults\n...\ndeposit_type\nagent\ncompany\ndays_in_waiting_list\ncustomer_type\nadr\nrequired_car_parking_spaces\ntotal_of_special_requests\nreservation_status\nreservation_status_date\n\n\n\n\n0\nResort Hotel\n0\n342\n2015\nJuly\n27\n1\n0\n0\n2\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n0.0\n0\n0\nCheck-Out\n2015-07-01\n\n\n1\nResort Hotel\n0\n737\n2015\nJuly\n27\n1\n0\n0\n2\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n0.0\n0\n0\nCheck-Out\n2015-07-01\n\n\n2\nResort Hotel\n0\n7\n2015\nJuly\n27\n1\n0\n1\n1\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n75.0\n0\n0\nCheck-Out\n2015-07-02\n\n\n3\nResort Hotel\n0\n13\n2015\nJuly\n27\n1\n0\n1\n1\n...\nNo Deposit\n304.0\nNaN\n0\nTransient\n75.0\n0\n0\nCheck-Out\n2015-07-02\n\n\n4\nResort Hotel\n0\n14\n2015\nJuly\n27\n1\n0\n2\n2\n...\nNo Deposit\n240.0\nNaN\n0\nTransient\n98.0\n0\n1\nCheck-Out\n2015-07-03\n\n\n\n\n5 rows × 32 columns\n\n\n\n\n\n\n\n\n\n\n\n\nprice_bucket\nbookings\n\n\n\n\n0\n(0, 50]\n7706\n\n\n1\n(50, 100]\n33972\n\n\n2\n(100, 150]\n21520\n\n\n3\n(150, 200]\n7184\n\n\n4\n(200, 300]\n2848\n\n\n5\n(300, 500]\n187\n\n\n6\n(500, 1000]\n2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                            OLS Regression Results                            \n==============================================================================\nDep. Variable:               bookings   R-squared:                       0.598\nModel:                            OLS   Adj. R-squared:                  0.518\nMethod:                 Least Squares   F-statistic:                     7.441\nDate:                Mon, 09 Jun 2025   Prob (F-statistic):             0.0414\nTime:                        01:51:40   Log-Likelihood:                -14.821\nNo. Observations:                   7   AIC:                             33.64\nDf Residuals:                       5   BIC:                             33.53\nDf Model:                           1                                         \nCovariance Type:            nonrobust                                         \n==============================================================================\n                 coef    std err          t      P&gt;|t|      [0.025      0.975]\n------------------------------------------------------------------------------\nconst         19.5084      4.513      4.323      0.008       7.909      31.108\nprice_mid     -2.3678      0.868     -2.728      0.041      -4.599      -0.137\n==============================================================================\nOmnibus:                          nan   Durbin-Watson:                   1.033\nProb(Omnibus):                    nan   Jarque-Bera (JB):                1.053\nSkew:                          -0.709   Prob(JB):                        0.591\nKurtosis:                       1.734   Cond. No.                         27.0\n==============================================================================\n\nNotes:\n[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Dynamic Pricing & Demand Analysis Suite"
+    ]
+  },
+  {
+    "objectID": "posts/Dynamic Hotel Pricing Optimization/index.html#price-elasticity-modeling-xgboost",
+    "href": "posts/Dynamic Hotel Pricing Optimization/index.html#price-elasticity-modeling-xgboost",
+    "title": "Dynamic Pricing & Demand Analysis Suite",
+    "section": "4. Price Elasticity Modeling (XGBoost)",
+    "text": "4. Price Elasticity Modeling (XGBoost)",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Dynamic Pricing & Demand Analysis Suite"
+    ]
+  },
+  {
+    "objectID": "posts/Dynamic Hotel Pricing Optimization/index.html#advanced-elasticity-modeling-xgboost-regressor",
+    "href": "posts/Dynamic Hotel Pricing Optimization/index.html#advanced-elasticity-modeling-xgboost-regressor",
+    "title": "Dynamic Pricing & Demand Analysis Suite",
+    "section": "🚀 Advanced Elasticity Modeling → XGBoost Regressor",
+    "text": "🚀 Advanced Elasticity Modeling → XGBoost Regressor\nGoal: Model complex, non-linear price elasticity using XGBoost.\n\n\n\n\n\n\n\n\n\nadr\nmarket_segment_encoded\nhotel_encoded\nday_of_week\nmonth\nbookings\n\n\n\n\n0\n-6.38\n4\n1\n2\n3\n1\n\n\n1\n0.00\n0\n0\n1\n11\n1\n\n\n2\n0.00\n0\n0\n2\n6\n3\n\n\n3\n0.00\n0\n0\n4\n7\n1\n\n\n4\n0.00\n1\n0\n0\n1\n1\n\n\n\n\n\n\n\n\n\nRMSE: 2.99",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Dynamic Pricing & Demand Analysis Suite"
+    ]
+  },
+  {
+    "objectID": "posts/covid19-analysis/index.html",
+    "href": "posts/covid19-analysis/index.html",
+    "title": "COVID-19 Data Analysis",
+    "section": "",
+    "text": "Presented in Microsoft Power BI using Python and DAX.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "COVID-19 Data Analysis"
+    ]
+  },
+  {
+    "objectID": "posts/covid19-analysis/index.html#covid-19",
+    "href": "posts/covid19-analysis/index.html#covid-19",
+    "title": "COVID-19 Data Analysis",
+    "section": "",
+    "text": "Presented in Microsoft Power BI using Python and DAX.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "COVID-19 Data Analysis"
+    ]
+  },
+  {
+    "objectID": "posts/A_B Test/index.html",
+    "href": "posts/A_B Test/index.html",
+    "title": "A/B Test Dashboard – Search UX Evaluation",
+    "section": "",
+    "text": "This post summarizes an A/B test comparing two variants of a search experience using real usage logs. The goal was to evaluate:\n\nClick engagement\nUser dwell time\nPositive feedback rate\n\nThe full analysis is available via an interactive dashboard.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "A/B Test Dashboard – Search UX Evaluation"
+    ]
+  },
+  {
+    "objectID": "posts/A_B Test/index.html#overview",
+    "href": "posts/A_B Test/index.html#overview",
+    "title": "A/B Test Dashboard – Search UX Evaluation",
+    "section": "",
+    "text": "This post summarizes an A/B test comparing two variants of a search experience using real usage logs. The goal was to evaluate:\n\nClick engagement\nUser dwell time\nPositive feedback rate\n\nThe full analysis is available via an interactive dashboard.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "A/B Test Dashboard – Search UX Evaluation"
+    ]
+  },
+  {
+    "objectID": "posts/A_B Test/index.html#interactive-dashboard",
+    "href": "posts/A_B Test/index.html#interactive-dashboard",
+    "title": "A/B Test Dashboard – Search UX Evaluation",
+    "section": "🔗 Interactive Dashboard",
+    "text": "🔗 Interactive Dashboard\n\n\n\nView Live Dashboard\n\n\n\n📊 Hosted on Streamlit Cloud. Click above to explore test results interactively.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "A/B Test Dashboard – Search UX Evaluation"
+    ]
+  },
+  {
+    "objectID": "posts/A_B Test/index.html#experiment-design",
+    "href": "posts/A_B Test/index.html#experiment-design",
+    "title": "A/B Test Dashboard – Search UX Evaluation",
+    "section": "🧮 Experiment Design",
+    "text": "🧮 Experiment Design\nWe compared:\n\nVariant A: Control – current production layout\nVariant B: Test – new LLM-enhanced formatting\n\nSession-level metrics were computed and compared using independent t-tests and Mann–Whitney U tests.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "A/B Test Dashboard – Search UX Evaluation"
+    ]
+  },
+  {
+    "objectID": "posts/A_B Test/index.html#metric-summary",
+    "href": "posts/A_B Test/index.html#metric-summary",
+    "title": "A/B Test Dashboard – Search UX Evaluation",
+    "section": "📈 Metric Summary",
+    "text": "📈 Metric Summary\n\n\nCode\nimport pandas as pd\n\n# Load previously exported summary from the notebook\ndf = pd.read_csv(\"data/metric_summary.csv\")\n\n# Rename and organize columns for presentation\ndf = df.rename(columns={\n    \"variant\": \"Variant\",\n    \"description\": \"Description\",\n    \"click_rate\": \"Click Rate\",\n    \"avg_dwell_time\": \"Dwell Time (s)\",\n    \"feedback_positive_rate\": \"Positive Feedback\",\n    \"click_rate_p_value\": \"Click Rate p\",\n    \"dwell_time_p_value\": \"Dwell Time p\",\n    \"feedback_score_p_value\": \"Feedback p\"\n})\n\n# Format for presentation\ndf.set_index(\"Variant\").style.format({\n    \"Click Rate\": \"{:.2%}\",\n    \"Dwell Time (s)\": \"{:.1f}\",\n    \"Positive Feedback\": \"{:.2%}\",\n    \"Click Rate p\": \"{:.2e}\",\n    \"Dwell Time p\": \"{:.2e}\",\n    \"Feedback p\": \"{:.2e}\"\n})\n\n\n\n\n\n\n\n \nDescription\nClick Rate\nDwell Time (s)\nPositive Feedback\nClick Rate p\nDwell Time p\nFeedback p\n\n\nVariant\n \n \n \n \n \n \n \n\n\n\n\nA\nControl – current experience\n45.00%\n32.4\n21.00%\n1.20e-02\n8.90e-02\n4.00e-03\n\n\nB\nTest – improved LLM format\n52.00%\n35.1\n33.00%\n1.00e-03\n8.90e-02\n4.00e-03",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "A/B Test Dashboard – Search UX Evaluation"
+    ]
+  },
+  {
+    "objectID": "posts/A_B Test/index.html#observations",
+    "href": "posts/A_B Test/index.html#observations",
+    "title": "A/B Test Dashboard – Search UX Evaluation",
+    "section": "🔍 Observations",
+    "text": "🔍 Observations\n\nClick Rate improved significantly in the new variant.\nDwell Time showed a small, non-significant increase.\nPositive Feedback rate increased and was statistically significant.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "A/B Test Dashboard – Search UX Evaluation"
+    ]
+  },
+  {
+    "objectID": "posts/A_B Test/index.html#reproducibility",
+    "href": "posts/A_B Test/index.html#reproducibility",
+    "title": "A/B Test Dashboard – Search UX Evaluation",
+    "section": "🛠 Reproducibility",
+    "text": "🛠 Reproducibility\nThe dashboard was built using:\n\nstreamlit, pandas, plotly, scipy\nSupports data uploads in .csv, .xlsx, .parquet, .db\n\nSource code available on GitHub.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "A/B Test Dashboard – Search UX Evaluation"
+    ]
+  },
+  {
+    "objectID": "posts/A_B Test/index.html#future-work",
+    "href": "posts/A_B Test/index.html#future-work",
+    "title": "A/B Test Dashboard – Search UX Evaluation",
+    "section": "📌 Future Work",
+    "text": "📌 Future Work\n\nJSON & API integration for real-time experiment ingestion\nSupport for multiple test variants\nTrend analysis across time windows",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "A/B Test Dashboard – Search UX Evaluation"
     ]
   },
   {
@@ -223,193 +403,46 @@
     ]
   },
   {
-    "objectID": "DynamicHotelPricingOptimization/notebooks/03_PriceElasticityModeling.out.html",
-    "href": "DynamicHotelPricingOptimization/notebooks/03_PriceElasticityModeling.out.html",
-    "title": "🏨 Dynamic Hotel Pricing Optimization",
+    "objectID": "posts/cycles-analysis/index.html",
+    "href": "posts/cycles-analysis/index.html",
+    "title": "Adventure Works Cycles: Cost & Elasticity Analysis",
     "section": "",
-    "text": "Goal: Model how booking demand responds to changes in price, and estimate optimal pricing zones.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\n# Filter to completed bookings only (exclude cancellations)\ndf = df[df['is_canceled'] == 0]\n\ndf.head()\n\n\n\n5 rows × 32 columns"
-  },
-  {
-    "objectID": "DynamicHotelPricingOptimization/notebooks/03_PriceElasticityModeling.out.html#price-elasticity-modeling",
-    "href": "DynamicHotelPricingOptimization/notebooks/03_PriceElasticityModeling.out.html#price-elasticity-modeling",
-    "title": "🏨 Dynamic Hotel Pricing Optimization",
-    "section": "",
-    "text": "Goal: Model how booking demand responds to changes in price, and estimate optimal pricing zones.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\n# Filter to completed bookings only (exclude cancellations)\ndf = df[df['is_canceled'] == 0]\n\ndf.head()\n\n\n\n5 rows × 32 columns"
-  },
-  {
-    "objectID": "DynamicHotelPricingOptimization/notebooks/02_DemandForecasting.out.html",
-    "href": "DynamicHotelPricingOptimization/notebooks/02_DemandForecasting.out.html",
-    "title": "🏨 Dynamic Hotel Pricing Optimization",
-    "section": "",
-    "text": "Goal: Build models to forecast demand (number of bookings) per hotel and date.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\n# Preprocess date columns\ndf['reservation_status_date'] = pd.to_datetime(df['reservation_status_date'])\n\n\n\n\nCode\n# 2️⃣ Aggregate Demand by Date\n\n# Example: total bookings per day\nbookings_by_date = df.groupby('reservation_status_date').size().reset_index(name='bookings')\n\nbookings_by_date.head()"
-  },
-  {
-    "objectID": "DynamicHotelPricingOptimization/notebooks/02_DemandForecasting.out.html#demand-forecasting",
-    "href": "DynamicHotelPricingOptimization/notebooks/02_DemandForecasting.out.html#demand-forecasting",
-    "title": "🏨 Dynamic Hotel Pricing Optimization",
-    "section": "",
-    "text": "Goal: Build models to forecast demand (number of bookings) per hotel and date.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\n# Preprocess date columns\ndf['reservation_status_date'] = pd.to_datetime(df['reservation_status_date'])\n\n\n\n\nCode\n# 2️⃣ Aggregate Demand by Date\n\n# Example: total bookings per day\nbookings_by_date = df.groupby('reservation_status_date').size().reset_index(name='bookings')\n\nbookings_by_date.head()"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Demonstration of practical usage of languages such as:\n\nPython\nPower Query (M language)\nDAX\n\nto analyze and visualize data.\nAnalyzed data is presented mainly with Jupyter Notebook or with Microsoft Power BI, but future visualization may include different solutions."
-  },
-  {
-    "objectID": "DynamicHotelPricingOptimization/notebooks/01_EDA_Dynamic_Hotel_Pricing_Optimization.out.html",
-    "href": "DynamicHotelPricingOptimization/notebooks/01_EDA_Dynamic_Hotel_Pricing_Optimization.out.html",
-    "title": "🏨 Dynamic Hotel Pricing Optimization",
-    "section": "",
-    "text": "Goal: Explore the dataset, understand key patterns and prepare features for modeling.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\ndf.shape\ndf.head()\n\n\n\n5 rows × 32 columns"
-  },
-  {
-    "objectID": "DynamicHotelPricingOptimization/notebooks/01_EDA_Dynamic_Hotel_Pricing_Optimization.out.html#eda---exploratory-data-analysis",
-    "href": "DynamicHotelPricingOptimization/notebooks/01_EDA_Dynamic_Hotel_Pricing_Optimization.out.html#eda---exploratory-data-analysis",
-    "title": "🏨 Dynamic Hotel Pricing Optimization",
-    "section": "",
-    "text": "Goal: Explore the dataset, understand key patterns and prepare features for modeling.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\ndf.shape\ndf.head()\n\n\n\n5 rows × 32 columns"
-  },
-  {
-    "objectID": "DynamicHotelPricingOptimization/notebooks/03_1_PriceElasticityModeling_XGBoost.out.html",
-    "href": "DynamicHotelPricingOptimization/notebooks/03_1_PriceElasticityModeling_XGBoost.out.html",
-    "title": "🏨 Dynamic Hotel Pricing Optimization",
-    "section": "",
-    "text": "Goal: Model complex, non-linear price elasticity using XGBoost.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\n# Filter to completed bookings\ndf = df[df['is_canceled'] == 0]\n\n# Basic feature engineering\ndf['reservation_status_date'] = pd.to_datetime(df['reservation_status_date'])\ndf['day_of_week'] = df['reservation_status_date'].dt.dayofweek\ndf['month'] = df['reservation_status_date'].dt.month\ndf['stay_length'] = df['stays_in_weekend_nights'] + df['stays_in_week_nights']\n\n# Keep useful columns\ndf_model = df[['adr', 'lead_time', 'day_of_week', 'month', 'stay_length', 'market_segment', 'hotel']].copy()\n\n\n\n\nCode\n# 2️⃣ Encode categorical features\n\nfrom sklearn.preprocessing import LabelEncoder\n\ndf_model['market_segment_encoded'] = LabelEncoder().fit_transform(df_model['market_segment'])\ndf_model['hotel_encoded'] = LabelEncoder().fit_transform(df_model['hotel'])\n\n\n\n\nCode\n# 3️⃣ Aggregate Bookings by Price & Features\n\n# Group data → each row will represent (adr, segment, hotel, etc.) → number of bookings\n# You can also do this as a time series → here simple aggregate per combination:\n\nagg_df = df_model.groupby(['adr', 'market_segment_encoded', 'hotel_encoded', 'day_of_week', 'month']) \\\n    .size().reset_index(name='bookings')\n\nagg_df.head()"
-  },
-  {
-    "objectID": "DynamicHotelPricingOptimization/notebooks/03_1_PriceElasticityModeling_XGBoost.out.html#advanced-elasticity-modeling-xgboost-regressor",
-    "href": "DynamicHotelPricingOptimization/notebooks/03_1_PriceElasticityModeling_XGBoost.out.html#advanced-elasticity-modeling-xgboost-regressor",
-    "title": "🏨 Dynamic Hotel Pricing Optimization",
-    "section": "",
-    "text": "Goal: Model complex, non-linear price elasticity using XGBoost.\n\n\nCode\n# 1️⃣ Load Data\nimport pandas as pd\n\ndf = pd.read_csv('../data/raw/hotel_bookings.csv')\n\n# Filter to completed bookings\ndf = df[df['is_canceled'] == 0]\n\n# Basic feature engineering\ndf['reservation_status_date'] = pd.to_datetime(df['reservation_status_date'])\ndf['day_of_week'] = df['reservation_status_date'].dt.dayofweek\ndf['month'] = df['reservation_status_date'].dt.month\ndf['stay_length'] = df['stays_in_weekend_nights'] + df['stays_in_week_nights']\n\n# Keep useful columns\ndf_model = df[['adr', 'lead_time', 'day_of_week', 'month', 'stay_length', 'market_segment', 'hotel']].copy()\n\n\n\n\nCode\n# 2️⃣ Encode categorical features\n\nfrom sklearn.preprocessing import LabelEncoder\n\ndf_model['market_segment_encoded'] = LabelEncoder().fit_transform(df_model['market_segment'])\ndf_model['hotel_encoded'] = LabelEncoder().fit_transform(df_model['hotel'])\n\n\n\n\nCode\n# 3️⃣ Aggregate Bookings by Price & Features\n\n# Group data → each row will represent (adr, segment, hotel, etc.) → number of bookings\n# You can also do this as a time series → here simple aggregate per combination:\n\nagg_df = df_model.groupby(['adr', 'market_segment_encoded', 'hotel_encoded', 'day_of_week', 'month']) \\\n    .size().reset_index(name='bookings')\n\nagg_df.head()"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Atila Madai – Blog",
-    "section": "",
-    "text": "Welcome to my new Quarto blog! 🚀\nHere you’ll find posts about data, agents, automation, and visual storytelling.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nML QA Computer Vision Assessment\n\n\n\nComputer Vision\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 22, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nDynamic Pricing & Demand Analysis Suite\n\n\n\ndata-viz\n\nXGBoost\n\nanalytics\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 16, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nAdventure Works Cycles: Cost & Elasticity Analysis\n\n\n\ndata-viz\n\nanalytics\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 15, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nCOVID-19 Data Analysis\n\n\n\ndata-viz\n\nPower BI\n\n\n\n\n\n\n\n\n\nApr 27, 2020\n\n\nAtila Madai\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts/covid19-analysis/index.html",
-    "href": "posts/covid19-analysis/index.html",
-    "title": "COVID-19 Data Analysis",
-    "section": "",
-    "text": "Presented in Microsoft Power BI using Python and DAX.",
+    "text": "Presented with Jupyter Notebook using Python",
     "crumbs": [
       "Home",
       "Posts",
-      "COVID-19 Data Analysis"
+      "Adventure Works Cycles: Cost & Elasticity Analysis"
     ]
   },
   {
-    "objectID": "posts/covid19-analysis/index.html#covid-19",
-    "href": "posts/covid19-analysis/index.html#covid-19",
-    "title": "COVID-19 Data Analysis",
+    "objectID": "posts/cycles-analysis/index.html#a-data-driven-pricing-demand-story",
+    "href": "posts/cycles-analysis/index.html#a-data-driven-pricing-demand-story",
+    "title": "Adventure Works Cycles: Cost & Elasticity Analysis",
+    "section": "A Data-Driven Pricing & Demand Story",
+    "text": "A Data-Driven Pricing & Demand Story\n\nExecutive Summary\n\nFrance vs. U.S.: Despite only minor price differences (± 6 %), French sales volumes are 90–93 % lower across all categories.\nPrice Elasticity: Accessories and Clothing behave as expected (higher price → lower demand), but Bikes and Components buck the trend—suggesting non-price factors at play.\nSubcategory Signals: “Road Bikes” and “Saddles” show extreme elasticity metrics, driven by tiny price shifts but massive volume gaps—hinting at availability or channel issues.\nModel-Level Noise: At the individual model level, price elasticity calculations become unstable (near-zero price gaps → inflated elasticities), so granular pricing tweaks should be approached cautiously.\n\n\n\nMethodology\n\nData Prep\n\nLoaded Cycles.csv\nCreated TotalFreight = OrderQty × Unit_Freight_Cost\n\nAggregations\n\nCategory: Mean (UnitPrice), sum (OrderQty), sum (TotalFreight) by Sales_Region\nSubcategory & Model: Same pivots, then % differences vs. U.S.\n\nElasticity\nElasticity_{FR vs US} = %ΔQty / %ΔPrice\n– calculated only where % Δ Price ≠ 0.\n\n\n\nCode\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport numpy as np\n\n# Load data\ndf = pd.read_csv(\"Cycles.csv\")\n\n# Show columns\nprint(\"Columns:\", df.columns.tolist())\ndf.head()\n\n\nColumns: ['SalesOrderNumber', 'OrderDate', 'DueDate', 'ShipDate', 'Sales_Person', 'Sales_Region', 'Sales_Province', 'Sales_City', 'Sales_Postal_Code', 'Customer_Code', 'Customer_Name', 'Customer_Region', 'Customer_Province', 'Customer_City', 'Customer_Postal_Code', 'LineItem_Id', 'Product_Category', 'Product_Sub_Category', 'Product_Name', 'Product_Code', 'Unit_Cost', 'UnitPrice', 'UnitPriceDiscount', 'OrderQty', 'Unit_Freight_Cost']\n\n\n\n\n\n\n\n\n\nSalesOrderNumber\nOrderDate\nDueDate\nShipDate\nSales_Person\nSales_Region\nSales_Province\nSales_City\nSales_Postal_Code\nCustomer_Code\n...\nLineItem_Id\nProduct_Category\nProduct_Sub_Category\nProduct_Name\nProduct_Code\nUnit_Cost\nUnitPrice\nUnitPriceDiscount\nOrderQty\nUnit_Freight_Cost\n\n\n\n\n0\nSO43659\n7/1/05\n00:00.0\n00:00.0\nTsvi Reiter\nUnited States\nTennessee\nMemphis\n38103\nAW00029825\n...\n1\nBikes\nMountain Bikes\nMountain-100 Black, 42\nBK-M82B-42\n1898.0944\n3374.99\n0.0\n1\n51.3415\n\n\n1\nSO43659\n7/1/05\n00:00.0\n00:00.0\nTsvi Reiter\nUnited States\nTennessee\nMemphis\n38103\nAW00029825\n...\n2\nBikes\nMountain Bikes\nMountain-100 Black, 44\nBK-M82B-44\n1898.0944\n3374.99\n0.0\n3\n51.3415\n\n\n2\nSO43659\n7/1/05\n00:00.0\n00:00.0\nTsvi Reiter\nUnited States\nTennessee\nMemphis\n38103\nAW00029825\n...\n3\nBikes\nMountain Bikes\nMountain-100 Black, 48\nBK-M82B-48\n1898.0944\n3374.99\n0.0\n1\n51.3415\n\n\n3\nSO43659\n7/1/05\n00:00.0\n00:00.0\nTsvi Reiter\nUnited States\nTennessee\nMemphis\n38103\nAW00029825\n...\n4\nBikes\nMountain Bikes\nMountain-100 Silver, 38\nBK-M82S-38\n1912.1544\n3399.99\n0.0\n1\n51.3415\n\n\n4\nSO43659\n7/1/05\n00:00.0\n00:00.0\nTsvi Reiter\nUnited States\nTennessee\nMemphis\n38103\nAW00029825\n...\n5\nBikes\nMountain Bikes\nMountain-100 Silver, 42\nBK-M82S-42\n1912.1544\n3399.99\n0.0\n1\n51.3415\n\n\n\n\n5 rows × 25 columns\n\n\n\n\n\nCode\n# Category-level pivots\ncat = 'Product_Category'\nunit_cost_cat = df.pivot_table(index=cat, columns='Sales_Region', values='Unit_Cost', aggfunc='mean')\nfreight_cost_col = [c for c in df.columns if 'freight' in c.lower()][0]\nfreight_cost_cat = df.pivot_table(index=cat, columns='Sales_Region', values=freight_cost_col, aggfunc='sum')\nsales_vol_cat = df.pivot_table(index=cat, columns='Sales_Region', values='OrderQty', aggfunc='sum')\n\n# % differences\npct_price_cat = (unit_cost_cat['France'] - unit_cost_cat['United States']) / unit_cost_cat['United States'] * 100\npct_qty_cat = (sales_vol_cat['France'] - sales_vol_cat['United States']) / sales_vol_cat['United States'] * 100\nelasticity_cat = (pct_qty_cat / pct_price_cat).round(2)\n\n# Display tables\nunit_cost_cat, freight_cost_cat, sales_vol_cat, elasticity_cat\n\n\n(Sales_Region          France   Germany  United States\n Product_Category                                     \n Accessories        14.507226       NaN      14.117180\n Bikes             914.798149       NaN     948.374619\n Clothing           26.604215       NaN      25.545950\n Components        235.571009  187.1571     253.391532,\n Sales_Region          France  Germany  United States\n Product_Category                                    \n Accessories        7720.5917      NaN    108212.0911\n Bikes             49393.0802      NaN    769717.7454\n Clothing          20201.2851      NaN    272981.1064\n Components        45525.6095   6.2386    481917.1327,\n Sales_Region      France  Germany  United States\n Product_Category                                \n Accessories       1607.0      NaN        14185.0\n Bikes             3728.0      NaN        49816.0\n Clothing          3471.0      NaN        38280.0\n Components        3247.0      1.0        30690.0,\n Product_Category\n Accessories   -32.09\n Bikes          26.13\n Clothing      -21.95\n Components     12.71\n dtype: float64)\n\n\n\n\nCode\n# Plots\nunit_cost_cat.plot(kind='bar', figsize=(8,4), title='Avg Unit Cost by Region & Category')\nplt.ylabel('Unit Cost')\nplt.show()\n\nsales_vol_cat.plot(kind='bar', figsize=(8,4), title='Total Units Sold by Region & Category')\nplt.ylabel('Units Sold')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\n# Subcategory-level pivots\nsubcat = 'Product_Sub_Category'\nunit_cost_sub = df.pivot_table(index=subcat, columns='Sales_Region', values='Unit_Cost', aggfunc='mean')\nfreight_cost_sub = df.pivot_table(index=subcat, columns='Sales_Region', values=freight_cost_col, aggfunc='sum')\nsales_vol_sub = df.pivot_table(index=subcat, columns='Sales_Region', values='OrderQty', aggfunc='sum')\n\npct_price_sub = (unit_cost_sub['France'] - unit_cost_sub['United States']) / unit_cost_sub['United States'] * 100\npct_qty_sub = (sales_vol_sub['France'] - sales_vol_sub['United States']) / sales_vol_sub['United States'] * 100\nelasticity_sub = (pct_qty_sub / pct_price_sub).round(2)\n\nunit_cost_sub, freight_cost_sub, sales_vol_sub, elasticity_sub\n\n\n(Sales_Region              France   Germany  United States\n Product_Sub_Category                                     \n Bib-Shorts             37.120900       NaN      37.120900\n Bike Racks             48.085714       NaN      47.948718\n Bottles and Cages       2.011099       NaN       1.990584\n Bottom Brackets        42.936647       NaN      44.515716\n Brakes                 50.085829       NaN      49.959204\n Caps                    7.153043       NaN       7.072587\n Chains                  9.548262       NaN       9.495607\n Cleaners                3.138483       NaN       3.171744\n Cranksets             141.866803       NaN     140.717484\n Derailleurs            49.743743       NaN      48.923028\n Forks                  81.846989       NaN      87.409218\n Gloves                 11.626227       NaN      12.444145\n Handlebars             34.024471       NaN      35.821385\n Headsets               46.485822       NaN      43.930120\n Helmets                13.536517       NaN      13.336502\n Hydration Packs        21.734840       NaN      21.725383\n Jerseys                41.838134       NaN      40.568808\n Locks                  10.312500       NaN      10.312500\n Mountain Bikes        916.651389       NaN    1110.486589\n Mountain Frames       375.159127       NaN     432.770967\n Pedals                 28.955336       NaN      29.382142\n Pumps                   8.245900       NaN       8.245900\n Road Bikes            874.122605       NaN     854.381435\n Road Frames           407.991968  187.1571     351.382109\n Saddles                20.328470       NaN      20.386915\n Shorts                 26.889456       NaN      26.622523\n Socks                   3.572444       NaN       3.504293\n Tights                 30.933400       NaN      30.933400\n Tires and Tubes         0.917679       NaN       0.903168\n Touring Bikes         975.665949       NaN     963.680607\n Touring Frames        469.623209       NaN     458.568840\n Vests                  25.207272       NaN      25.173940\n Wheels                 99.259100       NaN      94.149571,\n Sales_Region              France  Germany  United States\n Product_Sub_Category                                    \n Bib-Shorts             1329.7918      NaN     16384.6830\n Bike Racks              745.6513      NaN      6388.7345\n Bottles and Cages       755.9858      NaN      6422.5446\n Bottom Brackets        1423.2917      NaN      6512.7490\n Brakes                 1591.9530      NaN      6189.3530\n Caps                   1421.2127      NaN     29752.2827\n Chains                  950.5269      NaN      3882.1148\n Cleaners                795.2591      NaN      6494.8324\n Cranksets              1525.6982      NaN      7356.8501\n Derailleurs            1602.6915      NaN      6554.5144\n Forks                   316.0508      NaN      4968.5927\n Gloves                 3874.4471      NaN     43783.7782\n Handlebars             3139.5591      NaN     37616.4719\n Headsets                373.9029      NaN      6571.9049\n Helmets                3430.7733      NaN     69106.0461\n Hydration Packs         586.3416      NaN      5118.7592\n Jerseys                5789.9833      NaN     86374.4603\n Locks                   431.9248      NaN      5962.8522\n Mountain Bikes         9408.1536      NaN    282830.7588\n Mountain Frames        8028.0800      NaN    138368.8863\n Pedals                 3723.3697      NaN     31979.5780\n Pumps                   507.6579      NaN      6266.4814\n Road Bikes            20912.6723      NaN    392086.8802\n Road Frames           11186.3243   6.2386    123448.1805\n Saddles                2448.9120      NaN     17432.8305\n Shorts                 3143.5634      NaN     29859.3489\n Socks                  1418.8909      NaN     32839.0750\n Tights                 1557.6650      NaN     21110.3864\n Tires and Tubes         466.9979      NaN      2451.8407\n Touring Bikes         19072.2543      NaN     94800.1064\n Touring Frames         6235.1344      NaN     38453.6253\n Vests                  1665.7309      NaN     12877.0919\n Wheels                 2980.1150      NaN     52581.4813,\n Sales_Region          France  Germany  United States\n Product_Sub_Category                                \n Bib-Shorts             147.0      NaN         1984.0\n Bike Racks             256.0      NaN         1360.0\n Bottles and Cages      191.0      NaN         1288.0\n Bottom Brackets         77.0      NaN          500.0\n Brakes                 113.0      NaN          540.0\n Caps                   267.0      NaN         3546.0\n Chains                  99.0      NaN          413.0\n Cleaners               181.0      NaN         1219.0\n Cranksets              130.0      NaN          583.0\n Derailleurs            139.0      NaN          568.0\n Forks                   40.0      NaN          415.0\n Gloves                 632.0      NaN         7007.0\n Handlebars             220.0      NaN         2549.0\n Headsets                40.0      NaN          672.0\n Helmets                649.0      NaN         7642.0\n Hydration Packs        150.0      NaN          937.0\n Jerseys               1132.0      NaN        10689.0\n Locks                   53.0      NaN          684.0\n Mountain Bikes         927.0      NaN        16450.0\n Mountain Frames        775.0      NaN         7628.0\n Pedals                 290.0      NaN         2447.0\n Pumps                   59.0      NaN          719.0\n Road Bikes            1727.0      NaN        27583.0\n Road Frames            669.0      1.0         7757.0\n Saddles                171.0      NaN         1172.0\n Shorts                 533.0      NaN         5507.0\n Socks                   94.0      NaN         3601.0\n Tights                 197.0      NaN         2997.0\n Tires and Tubes         68.0      NaN          336.0\n Touring Bikes         1074.0      NaN         5783.0\n Touring Frames         251.0      NaN         1755.0\n Vests                  469.0      NaN         2949.0\n Wheels                 233.0      NaN         3691.0,\n Product_Sub_Category\n Bib-Shorts              -inf\n Bike Racks           -284.12\n Bottles and Cages     -82.64\n Bottom Brackets        23.85\n Brakes               -311.98\n Caps                  -81.29\n Chains               -137.11\n Cleaners               81.20\n Cranksets             -95.13\n Derailleurs           -45.02\n Forks                  14.20\n Gloves                 13.84\n Handlebars             18.21\n Headsets              -16.17\n Helmets               -61.01\n Hydration Packs     -1929.64\n Jerseys               -28.58\n Locks                   -inf\n Mountain Bikes          5.41\n Mountain Frames         6.75\n Pedals                 60.68\n Pumps                   -inf\n Road Bikes            -40.57\n Road Frames            -5.67\n Saddles               297.93\n Shorts                -90.08\n Socks                 -50.08\n Tights                  -inf\n Tires and Tubes       -49.65\n Touring Bikes         -65.47\n Touring Frames        -35.55\n Vests                -635.14\n Wheels                -17.26\n dtype: float64)\n\n\n\n\nCode\n# Model-level elasticity (top 10 by absolute elasticity)\nmodel = 'Product_Name'\nunit_cost_mod = df.pivot_table(index=model, columns='Sales_Region', values='Unit_Cost', aggfunc='mean')\nsales_vol_mod = df.pivot_table(index=model, columns='Sales_Region', values='OrderQty', aggfunc='sum')\n\npct_price_mod = (unit_cost_mod['France'] - unit_cost_mod['United States']) / unit_cost_mod['United States'] * 100\npct_qty_mod = (sales_vol_mod['France'] - sales_vol_mod['United States']) / sales_vol_mod['United States'] * 100\n# Mask out tiny price differences (&lt;1%)\nmask = pct_price_mod.abs() &gt;= 1.0\nelasticity_mod = (pct_qty_mod / pct_price_mod).round(2)\nelasticity_mod = elasticity_mod.where(mask)                 \\\n                               .replace([np.inf, -np.inf], np.nan) \\\n                               .dropna()\n\n# Top 10 most elastic models\ntop10 = elasticity_mod.abs().sort_values(ascending=False).head(10)\nprint(top10)\n\n\nProduct_Name\nMountain-500 Silver, 48             88.21\nMountain-200 Black, 42              86.16\nRoad-750 Black, 52                  85.32\nWater Bottle - 30 oz.               82.64\nAWC Logo Cap                        81.29\nBike Wash - Dissolver               81.20\nTouring-3000 Yellow, 54             79.64\nTouring-1000 Yellow, 60             78.69\nML Mountain Frame-W - Silver, 40    76.93\nHL Touring Frame - Blue, 54         76.23\ndtype: float64",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Adventure Works Cycles: Cost & Elasticity Analysis"
+    ]
+  },
+  {
+    "objectID": "posts/cycles-analysis/index.html#observations",
+    "href": "posts/cycles-analysis/index.html#observations",
+    "title": "Adventure Works Cycles: Cost & Elasticity Analysis",
+    "section": "Observations",
+    "text": "Observations\n\nCategory-Level Findings\n\n\n\n\n\n\n\n\n\nCategory\nΔ Price (FR vs. US)\nΔ Qty (FR vs. US)\nElasticity\n\n\n\n\nAccessories\n+1.4 %\n–88.7 %\n–61.9\n\n\nBikes\n–6.2 %\n–92.5 %\n14.8\n\n\nClothing\n+5.1 %\n–90.9 %\n–17.9\n\n\nComponents\n–8.8 %\n–89.4 %\n10.2\n\n\n\n\nAccessories & Clothing behave normally: higher price → lower demand (elasticities –62 and –18).\nBikes & Components show positive elasticity (price ↓ → demand ↓), a counter-intuitive signal—implying price isn’t the primary lever in these categories (e.g. limited stock, brand perception, marketing).\n\n\n\nSubcategory Insights\nTop subcategories by FR vs. US elasticity: 1. Road Bikes: 223\n2. Saddles: 209\n3. Pedals: 88\n4. Socks: 58\n5. Bottom Brackets: 20\n\nThese extreme values arise from tiny price gaps (≪ 1 %) but massive volume shortfalls (–94 %), indicating potential distribution, promotion, or catalog discrepancies in France.\n\n\n\nModel-Level Caveat\n\nAt the Product_Name granularity, nearly all models have identical average prices in France vs. the U.S., so the elasticity formula divides by (essentially) zero, producing infinite or unstable values.\n\nLesson: Model-level pricing tweaks require a richer dataset (e.g., time-series price changes or promotional flags) rather than a simple cross-sectional snapshot.\n\n\n\nFreight Patterns\n\nTotal freight spend in France is 90–92 % lower across categories—mirroring the volume drops.\n\nNo freight-cost inefficiencies: per-unit freight in FR ≈ per-unit in US, so logistics costs scale linearly with volume.\n\n\n\nBusiness Implications & Recommendations\n\nPrice Isn’t Everything\n\nFor Bikes & Components, improve availability, marketing, or distribution rather than chasing small price adjustments.\n\n\nFocus on Price-Sensitive Categories\n\nAccessories & Clothing show clear negative elasticity—consider targeted promotions, bundles, or localized pricing in France.\n\n\nAudit Subcategory Gaps\n\nRoad Bikes & Saddles: investigate catalog completeness, brand visibility, and local partnerships.\n\n\nGather Better Model-Level Data\n\nIntroduce A/B price tests or time-series analysis to truly measure demand sensitivity at the SKU level.\n\n\nOptimize Logistics\n\nWith volume so low in France, explore consolidated shipments or regional distribution centers to reduce per-unit freight.\n\n\n\n\nNext Steps\n\nDeeper Qualitative Research: customer surveys or focus groups in France to understand non-price barriers.\n\nMarketing Experiments: small price changes on Accessories/Clothing to validate elasticity estimates.\n\nData Enrichment: append promotional flags, competitor pricing, or time stamps to enable robust SKU-level elasticity models.\n\nOperational Review: partner with logistics to evaluate regional freight strategies and warehousing options.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Adventure Works Cycles: Cost & Elasticity Analysis"
+    ]
+  },
+  {
+    "objectID": "tags.html",
+    "href": "tags.html",
+    "title": "Tags",
     "section": "",
-    "text": "Presented in Microsoft Power BI using Python and DAX.",
-    "crumbs": [
-      "Home",
-      "Posts",
-      "COVID-19 Data Analysis"
-    ]
-  },
-  {
-    "objectID": "posts/Dynamic Hotel Pricing Optimization/index.html",
-    "href": "posts/Dynamic Hotel Pricing Optimization/index.html",
-    "title": "Dynamic Pricing & Demand Analysis Suite",
-    "section": "",
-    "text": "This project explores how to build a trading floor-inspired, real-time dynamic pricing engine for hotel inventory.\nThe system leverages: - Advanced demand forecasting models - Price elasticity modeling under competition - Revenue optimization via mathematical and ML-based methods - Real-time simulation and visualization for business impact assessment\n\n\n\n\nThe global hotel market exceeds $1.3 trillion, with increasing adoption of dynamic pricing by major hotel chains and OTAs.\nBuilding a flexible, API-first, ML-driven pricing engine represents a major opportunity both for industry players and as a standalone service offering.\nInspired by companies building real-time, data-driven marketplaces, this project demonstrates how such a system can be designed and implemented for the travel and hospitality sector.\n\n\n\n\nDynamicHotelPricingOptimization/\n├── data/                      # Raw and processed data\n├── notebooks/                 # Jupyter notebooks with modeling and results\n├── src/                       # Python scripts for core functionality\n├── reports/                   # Generated visualizations and slides\n└── tests/                     # (Optional) unit tests\n\n\n\n\n\n\n#bash #pip install -r requirements.txt #\n\n\n\n\nPython 3.9+\nJupyter Notebook or Databricks\nGitHub for versioning\n\n\n\n\n\n\n✅ Initial EDA and feature engineering\n✅ Demand forecasting\n✅ Price elasticity modeling\n✅ Revenue optimization loop\n✅ Simulation and dashboarding\n\n\n\n\nAtila Madai\nThis Article is in development\n\nThis post combines four related notebooks exploring dynamic pricing and demand analytics:\n\nEDA: Dynamic Hotel Pricing Optimization\n\nDemand Forecasting\n\nPrice Elasticity Modeling\n\nPrice Elasticity Modeling with XGBoost",
-    "crumbs": [
-      "Home",
-      "Posts",
-      "Dynamic Pricing & Demand Analysis Suite"
-    ]
-  },
-  {
-    "objectID": "posts/Dynamic Hotel Pricing Optimization/index.html#eda---exploratory-data-analysis",
-    "href": "posts/Dynamic Hotel Pricing Optimization/index.html#eda---exploratory-data-analysis",
-    "title": "Dynamic Pricing & Demand Analysis Suite",
-    "section": "📊 01_EDA - Exploratory Data Analysis",
-    "text": "📊 01_EDA - Exploratory Data Analysis\nGoal: Explore the dataset, understand key patterns and prepare features for modeling.\n\n\n\n\n\n\n\n\n\nhotel\nis_canceled\nlead_time\narrival_date_year\narrival_date_month\narrival_date_week_number\narrival_date_day_of_month\nstays_in_weekend_nights\nstays_in_week_nights\nadults\n...\ndeposit_type\nagent\ncompany\ndays_in_waiting_list\ncustomer_type\nadr\nrequired_car_parking_spaces\ntotal_of_special_requests\nreservation_status\nreservation_status_date\n\n\n\n\n0\nResort Hotel\n0\n342\n2015\nJuly\n27\n1\n0\n0\n2\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n0.0\n0\n0\nCheck-Out\n2015-07-01\n\n\n1\nResort Hotel\n0\n737\n2015\nJuly\n27\n1\n0\n0\n2\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n0.0\n0\n0\nCheck-Out\n2015-07-01\n\n\n2\nResort Hotel\n0\n7\n2015\nJuly\n27\n1\n0\n1\n1\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n75.0\n0\n0\nCheck-Out\n2015-07-02\n\n\n3\nResort Hotel\n0\n13\n2015\nJuly\n27\n1\n0\n1\n1\n...\nNo Deposit\n304.0\nNaN\n0\nTransient\n75.0\n0\n0\nCheck-Out\n2015-07-02\n\n\n4\nResort Hotel\n0\n14\n2015\nJuly\n27\n1\n0\n2\n2\n...\nNo Deposit\n240.0\nNaN\n0\nTransient\n98.0\n0\n1\nCheck-Out\n2015-07-03\n\n\n\n\n5 rows × 32 columns\n\n\n\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 119390 entries, 0 to 119389\nData columns (total 32 columns):\n #   Column                          Non-Null Count   Dtype  \n---  ------                          --------------   -----  \n 0   hotel                           119390 non-null  object \n 1   is_canceled                     119390 non-null  int64  \n 2   lead_time                       119390 non-null  int64  \n 3   arrival_date_year               119390 non-null  int64  \n 4   arrival_date_month              119390 non-null  object \n 5   arrival_date_week_number        119390 non-null  int64  \n 6   arrival_date_day_of_month       119390 non-null  int64  \n 7   stays_in_weekend_nights         119390 non-null  int64  \n 8   stays_in_week_nights            119390 non-null  int64  \n 9   adults                          119390 non-null  int64  \n 10  children                        119386 non-null  float64\n 11  babies                          119390 non-null  int64  \n 12  meal                            119390 non-null  object \n 13  country                         118902 non-null  object \n 14  market_segment                  119390 non-null  object \n 15  distribution_channel            119390 non-null  object \n 16  is_repeated_guest               119390 non-null  int64  \n 17  previous_cancellations          119390 non-null  int64  \n 18  previous_bookings_not_canceled  119390 non-null  int64  \n 19  reserved_room_type              119390 non-null  object \n 20  assigned_room_type              119390 non-null  object \n 21  booking_changes                 119390 non-null  int64  \n 22  deposit_type                    119390 non-null  object \n 23  agent                           103050 non-null  float64\n 24  company                         6797 non-null    float64\n 25  days_in_waiting_list            119390 non-null  int64  \n 26  customer_type                   119390 non-null  object \n 27  adr                             119390 non-null  float64\n 28  required_car_parking_spaces     119390 non-null  int64  \n 29  total_of_special_requests       119390 non-null  int64  \n 30  reservation_status              119390 non-null  object \n 31  reservation_status_date         119390 non-null  object \ndtypes: float64(4), int64(16), object(12)\nmemory usage: 29.1+ MB\n\n\n\n\n\n\n\n\n\nis_canceled\nlead_time\narrival_date_year\narrival_date_week_number\narrival_date_day_of_month\nstays_in_weekend_nights\nstays_in_week_nights\nadults\nchildren\nbabies\nis_repeated_guest\nprevious_cancellations\nprevious_bookings_not_canceled\nbooking_changes\nagent\ncompany\ndays_in_waiting_list\nadr\nrequired_car_parking_spaces\ntotal_of_special_requests\n\n\n\n\ncount\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119386.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n103050.000000\n6797.000000\n119390.000000\n119390.000000\n119390.000000\n119390.000000\n\n\nmean\n0.370416\n104.011416\n2016.156554\n27.165173\n15.798241\n0.927599\n2.500302\n1.856403\n0.103890\n0.007949\n0.031912\n0.087118\n0.137097\n0.221124\n86.693382\n189.266735\n2.321149\n101.831122\n0.062518\n0.571363\n\n\nstd\n0.482918\n106.863097\n0.707476\n13.605138\n8.780829\n0.998613\n1.908286\n0.579261\n0.398561\n0.097436\n0.175767\n0.844336\n1.497437\n0.652306\n110.774548\n131.655015\n17.594721\n50.535790\n0.245291\n0.792798\n\n\nmin\n0.000000\n0.000000\n2015.000000\n1.000000\n1.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n1.000000\n6.000000\n0.000000\n-6.380000\n0.000000\n0.000000\n\n\n25%\n0.000000\n18.000000\n2016.000000\n16.000000\n8.000000\n0.000000\n1.000000\n2.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n9.000000\n62.000000\n0.000000\n69.290000\n0.000000\n0.000000\n\n\n50%\n0.000000\n69.000000\n2016.000000\n28.000000\n16.000000\n1.000000\n2.000000\n2.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n14.000000\n179.000000\n0.000000\n94.575000\n0.000000\n0.000000\n\n\n75%\n1.000000\n160.000000\n2017.000000\n38.000000\n23.000000\n2.000000\n3.000000\n2.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n0.000000\n229.000000\n270.000000\n0.000000\n126.000000\n0.000000\n1.000000\n\n\nmax\n1.000000\n737.000000\n2017.000000\n53.000000\n31.000000\n19.000000\n50.000000\n55.000000\n10.000000\n10.000000\n1.000000\n26.000000\n72.000000\n21.000000\n535.000000\n543.000000\n391.000000\n5400.000000\n8.000000\n5.000000\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nstay_length\nlead_time\nbooking_month\nweekday\n\n\n\n\n0\n0\n342\n7\n2\n\n\n1\n0\n737\n7\n2\n\n\n2\n1\n7\n7\n3\n\n\n3\n1\n13\n7\n3\n\n\n4\n2\n14\n7\n4\n\n\n\n\n\n\n\n\n\nCancellation Rate: 37.04%",
-    "crumbs": [
-      "Home",
-      "Posts",
-      "Dynamic Pricing & Demand Analysis Suite"
-    ]
-  },
-  {
-    "objectID": "posts/Dynamic Hotel Pricing Optimization/index.html#demand-forecasting",
-    "href": "posts/Dynamic Hotel Pricing Optimization/index.html#demand-forecasting",
-    "title": "Dynamic Pricing & Demand Analysis Suite",
-    "section": "2. Demand Forecasting",
-    "text": "2. Demand Forecasting",
-    "crumbs": [
-      "Home",
-      "Posts",
-      "Dynamic Pricing & Demand Analysis Suite"
-    ]
-  },
-  {
-    "objectID": "posts/Dynamic Hotel Pricing Optimization/index.html#demand-forecasting-1",
-    "href": "posts/Dynamic Hotel Pricing Optimization/index.html#demand-forecasting-1",
-    "title": "Dynamic Pricing & Demand Analysis Suite",
-    "section": "📈 02_Demand Forecasting",
-    "text": "📈 02_Demand Forecasting\nGoal: Build models to forecast demand (number of bookings) per hotel and date.\n\n\n\n\n\n\n\n\n\nreservation_status_date\nbookings\n\n\n\n\n0\n2014-10-17\n180\n\n\n1\n2014-11-18\n1\n\n\n2\n2015-01-01\n763\n\n\n3\n2015-01-02\n16\n\n\n4\n2015-01-18\n1",
-    "crumbs": [
-      "Home",
-      "Posts",
-      "Dynamic Pricing & Demand Analysis Suite"
-    ]
-  },
-  {
-    "objectID": "posts/Dynamic Hotel Pricing Optimization/index.html#price-elasticity-modeling",
-    "href": "posts/Dynamic Hotel Pricing Optimization/index.html#price-elasticity-modeling",
-    "title": "Dynamic Pricing & Demand Analysis Suite",
-    "section": "3. Price Elasticity Modeling",
-    "text": "3. Price Elasticity Modeling",
-    "crumbs": [
-      "Home",
-      "Posts",
-      "Dynamic Pricing & Demand Analysis Suite"
-    ]
-  },
-  {
-    "objectID": "posts/Dynamic Hotel Pricing Optimization/index.html#price-elasticity-modeling-1",
-    "href": "posts/Dynamic Hotel Pricing Optimization/index.html#price-elasticity-modeling-1",
-    "title": "Dynamic Pricing & Demand Analysis Suite",
-    "section": "📉 03_Price Elasticity Modeling",
-    "text": "📉 03_Price Elasticity Modeling\nGoal: Model how booking demand responds to changes in price, and estimate optimal pricing zones.\n\n\n\n\n\n\n\n\n\nhotel\nis_canceled\nlead_time\narrival_date_year\narrival_date_month\narrival_date_week_number\narrival_date_day_of_month\nstays_in_weekend_nights\nstays_in_week_nights\nadults\n...\ndeposit_type\nagent\ncompany\ndays_in_waiting_list\ncustomer_type\nadr\nrequired_car_parking_spaces\ntotal_of_special_requests\nreservation_status\nreservation_status_date\n\n\n\n\n0\nResort Hotel\n0\n342\n2015\nJuly\n27\n1\n0\n0\n2\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n0.0\n0\n0\nCheck-Out\n2015-07-01\n\n\n1\nResort Hotel\n0\n737\n2015\nJuly\n27\n1\n0\n0\n2\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n0.0\n0\n0\nCheck-Out\n2015-07-01\n\n\n2\nResort Hotel\n0\n7\n2015\nJuly\n27\n1\n0\n1\n1\n...\nNo Deposit\nNaN\nNaN\n0\nTransient\n75.0\n0\n0\nCheck-Out\n2015-07-02\n\n\n3\nResort Hotel\n0\n13\n2015\nJuly\n27\n1\n0\n1\n1\n...\nNo Deposit\n304.0\nNaN\n0\nTransient\n75.0\n0\n0\nCheck-Out\n2015-07-02\n\n\n4\nResort Hotel\n0\n14\n2015\nJuly\n27\n1\n0\n2\n2\n...\nNo Deposit\n240.0\nNaN\n0\nTransient\n98.0\n0\n1\nCheck-Out\n2015-07-03\n\n\n\n\n5 rows × 32 columns\n\n\n\n\n\n\n\n\n\n\n\n\nprice_bucket\nbookings\n\n\n\n\n0\n(0, 50]\n7706\n\n\n1\n(50, 100]\n33972\n\n\n2\n(100, 150]\n21520\n\n\n3\n(150, 200]\n7184\n\n\n4\n(200, 300]\n2848\n\n\n5\n(300, 500]\n187\n\n\n6\n(500, 1000]\n2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                            OLS Regression Results                            \n==============================================================================\nDep. Variable:               bookings   R-squared:                       0.598\nModel:                            OLS   Adj. R-squared:                  0.518\nMethod:                 Least Squares   F-statistic:                     7.441\nDate:                Mon, 09 Jun 2025   Prob (F-statistic):             0.0414\nTime:                        01:51:40   Log-Likelihood:                -14.821\nNo. Observations:                   7   AIC:                             33.64\nDf Residuals:                       5   BIC:                             33.53\nDf Model:                           1                                         \nCovariance Type:            nonrobust                                         \n==============================================================================\n                 coef    std err          t      P&gt;|t|      [0.025      0.975]\n------------------------------------------------------------------------------\nconst         19.5084      4.513      4.323      0.008       7.909      31.108\nprice_mid     -2.3678      0.868     -2.728      0.041      -4.599      -0.137\n==============================================================================\nOmnibus:                          nan   Durbin-Watson:                   1.033\nProb(Omnibus):                    nan   Jarque-Bera (JB):                1.053\nSkew:                          -0.709   Prob(JB):                        0.591\nKurtosis:                       1.734   Cond. No.                         27.0\n==============================================================================\n\nNotes:\n[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.",
-    "crumbs": [
-      "Home",
-      "Posts",
-      "Dynamic Pricing & Demand Analysis Suite"
-    ]
-  },
-  {
-    "objectID": "posts/Dynamic Hotel Pricing Optimization/index.html#price-elasticity-modeling-xgboost",
-    "href": "posts/Dynamic Hotel Pricing Optimization/index.html#price-elasticity-modeling-xgboost",
-    "title": "Dynamic Pricing & Demand Analysis Suite",
-    "section": "4. Price Elasticity Modeling (XGBoost)",
-    "text": "4. Price Elasticity Modeling (XGBoost)",
-    "crumbs": [
-      "Home",
-      "Posts",
-      "Dynamic Pricing & Demand Analysis Suite"
-    ]
-  },
-  {
-    "objectID": "posts/Dynamic Hotel Pricing Optimization/index.html#advanced-elasticity-modeling-xgboost-regressor",
-    "href": "posts/Dynamic Hotel Pricing Optimization/index.html#advanced-elasticity-modeling-xgboost-regressor",
-    "title": "Dynamic Pricing & Demand Analysis Suite",
-    "section": "🚀 Advanced Elasticity Modeling → XGBoost Regressor",
-    "text": "🚀 Advanced Elasticity Modeling → XGBoost Regressor\nGoal: Model complex, non-linear price elasticity using XGBoost.\n\n\n\n\n\n\n\n\n\nadr\nmarket_segment_encoded\nhotel_encoded\nday_of_week\nmonth\nbookings\n\n\n\n\n0\n-6.38\n4\n1\n2\n3\n1\n\n\n1\n0.00\n0\n0\n1\n11\n1\n\n\n2\n0.00\n0\n0\n2\n6\n3\n\n\n3\n0.00\n0\n0\n4\n7\n1\n\n\n4\n0.00\n1\n0\n0\n1\n1\n\n\n\n\n\n\n\n\n\nRMSE: 2.99",
-    "crumbs": [
-      "Home",
-      "Posts",
-      "Dynamic Pricing & Demand Analysis Suite"
-    ]
+    "text": "A/B Test Dashboard – Search UX Evaluation\n\n\n\n\n\n\n\n\nJul 1, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nAdventure Works Cycles: Cost & Elasticity Analysis\n\n\n\n\n\n\n\n\nJun 15, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nCOVID-19 Data Analysis\n\n\n\n\n\n\n\n\nApr 27, 2020\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nDynamic Pricing & Demand Analysis Suite\n\n\n\n\n\n\n\n\nJun 16, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nML QA Computer Vision Assessment\n\n\n\n\n\n\n\n\nJun 22, 2025\n\n\nAtila Madai\n\n\n\n\n\nNo matching items"
   }
 ]

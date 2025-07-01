@@ -1,0 +1,3 @@
+variant,description,click_rate,avg_dwell_time,feedback_positive_rate,click_rate_p_value,dwell_time_p_value,feedback_score_p_value
+A,Control – current experience,0.45,32.4,0.21,0.012,0.089,0.004
+B,Test – improved LLM format,0.52,35.1,0.33,0.001,0.089,0.004
