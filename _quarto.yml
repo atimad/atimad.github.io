@@ -2,7 +2,7 @@ project:
   type: website
   output-dir: docs
   resources:
-    - _notebooks/         # or wherever your post-level images actually are
+    - _notebooks/dynamichotelpricingoptimization       # or wherever your post-level images actually are
 
 execute:
   freeze: true
