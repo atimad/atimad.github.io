@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Atila Madai">
-<meta name="dcterms.date" content="2025-07-01">
 
-<title>A/B Test Dashboard – Search UX Evaluation – Atila Madai</title>
+<title>🏨 Dynamic Hotel Pricing Optimization – Atila Madai</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -327,7 +325,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/A_B Test/index.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/A_B Test/index.html">A/B Test Dashboard – Search UX Evaluation</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">🏨 Dynamic Hotel Pricing Optimization</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -361,7 +359,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/A_B Test/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../posts/A_B Test/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">A/B Test Dashboard – Search UX Evaluation</span></a>
   </div>
 </li>
@@ -393,55 +391,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
     </ul>
     </div>
-    <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">🧪 Overview</a></li>
-  <li><a href="#interactive-dashboard" id="toc-interactive-dashboard" class="nav-link" data-scroll-target="#interactive-dashboard">🔗 Interactive Dashboard</a></li>
-  <li><a href="#experiment-design" id="toc-experiment-design" class="nav-link" data-scroll-target="#experiment-design">🧮 Experiment Design</a></li>
-  <li><a href="#metric-summary" id="toc-metric-summary" class="nav-link" data-scroll-target="#metric-summary">📈 Metric Summary</a></li>
-  <li><a href="#observations" id="toc-observations" class="nav-link" data-scroll-target="#observations">🔍 Observations</a></li>
-  <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link" data-scroll-target="#reproducibility">🛠 Reproducibility</a></li>
-  <li><a href="#future-work" id="toc-future-work" class="nav-link" data-scroll-target="#future-work">📌 Future Work</a></li>
-  </ul>
-</nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#price-elasticity-modeling" id="toc-price-elasticity-modeling" class="nav-link active" data-scroll-target="#price-elasticity-modeling">📉 03_Price Elasticity Modeling</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/A_B Test/index.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/A_B Test/index.html">A/B Test Dashboard – Search UX Evaluation</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">A/B Test Dashboard – Search UX Evaluation</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">A/B Testing</div>
-    <div class="quarto-category">notebook</div>
-    <div class="quarto-category">python</div>
-  </div>
-  </div>
+<h1 class="title">🏨 Dynamic Hotel Pricing Optimization</h1>
+</div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Atila Madai </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">July 1, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -451,151 +426,355 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">🧪 Overview</h2>
-<p>This post summarizes an A/B test comparing two variants of a search experience using real usage logs. The goal was to evaluate:</p>
-<ul>
-<li>Click engagement</li>
-<li>User dwell time</li>
-<li>Positive feedback rate</li>
-</ul>
-<p>The full analysis is available via an interactive dashboard.</p>
-</section>
-<section id="interactive-dashboard" class="level2">
-<h2 class="anchored" data-anchor-id="interactive-dashboard">🔗 Interactive Dashboard</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="https://abtestdashboard-8bfxncyzrn8ksjf7maaqcq.streamlit.app/"><img src="images/ab-dashboard-preview.png" class="img-fluid figure-img"></a></p>
-<figcaption>View Live Dashboard</figcaption>
-</figure>
-</div>
-<blockquote class="blockquote">
-<p>📊 Hosted on Streamlit Cloud. Click above to explore test results interactively.</p>
-</blockquote>
-<hr>
-</section>
-<section id="experiment-design" class="level2">
-<h2 class="anchored" data-anchor-id="experiment-design">🧮 Experiment Design</h2>
-<p>We compared:</p>
-<ul>
-<li><strong>Variant A</strong>: Control – current production layout</li>
-<li><strong>Variant B</strong>: Test – new LLM-enhanced formatting</li>
-</ul>
-<p>Session-level metrics were computed and compared using independent t-tests and Mann–Whitney U tests.</p>
-<hr>
-</section>
-<section id="metric-summary" class="level2">
-<h2 class="anchored" data-anchor-id="metric-summary">📈 Metric Summary</h2>
-<div id="ee7e0cf5" class="cell" data-execution_count="1">
+<section id="price-elasticity-modeling" class="level2">
+<h2 class="anchored" data-anchor-id="price-elasticity-modeling">📉 03_Price Elasticity Modeling</h2>
+<p><strong>Goal:</strong> Model how booking demand responds to changes in price, and estimate optimal pricing zones.</p>
+<div id="cbcfa6f2" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load previously exported summary from the notebook</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"data/metric_summary.csv"</span>)</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1️⃣ Load Data</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../data/raw/hotel_bookings.csv'</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename and organize columns for presentation</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.rename(columns<span class="op">=</span>{</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"variant"</span>: <span class="st">"Variant"</span>,</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"description"</span>: <span class="st">"Description"</span>,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"click_rate"</span>: <span class="st">"Click Rate"</span>,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"avg_dwell_time"</span>: <span class="st">"Dwell Time (s)"</span>,</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"feedback_positive_rate"</span>: <span class="st">"Positive Feedback"</span>,</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"click_rate_p_value"</span>: <span class="st">"Click Rate p"</span>,</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"dwell_time_p_value"</span>: <span class="st">"Dwell Time p"</span>,</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"feedback_score_p_value"</span>: <span class="st">"Feedback p"</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Format for presentation</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>df.set_index(<span class="st">"Variant"</span>).style.<span class="bu">format</span>({</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Click Rate"</span>: <span class="st">"</span><span class="sc">{:.2%}</span><span class="st">"</span>,</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Dwell Time (s)"</span>: <span class="st">"</span><span class="sc">{:.1f}</span><span class="st">"</span>,</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Positive Feedback"</span>: <span class="st">"</span><span class="sc">{:.2%}</span><span class="st">"</span>,</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Click Rate p"</span>: <span class="st">"</span><span class="sc">{:.2e}</span><span class="st">"</span>,</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Dwell Time p"</span>: <span class="st">"</span><span class="sc">{:.2e}</span><span class="st">"</span>,</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Feedback p"</span>: <span class="st">"</span><span class="sc">{:.2e}</span><span class="st">"</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter to completed bookings only (exclude cancellations)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[df[<span class="st">'is_canceled'</span>] <span class="op">==</span> <span class="dv">0</span>]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="1">
-<style type="text/css">
-</style>
+<div>
 
-<table id="T_81ca9" class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
-<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
-<th id="T_81ca9_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Description</th>
-<th id="T_81ca9_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Click Rate</th>
-<th id="T_81ca9_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">Dwell Time (s)</th>
-<th id="T_81ca9_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">Positive Feedback</th>
-<th id="T_81ca9_level0_col4" class="col_heading level0 col4" data-quarto-table-cell-role="th">Click Rate p</th>
-<th id="T_81ca9_level0_col5" class="col_heading level0 col5" data-quarto-table-cell-role="th">Dwell Time p</th>
-<th id="T_81ca9_level0_col6" class="col_heading level0 col6" data-quarto-table-cell-role="th">Feedback p</th>
-</tr>
-<tr class="even">
-<th class="index_name level0" data-quarto-table-cell-role="th">Variant</th>
-<th class="blank col0" data-quarto-table-cell-role="th">&nbsp;</th>
-<th class="blank col1" data-quarto-table-cell-role="th">&nbsp;</th>
-<th class="blank col2" data-quarto-table-cell-role="th">&nbsp;</th>
-<th class="blank col3" data-quarto-table-cell-role="th">&nbsp;</th>
-<th class="blank col4" data-quarto-table-cell-role="th">&nbsp;</th>
-<th class="blank col5" data-quarto-table-cell-role="th">&nbsp;</th>
-<th class="blank col6" data-quarto-table-cell-role="th">&nbsp;</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">hotel</th>
+<th data-quarto-table-cell-role="th">is_canceled</th>
+<th data-quarto-table-cell-role="th">lead_time</th>
+<th data-quarto-table-cell-role="th">arrival_date_year</th>
+<th data-quarto-table-cell-role="th">arrival_date_month</th>
+<th data-quarto-table-cell-role="th">arrival_date_week_number</th>
+<th data-quarto-table-cell-role="th">arrival_date_day_of_month</th>
+<th data-quarto-table-cell-role="th">stays_in_weekend_nights</th>
+<th data-quarto-table-cell-role="th">stays_in_week_nights</th>
+<th data-quarto-table-cell-role="th">adults</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">deposit_type</th>
+<th data-quarto-table-cell-role="th">agent</th>
+<th data-quarto-table-cell-role="th">company</th>
+<th data-quarto-table-cell-role="th">days_in_waiting_list</th>
+<th data-quarto-table-cell-role="th">customer_type</th>
+<th data-quarto-table-cell-role="th">adr</th>
+<th data-quarto-table-cell-role="th">required_car_parking_spaces</th>
+<th data-quarto-table-cell-role="th">total_of_special_requests</th>
+<th data-quarto-table-cell-role="th">reservation_status</th>
+<th data-quarto-table-cell-role="th">reservation_status_date</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_81ca9_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">A</td>
-<td id="T_81ca9_row0_col0" class="data row0 col0">Control – current experience</td>
-<td id="T_81ca9_row0_col1" class="data row0 col1">45.00%</td>
-<td id="T_81ca9_row0_col2" class="data row0 col2">32.4</td>
-<td id="T_81ca9_row0_col3" class="data row0 col3">21.00%</td>
-<td id="T_81ca9_row0_col4" class="data row0 col4">1.20e-02</td>
-<td id="T_81ca9_row0_col5" class="data row0 col5">8.90e-02</td>
-<td id="T_81ca9_row0_col6" class="data row0 col6">4.00e-03</td>
+<td data-quarto-table-cell-role="th">0</td>
+<td>Resort Hotel</td>
+<td>0</td>
+<td>342</td>
+<td>2015</td>
+<td>July</td>
+<td>27</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td>...</td>
+<td>No Deposit</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0</td>
+<td>Transient</td>
+<td>0.0</td>
+<td>0</td>
+<td>0</td>
+<td>Check-Out</td>
+<td>2015-07-01</td>
 </tr>
 <tr class="even">
-<td id="T_81ca9_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">B</td>
-<td id="T_81ca9_row1_col0" class="data row1 col0">Test – improved LLM format</td>
-<td id="T_81ca9_row1_col1" class="data row1 col1">52.00%</td>
-<td id="T_81ca9_row1_col2" class="data row1 col2">35.1</td>
-<td id="T_81ca9_row1_col3" class="data row1 col3">33.00%</td>
-<td id="T_81ca9_row1_col4" class="data row1 col4">1.00e-03</td>
-<td id="T_81ca9_row1_col5" class="data row1 col5">8.90e-02</td>
-<td id="T_81ca9_row1_col6" class="data row1 col6">4.00e-03</td>
+<td data-quarto-table-cell-role="th">1</td>
+<td>Resort Hotel</td>
+<td>0</td>
+<td>737</td>
+<td>2015</td>
+<td>July</td>
+<td>27</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td>...</td>
+<td>No Deposit</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0</td>
+<td>Transient</td>
+<td>0.0</td>
+<td>0</td>
+<td>0</td>
+<td>Check-Out</td>
+<td>2015-07-01</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Resort Hotel</td>
+<td>0</td>
+<td>7</td>
+<td>2015</td>
+<td>July</td>
+<td>27</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>...</td>
+<td>No Deposit</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0</td>
+<td>Transient</td>
+<td>75.0</td>
+<td>0</td>
+<td>0</td>
+<td>Check-Out</td>
+<td>2015-07-02</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Resort Hotel</td>
+<td>0</td>
+<td>13</td>
+<td>2015</td>
+<td>July</td>
+<td>27</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>...</td>
+<td>No Deposit</td>
+<td>304.0</td>
+<td>NaN</td>
+<td>0</td>
+<td>Transient</td>
+<td>75.0</td>
+<td>0</td>
+<td>0</td>
+<td>Check-Out</td>
+<td>2015-07-02</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Resort Hotel</td>
+<td>0</td>
+<td>14</td>
+<td>2015</td>
+<td>July</td>
+<td>27</td>
+<td>1</td>
+<td>0</td>
+<td>2</td>
+<td>2</td>
+<td>...</td>
+<td>No Deposit</td>
+<td>240.0</td>
+<td>NaN</td>
+<td>0</td>
+<td>Transient</td>
+<td>98.0</td>
+<td>0</td>
+<td>1</td>
+<td>Check-Out</td>
+<td>2015-07-03</td>
 </tr>
 </tbody>
 </table>
+
+<p>5 rows × 32 columns</p>
 </div>
 </div>
-<hr>
-</section>
-<section id="observations" class="level2">
-<h2 class="anchored" data-anchor-id="observations">🔍 Observations</h2>
-<ul>
-<li><strong>Click Rate</strong> improved significantly in the new variant.</li>
-<li><strong>Dwell Time</strong> showed a small, non-significant increase.</li>
-<li><strong>Positive Feedback</strong> rate increased and was statistically significant.</li>
-</ul>
-<hr>
-</section>
-<section id="reproducibility" class="level2">
-<h2 class="anchored" data-anchor-id="reproducibility">🛠 Reproducibility</h2>
-<p>The dashboard was built using:</p>
-<ul>
-<li><code>streamlit</code>, <code>pandas</code>, <code>plotly</code>, <code>scipy</code></li>
-<li>Supports data uploads in <code>.csv</code>, <code>.xlsx</code>, <code>.parquet</code>, <code>.db</code></li>
-</ul>
-<p>Source code available on <a href="https://github.com/atimad/ab_test_dashboard">GitHub</a>.</p>
-<hr>
-</section>
-<section id="future-work" class="level2">
-<h2 class="anchored" data-anchor-id="future-work">📌 Future Work</h2>
-<ul>
-<li>JSON &amp; API integration for real-time experiment ingestion</li>
-<li>Support for multiple test variants</li>
-<li>Trend analysis across time windows</li>
-</ul>
+</div>
+<div id="c224a076" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2️⃣ Aggregate Price &amp; Demand</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Group by price buckets → example simple binning</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'price_bucket'</span>] <span class="op">=</span> pd.cut(df[<span class="st">'adr'</span>], bins<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">150</span>, <span class="dv">200</span>, <span class="dv">300</span>, <span class="dv">500</span>, <span class="dv">1000</span>])</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Count bookings per price bucket</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>demand_by_price <span class="op">=</span> df.groupby(<span class="st">'price_bucket'</span>).size().reset_index(name<span class="op">=</span><span class="st">'bookings'</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>demand_by_price</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\atima\AppData\Local\Temp\ipykernel_4156\1096299440.py:7: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  demand_by_price = df.groupby('price_bucket').size().reset_index(name='bookings')</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">price_bucket</th>
+<th data-quarto-table-cell-role="th">bookings</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>(0, 50]</td>
+<td>7706</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>(50, 100]</td>
+<td>33972</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>(100, 150]</td>
+<td>21520</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>(150, 200]</td>
+<td>7184</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>(200, 300]</td>
+<td>2848</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>(300, 500]</td>
+<td>187</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>(500, 1000]</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="561dc583" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3️⃣ Plot Demand vs Price</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Midpoint of each bucket → simple estimate</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>demand_by_price[<span class="st">'price_mid'</span>] <span class="op">=</span> demand_by_price[<span class="st">'price_bucket'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: x.mid)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">6</span>))</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>plt.plot(demand_by_price[<span class="st">'price_mid'</span>], demand_by_price[<span class="st">'bookings'</span>], marker<span class="op">=</span><span class="st">'o'</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Bookings vs Price (Elasticity Curve)'</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Price (Midpoint of Bucket)'</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Number of Bookings'</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="03_PriceElasticityModeling_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="a8323338" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4️⃣ Log-Log Regression (Elasticity Estimate)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare log-log data</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>demand_by_price[<span class="st">'price_mid'</span>] <span class="op">=</span> demand_by_price[<span class="st">'price_mid'</span>].astype(<span class="bu">float</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> np.log(demand_by_price[<span class="st">'price_mid'</span>])</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.log(demand_by_price[<span class="st">'bookings'</span>])</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> sm.add_constant(X)  <span class="co"># add intercept</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> sm.OLS(y, X).fit()</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model.summary())</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Elasticity ≈ slope coefficient → % change in demand per % change in price</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               bookings   R-squared:                       0.598
+Model:                            OLS   Adj. R-squared:                  0.518
+Method:                 Least Squares   F-statistic:                     7.441
+Date:                Mon, 09 Jun 2025   Prob (F-statistic):             0.0414
+Time:                        01:51:40   Log-Likelihood:                -14.821
+No. Observations:                   7   AIC:                             33.64
+Df Residuals:                       5   BIC:                             33.53
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         19.5084      4.513      4.323      0.008       7.909      31.108
+price_mid     -2.3678      0.868     -2.728      0.041      -4.599      -0.137
+==============================================================================
+Omnibus:                          nan   Durbin-Watson:                   1.033
+Prob(Omnibus):                    nan   Jarque-Bera (JB):                1.053
+Skew:                          -0.709   Prob(JB):                        0.591
+Kurtosis:                       1.734   Cond. No.                         27.0
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>c:\GitHub\DynamicHotelPricingOptimization\venv\Lib\site-packages\statsmodels\stats\stattools.py:74: ValueWarning: omni_normtest is not valid with less than 8 observations; 7 samples were given.
+  warn("omni_normtest is not valid with less than 8 observations; %i "</code></pre>
+</div>
+</div>
+<div id="8f0572dc" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5️⃣ Visualize Fitted Elasticity Curve</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> model.predict(X)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">6</span>))</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>plt.scatter(np.log(demand_by_price[<span class="st">'price_mid'</span>]), np.log(demand_by_price[<span class="st">'bookings'</span>]), label<span class="op">=</span><span class="st">'Observed'</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>plt.plot(np.log(demand_by_price[<span class="st">'price_mid'</span>]), y_pred, color<span class="op">=</span><span class="st">'red'</span>, label<span class="op">=</span><span class="st">'Fitted Line'</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Log-Log Elasticity Model'</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'log(Price)'</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'log(Bookings)'</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="03_PriceElasticityModeling_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>
