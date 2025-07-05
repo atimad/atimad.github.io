@@ -462,7 +462,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>demand_by_price</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
-<pre><code>C:\Users\atima\AppData\Local\Temp\ipykernel_4156\1096299440.py:7: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+<pre><code>C:\Users\atima\AppData\Local\Temp\ipykernel_17828\1096299440.py:7: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   demand_by_price = df.groupby('price_bucket').size().reset_index(name='bookings')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -496,7 +496,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="a8323338" class="cell" data-execution_count="5">
+<div id="a8323338" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4️⃣ Log-Log Regression (Elasticity Estimate)</span></span>
@@ -522,8 +522,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 Dep. Variable:               bookings   R-squared:                       0.598
 Model:                            OLS   Adj. R-squared:                  0.518
 Method:                 Least Squares   F-statistic:                     7.441
-Date:                Mon, 09 Jun 2025   Prob (F-statistic):             0.0414
-Time:                        01:51:40   Log-Likelihood:                -14.821
+Date:                Sat, 05 Jul 2025   Prob (F-statistic):             0.0414
+Time:                        20:15:04   Log-Likelihood:                -14.821
 No. Observations:                   7   AIC:                             33.64
 Df Residuals:                       5   BIC:                             33.53
 Df Model:                           1                                         
@@ -544,11 +544,11 @@ Notes:
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>c:\GitHub\DynamicHotelPricingOptimization\venv\Lib\site-packages\statsmodels\stats\stattools.py:74: ValueWarning: omni_normtest is not valid with less than 8 observations; 7 samples were given.
+<pre><code>c:\GitHub\DynamicHotelPricingOptimization\.venv\Lib\site-packages\statsmodels\stats\stattools.py:74: ValueWarning: omni_normtest is not valid with less than 8 observations; 7 samples were given.
   warn("omni_normtest is not valid with less than 8 observations; %i "</code></pre>
 </div>
 </div>
-<div id="8f0572dc" class="cell" data-execution_count="6">
+<div id="8f0572dc" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5️⃣ Visualize Fitted Elasticity Curve</span></span>
