@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Atila Madai – Blog",
+    "title": "Machine Learning and Data Science Blog",
     "section": "",
-    "text": "Welcome to my new Quarto blog! 🚀\nHere you’ll find posts about data, agents, automation, and visual storytelling.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nA/B Test Dashboard – Search UX Evaluation\n\n\n\nA/B Testing\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJul 1, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nML QA Computer Vision Assessment\n\n\n\nComputer Vision\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 22, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nDynamic Pricing & Demand Analysis Suite\n\n\n\ndata-viz\n\nXGBoost\n\nanalytics\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 16, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nAdventure Works Cycles: Cost & Elasticity Analysis\n\n\n\ndata-viz\n\nanalytics\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 15, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nCOVID-19 Data Analysis\n\n\n\ndata-viz\n\nPower BI\n\n\n\n\n\n\n\n\n\nApr 27, 2020\n\n\nAtila Madai\n\n\n\n\n\nNo matching items"
+    "text": "Welcome to my new Quarto blog! 🚀\nHere you’ll find posts about machine learning, data science, automation, and visual storytelling.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nA/B Test Dashboard – Search UX Evaluation\n\n\n\nA/B Testing\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJul 1, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nML QA Computer Vision Assessment\n\n\n\nComputer Vision\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 22, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nDynamic Pricing & Demand Analysis Suite\n\n\n\ndata-viz\n\nXGBoost\n\nanalytics\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 16, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nAdventure Works Cycles: Cost & Elasticity Analysis\n\n\n\ndata-viz\n\nanalytics\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 15, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nCOVID-19 Data Analysis\n\n\n\ndata-viz\n\nPower BI\n\n\n\n\n\n\n\n\n\nApr 27, 2020\n\n\nAtila Madai\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/Dynamic Hotel Pricing Optimization/index.html",
@@ -444,5 +444,12 @@
     "title": "Tags",
     "section": "",
     "text": "A/B Test Dashboard – Search UX Evaluation\n\n\n\n\n\n\n\n\nJul 1, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nAdventure Works Cycles: Cost & Elasticity Analysis\n\n\n\n\n\n\n\n\nJun 15, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nCOVID-19 Data Analysis\n\n\n\n\n\n\n\n\nApr 27, 2020\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nDynamic Pricing & Demand Analysis Suite\n\n\n\n\n\n\n\n\nJun 16, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nML QA Computer Vision Assessment\n\n\n\n\n\n\n\n\nJun 22, 2025\n\n\nAtila Madai\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Demonstration of practical usage of languages such as:\n\nPython\nPower Query (M language)\nDAX\n\nto analyze and visualize data.\nAnalyzed data is presented mainly with Jupyter Notebook or with Microsoft Power BI, but future visualization may include different solutions."
   }
 ]

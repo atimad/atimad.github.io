@@ -1,1 +1,4 @@
 /.quarto/
+.nojekyll
+# Ignore Quarto's build directory
+/quarto-build/

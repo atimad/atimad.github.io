@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://atimad.github.io/index.html</loc>
-    <lastmod>2025-06-14T19:46:13.060Z</lastmod>
+    <lastmod>2025-07-05T12:27:30.168Z</lastmod>
   </url>
   <url>
     <loc>https://atimad.github.io/posts/Dynamic Hotel Pricing Optimization/index.html</loc>
@@ -27,5 +27,9 @@
   <url>
     <loc>https://atimad.github.io/tags.html</loc>
     <lastmod>2025-06-15T10:35:49.043Z</lastmod>
+  </url>
+  <url>
+    <loc>https://atimad.github.io/about.html</loc>
+    <lastmod>2025-06-14T19:53:58.122Z</lastmod>
   </url>
 </urlset>

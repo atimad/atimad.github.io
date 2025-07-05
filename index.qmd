@@ -1,5 +1,7 @@
 ---
-title: "Atila Madai – Blog"
+title: "Machine Learning and Data Science Blog"
+description: "Exploring machine learning, data science, automation, and visual storytelling."
+image: "images/blog-preview.png"  # Path to your preview image (ideal size: 1200x627)
 listing:
   contents: posts     # look in the posts/ folder
   sort: "date desc"   # newest first
@@ -10,4 +12,4 @@ listing:
 
 Welcome to my new Quarto blog! 🚀
 
-Here you’ll find posts about data, agents, automation, and visual storytelling.
+Here you’ll find posts about machine learning, data science, automation, and visual storytelling.
