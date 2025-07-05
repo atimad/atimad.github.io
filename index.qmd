@@ -1,7 +1,7 @@
 ---
 title: "Machine Learning and Data Science Blog"
 description: "Exploring machine learning, data science, automation, and visual storytelling."
-image: https://atimad.github.io/images/blog-preview.jpg  # Path to your preview image (ideal size: 1200x627)
+image: "images/blog-preview.jpg"  # Path to your preview image (ideal size: 1200x627)
 listing:
   contents: posts     # look in the posts/ folder
   sort: "date desc"   # newest first

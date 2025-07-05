@@ -8,6 +8,9 @@ execute:
 website:
   title: "Atila Madai"
   site-url: "https://atimad.github.io"
+  open-graph: true
+  twitter-card: true
+  image: "images/og-ml-portfolio-preview.png"
   drafts:
     - posts/Dynamic Hotel Pricing Optimization/index.qmd
   draft-mode: visible
