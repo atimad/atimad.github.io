@@ -10,7 +10,7 @@ website:
   site-url: "https://atimad.github.io"
   open-graph: true
   twitter-card: true
-  image: "images/og-ml-portfolio-preview.png"
+  image: "images/blog-preview.jpg"  # Path to your preview image (ideal size: 1200x627)
   drafts:
     - posts/Dynamic Hotel Pricing Optimization/index.qmd
   draft-mode: visible
