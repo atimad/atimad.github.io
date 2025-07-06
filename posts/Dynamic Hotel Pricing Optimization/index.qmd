@@ -14,6 +14,7 @@ jupyter:
 
 format:
   html:
+    self-contained: true
     code-fold: true
     toc: true
     toc-location: left
