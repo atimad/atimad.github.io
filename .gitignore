@@ -1,4 +1,4 @@
 /.quarto/
-.nojekyll
 # Ignore Quarto's build directory
 /quarto-build/
+posts/Credit Card Fraud Detection/Data/

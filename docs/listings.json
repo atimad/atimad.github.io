@@ -5,6 +5,7 @@
       "/posts/A_B Test/index.html",
       "/posts/cycles-analysis/index.html",
       "/posts/covid19-analysis/index.html",
+      "/posts/Credit Card Fraud Detection/index.html",
       "/posts/Dynamic Hotel Pricing Optimization/index.html",
       "/posts/Computer Vision/index.html"
     ]
@@ -12,6 +13,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/Credit Card Fraud Detection/index.html",
       "/posts/A_B Test/index.html",
       "/posts/Computer Vision/index.html",
       "/posts/Dynamic Hotel Pricing Optimization/index.html",

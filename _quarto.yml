@@ -2,6 +2,9 @@ project:
   type: website
   output-dir: docs
 
+exclude:
+  - posts/Credit Card Fraud Detection/Data/
+
 execute:
   freeze: true
 

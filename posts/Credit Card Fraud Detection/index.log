@@ -1,0 +1,28 @@
+This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7300 64-bit) (preloaded format=xelatex 2020.2.14)  6 JUL 2025 21:08
+entering extended mode
+**./index.tex
+(index.tex
+LaTeX2e <2020-02-02> patch level 1
+L3 programming layer <2020-02-08>
+
+! LaTeX Error: File `scrartcl.cls' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+<read *> 
+         
+l.11 \usepackage
+                {xcolor}^^M 
+Here is how much of TeX's memory you used:
+ 24 strings out of 414621
+ 403 string characters out of 2911474
+ 243052 words of memory out of 3000000
+ 17220 multiletter control sequences out of 15000+200000
+ 532338 words of font info for 24 fonts, out of 3000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 14i,0n,17p,88b,10s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+No pages of output.

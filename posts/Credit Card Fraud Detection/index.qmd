@@ -5,13 +5,19 @@ date: 2025-07-06
 categories: [fraud-detection, XGBoost, LightGBM, notebook, python]
 tags: [python, notebook, XGBoost, LightGBM, fraud-detection]
 format:
-  html: default
-  pdf: default
-jupyter: python3
+  html:
+    self-contained: true
+    code-fold: true
+    toc: true
+    toc-location: left
+    page-layout: article
+jupyter: fraud-venv
 toc: true
 number-sections: true
 execute:
-  cache: true
+  cache: false
+  eval: true
+  kernel: fraud-venv
 ---
 
 # 📊 Executive Summary: Credit Card Fraud Detection
