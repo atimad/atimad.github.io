@@ -22,8 +22,8 @@ format:
 
 # 2) Freeze existing outputs (don’t re-run):
 execute:
-  freeze: true
-  python: "C:/GitHub/DynamicHotelPricingOptimization/venv/Scripts/python.exe"
+  freeze: false
+  python: "C:/GitHub/DynamicHotelPricingOptimization/.venv/Scripts/python.exe"
 
 ---
 
