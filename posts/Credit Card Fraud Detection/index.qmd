@@ -1,7 +1,7 @@
 ---
 title: "Credit Card Fraud Detection with Resampling and Tree-Based Models"
 author: "Atila Madai"
-date: 2025-07-06
+date: 2025-02-06
 categories: [fraud-detection, XGBoost, LightGBM, notebook, python]
 tags: [python, notebook, XGBoost, LightGBM, fraud-detection]
 format:
@@ -15,6 +15,7 @@ jupyter: fraud-venv
 toc: true
 number-sections: true
 execute:
+  freeze: false
   cache: false
   eval: true
   kernel: fraud-venv
