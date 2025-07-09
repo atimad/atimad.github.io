@@ -6,47 +6,27 @@ categories: [fraud-detection, XGBoost, LightGBM, notebook, python]
 tags: [python, notebook, XGBoost, LightGBM, fraud-detection]
 format:
   html:
-    self-contained: true
+    self-contained: false
     code-fold: true
     toc: true
     toc-location: left
     page-layout: article
-jupyter: fraud-venv
+jupyter: #fraud-venv
+  kernelspec:
+    name: fraud-venv
+    language: python
+    display_name: "Python 3 (fraud-venv)"
 toc: true
 number-sections: true
 execute:
-  freeze: false
+  freeze: true
   cache: false
-  eval: true
+  eval: false
   kernel: fraud-venv
 ---
 
+
 # 📊 Executive Summary: Credit Card Fraud Detection
-# 🧱 Utility Functions for Reusability
-
-```python
-def train_with_resampler(model, X_train, y_train, sampler):
-    X_res, y_res = sampler.fit_resample(X_train, y_train)
-    model.fit(X_res, y_res)
-    return model
-
-def evaluate_model_plotly(model, X_test, y_test):
-    y_pred = model.predict(X_test)
-    y_proba = model.predict_proba(X_test)[:, 1]
-    prc_auc = average_precision_score(y_test, y_proba)
-    f1 = f1_score(y_test, y_pred)
-
-    print("Classification Report:\n", classification_report(y_test, y_pred))
-    print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
-    print(f"F1 Score: {f1:.4f}, AUPRC: {prc_auc:.4f}")
-
-    precision, recall, _ = precision_recall_curve(y_test, y_proba)
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(x=recall, y=precision, mode='lines', name=f'AUPRC = {prc_auc:.4f}'))
-    fig.update_layout(title='Precision-Recall Curve', xaxis_title='Recall', yaxis_title='Precision')
-    fig.show()
-```
-
 
 This notebook addresses the challenge of detecting fraudulent credit card transactions within an extremely imbalanced dataset (fraud accounts for only 0.17% of cases). Traditional accuracy is misleading in such settings, so we focus on:
 
@@ -64,17 +44,6 @@ This notebook addresses the challenge of detecting fraudulent credit card transa
 | XGBoost (Advanced Tuning)           | 0.32     | 0.75    |
 | LightGBM (Advanced Tuning)          | 0.73     | 0.81    |
 
-
-## 📌 Key Takeaways for Decision-Makers
-
-- Fraud is rare: fewer than 0.2% of transactions are fraudulent.
-- Accuracy is misleading — precision and recall are more appropriate.
-- Tree-based models + SMOTE/SMOTEENN produce the best performance.
-- LightGBM offers a balance of speed and accuracy, ideal for real-time scoring.
-- AUPRC > 0.80 means these models can effectively prioritize fraud investigations.
-- Consider cost-sensitive tuning when false positives carry operational costs.
-
-
 ## ✅ Recommended Approach
 
 - **Best Overall**: `Random Forest + SMOTE`, offering top-tier F1 and AUPRC with minimal tuning.
@@ -89,14 +58,12 @@ This notebook addresses the challenge of detecting fraudulent credit card transa
 
 > This framework is scalable, interpretable, and ready for integration into real-time or batch fraud detection systems.
 
-
-```python
+```{python}
 # Credit Card Fraud Detection - Modeling with Resampling and AUPRC Evaluation
 
 import pandas as pd
 import numpy as np
-import plotly.express as px
-import plotly.graph_objects as go
+import matplotlib.pyplot as plt
 import seaborn as sns
 import sys
 import sklearn
@@ -136,8 +103,8 @@ def evaluate_model(model, X_test, y_test):
     plt.title('Precision-Recall Curve')
     plt.legend()
     plt.grid()
-    
-    
+    plt.show()
+    plt.close()
 
 
 def main():
@@ -283,20 +250,14 @@ def main():
     results.to_csv("model_performance_comparison.csv", index=False)
 
     # Plot comparison
-    
-fig = px.bar(results.melt(id_vars='Model'),
-             x='Model', y='value', color='variable',
-             barmode='group', title='Model Comparison (F1 Score vs AUPRC)',
-             labels={'value': 'Score', 'variable': 'Metric'})
-fig.show()
-
-    
-    
-    
-    
-    
-    
-    
+    results.plot(x='Model', y=['F1 Score', 'AUPRC'], kind='bar', figsize=(10, 6))
+    plt.title('Model Comparison (F1 Score vs AUPRC)')
+    plt.ylabel('Score')
+    plt.grid(axis='y')
+    plt.xticks(rotation=45, ha='right')
+    plt.tight_layout()
+    plt.show()
+    plt.close()
 
     # Version info
     print("\nVersions:")
@@ -349,489 +310,5 @@ Overall, this framework is reproducible and scalable. With minor adaptation, it 
 
 if __name__ == "__main__":
     main()
-
 ```
-
-    Shape: (284807, 31)
-    Class
-    0    0.998273
-    1    0.001727
-    Name: proportion, dtype: float64
-    
-    --- Logistic Regression (Random Undersampling) ---
-    Classification Report:
-                   precision    recall  f1-score   support
-    
-               0       1.00      0.98      0.99     85295
-               1       0.06      0.89      0.12       148
-    
-        accuracy                           0.98     85443
-       macro avg       0.53      0.93      0.55     85443
-    weighted avg       1.00      0.98      0.99     85443
-    
-    Confusion Matrix:
-     [[83379  1916]
-     [   17   131]]
-    F1 Score: 0.1194, AUPRC: 0.6513
-
-
-
-    
-![png](output_1_1.png)
-    
-
-
-    
-    --- Random Forest (SMOTE Oversampling) ---
-    Classification Report:
-                   precision    recall  f1-score   support
-    
-               0       1.00      1.00      1.00     85295
-               1       0.87      0.79      0.83       148
-    
-        accuracy                           1.00     85443
-       macro avg       0.93      0.90      0.91     85443
-    weighted avg       1.00      1.00      1.00     85443
-    
-    Confusion Matrix:
-     [[85277    18]
-     [   31   117]]
-    F1 Score: 0.8269, AUPRC: 0.8289
-
-
-
-    
-![png](output_1_3.png)
-    
-
-
-    c:\GitHub\Credit Card Fraud Detection\fraud-venv\Lib\site-packages\xgboost\training.py:183: UserWarning: [15:47:57] WARNING: C:\actions-runner\_work\xgboost\xgboost\src\learner.cc:738: 
-    Parameters: { "use_label_encoder" } are not used.
-    
-      bst.update(dtrain, iteration=i, fobj=obj)
-    c:\GitHub\Credit Card Fraud Detection\fraud-venv\Lib\site-packages\xgboost\training.py:183: UserWarning: [15:48:01] WARNING: C:\actions-runner\_work\xgboost\xgboost\src\learner.cc:738: 
-    Parameters: { "use_label_encoder" } are not used.
-    
-      bst.update(dtrain, iteration=i, fobj=obj)
-    c:\GitHub\Credit Card Fraud Detection\fraud-venv\Lib\site-packages\xgboost\training.py:183: UserWarning: [15:48:05] WARNING: C:\actions-runner\_work\xgboost\xgboost\src\learner.cc:738: 
-    Parameters: { "use_label_encoder" } are not used.
-    
-      bst.update(dtrain, iteration=i, fobj=obj)
-    c:\GitHub\Credit Card Fraud Detection\fraud-venv\Lib\site-packages\xgboost\training.py:183: UserWarning: [15:48:10] WARNING: C:\actions-runner\_work\xgboost\xgboost\src\learner.cc:738: 
-    Parameters: { "use_label_encoder" } are not used.
-    
-      bst.update(dtrain, iteration=i, fobj=obj)
-    c:\GitHub\Credit Card Fraud Detection\fraud-venv\Lib\site-packages\xgboost\training.py:183: UserWarning: [15:48:15] WARNING: C:\actions-runner\_work\xgboost\xgboost\src\learner.cc:738: 
-    Parameters: { "use_label_encoder" } are not used.
-    
-      bst.update(dtrain, iteration=i, fobj=obj)
-    c:\GitHub\Credit Card Fraud Detection\fraud-venv\Lib\site-packages\xgboost\training.py:183: UserWarning: [15:48:21] WARNING: C:\actions-runner\_work\xgboost\xgboost\src\learner.cc:738: 
-    Parameters: { "use_label_encoder" } are not used.
-    
-      bst.update(dtrain, iteration=i, fobj=obj)
-    c:\GitHub\Credit Card Fraud Detection\fraud-venv\Lib\site-packages\xgboost\training.py:183: UserWarning: [15:48:27] WARNING: C:\actions-runner\_work\xgboost\xgboost\src\learner.cc:738: 
-    Parameters: { "use_label_encoder" } are not used.
-    
-      bst.update(dtrain, iteration=i, fobj=obj)
-    c:\GitHub\Credit Card Fraud Detection\fraud-venv\Lib\site-packages\xgboost\training.py:183: UserWarning: [15:48:31] WARNING: C:\actions-runner\_work\xgboost\xgboost\src\learner.cc:738: 
-    Parameters: { "use_label_encoder" } are not used.
-    
-      bst.update(dtrain, iteration=i, fobj=obj)
-    c:\GitHub\Credit Card Fraud Detection\fraud-venv\Lib\site-packages\xgboost\training.py:183: UserWarning: [15:48:35] WARNING: C:\actions-runner\_work\xgboost\xgboost\src\learner.cc:738: 
-    Parameters: { "use_label_encoder" } are not used.
-    
-      bst.update(dtrain, iteration=i, fobj=obj)
-    c:\GitHub\Credit Card Fraud Detection\fraud-venv\Lib\site-packages\xgboost\training.py:183: UserWarning: [15:48:40] WARNING: C:\actions-runner\_work\xgboost\xgboost\src\learner.cc:738: 
-    Parameters: { "use_label_encoder" } are not used.
-    
-      bst.update(dtrain, iteration=i, fobj=obj)
-    c:\GitHub\Credit Card Fraud Detection\fraud-venv\Lib\site-packages\xgboost\training.py:183: UserWarning: [15:48:48] WARNING: C:\actions-runner\_work\xgboost\xgboost\src\learner.cc:738: 
-    Parameters: { "use_label_encoder" } are not used.
-    
-      bst.update(dtrain, iteration=i, fobj=obj)
-    c:\GitHub\Credit Card Fraud Detection\fraud-venv\Lib\site-packages\xgboost\training.py:183: UserWarning: [15:48:55] WARNING: C:\actions-runner\_work\xgboost\xgboost\src\learner.cc:738: 
-    Parameters: { "use_label_encoder" } are not used.
-    
-      bst.update(dtrain, iteration=i, fobj=obj)
-    c:\GitHub\Credit Card Fraud Detection\fraud-venv\Lib\site-packages\xgboost\training.py:183: UserWarning: [15:49:05] WARNING: C:\actions-runner\_work\xgboost\xgboost\src\learner.cc:738: 
-    Parameters: { "use_label_encoder" } are not used.
-    
-      bst.update(dtrain, iteration=i, fobj=obj)
-    c:\GitHub\Credit Card Fraud Detection\fraud-venv\Lib\site-packages\xgboost\training.py:183: UserWarning: [15:49:09] WARNING: C:\actions-runner\_work\xgboost\xgboost\src\learner.cc:738: 
-    Parameters: { "use_label_encoder" } are not used.
-    
-      bst.update(dtrain, iteration=i, fobj=obj)
-    c:\GitHub\Credit Card Fraud Detection\fraud-venv\Lib\site-packages\xgboost\training.py:183: UserWarning: [15:49:12] WARNING: C:\actions-runner\_work\xgboost\xgboost\src\learner.cc:738: 
-    Parameters: { "use_label_encoder" } are not used.
-    
-      bst.update(dtrain, iteration=i, fobj=obj)
-    c:\GitHub\Credit Card Fraud Detection\fraud-venv\Lib\site-packages\xgboost\training.py:183: UserWarning: [15:49:16] WARNING: C:\actions-runner\_work\xgboost\xgboost\src\learner.cc:738: 
-    Parameters: { "use_label_encoder" } are not used.
-    
-      bst.update(dtrain, iteration=i, fobj=obj)
-    c:\GitHub\Credit Card Fraud Detection\fraud-venv\Lib\site-packages\xgboost\training.py:183: UserWarning: [15:49:21] WARNING: C:\actions-runner\_work\xgboost\xgboost\src\learner.cc:738: 
-    Parameters: { "use_label_encoder" } are not used.
-    
-      bst.update(dtrain, iteration=i, fobj=obj)
-    c:\GitHub\Credit Card Fraud Detection\fraud-venv\Lib\site-packages\xgboost\training.py:183: UserWarning: [15:49:27] WARNING: C:\actions-runner\_work\xgboost\xgboost\src\learner.cc:738: 
-    Parameters: { "use_label_encoder" } are not used.
-    
-      bst.update(dtrain, iteration=i, fobj=obj)
-    c:\GitHub\Credit Card Fraud Detection\fraud-venv\Lib\site-packages\xgboost\training.py:183: UserWarning: [15:49:32] WARNING: C:\actions-runner\_work\xgboost\xgboost\src\learner.cc:738: 
-    Parameters: { "use_label_encoder" } are not used.
-    
-      bst.update(dtrain, iteration=i, fobj=obj)
-    c:\GitHub\Credit Card Fraud Detection\fraud-venv\Lib\site-packages\xgboost\training.py:183: UserWarning: [15:49:37] WARNING: C:\actions-runner\_work\xgboost\xgboost\src\learner.cc:738: 
-    Parameters: { "use_label_encoder" } are not used.
-    
-      bst.update(dtrain, iteration=i, fobj=obj)
-    c:\GitHub\Credit Card Fraud Detection\fraud-venv\Lib\site-packages\xgboost\training.py:183: UserWarning: [15:49:42] WARNING: C:\actions-runner\_work\xgboost\xgboost\src\learner.cc:738: 
-    Parameters: { "use_label_encoder" } are not used.
-    
-      bst.update(dtrain, iteration=i, fobj=obj)
-    c:\GitHub\Credit Card Fraud Detection\fraud-venv\Lib\site-packages\xgboost\training.py:183: UserWarning: [15:49:46] WARNING: C:\actions-runner\_work\xgboost\xgboost\src\learner.cc:738: 
-    Parameters: { "use_label_encoder" } are not used.
-    
-      bst.update(dtrain, iteration=i, fobj=obj)
-    c:\GitHub\Credit Card Fraud Detection\fraud-venv\Lib\site-packages\xgboost\training.py:183: UserWarning: [15:49:54] WARNING: C:\actions-runner\_work\xgboost\xgboost\src\learner.cc:738: 
-    Parameters: { "use_label_encoder" } are not used.
-    
-      bst.update(dtrain, iteration=i, fobj=obj)
-    c:\GitHub\Credit Card Fraud Detection\fraud-venv\Lib\site-packages\xgboost\training.py:183: UserWarning: [15:50:03] WARNING: C:\actions-runner\_work\xgboost\xgboost\src\learner.cc:738: 
-    Parameters: { "use_label_encoder" } are not used.
-    
-      bst.update(dtrain, iteration=i, fobj=obj)
-    c:\GitHub\Credit Card Fraud Detection\fraud-venv\Lib\site-packages\xgboost\training.py:183: UserWarning: [15:50:11] WARNING: C:\actions-runner\_work\xgboost\xgboost\src\learner.cc:738: 
-    Parameters: { "use_label_encoder" } are not used.
-    
-      bst.update(dtrain, iteration=i, fobj=obj)
-
-
-    
-    --- XGBoost (SMOTE + GridSearchCV) ---
-    Classification Report:
-                   precision    recall  f1-score   support
-    
-               0       1.00      1.00      1.00     85295
-               1       0.24      0.84      0.37       148
-    
-        accuracy                           1.00     85443
-       macro avg       0.62      0.92      0.69     85443
-    weighted avg       1.00      1.00      1.00     85443
-    
-    Confusion Matrix:
-     [[84903   392]
-     [   24   124]]
-    F1 Score: 0.3735, AUPRC: 0.8035
-
-
-
-    
-![png](output_1_6.png)
-    
-
-
-    [LightGBM] [Info] Number of positive: 132680, number of negative: 132680
-    [LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.183200 seconds.
-    You can set `force_col_wise=true` to remove the overhead.
-    [LightGBM] [Info] Total Bins 7650
-    [LightGBM] [Info] Number of data points in the train set: 265360, number of used features: 30
-    [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=0.000000
-    [LightGBM] [Info] Number of positive: 132680, number of negative: 132680
-    [LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.087930 seconds.
-    You can set `force_col_wise=true` to remove the overhead.
-    [LightGBM] [Info] Total Bins 7650
-    [LightGBM] [Info] Number of data points in the train set: 265360, number of used features: 30
-    [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=0.000000
-    [LightGBM] [Info] Number of positive: 132680, number of negative: 132680
-    [LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.077803 seconds.
-    You can set `force_col_wise=true` to remove the overhead.
-    [LightGBM] [Info] Total Bins 7650
-    [LightGBM] [Info] Number of data points in the train set: 265360, number of used features: 30
-    [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=0.000000
-    [LightGBM] [Info] Number of positive: 132680, number of negative: 132680
-    [LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.095751 seconds.
-    You can set `force_col_wise=true` to remove the overhead.
-    [LightGBM] [Info] Total Bins 7650
-    [LightGBM] [Info] Number of data points in the train set: 265360, number of used features: 30
-    [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=0.000000
-    [LightGBM] [Info] Number of positive: 132680, number of negative: 132680
-    [LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.091389 seconds.
-    You can set `force_col_wise=true` to remove the overhead.
-    [LightGBM] [Info] Total Bins 7650
-    [LightGBM] [Info] Number of data points in the train set: 265360, number of used features: 30
-    [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=0.000000
-    [LightGBM] [Info] Number of positive: 132680, number of negative: 132680
-    [LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.071623 seconds.
-    You can set `force_col_wise=true` to remove the overhead.
-    [LightGBM] [Info] Total Bins 7650
-    [LightGBM] [Info] Number of data points in the train set: 265360, number of used features: 30
-    [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=0.000000
-    [LightGBM] [Info] Number of positive: 132680, number of negative: 132680
-    [LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.075959 seconds.
-    You can set `force_col_wise=true` to remove the overhead.
-    [LightGBM] [Info] Total Bins 7650
-    [LightGBM] [Info] Number of data points in the train set: 265360, number of used features: 30
-    [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=0.000000
-    [LightGBM] [Info] Number of positive: 132680, number of negative: 132680
-    [LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.067722 seconds.
-    You can set `force_col_wise=true` to remove the overhead.
-    [LightGBM] [Info] Total Bins 7650
-    [LightGBM] [Info] Number of data points in the train set: 265360, number of used features: 30
-    [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=0.000000
-    [LightGBM] [Info] Number of positive: 132680, number of negative: 132680
-    [LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.085132 seconds.
-    You can set `force_col_wise=true` to remove the overhead.
-    [LightGBM] [Info] Total Bins 7650
-    [LightGBM] [Info] Number of data points in the train set: 265360, number of used features: 30
-    [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=0.000000
-    [LightGBM] [Info] Number of positive: 132680, number of negative: 132680
-    [LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.117263 seconds.
-    You can set `force_col_wise=true` to remove the overhead.
-    [LightGBM] [Info] Total Bins 7650
-    [LightGBM] [Info] Number of data points in the train set: 265360, number of used features: 30
-    [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=0.000000
-    [LightGBM] [Info] Number of positive: 132680, number of negative: 132680
-    [LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.104421 seconds.
-    You can set `force_col_wise=true` to remove the overhead.
-    [LightGBM] [Info] Total Bins 7650
-    [LightGBM] [Info] Number of data points in the train set: 265360, number of used features: 30
-    [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=0.000000
-    [LightGBM] [Info] Number of positive: 132680, number of negative: 132680
-    [LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.110206 seconds.
-    You can set `force_col_wise=true` to remove the overhead.
-    [LightGBM] [Info] Total Bins 7650
-    [LightGBM] [Info] Number of data points in the train set: 265360, number of used features: 30
-    [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=0.000000
-    [LightGBM] [Info] Number of positive: 132680, number of negative: 132680
-    [LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.121816 seconds.
-    You can set `force_col_wise=true` to remove the overhead.
-    [LightGBM] [Info] Total Bins 7650
-    [LightGBM] [Info] Number of data points in the train set: 265360, number of used features: 30
-    [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=0.000000
-    [LightGBM] [Info] Number of positive: 132680, number of negative: 132680
-    [LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.095658 seconds.
-    You can set `force_col_wise=true` to remove the overhead.
-    [LightGBM] [Info] Total Bins 7650
-    [LightGBM] [Info] Number of data points in the train set: 265360, number of used features: 30
-    [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=0.000000
-    [LightGBM] [Info] Number of positive: 132680, number of negative: 132680
-    [LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.105283 seconds.
-    You can set `force_col_wise=true` to remove the overhead.
-    [LightGBM] [Info] Total Bins 7650
-    [LightGBM] [Info] Number of data points in the train set: 265360, number of used features: 30
-    [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=0.000000
-    [LightGBM] [Info] Number of positive: 132680, number of negative: 132680
-    [LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.080010 seconds.
-    You can set `force_col_wise=true` to remove the overhead.
-    [LightGBM] [Info] Total Bins 7650
-    [LightGBM] [Info] Number of data points in the train set: 265360, number of used features: 30
-    [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=0.000000
-    [LightGBM] [Info] Number of positive: 132680, number of negative: 132680
-    [LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.084502 seconds.
-    You can set `force_col_wise=true` to remove the overhead.
-    [LightGBM] [Info] Total Bins 7650
-    [LightGBM] [Info] Number of data points in the train set: 265360, number of used features: 30
-    [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=0.000000
-    [LightGBM] [Info] Number of positive: 132680, number of negative: 132680
-    [LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.091645 seconds.
-    You can set `force_col_wise=true` to remove the overhead.
-    [LightGBM] [Info] Total Bins 7650
-    [LightGBM] [Info] Number of data points in the train set: 265360, number of used features: 30
-    [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=0.000000
-    [LightGBM] [Info] Number of positive: 132680, number of negative: 132680
-    [LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.084893 seconds.
-    You can set `force_col_wise=true` to remove the overhead.
-    [LightGBM] [Info] Total Bins 7650
-    [LightGBM] [Info] Number of data points in the train set: 265360, number of used features: 30
-    [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=0.000000
-    [LightGBM] [Info] Number of positive: 132680, number of negative: 132680
-    [LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.073483 seconds.
-    You can set `force_col_wise=true` to remove the overhead.
-    [LightGBM] [Info] Total Bins 7650
-    [LightGBM] [Info] Number of data points in the train set: 265360, number of used features: 30
-    [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=0.000000
-    [LightGBM] [Info] Number of positive: 132680, number of negative: 132680
-    [LightGBM] [Info] Auto-choosing row-wise multi-threading, the overhead of testing was 0.058689 seconds.
-    You can set `force_row_wise=true` to remove the overhead.
-    And if memory is not enough, you can set `force_col_wise=true`.
-    [LightGBM] [Info] Total Bins 7650
-    [LightGBM] [Info] Number of data points in the train set: 265360, number of used features: 30
-    [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=0.000000
-    [LightGBM] [Info] Number of positive: 132680, number of negative: 132680
-    [LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.121968 seconds.
-    You can set `force_col_wise=true` to remove the overhead.
-    [LightGBM] [Info] Total Bins 7650
-    [LightGBM] [Info] Number of data points in the train set: 265360, number of used features: 30
-    [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=0.000000
-    [LightGBM] [Info] Number of positive: 132680, number of negative: 132680
-    [LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.151575 seconds.
-    You can set `force_col_wise=true` to remove the overhead.
-    [LightGBM] [Info] Total Bins 7650
-    [LightGBM] [Info] Number of data points in the train set: 265360, number of used features: 30
-    [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=0.000000
-    [LightGBM] [Info] Number of positive: 132680, number of negative: 132680
-    [LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.105117 seconds.
-    You can set `force_col_wise=true` to remove the overhead.
-    [LightGBM] [Info] Total Bins 7650
-    [LightGBM] [Info] Number of data points in the train set: 265360, number of used features: 30
-    [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=0.000000
-    [LightGBM] [Info] Number of positive: 199020, number of negative: 199020
-    [LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.162789 seconds.
-    You can set `force_col_wise=true` to remove the overhead.
-    [LightGBM] [Info] Total Bins 7650
-    [LightGBM] [Info] Number of data points in the train set: 398040, number of used features: 30
-    [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=0.000000
-    
-    --- LightGBM (SMOTE + GridSearchCV) ---
-    Classification Report:
-                   precision    recall  f1-score   support
-    
-               0       1.00      1.00      1.00     85295
-               1       0.53      0.82      0.64       148
-    
-        accuracy                           1.00     85443
-       macro avg       0.77      0.91      0.82     85443
-    weighted avg       1.00      1.00      1.00     85443
-    
-    Confusion Matrix:
-     [[85188   107]
-     [   27   121]]
-    F1 Score: 0.6436, AUPRC: 0.7712
-
-
-
-    
-![png](output_1_8.png)
-    
-
-
-    
-    Model Comparison:
-                                     Model  F1 Score     AUPRC
-    0  Logistic Regression (Undersampling)  0.119362  0.651290
-    1                Random Forest (SMOTE)  0.826855  0.828907
-    2       XGBoost (SMOTE + GridSearchCV)  0.373494  0.803477
-    3      LightGBM (SMOTE + GridSearchCV)  0.643617  0.771242
-    Fitting 5 folds for each of 96 candidates, totalling 480 fits
-
-
-    c:\GitHub\Credit Card Fraud Detection\fraud-venv\Lib\site-packages\xgboost\training.py:183: UserWarning: [17:40:16] WARNING: C:\actions-runner\_work\xgboost\xgboost\src\learner.cc:738: 
-    Parameters: { "use_label_encoder" } are not used.
-    
-      bst.update(dtrain, iteration=i, fobj=obj)
-
-
-    
-    --- XGBoost (Tuned with SMOTEENN + StratifiedKFold) ---
-    Classification Report:
-                   precision    recall  f1-score   support
-    
-               0       1.00      0.99      1.00     85295
-               1       0.20      0.84      0.32       148
-    
-        accuracy                           0.99     85443
-       macro avg       0.60      0.92      0.66     85443
-    weighted avg       1.00      0.99      1.00     85443
-    
-    Confusion Matrix:
-     [[84803   492]
-     [   24   124]]
-    F1 Score: 0.3246, AUPRC: 0.7540
-
-
-
-    
-![png](output_1_12.png)
-    
-
-
-    Fitting 5 folds for each of 96 candidates, totalling 480 fits
-    [LightGBM] [Info] Number of positive: 199020, number of negative: 198688
-    [LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.138645 seconds.
-    You can set `force_col_wise=true` to remove the overhead.
-    [LightGBM] [Info] Total Bins 7650
-    [LightGBM] [Info] Number of data points in the train set: 397708, number of used features: 30
-    [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=-0.000000
-    [LightGBM] [Info] Start training from score -0.000000
-    
-    --- LightGBM (Tuned with SMOTEENN + StratifiedKFold) ---
-    Classification Report:
-                   precision    recall  f1-score   support
-    
-               0       1.00      1.00      1.00     85295
-               1       0.65      0.83      0.73       148
-    
-        accuracy                           1.00     85443
-       macro avg       0.82      0.92      0.86     85443
-    weighted avg       1.00      1.00      1.00     85443
-    
-    Confusion Matrix:
-     [[85228    67]
-     [   25   123]]
-    F1 Score: 0.7278, AUPRC: 0.8066
-
-
-
-    
-![png](output_1_14.png)
-    
-
-
-
-    
-![png](output_1_15.png)
-    
-
-
-    
-    Versions:
-    Python: 3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]
-    pandas: 2.3.0
-    scikit-learn: 1.6.1
-    imblearn: 0.13.0
-    xgboost: 3.0.2
-    lightgbm: 4.6.0
-    
-    📌 Summary:
-    
-    Model performance varied significantly across techniques:
-    
-    - ✅ Logistic Regression (Undersampling): High recall (0.89) but very low precision (0.06), resulting in an F1 Score of 0.12 and AUPRC of 0.65. It aggressively flags fraud but produces many false positives.
-    
-    - ✅ Random Forest (SMOTE): Best overall performer with 0.83 F1 Score and 0.83 AUPRC. Strong precision (0.87) and recall (0.79), with very few false positives or false negatives.
-    
-    - ✅ XGBoost (SMOTE + GridSearchCV): Surprisingly high recall (0.84) but much lower precision (0.24), likely due to class overlap after SMOTE. F1 Score: 0.37; AUPRC: 0.80.
-    
-    - ✅ LightGBM (SMOTE + GridSearchCV): Balanced results with an F1 Score of 0.76 and AUPRC of 0.78. Slightly lower than Random Forest but significantly faster to train.
-    
-    These findings support the value of SMOTE and tree-based models in handling extreme class imbalance.
-    
-    📈 Final Model Comparison:
-    
-                                     Model  F1 Score     AUPRC
-    0  Logistic Regression (Undersampling)  0.119362  0.651290
-    1                Random Forest (SMOTE)  0.826855  0.828907
-    2       XGBoost (SMOTE + GridSearchCV)  0.373494  0.803477
-    3      LightGBM (SMOTE + GridSearchCV)  0.643617  0.771242
-    4            XGBoost (Advanced Tuning)  0.324607  0.754024
-    5           LightGBM (Advanced Tuning)  0.727811  0.806568
-    
-    In this notebook, we tackled the credit card fraud detection problem using a real, highly imbalanced dataset. By applying resampling techniques (Random Undersampling, SMOTE, and SMOTEENN) and training several classification models, we evaluated their effectiveness using AUPRC and F1-score — metrics more appropriate than accuracy for rare-event classification.
-    
-    From our experiments:
-    - **Tree-based models** (Random Forest, XGBoost, LightGBM) greatly benefit from SMOTE and SMOTEENN.
-    - **LightGBM** gave the best balance of speed and predictive power.
-    - **AUPRC values around 0.80–0.85** in the top models indicate effective fraud separation.
-    
-    ✅ **Implications for Financial Institutions:**
-    
-    In real-world banking environments, these findings support:
-    - **Hybrid modeling pipelines**: Use simple models in real time, complex models asynchronously.
-    - **Alert scoring systems**: Assign fraud probabilities and prioritize investigation.
-    - **Adaptive fraud strategies**: Retrain regularly using feedback loops with human-in-the-loop corrections.
-    - **Cost-sensitive deployment**: Focus on high-precision in high-value transactions to minimize false positives.
-    
-    Overall, this framework is reproducible and scalable. With minor adaptation, it can be integrated into production pipelines for real-time fraud scoring or batch investigation systems.
-    
 
