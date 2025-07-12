@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Atila Madai">
+<meta name="dcterms.date" content="2025-07-12">
+<meta name="description" content="Guide to syncing folders across a primary Linux data science machine, WSL laptop, Windows backup, and MacBook using Syncthing.">
 
-<title>🏨 Dynamic Hotel Pricing Optimization – Atila Madai</title>
+<title>Syncthing Setup: Remote Linux Desktop + WSL + Windows + macOS – Atila Madai</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,7 +61,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -106,19 +109,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../../styles.scss">
-<meta property="og:title" content="🏨 Dynamic Hotel Pricing Optimization – Atila Madai">
-<meta property="og:description" content="">
-<meta property="og:image" content="https://atimad.github.io/DynamicHotelPricingOptimization/notebooks/images/blog-preview.jpg">
+<meta property="og:title" content="Syncthing Setup: Remote Linux Desktop + WSL + Windows + macOS – Atila Madai">
+<meta property="og:description" content="Guide to syncing folders across a primary Linux data science machine, WSL laptop, Windows backup, and MacBook using Syncthing.">
+<meta property="og:image" content="https://atimad.github.io/posts/Syncthing Data Science Friendly/image.jpg">
 <meta property="og:site_name" content="Atila Madai">
-<meta name="twitter:title" content="🏨 Dynamic Hotel Pricing Optimization – Atila Madai">
-<meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://atimad.github.io/DynamicHotelPricingOptimization/notebooks/images/blog-preview.jpg">
+<meta name="twitter:title" content="Syncthing Setup: Remote Linux Desktop + WSL + Windows + macOS – Atila Madai">
+<meta name="twitter:description" content="Guide to syncing folders across a primary Linux data science machine, WSL laptop, Windows backup, and MacBook using Syncthing.">
+<meta name="twitter:image" content="https://atimad.github.io/posts/Syncthing Data Science Friendly/image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -333,7 +333,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">🏨 Dynamic Hotel Pricing Optimization</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/cycles-analysis/index.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/Syncthing Data Science Friendly/index.html">Syncthing Setup: Remote Linux Desktop + WSL + Windows + macOS</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -343,7 +343,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -385,7 +385,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/Syncthing Data Science Friendly/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/Syncthing Data Science Friendly/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Syncthing Setup: Remote Linux Desktop + WSL + Windows + macOS</span></a>
   </div>
 </li>
@@ -419,24 +419,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#demand-forecasting" id="toc-demand-forecasting" class="nav-link active" data-scroll-target="#demand-forecasting">📈 02_Demand Forecasting</a></li>
+  <li><a href="#syncthing-setup-remote-linux-desktop-wsl-windows-macos-data-science-friendly" id="toc-syncthing-setup-remote-linux-desktop-wsl-windows-macos-data-science-friendly" class="nav-link active" data-scroll-target="#syncthing-setup-remote-linux-desktop-wsl-windows-macos-data-science-friendly">📡 Syncthing Setup: Remote Linux Desktop + WSL + Windows + macOS (Data Science Friendly)</a>
+  <ul class="collapse">
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview"><i class="bi bi-info-circle"></i> Overview</a></li>
+  <li><a href="#architecture" id="toc-architecture" class="nav-link" data-scroll-target="#architecture"><i class="bi bi-diagram-3"></i> Architecture</a></li>
+  <li><a href="#part-1-wsl-windows-remote-linux-desktop" id="toc-part-1-wsl-windows-remote-linux-desktop" class="nav-link" data-scroll-target="#part-1-wsl-windows-remote-linux-desktop"><i class="bi bi-laptop"></i> Part 1: WSL + Windows + Remote Linux Desktop</a>
+  <ul class="collapse">
+  <li><a href="#install-syncthing-on-all-machines" id="toc-install-syncthing-on-all-machines" class="nav-link" data-scroll-target="#install-syncthing-on-all-machines">✅ 1. Install Syncthing on All Machines</a></li>
+  <li><a href="#configure-wsl-syncthing-on-a-separate-port" id="toc-configure-wsl-syncthing-on-a-separate-port" class="nav-link" data-scroll-target="#configure-wsl-syncthing-on-a-separate-port">✅ 2. Configure WSL Syncthing on a Separate Port</a></li>
+  <li><a href="#start-syncthing-in-wsl" id="toc-start-syncthing-in-wsl" class="nav-link" data-scroll-target="#start-syncthing-in-wsl">✅ 3. Start Syncthing in WSL</a></li>
+  <li><a href="#pair-devices-across-all-uis" id="toc-pair-devices-across-all-uis" class="nav-link" data-scroll-target="#pair-devices-across-all-uis">✅ 4. Pair Devices Across All UIs</a></li>
+  <li><a href="#sync-shared-folder" id="toc-sync-shared-folder" class="nav-link" data-scroll-target="#sync-shared-folder">✅ 5. Sync Shared Folder</a></li>
+  </ul></li>
+  <li><a href="#part-2-add-macos-macbook-pro" id="toc-part-2-add-macos-macbook-pro" class="nav-link" data-scroll-target="#part-2-add-macos-macbook-pro"><i class="bi bi-apple"></i> Part 2: Add macOS (MacBook Pro)</a>
+  <ul class="collapse">
+  <li><a href="#install-syncthing-on-macos" id="toc-install-syncthing-on-macos" class="nav-link" data-scroll-target="#install-syncthing-on-macos">✅ 1. Install Syncthing on macOS</a></li>
+  <li><a href="#pair-with-remote-linux-wsl-and-windows" id="toc-pair-with-remote-linux-wsl-and-windows" class="nav-link" data-scroll-target="#pair-with-remote-linux-wsl-and-windows">✅ 2. Pair with Remote Linux, WSL, and Windows</a></li>
+  <li><a href="#sync-folder-to-local-dev-path" id="toc-sync-folder-to-local-dev-path" class="nav-link" data-scroll-target="#sync-folder-to-local-dev-path">✅ 3. Sync Folder to Local Dev Path</a></li>
+  </ul></li>
+  <li><a href="#best-practices" id="toc-best-practices" class="nav-link" data-scroll-target="#best-practices"><i class="bi bi-lightbulb"></i> Best Practices</a></li>
+  <li><a href="#recommended-.stignore" id="toc-recommended-.stignore" class="nav-link" data-scroll-target="#recommended-.stignore"><i class="bi bi-slash-circle"></i> Recommended <code>.stignore</code></a></li>
+  <li><a href="#auto-start-wsl-syncthing-optional" id="toc-auto-start-wsl-syncthing-optional" class="nav-link" data-scroll-target="#auto-start-wsl-syncthing-optional"><i class="bi bi-rocket-takeoff"></i> Auto-Start WSL Syncthing (Optional)</a></li>
+  <li><a href="#wsl-auto-deploy-script" id="toc-wsl-auto-deploy-script" class="nav-link" data-scroll-target="#wsl-auto-deploy-script"><i class="bi bi-terminal"></i> WSL Auto-Deploy Script</a></li>
+  <li><a href="#security-notes" id="toc-security-notes" class="nav-link" data-scroll-target="#security-notes"><i class="bi bi-shield-lock"></i> Security Notes</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap"><i class="bi bi-check-circle"></i> Recap</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/cycles-analysis/index.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/Syncthing Data Science Friendly/index.html">Syncthing Setup: Remote Linux Desktop + WSL + Windows + macOS</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">🏨 Dynamic Hotel Pricing Optimization</h1>
+<h1 class="title">Syncthing Setup: Remote Linux Desktop + WSL + Windows + macOS</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">tools</div>
+    <div class="quarto-category">workflow</div>
+    <div class="quarto-category">linux</div>
+    <div class="quarto-category">windows</div>
+    <div class="quarto-category">macos</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Guide to syncing folders across a primary Linux data science machine, WSL laptop, Windows backup, and MacBook using Syncthing.
+  </div>
 </div>
 
 
+<div class="quarto-title-meta column-body">
 
-<div class="quarto-title-meta">
-
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Atila Madai </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 12, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -446,139 +494,239 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="demand-forecasting" class="level2">
-<h2 class="anchored" data-anchor-id="demand-forecasting">📈 02_Demand Forecasting</h2>
-<p><strong>Goal:</strong> Build models to forecast demand (number of bookings) per hotel and date.</p>
-<div id="4997d257" class="cell" data-execution_count="1">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1️⃣ Load Data</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../data/raw/hotel_bookings.csv'</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Preprocess date columns</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'reservation_status_date'</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">'reservation_status_date'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div id="3aa6fef1" class="cell" data-execution_count="2">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2️⃣ Aggregate Demand by Date</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: total bookings per day</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>bookings_by_date <span class="op">=</span> df.groupby(<span class="st">'reservation_status_date'</span>).size().reset_index(name<span class="op">=</span><span class="st">'bookings'</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>bookings_by_date.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-
-</div>
-</div>
-</section></main></div>
-<div id="dfd0245d" class="cell" data-execution_count="3">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3️⃣ Plot Demand Over Time</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>bookings_by_date.set_index(<span class="st">'reservation_status_date'</span>)[<span class="st">'bookings'</span>].plot(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">6</span>))</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Total Bookings Over Time'</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Date'</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Number of Bookings'</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="02_DemandForecasting.out_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="image.jpg" class="img-fluid figure-img"></p>
+<figcaption>Folder Sync Across Devices</figcaption>
 </figure>
 </div>
-</div>
-</div>
-<div id="10b98d8e" class="cell" data-execution_count="4">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4️⃣ Prophet Model</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> prophet <span class="im">import</span> Prophet</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare data for Prophet</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>df_prophet <span class="op">=</span> bookings_by_date.rename(columns<span class="op">=</span>{<span class="st">'reservation_status_date'</span>: <span class="st">'ds'</span>, <span class="st">'bookings'</span>: <span class="st">'y'</span>})</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize model</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> Prophet()</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>m.fit(df_prophet)</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Create future dataframe</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>future <span class="op">=</span> m.make_future_dataframe(periods<span class="op">=</span><span class="dv">60</span>)  <span class="co"># Forecast 60 days ahead</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Forecast</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>forecast <span class="op">=</span> m.predict(future)</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot forecast</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> m.plot(forecast)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>20:13:18 - cmdstanpy - INFO - Chain [1] start processing
-20:13:19 - cmdstanpy - INFO - Chain [1] done processing</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="02_DemandForecasting.out_files/figure-html/cell-5-output-2.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="42ab9849" class="cell" data-execution_count="5">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5️⃣ XGBoost Model (Optional / Advanced)</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Feature engineering for ML model</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>bookings_by_date[<span class="st">'dayofweek'</span>] <span class="op">=</span> bookings_by_date[<span class="st">'reservation_status_date'</span>].dt.dayofweek</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>bookings_by_date[<span class="st">'month'</span>] <span class="op">=</span> bookings_by_date[<span class="st">'reservation_status_date'</span>].dt.month</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>bookings_by_date[<span class="st">'year'</span>] <span class="op">=</span> bookings_by_date[<span class="st">'reservation_status_date'</span>].dt.year</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Define features and target</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> [<span class="st">'dayofweek'</span>, <span class="st">'month'</span>, <span class="st">'year'</span>]</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> bookings_by_date[features]</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> bookings_by_date[<span class="st">'bookings'</span>]</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Split data</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, shuffle<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Train XGBoost model</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> xgboost <span class="im">import</span> XGBRegressor</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> XGBRegressor()</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>model.fit(X_train, y_train)</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> model.predict(X_test)</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot predictions</span></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">6</span>))</span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>plt.plot(y_test.values, label<span class="op">=</span><span class="st">'Actual'</span>)</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>plt.plot(y_pred, label<span class="op">=</span><span class="st">'Predicted'</span>)</span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'XGBoost Demand Forecast - Test Set'</span>)</span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="02_DemandForecasting.out_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
+<section id="syncthing-setup-remote-linux-desktop-wsl-windows-macos-data-science-friendly" class="level1">
+<h1>📡 Syncthing Setup: Remote Linux Desktop + WSL + Windows + macOS (Data Science Friendly)</h1>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview"><i class="bi bi-info-circle"></i> Overview</h2>
+<p>This guide explains how to set up <strong>Syncthing</strong> to automatically sync project folders between:</p>
+<ol type="1">
+<li>A <strong>Remote Linux desktop</strong> (main data science workstation)</li>
+<li>A <strong>WSL (Ubuntu)</strong> environment on a laptop (for light development and portability)</li>
+<li>A <strong>Windows host</strong> (used mainly for backup and access to legacy tools)</li>
+<li>An optional <strong>MacBook Pro</strong> (portable and optimized for Python and Apple Silicon)</li>
+</ol>
+<p>This setup enables seamless, private, real-time synchronization across all machines, allowing for a consistent development experience across environments.</p>
+<hr>
+</section>
+<section id="architecture" class="level2">
+<h2 class="anchored" data-anchor-id="architecture"><i class="bi bi-diagram-3"></i> Architecture</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 42%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Role</th>
+<th>Example Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Remote Linux Desktop</td>
+<td>Primary ML/DS powerhouse</td>
+<td><code>/home/user/projects/GitHub</code></td>
+</tr>
+<tr class="even">
+<td>WSL (Ubuntu)</td>
+<td>Portable lightweight dev environment</td>
+<td><code>/home/user/GitHub</code></td>
+</tr>
+<tr class="odd">
+<td>Windows Host</td>
+<td>Backup/legacy UI tools</td>
+<td><code>D:\GitHub</code></td>
+</tr>
+<tr class="even">
+<td>MacBook Pro</td>
+<td>Mobile DS/EDA notebook dev</td>
+<td><code>/Users/yourname/GitHub</code></td>
+</tr>
+</tbody>
+</table>
+<p>All instances communicate over LAN or internet (encrypted), and changes propagate automatically.</p>
+<hr>
+</section>
+<section id="part-1-wsl-windows-remote-linux-desktop" class="level2">
+<h2 class="anchored" data-anchor-id="part-1-wsl-windows-remote-linux-desktop"><i class="bi bi-laptop"></i> Part 1: WSL + Windows + Remote Linux Desktop</h2>
+<section id="install-syncthing-on-all-machines" class="level3">
+<h3 class="anchored" data-anchor-id="install-syncthing-on-all-machines">✅ 1. Install Syncthing on All Machines</h3>
+<ul>
+<li><a href="https://syncthing.net/downloads">https://syncthing.net/downloads</a></li>
+<li>For WSL: <code>sudo apt install syncthing</code></li>
+<li>For Remote Linux: <code>sudo apt install syncthing</code></li>
+</ul>
+</section>
+<section id="configure-wsl-syncthing-on-a-separate-port" class="level3">
+<h3 class="anchored" data-anchor-id="configure-wsl-syncthing-on-a-separate-port">✅ 2. Configure WSL Syncthing on a Separate Port</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">syncthing</span> <span class="at">-generate</span> ~/.config/syncthing</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> ~/.config/syncthing/config.xml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Change:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">address</span>&gt;127.0.0.1:8384&lt;/<span class="kw">address</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">address</span>&gt;127.0.0.1:8385&lt;/<span class="kw">address</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="start-syncthing-in-wsl" class="level3">
+<h3 class="anchored" data-anchor-id="start-syncthing-in-wsl">✅ 3. Start Syncthing in WSL</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">syncthing</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then open: <code>http://localhost:8385</code> in your Windows browser.</p>
+</section>
+<section id="pair-devices-across-all-uis" class="level3">
+<h3 class="anchored" data-anchor-id="pair-devices-across-all-uis">✅ 4. Pair Devices Across All UIs</h3>
+<ul>
+<li>Open each Syncthing UI: WSL (<code>:8385</code>), Windows (<code>:8384</code>), Linux Desktop (<code>:8384</code>)</li>
+<li>Go to <strong>Actions → Show ID</strong> and <strong>Add Remote Device</strong> for each peer</li>
+<li>Accept incoming requests across all three</li>
+</ul>
+</section>
+<section id="sync-shared-folder" class="level3">
+<h3 class="anchored" data-anchor-id="sync-shared-folder">✅ 5. Sync Shared Folder</h3>
+<ul>
+<li>Share a folder like <code>GitHub</code> from the Linux desktop</li>
+<li>Accept and map the same folder across:
+<ul>
+<li>Windows: <code>D:\GitHub</code></li>
+<li>WSL: <code>/home/user/GitHub</code></li>
+<li>Linux: <code>/home/user/projects/GitHub</code></li>
+</ul></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="part-2-add-macos-macbook-pro" class="level2">
+<h2 class="anchored" data-anchor-id="part-2-add-macos-macbook-pro"><i class="bi bi-apple"></i> Part 2: Add macOS (MacBook Pro)</h2>
+<section id="install-syncthing-on-macos" class="level3">
+<h3 class="anchored" data-anchor-id="install-syncthing-on-macos">✅ 1. Install Syncthing on macOS</h3>
+<p>Use Homebrew:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install syncthing</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Start Syncthing:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">syncthing</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Open the GUI:</p>
+<pre><code>http://localhost:8384</code></pre>
+</section>
+<section id="pair-with-remote-linux-wsl-and-windows" class="level3">
+<h3 class="anchored" data-anchor-id="pair-with-remote-linux-wsl-and-windows">✅ 2. Pair with Remote Linux, WSL, and Windows</h3>
+<ul>
+<li>Copy Mac’s Device ID into the other machines</li>
+<li>Accept incoming requests in the macOS GUI</li>
+</ul>
+</section>
+<section id="sync-folder-to-local-dev-path" class="level3">
+<h3 class="anchored" data-anchor-id="sync-folder-to-local-dev-path">✅ 3. Sync Folder to Local Dev Path</h3>
+<p>On macOS:</p>
+<ul>
+<li>Folder path: <code>/Users/yourname/GitHub</code></li>
+<li>Label: <code>GitHub</code></li>
+<li>Set to sync with all other devices</li>
+</ul>
+<p>Now all systems (Linux, WSL, Windows, MacBook) sync one unified folder.</p>
+<hr>
+</section>
+</section>
+<section id="best-practices" class="level2">
+<h2 class="anchored" data-anchor-id="best-practices"><i class="bi bi-lightbulb"></i> Best Practices</h2>
+<ul>
+<li>Use <code>rsync</code> or <code>git</code> inside folders — Syncthing handles raw files</li>
+<li>Avoid syncing Conda environments or <code>.venv</code></li>
+<li>Use <code>.stignore</code> to exclude unnecessary clutter</li>
+<li>For Mac: avoid syncing folders inside iCloud/Desktop/Documents</li>
+</ul>
+<hr>
+</section>
+<section id="recommended-.stignore" class="level2">
+<h2 class="anchored" data-anchor-id="recommended-.stignore"><i class="bi bi-slash-circle"></i> Recommended <code>.stignore</code></h2>
+<pre class="text"><code># Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Conda and virtual environments
+.env/
+.venv/
+*.conda
+
+# IDEs and Editors
+.vscode/
+.idea/
+
+# OS-specific
+.DS_Store
+Thumbs.db</code></pre>
+<hr>
+</section>
+<section id="auto-start-wsl-syncthing-optional" class="level2">
+<h2 class="anchored" data-anchor-id="auto-start-wsl-syncthing-optional"><i class="bi bi-rocket-takeoff"></i> Auto-Start WSL Syncthing (Optional)</h2>
+<p>In <code>~/.bashrc</code> or <code>~/.zshrc</code>:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pgrep</span> <span class="at">-x</span> syncthing <span class="op">&gt;</span> /dev/null <span class="kw">||</span> <span class="ex">syncthing</span> <span class="at">-no-browser</span> <span class="kw">&amp;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="wsl-auto-deploy-script" class="level2">
+<h2 class="anchored" data-anchor-id="wsl-auto-deploy-script"><i class="bi bi-terminal"></i> WSL Auto-Deploy Script</h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># syncthing-setup.sh</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Usage: ./syncthing-setup.sh "8385" "GitHub" "~/GitHub"</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="va">PORT</span><span class="op">=</span><span class="st">"</span><span class="va">${1</span><span class="op">:-</span>8385<span class="va">}</span><span class="st">"</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="va">LABEL</span><span class="op">=</span><span class="st">"</span><span class="va">${2</span><span class="op">:-</span>GitHub<span class="va">}</span><span class="st">"</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="va">TARGET</span><span class="op">=</span><span class="st">"</span><span class="va">${3</span><span class="op">:-</span><span class="va">$HOME</span>/GitHub<span class="va">}</span><span class="st">"</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="st">"</span><span class="va">$TARGET</span><span class="st">"</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Install Syncthing if missing</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="ot">! </span><span class="bu">command</span> <span class="at">-v</span> syncthing <span class="op">&amp;&gt;</span> /dev/null<span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sudo</span> apt update <span class="kw">&amp;&amp;</span> <span class="fu">sudo</span> apt install syncthing <span class="at">-y</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate config if needed</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="va">CONFIG_DIR</span><span class="op">=</span><span class="st">"</span><span class="va">$HOME</span><span class="st">/.config/syncthing"</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">[</span> <span class="ot">!</span> <span class="ot">-f</span> <span class="st">"</span><span class="va">$CONFIG_DIR</span><span class="st">/config.xml"</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  <span class="ex">syncthing</span> <span class="at">-generate</span> <span class="st">"</span><span class="va">$CONFIG_DIR</span><span class="st">"</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Update port</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">-i</span> <span class="st">"s/&lt;address&gt;127.0.0.1:[0-9]*&lt;\/address&gt;/&lt;address&gt;127.0.0.1:</span><span class="va">$PORT</span><span class="st">&lt;\/address&gt;/"</span> <span class="st">"</span><span class="va">$CONFIG_DIR</span><span class="st">/config.xml"</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Launch Syncthing</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="ex">syncthing</span> <span class="at">-no-browser</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="security-notes" class="level2">
+<h2 class="anchored" data-anchor-id="security-notes"><i class="bi bi-shield-lock"></i> Security Notes</h2>
+<ul>
+<li>All traffic is encrypted end-to-end using TLS</li>
+<li>Devices must explicitly approve each other</li>
+<li>No external servers or cloud dependencies</li>
+</ul>
+<hr>
+</section>
+<section id="recap" class="level2">
+<h2 class="anchored" data-anchor-id="recap"><i class="bi bi-check-circle"></i> Recap</h2>
+<p>You now have:</p>
+<ul>
+<li>✅ Full-folder sync across a remote Linux workstation, WSL dev environment, MacBook, and Windows backup</li>
+<li>✅ A single source of truth across platforms</li>
+<li>✅ Auto-deploy tools and ignore rules for clean data workflows</li>
+</ul>
+<p>This approach simplifies development across platforms, improves reproducibility, and ensures your notebooks, data, and code follow you wherever you work.</p>
+<hr>
+<p>This post is part of a multi-device data science workflow series. See related posts on <a href="#">Tailscale peer-to-peer networking</a>, <a href="#">Quarto multi-platform publishing</a>, and <a href="#">remote VS Code dev environments</a>.</p>
 
 
+</section>
+</section>
 
-
- <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -991,7 +1139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script>
- <!-- /content -->
+</div> <!-- /content -->
 
 
 

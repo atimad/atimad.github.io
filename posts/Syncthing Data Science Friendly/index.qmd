@@ -1,0 +1,240 @@
+---
+title: "Syncthing Setup: Remote Linux Desktop + WSL + Windows + macOS"
+description: "Guide to syncing folders across a primary Linux data science machine, WSL laptop, Windows backup, and MacBook using Syncthing."
+author: "Atila Madai"
+date: "2025-07-12"
+categories: ["tools", "workflow", "linux", "windows", "macos"]
+format:
+  html:
+    toc: true
+    code-fold: true
+    #theme: cosmo
+    page-layout: full
+    df-print: paged
+engine: jupyter
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+![Folder Sync Across Devices](image.jpg)
+
+# 📡 Syncthing Setup: Remote Linux Desktop + WSL + Windows + macOS (Data Science Friendly)
+
+## <i class="bi bi-info-circle"></i> Overview
+
+This guide explains how to set up **Syncthing** to automatically sync project folders between:
+
+1. A **Remote Linux desktop** (main data science workstation)
+2. A **WSL (Ubuntu)** environment on a laptop (for light development and portability)
+3. A **Windows host** (used mainly for backup and access to legacy tools)
+4. An optional **MacBook Pro** (portable and optimized for Python and Apple Silicon)
+
+This setup enables seamless, private, real-time synchronization across all machines, allowing for a consistent development experience across environments.
+
+---
+
+## <i class="bi bi-diagram-3"></i> Architecture
+
+| Component            | Role                                 | Example Path                 |
+| -------------------- | ------------------------------------ | ---------------------------- |
+| Remote Linux Desktop | Primary ML/DS powerhouse             | `/home/user/projects/GitHub` |
+| WSL (Ubuntu)         | Portable lightweight dev environment | `/home/user/GitHub`          |
+| Windows Host         | Backup/legacy UI tools               | `D:\GitHub`                  |
+| MacBook Pro          | Mobile DS/EDA notebook dev           | `/Users/yourname/GitHub`     |
+
+All instances communicate over LAN or internet (encrypted), and changes propagate automatically.
+
+---
+
+## <i class="bi bi-laptop"></i> Part 1: WSL + Windows + Remote Linux Desktop
+
+### ✅ 1. Install Syncthing on All Machines
+
+- [https://syncthing.net/downloads](https://syncthing.net/downloads)
+- For WSL: `sudo apt install syncthing`
+- For Remote Linux: `sudo apt install syncthing`
+
+### ✅ 2. Configure WSL Syncthing on a Separate Port
+
+```bash
+syncthing -generate ~/.config/syncthing
+nano ~/.config/syncthing/config.xml
+```
+
+Change:
+
+```xml
+<address>127.0.0.1:8384</address>
+```
+
+To:
+
+```xml
+<address>127.0.0.1:8385</address>
+```
+
+### ✅ 3. Start Syncthing in WSL
+
+```bash
+syncthing
+```
+
+Then open: `http://localhost:8385` in your Windows browser.
+
+### ✅ 4. Pair Devices Across All UIs
+
+- Open each Syncthing UI: WSL (`:8385`), Windows (`:8384`), Linux Desktop (`:8384`)
+- Go to **Actions → Show ID** and **Add Remote Device** for each peer
+- Accept incoming requests across all three
+
+### ✅ 5. Sync Shared Folder
+
+- Share a folder like `GitHub` from the Linux desktop
+- Accept and map the same folder across:
+  - Windows: `D:\GitHub`
+  - WSL: `/home/user/GitHub`
+  - Linux: `/home/user/projects/GitHub`
+
+---
+
+## <i class="bi bi-apple"></i> Part 2: Add macOS (MacBook Pro)
+
+### ✅ 1. Install Syncthing on macOS
+
+Use Homebrew:
+
+```bash
+brew install syncthing
+```
+
+Start Syncthing:
+
+```bash
+syncthing
+```
+
+Open the GUI:
+
+```
+http://localhost:8384
+```
+
+### ✅ 2. Pair with Remote Linux, WSL, and Windows
+
+- Copy Mac’s Device ID into the other machines
+- Accept incoming requests in the macOS GUI
+
+### ✅ 3. Sync Folder to Local Dev Path
+
+On macOS:
+
+- Folder path: `/Users/yourname/GitHub`
+- Label: `GitHub`
+- Set to sync with all other devices
+
+Now all systems (Linux, WSL, Windows, MacBook) sync one unified folder.
+
+---
+
+## <i class="bi bi-lightbulb"></i> Best Practices
+
+- Use `rsync` or `git` inside folders — Syncthing handles raw files
+- Avoid syncing Conda environments or `.venv`
+- Use `.stignore` to exclude unnecessary clutter
+- For Mac: avoid syncing folders inside iCloud/Desktop/Documents
+
+---
+
+## <i class="bi bi-slash-circle"></i> Recommended `.stignore`
+
+```text
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Conda and virtual environments
+.env/
+.venv/
+*.conda
+
+# IDEs and Editors
+.vscode/
+.idea/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+```
+
+---
+
+## <i class="bi bi-rocket-takeoff"></i> Auto-Start WSL Syncthing (Optional)
+
+In `~/.bashrc` or `~/.zshrc`:
+
+```bash
+pgrep -x syncthing > /dev/null || syncthing -no-browser &
+```
+
+---
+
+## <i class="bi bi-terminal"></i> WSL Auto-Deploy Script
+
+```bash
+#!/bin/bash
+# syncthing-setup.sh
+# Usage: ./syncthing-setup.sh "8385" "GitHub" "~/GitHub"
+
+PORT="${1:-8385}"
+LABEL="${2:-GitHub}"
+TARGET="${3:-$HOME/GitHub}"
+
+mkdir -p "$TARGET"
+
+# Install Syncthing if missing
+if ! command -v syncthing &> /dev/null; then
+  sudo apt update && sudo apt install syncthing -y
+fi
+
+# Generate config if needed
+CONFIG_DIR="$HOME/.config/syncthing"
+if [ ! -f "$CONFIG_DIR/config.xml" ]; then
+  syncthing -generate "$CONFIG_DIR"
+fi
+
+# Update port
+sed -i "s/<address>127.0.0.1:[0-9]*<\/address>/<address>127.0.0.1:$PORT<\/address>/" "$CONFIG_DIR/config.xml"
+
+# Launch Syncthing
+syncthing -no-browser
+```
+
+---
+
+## <i class="bi bi-shield-lock"></i> Security Notes
+
+- All traffic is encrypted end-to-end using TLS
+- Devices must explicitly approve each other
+- No external servers or cloud dependencies
+
+---
+
+## <i class="bi bi-check-circle"></i> Recap
+
+You now have:
+
+- ✅ Full-folder sync across a remote Linux workstation, WSL dev environment, MacBook, and Windows backup
+- ✅ A single source of truth across platforms
+- ✅ Auto-deploy tools and ignore rules for clean data workflows
+
+This approach simplifies development across platforms, improves reproducibility, and ensures your notebooks, data, and code follow you wherever you work.
+
+---
+
+This post is part of a multi-device data science workflow series. See related posts on [Tailscale peer-to-peer networking](#), [Quarto multi-platform publishing](#), and [remote VS Code dev environments](#).
