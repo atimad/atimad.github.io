@@ -2,8 +2,8 @@
 title: "Credit Card Fraud Detection with Resampling and Tree-Based Models"
 author: "Atila Madai"
 date: 2025-02-06
-categories: [fraud-detection, XGBoost, LightGBM, notebook, python]
-tags: [python, notebook, XGBoost, LightGBM, fraud-detection]
+categories: [fraud-detection, XGBoost, LightGBM, CatBoost, notebook, python]
+tags: [python, notebook, XGBoost, LightGBM, CatBoost, fraud-detection]
 format:
   html:
     self-contained: false
@@ -17,298 +17,657 @@ jupyter: #fraud-venv
     language: python
     display_name: "Python 3 (fraud-venv)"
 toc: true
-number-sections: true
+number-sections: false
 execute:
-  freeze: true
+  freeze: false
   cache: false
-  eval: false
+  eval: true
   kernel: fraud-venv
 ---
 
 
-# 📊 Executive Summary: Credit Card Fraud Detection
+This notebook implements a comprehensive fraud detection pipeline using tree-based models, SMOTE for class balancing, and robust evaluation practices.
 
-This notebook addresses the challenge of detecting fraudulent credit card transactions within an extremely imbalanced dataset (fraud accounts for only 0.17% of cases). Traditional accuracy is misleading in such settings, so we focus on:
+It draws inspiration from the principles outlined in the [Fraud Detection Handbook](https://fraud-detection-handbook.github.io/fraud-detection-handbook/Foreword.html), which emphasizes the importance of proper validation, class imbalance handling, and meaningful metrics like AUPRC in high-skew settings like fraud detection.
 
-- **F1 Score**: Balances precision (avoiding false alarms) and recall (catching frauds).
-- **AUPRC (Area Under Precision-Recall Curve)**: Better suited than ROC AUC for rare events, it evaluates ranking quality and early fraud detection performance.
 
-## 🔍 Key Insights
+## Data Preprocessing
 
-| Model                                | F1 Score | AUPRC   |
-|-------------------------------------|----------|---------|
-| Logistic Regression (Undersampling) | 0.12     | 0.65    |
-| Random Forest (SMOTE)               | **0.83** | **0.83**|
-| XGBoost (SMOTE + GridSearchCV)      | 0.37     | 0.80    |
-| LightGBM (SMOTE + GridSearchCV)     | 0.64     | 0.77    |
-| XGBoost (Advanced Tuning)           | 0.32     | 0.75    |
-| LightGBM (Advanced Tuning)          | 0.73     | 0.81    |
+Credit card fraud detection requires careful preprocessing due to the highly skewed nature of the data and the presence of anonymized features.
 
-## ✅ Recommended Approach
+We standardize the `Amount` feature using `StandardScaler` to ensure fair weight distribution across models and drop the `Time` column which does not contribute predictive power in this context.
 
-- **Best Overall**: `Random Forest + SMOTE`, offering top-tier F1 and AUPRC with minimal tuning.
-- **Best Trade-off**: `LightGBM + SMOTEENN`, slightly lower F1 but much faster training and easier deployment.
-- **Caution**: Logistic Regression has high recall but extremely low precision — high false positives.
+This prepares our features for both gradient-boosting models and interpretable models like Logistic Regression.
 
-## 💡 Implications for Deployment
+## Handling Class Imbalance with SMOTE
 
-- Prioritize **SMOTE-based resampling** for addressing class imbalance.
-- Use **tree-based models** for robust performance, especially when combined with oversampling.
-- Leverage **AUPRC** as your primary metric when evaluating rare fraud detection pipelines.
+In highly imbalanced settings (fraud rate < 0.2%), models trained on raw data will often predict only the majority class. To address this:
 
-> This framework is scalable, interpretable, and ready for integration into real-time or batch fraud detection systems.
+- We use **SMOTE (Synthetic Minority Oversampling Technique)** which creates new synthetic minority examples based on feature space similarity.
+- This allows models to generalize better without overfitting.
+- Unlike random oversampling, SMOTE preserves diversity in minority examples.
+
+The Fraud Detection Handbook emphasizes SMOTE as a critical technique in offline evaluation, before temporal or live validation is considered.
+
+## Model Training
+
+We train a series of classifiers on the balanced dataset to compare their performance in a reproducible way.
+
+Key models explored:
+- **XGBoost**: Handles tabular, non-linear patterns efficiently.
+- **Logistic Regression**: A robust and interpretable baseline.
+- **LightGBM & CatBoost**: Fast gradient boosting models optimized for large datasets with categorical features.
+
+Each model is trained and evaluated using a consistent pipeline for fairness.
+
+## Model Evaluation
+
+Because accuracy is misleading in imbalanced datasets, we use the following metrics:
+
+- **Precision**: Accuracy of positive (fraud) predictions.
+- **Recall**: Coverage of actual fraud cases.
+- **F1 Score**: Balance between precision and recall.
+- **ROC-AUC**: General discrimination ability of the model.
+- **AUPRC (planned)**: More informative for rare event detection.
+
+This is consistent with the Fraud Detection Handbook's emphasis on cost-sensitive metrics.
+
+## Visualizations
+
+Visual diagnostics help us understand model performance:
+
+- **Confusion Matrix**: Visualizes false positives and false negatives.
+- **ROC Curve**: Shows tradeoff between sensitivity and specificity.
+- **(Planned)**: AUPRC and threshold-based precision-recall tradeoffs for deeper insight into model confidence.
+
+## Export Results
+
+All key outputs are stored to CSVs in `Data/output/` to support:
+
+- Auditable results tracking
+- Integration with dashboards (e.g. Power BI, Streamlit)
+- Model comparison reports
+- Reproducibility for experiment logging
+
+The structure supports iterative ML development as recommended in operational fraud detection systems.
+
+## 1. Load Input Data
+This step reads input data required for training or evaluation from the specified CSV files.
 
 ```{python}
-# Credit Card Fraud Detection - Modeling with Resampling and AUPRC Evaluation
-
 import pandas as pd
 import numpy as np
+from pathlib import Path
 import matplotlib.pyplot as plt
 import seaborn as sns
-import sys
-import sklearn
-import imblearn
-import xgboost
-import lightgbm
+import warnings
+warnings.filterwarnings("ignore")
 
-from pathlib import Path
-from sklearn.model_selection import train_test_split, GridSearchCV, StratifiedKFold
+from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import (
+    confusion_matrix, accuracy_score, f1_score,
+    precision_score, recall_score, roc_curve,
+    auc, roc_auc_score, ConfusionMatrixDisplay, RocCurveDisplay
+)
+
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import (
-    precision_recall_curve, auc, f1_score, classification_report, 
-    confusion_matrix, average_precision_score
-)
-from imblearn.under_sampling import RandomUnderSampler
-from imblearn.over_sampling import SMOTE
-from imblearn.combine import SMOTEENN
 from xgboost import XGBClassifier
 from lightgbm import LGBMClassifier
+from catboost import CatBoostClassifier
+from imblearn.over_sampling import SMOTE
 
+# Load dataset
+DATA_PATH = Path("Data") / "creditcard.csv"
+assert DATA_PATH.exists(), f"Dataset not found at {DATA_PATH}"
+dataset = pd.read_csv(DATA_PATH)
 
-def evaluate_model(model, X_test, y_test):
-    y_pred = model.predict(X_test)
-    y_proba = model.predict_proba(X_test)[:, 1]
-    prc_auc = average_precision_score(y_test, y_proba)
-    f1 = f1_score(y_test, y_pred)
-    print("Classification Report:\n", classification_report(y_test, y_pred))
-    print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
-    print(f"F1 Score: {f1:.4f}, AUPRC: {prc_auc:.4f}")
+# Preprocess
+scaler = StandardScaler()
+card2 = dataset.copy()
+card2['Scaled_Amount'] = scaler.fit_transform(card2['Amount'].values.reshape(-1, 1))
+card2 = card2.drop(['Amount', 'Time'], axis=1)
 
-    precision, recall, _ = precision_recall_curve(y_test, y_proba)
-    plt.plot(recall, precision, label=f'AUPRC = {prc_auc:.4f}')
-    plt.xlabel('Recall')
-    plt.ylabel('Precision')
-    plt.title('Precision-Recall Curve')
-    plt.legend()
-    plt.grid()
-    plt.show()
-    plt.close()
+# Transform full dataset for prediction
+card4 = dataset.copy()
+card4['Scaled_Amount'] = scaler.transform(card4['Amount'].values.reshape(-1, 1))
+card4 = card4.drop(['Amount', 'Time'], axis=1)
 
+# Features and target
+X = card2.drop('Class', axis=1)
+y = card2['Class']
+X_full = card4.drop('Class', axis=1)
+assert list(X.columns) == list(X_full.columns), "Feature mismatch"
 
-def main():
-    # Load data
-    DATA_PATH = Path("Data") / "creditcard.csv"
-    assert DATA_PATH.exists(), f"Dataset not found at {DATA_PATH}"
-    df = pd.read_csv(DATA_PATH)
+# SMOTE
+smote = SMOTE(random_state=42)
+X_resampled, y_resampled = smote.fit_resample(X, y)
 
-    print(f"Shape: {df.shape}")
-    print(df['Class'].value_counts(normalize=True))
+# Train-test split
+X_train, X_test, y_train, y_test = train_test_split(X_resampled, y_resampled, test_size=0.2, random_state=0)
+```
 
-    # Split features and target
-    X = df.drop('Class', axis=1)
-    y = df['Class']
+## 2. Train XGBoost Model
+We initialize and train an XGBoost classifier using the balanced dataset.
 
-    # Standardize 'Amount' and 'Time'
-    scaler = StandardScaler()
-    X[['Time', 'Amount']] = scaler.fit_transform(X[['Time', 'Amount']])
+```{python}
+# Train XGBoost
+xgb = XGBClassifier(eval_metric='logloss', random_state=42, enable_categorical=False)
+xgb.fit(X_train, y_train)
 
-    # Train/test split
-    X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, test_size=0.3, random_state=42)
+# Evaluation
+train_score = xgb.score(X_train, y_train)
+test_score = xgb.score(X_test, y_test)
+print(f"Training Score: {train_score:.5f}")
+print(f"Test Score: {test_score:.5f}")
 
-    # 1. Logistic Regression with Undersampling
-    rus = RandomUnderSampler(random_state=42)
-    X_rus, y_rus = rus.fit_resample(X_train, y_train)
-    model_lr_rus = LogisticRegression(max_iter=1000, random_state=42)
-    model_lr_rus.fit(X_rus, y_rus)
-    print("\n--- Logistic Regression (Random Undersampling) ---")
-    evaluate_model(model_lr_rus, X_test, y_test)
+# Predictions
+xgb_preds = xgb.predict(X_test)
+xgb_preds_prob = xgb.predict_proba(X_test)[:, 1]
+xgb_preds_full = xgb.predict(X_full)
+xgb_preds_full_prob = xgb.predict_proba(X_full)[:, 1]
 
-    # 2. Random Forest with SMOTE
-    smote = SMOTE(random_state=42)
-    X_smote, y_smote = smote.fit_resample(X_train, y_train)
-    model_rf_smote = RandomForestClassifier(n_estimators=100, random_state=42)
-    model_rf_smote.fit(X_smote, y_smote)
-    print("\n--- Random Forest (SMOTE Oversampling) ---")
-    evaluate_model(model_rf_smote, X_test, y_test)
+# Add predictions to original dataset
+dataset3 = dataset.copy()
+dataset3['predictions'] = xgb_preds_full
+dataset3['predictions_prob'] = xgb_preds_full_prob
 
-    # 3. XGBoost with SMOTE + Grid Search
-    grid_xgb = {
-        'n_estimators': [50, 100],
-        'max_depth': [3, 5],
-        'learning_rate': [0.05, 0.1]
-    }
-    model_xgb = GridSearchCV(
-        XGBClassifier(use_label_encoder=False, eval_metric='logloss', random_state=42),
-        grid_xgb, scoring='average_precision', cv=3, verbose=0
-    )
-    model_xgb.fit(X_smote, y_smote)
-    print("\n--- XGBoost (SMOTE + GridSearchCV) ---")
-    evaluate_model(model_xgb.best_estimator_, X_test, y_test)
+# Confusion Matrix and Metrics
+cm = confusion_matrix(y_test, xgb_preds)
+ConfusionMatrixDisplay(cm).plot()
+plt.title('Confusion Matrix')
+plt.show()
 
-    # 4. LightGBM with SMOTE + Grid Search
-    grid_lgbm = {
-        'n_estimators': [50, 100],
-        'num_leaves': [31, 64],
-        'learning_rate': [0.05, 0.1]
-    }
-    model_lgbm = GridSearchCV(
-        LGBMClassifier(random_state=42), grid_lgbm,
-        scoring='average_precision', cv=3, verbose=0
-    )
-    model_lgbm.fit(X_smote, y_smote)
-    print("\n--- LightGBM (SMOTE + GridSearchCV) ---")
-    evaluate_model(model_lgbm.best_estimator_, X_test, y_test)
+metrics = pd.DataFrame({
+    'Accuracy': [round(accuracy_score(y_test, xgb_preds), 4)],
+    'Recall': [round(recall_score(y_test, xgb_preds), 4)],
+    'Precision': [round(precision_score(y_test, xgb_preds), 4)],
+    'F1 Score': [round(f1_score(y_test, xgb_preds), 4)]
+})
+print(metrics)
 
-    # Save AUPRCs for comparison
-    results = pd.DataFrame({
-        'Model': [
-            'Logistic Regression (Undersampling)', 
-            'Random Forest (SMOTE)', 
-            'XGBoost (SMOTE + GridSearchCV)', 
-            'LightGBM (SMOTE + GridSearchCV)'
-        ],
-        'F1 Score': [
-            f1_score(y_test, model_lr_rus.predict(X_test)),
-            f1_score(y_test, model_rf_smote.predict(X_test)),
-            f1_score(y_test, model_xgb.best_estimator_.predict(X_test)),
-            f1_score(y_test, model_lgbm.best_estimator_.predict(X_test))
-        ],
-        'AUPRC': [
-            average_precision_score(y_test, model_lr_rus.predict_proba(X_test)[:, 1]),
-            average_precision_score(y_test, model_rf_smote.predict_proba(X_test)[:, 1]),
-            average_precision_score(y_test, model_xgb.best_estimator_.predict_proba(X_test)[:, 1]),
-            average_precision_score(y_test, model_lgbm.best_estimator_.predict_proba(X_test)[:, 1])
-        ]
-    })
+# ROC and AUC
+fpr, tpr, thresh = roc_curve(y_test, xgb_preds_prob)
+roc_auc = auc(fpr, tpr)
+RocCurveDisplay(fpr=fpr, tpr=tpr, roc_auc=roc_auc).plot()
+plt.title('ROC Curve')
+plt.show()
 
-    print("\nModel Comparison:")
-    print(results)
+# Export
+metrics.to_csv("Data/output/xgboost_metrics.csv", index=False)
+pd.DataFrame({'fpr': fpr, 'tpr': tpr, 'thresh': thresh}).to_csv("Data/output/xgboost_roc_curve_data.csv", index=False)
+pd.DataFrame({'AUC': [roc_auc]}).to_csv("Data/output/xgboost_auc.csv", index=False)
+dataset3.to_csv("Data/output/xgboost_predictions.csv", index=False)
+```
 
-    # --- Advanced Tuning Section ---
-    X_smotenn, y_smotenn = SMOTEENN().fit_resample(X_train, y_train)
-    cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+## 3. Logistic Regression Model
+In this section, we train a Logistic Regression model using the same balanced dataset and evaluate it using the same pipeline.
 
-    # 5. XGBoost with SMOTEENN + Stratified K-Fold
-    advanced_grid_xgb = {
-        'n_estimators': [100, 200],
-        'max_depth': [3, 6],
-        'learning_rate': [0.01, 0.05],
-        'subsample': [0.8, 1.0],
-        'colsample_bytree': [0.7, 1.0],
-        'scale_pos_weight': [1, 5, 10]
-    }
-    tuned_xgb = GridSearchCV(
-        XGBClassifier(use_label_encoder=False, eval_metric='logloss', random_state=42),
-        advanced_grid_xgb, scoring='average_precision', cv=cv, n_jobs=-1, verbose=1
-    )
-    tuned_xgb.fit(X_smotenn, y_smotenn)
-    print("\n--- XGBoost (Tuned with SMOTEENN + StratifiedKFold) ---")
-    evaluate_model(tuned_xgb.best_estimator_, X_test, y_test)
+### Train Logistic Regression Model
+We train a logistic regression model for comparison using the same dataset.
 
-    results.loc[len(results)] = [
-        "XGBoost (Advanced Tuning)",
-        f1_score(y_test, tuned_xgb.best_estimator_.predict(X_test)),
-        average_precision_score(y_test, tuned_xgb.best_estimator_.predict_proba(X_test)[:, 1])
+```{python}
+# Train Logistic Regression
+logreg = LogisticRegression(max_iter=1000, random_state=42)
+logreg.fit(X_train, y_train)
+
+# Evaluation
+train_score = logreg.score(X_train, y_train)
+test_score = logreg.score(X_test, y_test)
+print(f"Training Score: {train_score:.5f}")
+print(f"Test Score: {test_score:.5f}")
+
+# Predictions
+logreg_preds = logreg.predict(X_test)
+logreg_preds_prob = logreg.predict_proba(X_test)[:, 1]
+logreg_preds_full = logreg.predict(X_full)
+logreg_preds_full_prob = logreg.predict_proba(X_full)[:, 1]
+
+# Add predictions to original dataset
+dataset3 = dataset.copy()
+dataset3['Data/output/logreg_predictions'] = logreg_preds_full
+dataset3['Data/output/logreg_predictions_prob'] = logreg_preds_full_prob
+
+# Confusion Matrix and Metrics
+cm = confusion_matrix(y_test, logreg_preds)
+ConfusionMatrixDisplay(cm).plot()
+plt.title('Confusion Matrix')
+plt.show()
+
+metrics = pd.DataFrame({
+    'Accuracy': [round(accuracy_score(y_test, logreg_preds), 4)],
+    'Recall': [round(recall_score(y_test, logreg_preds), 4)],
+    'Precision': [round(precision_score(y_test, logreg_preds), 4)],
+    'F1 Score': [round(f1_score(y_test, logreg_preds), 4)]
+})
+print(metrics)
+
+# ROC and AUC
+fpr, tpr, thresh = roc_curve(y_test, logreg_preds_prob)
+roc_auc = auc(fpr, tpr)
+RocCurveDisplay(fpr=fpr, tpr=tpr, roc_auc=roc_auc).plot()
+plt.title('ROC Curve')
+plt.show()
+
+# Export
+metrics.to_csv("Data/output/logreg_metrics.csv", index=False)
+pd.DataFrame({'fpr': fpr, 'tpr': tpr, 'thresh': thresh}).to_csv("Data/output/logreg_roc_curve_data.csv", index=False)
+pd.DataFrame({'AUC': [roc_auc]}).to_csv("Data/output/logreg_auc.csv", index=False)
+dataset3.to_csv("Data/output/logreg_predictions.csv", index=False)
+```
+
+## 4. Random Forest Classifier
+Here we implement and evaluate a Random Forest classifier.
+
+### Make Predictions and Evaluate Model
+Predictions are made on the test set and evaluated using accuracy, precision, recall, and F1-score.
+
+```{python}
+# Train Random Forest
+rf = RandomForestClassifier(n_estimators=100, random_state=42)
+rf.fit(X_train, y_train)
+
+# Evaluation
+train_score = rf.score(X_train, y_train)
+test_score = rf.score(X_test, y_test)
+print(f"Training Score: {train_score:.5f}")
+print(f"Test Score: {test_score:.5f}")
+
+# Predictions
+rf_preds = rf.predict(X_test)
+rf_preds_prob = rf.predict_proba(X_test)[:, 1]
+rf_preds_full = rf.predict(X_full)
+rf_preds_full_prob = rf.predict_proba(X_full)[:, 1]
+
+# Add predictions to original dataset
+dataset3 = dataset.copy()
+dataset3['Data/output/rf_predictions'] = rf_preds_full
+dataset3['Data/output/rf_predictions_prob'] = rf_preds_full_prob
+
+# Confusion Matrix and Metrics
+cm = confusion_matrix(y_test, rf_preds)
+ConfusionMatrixDisplay(cm).plot()
+plt.title('Confusion Matrix')
+plt.show()
+
+metrics = pd.DataFrame({
+    'Accuracy': [round(accuracy_score(y_test, rf_preds), 4)],
+    'Recall': [round(recall_score(y_test, rf_preds), 4)],
+    'Precision': [round(precision_score(y_test, rf_preds), 4)],
+    'F1 Score': [round(f1_score(y_test, rf_preds), 4)]
+})
+print(metrics)
+
+# ROC and AUC
+fpr, tpr, thresh = roc_curve(y_test, rf_preds_prob)
+roc_auc = auc(fpr, tpr)
+RocCurveDisplay(fpr=fpr, tpr=tpr, roc_auc=roc_auc).plot()
+plt.title('ROC Curve')
+plt.show()
+
+# Export
+metrics.to_csv("Data/output/rf_metrics.csv", index=False)
+pd.DataFrame({'fpr': fpr, 'tpr': tpr, 'thresh': thresh}).to_csv("Data/output/rf_roc_curve_data.csv", index=False)
+pd.DataFrame({'AUC': [roc_auc]}).to_csv("Data/output/rf_auc.csv", index=False)
+dataset3.to_csv("Data/output/rf_predictions.csv", index=False)
+```
+
+## 5. LightGBM Classifier
+We now train a LightGBM classifier and evaluate its performance similarly.
+
+### Train LightGBM Model
+We train a LightGBM model with default parameters.
+
+```{python}
+# Train LightGBM
+lgbm = LGBMClassifier(random_state=42)
+lgbm.fit(X_train, y_train)
+
+# Evaluation
+train_score = lgbm.score(X_train, y_train)
+test_score = lgbm.score(X_test, y_test)
+print(f"Training Score: {train_score:.5f}")
+print(f"Test Score: {test_score:.5f}")
+
+# Predictions
+lgbm_preds = lgbm.predict(X_test)
+lgbm_preds_prob = lgbm.predict_proba(X_test)[:, 1]
+lgbm_preds_full = lgbm.predict(X_full)
+lgbm_preds_full_prob = lgbm.predict_proba(X_full)[:, 1]
+
+# Add predictions to original dataset
+dataset3 = dataset.copy()
+dataset3['Data/output/lgbm_predictions'] = lgbm_preds_full
+dataset3['Data/output/lgbm_predictions_prob'] = lgbm_preds_full_prob
+
+# Confusion Matrix and Metrics
+cm = confusion_matrix(y_test, lgbm_preds)
+ConfusionMatrixDisplay(cm).plot()
+plt.title('Confusion Matrix')
+plt.show()
+
+metrics = pd.DataFrame({
+    'Accuracy': [round(accuracy_score(y_test, lgbm_preds), 4)],
+    'Recall': [round(recall_score(y_test, lgbm_preds), 4)],
+    'Precision': [round(precision_score(y_test, lgbm_preds), 4)],
+    'F1 Score': [round(f1_score(y_test, lgbm_preds), 4)]
+})
+print(metrics)
+
+# ROC and AUC
+fpr, tpr, thresh = roc_curve(y_test, lgbm_preds_prob)
+roc_auc = auc(fpr, tpr)
+RocCurveDisplay(fpr=fpr, tpr=tpr, roc_auc=roc_auc).plot()
+plt.title('ROC Curve')
+plt.show()
+
+# Export
+metrics.to_csv("Data/output/lgbm_metrics.csv", index=False)
+pd.DataFrame({'fpr': fpr, 'tpr': tpr, 'thresh': thresh}).to_csv("Data/output/lgbm_roc_curve_data.csv", index=False)
+pd.DataFrame({'AUC': [roc_auc]}).to_csv("Data/output/lgbm_auc.csv", index=False)
+dataset3.to_csv("Data/output/lgbm_predictions.csv", index=False)
+```
+
+## 6. CatBoost Classifier
+Finally, we train and evaluate a CatBoost classifier using the same pipeline.
+
+### Train CatBoost Model
+This cell trains a CatBoost classifier, useful when handling categorical features.
+
+```{python}
+# Train CatBoost
+cat = CatBoostClassifier(verbose=0, random_state=42)
+cat.fit(X_train, y_train)
+
+# Evaluation
+train_score = cat.score(X_train, y_train)
+test_score = cat.score(X_test, y_test)
+print(f"Training Score: {train_score:.5f}")
+print(f"Test Score: {test_score:.5f}")
+
+# Predictions
+cat_preds = cat.predict(X_test)
+cat_preds_prob = cat.predict_proba(X_test)[:, 1]
+cat_preds_full = cat.predict(X_full)
+cat_preds_full_prob = cat.predict_proba(X_full)[:, 1]
+
+# Add predictions to original dataset
+dataset3 = dataset.copy()
+dataset3['Data/output/cat_predictions'] = cat_preds_full
+dataset3['Data/output/cat_predictions_prob'] = cat_preds_full_prob
+
+# Confusion Matrix and Metrics
+cm = confusion_matrix(y_test, cat_preds)
+ConfusionMatrixDisplay(cm).plot()
+plt.title('Confusion Matrix')
+plt.show()
+
+metrics = pd.DataFrame({
+    'Accuracy': [round(accuracy_score(y_test, cat_preds), 4)],
+    'Recall': [round(recall_score(y_test, cat_preds), 4)],
+    'Precision': [round(precision_score(y_test, cat_preds), 4)],
+    'F1 Score': [round(f1_score(y_test, cat_preds), 4)]
+})
+print(metrics)
+
+# ROC and AUC
+fpr, tpr, thresh = roc_curve(y_test, cat_preds_prob)
+roc_auc = auc(fpr, tpr)
+RocCurveDisplay(fpr=fpr, tpr=tpr, roc_auc=roc_auc).plot()
+plt.title('ROC Curve')
+plt.show()
+
+# Export
+metrics.to_csv("Data/output/cat_metrics.csv", index=False)
+pd.DataFrame({'fpr': fpr, 'tpr': tpr, 'thresh': thresh}).to_csv("Data/output/cat_roc_curve_data.csv", index=False)
+pd.DataFrame({'AUC': [roc_auc]}).to_csv("Data/output/cat_auc.csv", index=False)
+dataset3.to_csv("Data/output/cat_predictions.csv", index=False)
+```
+
+## 7. Model Comparison Summary
+We compare the evaluation metrics of all models side-by-side in a summary table.
+
+### Load Input Data
+This step reads input data required for training or evaluation from the specified CSV files.
+
+```{python}
+# Collect metrics from all models
+summary_df = pd.DataFrame({
+    'Model': ['XGBoost', 'Logistic Regression', 'Random Forest', 'LightGBM', 'CatBoost'],
+    'Accuracy': [
+        metrics['Accuracy'].values[0],
+        #pd.read_csv('Data/output/xgboost_metrics.csv')['Accuracy'][0],
+        pd.read_csv('Data/output/logreg_metrics.csv')['Accuracy'][0],
+        pd.read_csv('Data/output/rf_metrics.csv')['Accuracy'][0],
+        pd.read_csv('Data/output/lgbm_metrics.csv')['Accuracy'][0],
+        pd.read_csv('Data/output/cat_metrics.csv')['Accuracy'][0]
+    ],
+    'Recall': [
+        metrics['Recall'].values[0],
+        #pd.read_csv('Data/output/xgboost_metrics.csv')['Recall'][0],
+        pd.read_csv('Data/output/logreg_metrics.csv')['Recall'][0],
+        pd.read_csv('Data/output/rf_metrics.csv')['Recall'][0],
+        pd.read_csv('Data/output/lgbm_metrics.csv')['Recall'][0],
+        pd.read_csv('Data/output/cat_metrics.csv')['Recall'][0]
+    ],
+    'Precision': [
+        metrics['Precision'].values[0],
+        #pd.read_csv('Data/output/xgboost_metrics.csv')['Precision'][0],
+        pd.read_csv('Data/output/logreg_metrics.csv')['Precision'][0],
+        pd.read_csv('Data/output/rf_metrics.csv')['Precision'][0],
+        pd.read_csv('Data/output/lgbm_metrics.csv')['Precision'][0],
+        pd.read_csv('Data/output/cat_metrics.csv')['Precision'][0]
+    ],
+    'F1 Score': [
+        metrics['F1 Score'].values[0],
+        #pd.read_csv('Data/output/xgboost_metrics.csv')['F1 Score'][0],
+        pd.read_csv('Data/output/logreg_metrics.csv')['F1 Score'][0],
+        pd.read_csv('Data/output/rf_metrics.csv')['F1 Score'][0],
+        pd.read_csv('Data/output/lgbm_metrics.csv')['F1 Score'][0],
+        pd.read_csv('Data/output/cat_metrics.csv')['F1 Score'][0]
     ]
+})
+summary_df.to_csv("Data/output/model_comparison_summary.csv", index=False)
+summary_df
+```
 
-    # 6. LightGBM with SMOTEENN + Stratified K-Fold
-    advanced_grid_lgbm = {
-        'n_estimators': [100, 200],
-        'num_leaves': [31, 64, 128],
-        'learning_rate': [0.01, 0.05],
-        'subsample': [0.8, 1.0],
-        'colsample_bytree': [0.7, 1.0],
-        'class_weight': [None, 'balanced']
-    }
-    tuned_lgbm = GridSearchCV(
-        LGBMClassifier(random_state=42), advanced_grid_lgbm,
-        scoring='average_precision', cv=cv, n_jobs=-1, verbose=1
-    )
-    tuned_lgbm.fit(X_smotenn, y_smotenn)
-    print("\n--- LightGBM (Tuned with SMOTEENN + StratifiedKFold) ---")
-    evaluate_model(tuned_lgbm.best_estimator_, X_test, y_test)
+## 8. Hyperparameter Tuning with GridSearchCV
+We perform hyperparameter tuning on XGBoost using GridSearchCV to find the best parameters.
 
-    results.loc[len(results)] = [
-        "LightGBM (Advanced Tuning)",
-        f1_score(y_test, tuned_lgbm.best_estimator_.predict(X_test)),
-        average_precision_score(y_test, tuned_lgbm.best_estimator_.predict_proba(X_test)[:, 1])
+### Train XGBoost Model
+We initialize and train an XGBoost classifier using the balanced dataset.
+
+```{python}
+from sklearn.model_selection import GridSearchCV
+
+# Define parameter grid for XGBoost
+param_grid = {
+    'max_depth': [3, 5, 7],
+    'learning_rate': [0.01, 0.1],
+    'n_estimators': [100, 200],
+    'subsample': [0.8, 1.0]
+}
+
+xgb_tune = XGBClassifier(eval_metric='logloss', random_state=42)
+grid_search = GridSearchCV(estimator=xgb_tune, param_grid=param_grid, cv=3, scoring='f1', verbose=1, n_jobs=-1)
+grid_search.fit(X_train, y_train)
+
+print("Best Parameters:", grid_search.best_params_)
+best_xgb = grid_search.best_estimator_
+
+# Evaluate tuned model
+xgb_tuned_preds = best_xgb.predict(X_test)
+xgb_tuned_probs = best_xgb.predict_proba(X_test)[:, 1]
+tuned_metrics = pd.DataFrame({
+    'Accuracy': [accuracy_score(y_test, xgb_tuned_preds)],
+    'Recall': [recall_score(y_test, xgb_tuned_preds)],
+    'Precision': [precision_score(y_test, xgb_tuned_preds)],
+    'F1 Score': [f1_score(y_test, xgb_tuned_preds)]
+})
+print(tuned_metrics)
+```
+
+## 9. Ensemble Model (Voting Classifier)
+We combine XGBoost, Random Forest, and Logistic Regression into an ensemble Voting Classifier to leverage their strengths.
+
+### Train XGBoost Model
+We initialize and train an XGBoost classifier using the balanced dataset.
+
+```{python}
+from sklearn.ensemble import VotingClassifier
+
+# Define base models
+xgb_base = XGBClassifier(eval_metric='logloss', random_state=42)
+rf_base = RandomForestClassifier(n_estimators=100, random_state=42)
+logreg_base = LogisticRegression(max_iter=1000, random_state=42)
+
+# Create ensemble model
+voting_clf = VotingClassifier(estimators=[
+    ('xgb', xgb_base),
+    ('rf', rf_base),
+    ('lr', logreg_base)
+], voting='soft')
+
+voting_clf.fit(X_train, y_train)
+ensemble_preds = voting_clf.predict(X_test)
+ensemble_probs = voting_clf.predict_proba(X_test)[:, 1]
+
+# Evaluate ensemble
+ensemble_metrics = pd.DataFrame({
+    'Accuracy': [accuracy_score(y_test, ensemble_preds)],
+    'Recall': [recall_score(y_test, ensemble_preds)],
+    'Precision': [precision_score(y_test, ensemble_preds)],
+    'F1 Score': [f1_score(y_test, ensemble_preds)]
+})
+print(ensemble_metrics)
+
+# Save to CSV
+ensemble_metrics.to_csv("Data/output/ensemble_metrics.csv", index=False)
+```
+
+## 10. Stacking Ensemble
+We use StackingClassifier to combine base models and a meta-model for improved performance.
+
+### Train XGBoost Model
+We initialize and train an XGBoost classifier using the balanced dataset.
+
+```{python}
+from sklearn.ensemble import StackingClassifier
+
+# Define base learners and meta-learner
+estimators = [
+    ('rf', RandomForestClassifier(n_estimators=100, random_state=42)),
+    ('lr', LogisticRegression(max_iter=1000, random_state=42)),
+    ('xgb', XGBClassifier(eval_metric='logloss', random_state=42))
+]
+
+stack_model = StackingClassifier(estimators=estimators, final_estimator=LogisticRegression(), cv=3)
+stack_model.fit(X_train, y_train)
+
+stack_preds = stack_model.predict(X_test)
+stack_probs = stack_model.predict_proba(X_test)[:, 1]
+
+stack_metrics = pd.DataFrame({
+    'Accuracy': [accuracy_score(y_test, stack_preds)],
+    'Recall': [recall_score(y_test, stack_preds)],
+    'Precision': [precision_score(y_test, stack_preds)],
+    'F1 Score': [f1_score(y_test, stack_preds)]
+})
+print(stack_metrics)
+
+stack_metrics.to_csv("Data/output/stacking_metrics.csv", index=False)
+```
+
+## 11. AutoML-Style Comparison Table
+Aggregate metrics from all models including tuned and ensemble methods for a final comparison.
+
+### Load Input Data
+This step reads input data required for training or evaluation from the specified CSV files.
+
+```{python}
+final_summary_df = pd.DataFrame({
+    'Model': ['XGBoost', 'XGBoost Tuned', 'Logistic Regression', 'Random Forest', 'LightGBM', 'CatBoost', 'Voting Ensemble', 'Stacking Ensemble'],
+    'Accuracy': [
+        metrics['Accuracy'].values[0],
+        tuned_metrics['Accuracy'].values[0],
+        pd.read_csv('Data/output/logreg_metrics.csv')['Accuracy'][0],
+        pd.read_csv('Data/output/rf_metrics.csv')['Accuracy'][0],
+        pd.read_csv('Data/output/lgbm_metrics.csv')['Accuracy'][0],
+        pd.read_csv('Data/output/cat_metrics.csv')['Accuracy'][0],
+        pd.read_csv('Data/output/ensemble_metrics.csv')['Accuracy'][0],
+        pd.read_csv('Data/output/stacking_metrics.csv')['Accuracy'][0]
+    ],
+    'Recall': [
+        metrics['Recall'].values[0],
+        tuned_metrics['Recall'].values[0],
+        pd.read_csv('Data/output/logreg_metrics.csv')['Recall'][0],
+        pd.read_csv('Data/output/rf_metrics.csv')['Recall'][0],
+        pd.read_csv('Data/output/lgbm_metrics.csv')['Recall'][0],
+        pd.read_csv('Data/output/cat_metrics.csv')['Recall'][0],
+        pd.read_csv('Data/output/ensemble_metrics.csv')['Recall'][0],
+        pd.read_csv('Data/output/stacking_metrics.csv')['Recall'][0]
+    ],
+    'Precision': [
+        metrics['Precision'].values[0],
+        tuned_metrics['Precision'].values[0],
+        pd.read_csv('Data/output/logreg_metrics.csv')['Precision'][0],
+        pd.read_csv('Data/output/rf_metrics.csv')['Precision'][0],
+        pd.read_csv('Data/output/lgbm_metrics.csv')['Precision'][0],
+        pd.read_csv('Data/output/cat_metrics.csv')['Precision'][0],
+        pd.read_csv('Data/output/ensemble_metrics.csv')['Precision'][0],
+        pd.read_csv('Data/output/stacking_metrics.csv')['Precision'][0]
+    ],
+    'F1 Score': [
+        metrics['F1 Score'].values[0],
+        tuned_metrics['F1 Score'].values[0],
+        pd.read_csv('Data/output/logreg_metrics.csv')['F1 Score'][0],
+        pd.read_csv('Data/output/rf_metrics.csv')['F1 Score'][0],
+        pd.read_csv('Data/output/lgbm_metrics.csv')['F1 Score'][0],
+        pd.read_csv('Data/output/cat_metrics.csv')['F1 Score'][0],
+        pd.read_csv('Data/output/ensemble_metrics.csv')['F1 Score'][0],
+        pd.read_csv('Data/output/stacking_metrics.csv')['F1 Score'][0]
     ]
+})
 
-    # Save results
-    results.to_csv("model_performance_comparison.csv", index=False)
+final_summary_df.to_csv("Data/output/automl_model_summary.csv", index=False)
+final_summary_df
+```
 
-    # Plot comparison
-    results.plot(x='Model', y=['F1 Score', 'AUPRC'], kind='bar', figsize=(10, 6))
-    plt.title('Model Comparison (F1 Score vs AUPRC)')
-    plt.ylabel('Score')
-    plt.grid(axis='y')
-    plt.xticks(rotation=45, ha='right')
-    plt.tight_layout()
-    plt.show()
-    plt.close()
+## 12. Deployment-Ready Script Generator
+Export the best model and required transformers for future inference (e.g. in Flask or Streamlit).
 
-    # Version info
-    print("\nVersions:")
-    print(f"Python: {sys.version}")
-    print(f"pandas: {pd.__version__}")
-    print(f"scikit-learn: {sklearn.__version__}")
-    print(f"imblearn: {imblearn.__version__}")
-    print(f"xgboost: {xgboost.__version__}")
-    print(f"lightgbm: {lightgbm.__version__}")
+### Load Input Data
+This step reads input data required for training or evaluation from the specified CSV files.
 
-    # Summary
-    print("\n📌 Summary:")
-    print("""
-Model performance varied significantly across techniques:
+```{python}
+import joblib
 
-- ✅ Logistic Regression (Undersampling): High recall (0.89) but very low precision (0.06), resulting in an F1 Score of 0.12 and AUPRC of 0.65. It aggressively flags fraud but produces many false positives.
+# Save best model (e.g. best_xgb from GridSearchCV)
+joblib.dump(best_xgb, 'best_model_xgb.pkl')
+joblib.dump(scaler, 'scaler.pkl')
 
-- ✅ Random Forest (SMOTE): Best overall performer with 0.83 F1 Score and 0.83 AUPRC. Strong precision (0.87) and recall (0.79), with very few false positives or false negatives.
+# Save prediction logic script
+with open("predict_script.py", "w") as f:
+    f.write("""import pandas as pd
+import joblib
 
-- ✅ XGBoost (SMOTE + GridSearchCV): Surprisingly high recall (0.84) but much lower precision (0.24), likely due to class overlap after SMOTE. F1 Score: 0.37; AUPRC: 0.80.
+# Load model and scaler
+model = joblib.load('best_model_xgb.pkl')
+scaler = joblib.load('scaler.pkl')
 
-- ✅ LightGBM (SMOTE + GridSearchCV): Balanced results with an F1 Score of 0.64 and AUPRC of 0.78. Slightly lower than Random Forest but significantly faster to train.
+def predict_from_csv(input_csv):
+    df = pd.read_csv(input_csv)
+    df['Scaled_Amount'] = scaler.transform(df['Amount'].values.reshape(-1, 1))
+    df = df.drop(['Amount', 'Time'], axis=1)
+    predictions = model.predict(df.drop('Class', axis=1))
+    probabilities = model.predict_proba(df.drop('Class', axis=1))[:, 1]
+    df['Prediction'] = predictions
+    df['Probability'] = probabilities
+    df.to_csv('predicted_output.csv', index=False)
+    print('Prediction complete. Saved to predicted_output.csv')
 
-These findings support the value of SMOTE and tree-based models in handling extreme class imbalance.
-
-📈 Final Model Comparison:
+# Example: predict_from_csv('new_data.csv')
 """)
-    print(results)
-
-    summary = """
-In this notebook, we tackled the credit card fraud detection problem using a real, highly imbalanced dataset. By applying resampling techniques (Random Undersampling, SMOTE, and SMOTEENN) and training several classification models, we evaluated their effectiveness using AUPRC and F1-score — metrics more appropriate than accuracy for rare-event classification.
-
-From our experiments:
-- **Tree-based models** (Random Forest, XGBoost, LightGBM) greatly benefit from SMOTE and SMOTEENN.
-- **LightGBM** gave the best balance of speed and predictive power.
-- **AUPRC values around 0.80–0.85** in the top models indicate effective fraud separation.
-
-✅ **Implications for Financial Institutions:**
-
-In real-world banking environments, these findings support:
-- **Hybrid modeling pipelines**: Use simple models in real time, complex models asynchronously.
-- **Alert scoring systems**: Assign fraud probabilities and prioritize investigation.
-- **Adaptive fraud strategies**: Retrain regularly using feedback loops with human-in-the-loop corrections.
-- **Cost-sensitive deployment**: Focus on high-precision in high-value transactions to minimize false positives.
-
-Overall, this framework is reproducible and scalable. With minor adaptation, it can be integrated into production pipelines for real-time fraud scoring or batch investigation systems.
-"""
-    print(summary)
-
-
-if __name__ == "__main__":
-    main()
 ```
 

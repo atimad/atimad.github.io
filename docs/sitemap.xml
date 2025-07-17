@@ -1,68 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://atimad.github.io/index.html</loc>
-    <lastmod>2025-07-12T10:26:29.883Z</lastmod>
-  </url>
-  <url>
-    <loc>https://atimad.github.io/notebooks/dynamichotelpricingoptimization/03_1_PriceElasticityModeling_XGBoost.html</loc>
-    <lastmod>2025-07-12T10:26:29.988Z</lastmod>
-  </url>
-  <url>
-    <loc>https://atimad.github.io/notebooks/dynamichotelpricingoptimization/01_EDA_Dynamic_Hotel_Pricing_Optimization.html</loc>
-    <lastmod>2025-07-12T10:26:29.926Z</lastmod>
-  </url>
-  <url>
-    <loc>https://atimad.github.io/posts/covid19-analysis/index.html</loc>
-    <lastmod>2025-07-12T10:26:30.926Z</lastmod>
-  </url>
-  <url>
-    <loc>https://atimad.github.io/posts/Syncthing Data Science Friendly/index.html</loc>
-    <lastmod>2025-07-12T19:02:43.142Z</lastmod>
+    <loc>https://atimad.github.io/tags.html</loc>
+    <lastmod>2025-07-12T10:26:33.889Z</lastmod>
   </url>
   <url>
     <loc>https://atimad.github.io/posts/Dynamic Hotel Pricing Optimization/index.html</loc>
     <lastmod>2025-07-12T10:26:33.862Z</lastmod>
   </url>
   <url>
-    <loc>https://atimad.github.io/tags.html</loc>
-    <lastmod>2025-07-12T10:26:33.889Z</lastmod>
-  </url>
-  <url>
-    <loc>https://atimad.github.io/DynamicHotelPricingOptimization/notebooks/02_DemandForecasting.out.html</loc>
-    <lastmod>2025-07-12T18:08:08.610Z</lastmod>
-  </url>
-  <url>
-    <loc>https://atimad.github.io/DynamicHotelPricingOptimization/notebooks/03_PriceElasticityModeling.out.html</loc>
-    <lastmod>2025-07-12T18:08:09.253Z</lastmod>
-  </url>
-  <url>
-    <loc>https://atimad.github.io/DynamicHotelPricingOptimization/notebooks/01_EDA_Dynamic_Hotel_Pricing_Optimization.out.html</loc>
-    <lastmod>2025-07-12T18:08:07.750Z</lastmod>
-  </url>
-  <url>
-    <loc>https://atimad.github.io/DynamicHotelPricingOptimization/notebooks/03_1_PriceElasticityModeling_XGBoost.out.html</loc>
-    <lastmod>2025-07-12T18:08:12.039Z</lastmod>
-  </url>
-  <url>
-    <loc>https://atimad.github.io/about.html</loc>
-    <lastmod>2025-07-12T10:26:24.149Z</lastmod>
-  </url>
-  <url>
-    <loc>https://atimad.github.io/posts/cycles-analysis/index.html</loc>
-    <lastmod>2025-07-12T10:26:33.834Z</lastmod>
-  </url>
-  <url>
     <loc>https://atimad.github.io/posts/Credit Card Fraud Detection/index.html</loc>
-    <lastmod>2025-07-12T10:26:33.580Z</lastmod>
+    <lastmod>2025-07-17T06:17:52.488Z</lastmod>
   </url>
   <url>
     <loc>https://atimad.github.io/posts/Computer Vision/index.html</loc>
     <lastmod>2025-07-12T10:26:30.217Z</lastmod>
-  </url>
-  <url>
-    <loc>https://atimad.github.io/posts/A_B Test/index.html</loc>
-    <lastmod>2025-07-12T10:26:30.186Z</lastmod>
   </url>
   <url>
     <loc>https://atimad.github.io/notebooks/dynamichotelpricingoptimization/03_PriceElasticityModeling.html</loc>
@@ -71,5 +23,69 @@
   <url>
     <loc>https://atimad.github.io/notebooks/dynamichotelpricingoptimization/02_DemandForecasting.html</loc>
     <lastmod>2025-07-12T10:26:29.961Z</lastmod>
+  </url>
+  <url>
+    <loc>https://atimad.github.io/index.html</loc>
+    <lastmod>2025-07-12T10:26:29.883Z</lastmod>
+  </url>
+  <url>
+    <loc>https://atimad.github.io/DynamicHotelPricingOptimization/notebooks/03_PriceElasticityModeling.out.html</loc>
+    <lastmod>2025-07-12T18:08:09.253Z</lastmod>
+  </url>
+  <url>
+    <loc>https://atimad.github.io/DynamicHotelPricingOptimization/notebooks/03_1_PriceElasticityModeling_XGBoost.out.html</loc>
+    <lastmod>2025-07-12T18:08:12.039Z</lastmod>
+  </url>
+  <url>
+    <loc>https://atimad.github.io/DynamicHotelPricingOptimization/notebooks/02_DemandForecasting.out.html</loc>
+    <lastmod>2025-07-12T18:08:08.610Z</lastmod>
+  </url>
+  <url>
+    <loc>https://atimad.github.io/DynamicHotelPricingOptimization/notebooks/01_EDA_Dynamic_Hotel_Pricing_Optimization.out.html</loc>
+    <lastmod>2025-07-12T18:08:07.750Z</lastmod>
+  </url>
+  <url>
+    <loc>https://atimad.github.io/about.html</loc>
+    <lastmod>2025-07-12T10:26:24.149Z</lastmod>
+  </url>
+  <url>
+    <loc>https://atimad.github.io/DynamicHotelPricingOptimization/notebooks/01_EDA_Dynamic_Hotel_Pricing_Optimization.out.sync-conflict-20250713-080652-RZTMOZH.html</loc>
+    <lastmod>2025-07-05T18:18:57.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://atimad.github.io/DynamicHotelPricingOptimization/notebooks/02_DemandForecasting.out.sync-conflict-20250713-080651-RZTMOZH.html</loc>
+    <lastmod>2025-07-05T18:19:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://atimad.github.io/DynamicHotelPricingOptimization/notebooks/03_1_PriceElasticityModeling_XGBoost.out.sync-conflict-20250713-080652-RZTMOZH.html</loc>
+    <lastmod>2025-07-05T18:19:06.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://atimad.github.io/DynamicHotelPricingOptimization/notebooks/03_PriceElasticityModeling.out.sync-conflict-20250713-080649-RZTMOZH.html</loc>
+    <lastmod>2025-07-05T18:19:03.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://atimad.github.io/notebooks/dynamichotelpricingoptimization/01_EDA_Dynamic_Hotel_Pricing_Optimization.html</loc>
+    <lastmod>2025-07-12T10:26:29.926Z</lastmod>
+  </url>
+  <url>
+    <loc>https://atimad.github.io/notebooks/dynamichotelpricingoptimization/03_1_PriceElasticityModeling_XGBoost.html</loc>
+    <lastmod>2025-07-12T10:26:29.988Z</lastmod>
+  </url>
+  <url>
+    <loc>https://atimad.github.io/posts/A_B Test/index.html</loc>
+    <lastmod>2025-07-12T10:26:30.186Z</lastmod>
+  </url>
+  <url>
+    <loc>https://atimad.github.io/posts/covid19-analysis/index.html</loc>
+    <lastmod>2025-07-12T10:26:30.926Z</lastmod>
+  </url>
+  <url>
+    <loc>https://atimad.github.io/posts/cycles-analysis/index.html</loc>
+    <lastmod>2025-07-12T10:26:33.834Z</lastmod>
+  </url>
+  <url>
+    <loc>https://atimad.github.io/posts/Syncthing Data Science Friendly/index.html</loc>
+    <lastmod>2025-07-12T19:02:43.142Z</lastmod>
   </url>
 </urlset>
