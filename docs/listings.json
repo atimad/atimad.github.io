@@ -8,12 +8,14 @@
       "/posts/Credit Card Fraud Detection/index.html",
       "/posts/Dynamic Hotel Pricing Optimization/index.html",
       "/posts/Computer Vision/index.html",
+      "/posts/RAG/index.html",
       "/posts/Syncthing Data Science Friendly/index.html"
     ]
   },
   {
     "listing": "/index.html",
     "items": [
+      "/posts/RAG/index.html",
       "/posts/Syncthing Data Science Friendly/index.html",
       "/posts/A_B Test/index.html",
       "/posts/Computer Vision/index.html",

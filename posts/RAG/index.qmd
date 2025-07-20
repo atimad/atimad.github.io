@@ -1,0 +1,111 @@
+---
+title: "RAGEval: Evaluating Retrieval-Augmented Generation with LLMs"
+author: "Atila Madai"
+date: today
+categories: [AI, RAG, Evaluation, LLMs, Search]
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    code-copy: true
+    code-fold: true
+    number-sections: false
+---
+
+![RAG System Evaluation Flow](rageval-diagram.webp)
+
+> A modular framework to assess trust, citation quality, and response relevance in RAG pipelines — powered by large language models.
+
+## Overview
+
+This project explores a prototype evaluation framework for AI search engines using:
+
+- **Retriever-Augmented Generation (RAG)** for grounded, document-backed responses.
+- A **Judge Module** that uses large language models to score relevance, citation quality, and fluency of the generated output.
+
+It is inspired by the architectures and product-level rigor seen at companies like Perplexity, Anthropic, and OpenAI — with a strong emphasis on system trustworthiness and response fidelity.
+
+## Components
+
+### 1. RAG Pipeline
+
+- Supports **BM25**, **Dense Retrieval**, and **LLM-powered retrievers**:
+  - *LLM-powered retrievers* use embeddings or query rewriting informed by models like OpenAI, Mistral, or local encoders.
+- **Hybrid retrieval** merges dense and sparse search for higher recall.
+- Retrieved context is injected into prompts passed to an LLM (OpenAI, Mistral, etc.).
+
+### 2. Judge Module
+
+- Uses an LLM to evaluate responses for:
+  - **Relevance** to the user query
+  - **Citation fidelity** — whether the output is supported by retrieved passages
+  - **Fluency & factuality**
+- Optionally compares multiple LLM outputs or agent chains.
+
+## Use Cases
+
+- Measure and improve **trustworthiness** of AI-generated responses.
+- Prototype **evaluation loops** for internal LLM deployment or research.
+- Train scoring models on LLM-labeled A/B data.
+
+## Project Structure
+
+```
+.
+├── /data/               # Corpus or indexed docs
+├── /retrievers/         # BM25, Dense, LLM-powered, Hybrid
+├── /generators/         # LLM wrappers (OpenAI, Mistral, Claude)
+├── /judges/             # LLM-based and rule-based evaluators
+├── /evaluation/         # Metrics, logs, side-by-side tools
+├── /dashboards/         # Optional UI (Streamlit, Gradio)
+└── main.py              # CLI pipeline runner
+```
+
+## Setup & Run
+
+```bash
+conda create -n rageval python=3.10
+pip install -r requirements.txt
+
+python main.py --query "Explain RAG in LLMs" --judge gpt-4
+```
+
+## Sample Output
+
+```
+Query: Explain RAG in LLMs
+LLM Answer: Retrieval-Augmented Generation combines external knowledge retrieval with generative reasoning...
+
+Judge Output:
+- Relevance: 9.5 / 10
+- Citation Match: Yes
+- Hallucination Risk: Low
+- Language Fluency: Native / Clear
+```
+
+## Evaluation Metrics
+
+| Metric            | Description                                  |
+|------------------|----------------------------------------------|
+| Relevance Score  | Does the output match query intent?          |
+| Citation Fidelity| Are facts traceable to retrieved sources?    |
+| Fluency Score    | Is the language coherent and well-structured?|
+| Latency (ms)     | Time to generate and score the response      |
+
+## Roadmap
+
+- [ ] Multi-hop + long-context retrieval  
+- [ ] Integration with LangChain + LlamaIndex  
+- [ ] Lightweight eval UI (judge results viewer)  
+- [ ] Fine-tuning scoring model on LLM-labeled data
+
+## Inspiration
+
+- [Perplexity AI](https://www.perplexity.ai)
+- [Anthropic's Claude evals](https://www.anthropic.com/index/evaluations)
+- [OpenAI best practices](https://platform.openai.com/docs/guides/gpt-best-practices)
+
+---
+
+**Author**: Atila Madai  
+[GitHub](https://github.com/atimad) | [Blog](https://atimad.github.io)
