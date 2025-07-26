@@ -40,6 +40,11 @@ website:
       #   contents:
       #     - archives.qmd
       # - presentations.qmd
+  page-footer:
+    left: |
+      © 2025 Atila Madai
+    right: |
+      Contact: [Email](mailto:madaister@gmail.com) · [LinkedIn](https://www.linkedin.com/in/atilamadai) · [GitHub](https://github.com/atimad)
 ########################################
 #  website:
   navbar:
@@ -64,6 +69,8 @@ format:
     page-layout: article
     code-fold: true
     css: styles.scss
+
+
 
 #margin-header: |
 #      ### Recently Updated

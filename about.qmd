@@ -12,3 +12,11 @@ Demonstration of practical usage of languages such as:
 to analyze and visualize data.
 
 Analyzed data is presented mainly with Jupyter Notebook or with Microsoft Power BI, but future visualization may include different solutions.
+
+## Contact
+
+Feel free to reach out:
+
+- 📧 Email: [madaister@gmail.com](mailto:madaister@gmail.com)
+- 💼 LinkedIn: [linkedin.com/in/atilamadai](https://www.linkedin.com/in/atilamadai)
+- 💻 GitHub: [github.com/atimad](https://github.com/atimad)

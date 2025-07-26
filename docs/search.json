@@ -543,7 +543,7 @@
     "href": "index.html",
     "title": "Machine Learning and Data Science Blog",
     "section": "",
-    "text": "Welcome to my new Quarto blog! 🚀\nHere you’ll find posts about machine learning, data science, automation, and visual storytelling.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nRAGEval: Evaluating Retrieval-Augmented Generation with LLMs\n\n\n\nAI\n\nRAG\n\nEvaluation\n\nLLMs\n\nSearch\n\n\n\n\n\n\n\n\n\nJul 20, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nSyncthing Setup: Remote Linux Desktop + WSL + Windows + macOS\n\n\n\ntools\n\nworkflow\n\nlinux\n\nwindows\n\nmacos\n\n\n\nGuide to syncing folders across a primary Linux data science machine, WSL laptop, Windows backup, and MacBook using Syncthing.\n\n\n\n\n\nJul 12, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nA/B Test Dashboard – Search UX Evaluation\n\n\n\nA/B Testing\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJul 1, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nML QA Computer Vision Assessment\n\n\n\nComputer Vision\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 22, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nDynamic Pricing & Demand Analysis Suite\n\n\n\ndata-viz\n\nXGBoost\n\nanalytics\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 16, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nAdventure Works Cycles: Cost & Elasticity Analysis\n\n\n\ndata-viz\n\nanalytics\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 15, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nCredit Card Fraud Detection with Resampling and Tree-Based Models\n\n\n\nfraud-detection\n\nXGBoost\n\nLightGBM\n\nCatBoost\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nFeb 6, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nCOVID-19 Data Analysis\n\n\n\ndata-viz\n\nPower BI\n\n\n\n\n\n\n\n\n\nApr 27, 2020\n\n\nAtila Madai\n\n\n\n\n\nNo matching items"
+    "text": "Welcome to my new Quarto blog! 🚀\nHere you’ll find posts about machine learning, data science, automation, and visual storytelling.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nRAGEval: Evaluating Retrieval-Augmented Generation with LLMs\n\n\n\nAI\n\nRAG\n\nEvaluation\n\nLLMs\n\nSearch\n\n\n\n\n\n\n\n\n\nJul 26, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nSyncthing Setup: Remote Linux Desktop + WSL + Windows + macOS\n\n\n\ntools\n\nworkflow\n\nlinux\n\nwindows\n\nmacos\n\n\n\nGuide to syncing folders across a primary Linux data science machine, WSL laptop, Windows backup, and MacBook using Syncthing.\n\n\n\n\n\nJul 12, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nA/B Test Dashboard – Search UX Evaluation\n\n\n\nA/B Testing\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJul 1, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nML QA Computer Vision Assessment\n\n\n\nComputer Vision\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 22, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nDynamic Pricing & Demand Analysis Suite\n\n\n\ndata-viz\n\nXGBoost\n\nanalytics\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 16, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nAdventure Works Cycles: Cost & Elasticity Analysis\n\n\n\ndata-viz\n\nanalytics\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 15, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nCredit Card Fraud Detection with Resampling and Tree-Based Models\n\n\n\nfraud-detection\n\nXGBoost\n\nLightGBM\n\nCatBoost\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nFeb 6, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nCOVID-19 Data Analysis\n\n\n\ndata-viz\n\nPower BI\n\n\n\n\n\n\n\n\n\nApr 27, 2020\n\n\nAtila Madai\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "DynamicHotelPricingOptimization/notebooks/03_PriceElasticityModeling.out.html",
@@ -606,7 +606,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Demonstration of practical usage of languages such as:\n\nPython\nPower Query (M language)\nDAX\n\nto analyze and visualize data.\nAnalyzed data is presented mainly with Jupyter Notebook or with Microsoft Power BI, but future visualization may include different solutions."
+    "text": "Demonstration of practical usage of languages such as:\nto analyze and visualize data.\nAnalyzed data is presented mainly with Jupyter Notebook or with Microsoft Power BI, but future visualization may include different solutions."
   },
   {
     "objectID": "DynamicHotelPricingOptimization/notebooks/01_EDA_Dynamic_Hotel_Pricing_Optimization.out.sync-conflict-20250713-080652-RZTMOZH.html",
@@ -1099,5 +1099,12 @@
       "Posts",
       "RAGEval: Evaluating Retrieval-Augmented Generation with LLMs"
     ]
+  },
+  {
+    "objectID": "about.html#contact",
+    "href": "about.html#contact",
+    "title": "About",
+    "section": "Contact",
+    "text": "Contact\nFeel free to reach out:\n\n📧 Email: madaister@gmail.com\n💼 LinkedIn: linkedin.com/in/atilamadai\n💻 GitHub: github.com/atimad"
   }
 ]
