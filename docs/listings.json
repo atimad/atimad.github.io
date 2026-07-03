@@ -15,6 +15,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/rethinking-ai-assisted-software-engineering/index.html",
       "/posts/RAG/index.html",
       "/posts/Syncthing Data Science Friendly/index.html",
       "/posts/A_B Test/index.html",

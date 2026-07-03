@@ -1,7 +1,7 @@
 ---
 title: "RAGEval: Evaluating Retrieval-Augmented Generation with LLMs"
 author: "Atila Madai"
-date: today
+date: 2025-07-26
 categories: [AI, RAG, Evaluation, LLMs, Search]
 format:
   html:

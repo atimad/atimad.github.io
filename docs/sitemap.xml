@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://atimad.github.io/index.html</loc>
-    <lastmod>2025-07-12T10:26:29.883Z</lastmod>
+    <lastmod>2026-07-03T19:03:00.008Z</lastmod>
   </url>
   <url>
     <loc>https://atimad.github.io/DynamicHotelPricingOptimization/notebooks/03_PriceElasticityModeling.out.html</loc>
@@ -91,5 +91,9 @@
   <url>
     <loc>https://atimad.github.io/posts/RAG/index.html</loc>
     <lastmod>2025-07-20T21:14:09.336Z</lastmod>
+  </url>
+  <url>
+    <loc>https://atimad.github.io/posts/rethinking-ai-assisted-software-engineering/index.html</loc>
+    <lastmod>2026-07-03T19:18:07.144Z</lastmod>
   </url>
 </urlset>

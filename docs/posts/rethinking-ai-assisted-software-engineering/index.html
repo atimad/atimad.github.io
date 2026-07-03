@@ -6,9 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Exploring machine learning, data science, automation, and visual storytelling.">
+<meta name="author" content="Atila Madai">
+<meta name="dcterms.date" content="2026-07-03">
+<meta name="description" content="Why repositories may need to evolve from source code storage into operational memory for AI agents.">
 
-<title>Machine Learning and Data Science Blog – Atila Madai</title>
+<title>Rethinking AI-Assisted Software Engineering – Atila Madai</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -27,29 +29,27 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-cc1a02ff0c0cc6969acdcdb6763918e3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-e3f1bf311d3c4671b7943cdf7d84ad03.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-cc1a02ff0c0cc6969acdcdb6763918e3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-cc1a02ff0c0cc6969acdcdb6763918e3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-e3f1bf311d3c4671b7943cdf7d84ad03.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-cc1a02ff0c0cc6969acdcdb6763918e3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,74 +77,20 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.scss">
-<meta property="og:title" content="Machine Learning and Data Science Blog – Atila Madai">
-<meta property="og:description" content="Exploring machine learning, data science, automation, and visual storytelling.">
-<meta property="og:image" content="https://atimad.github.io/images/blog-preview.jpg">
+<link rel="stylesheet" href="../../styles.scss">
+<meta property="og:title" content="Rethinking AI-Assisted Software Engineering – Atila Madai">
+<meta property="og:description" content="Why repositories may need to evolve from source code storage into operational memory for AI agents.">
+<meta property="og:image" content="https://atimad.github.io/posts/rethinking-ai-assisted-software-engineering/air-traffic-control.png">
 <meta property="og:site_name" content="Atila Madai">
-<meta name="twitter:title" content="Machine Learning and Data Science Blog – Atila Madai">
-<meta name="twitter:description" content="Exploring machine learning, data science, automation, and visual storytelling.">
-<meta name="twitter:image" content="https://atimad.github.io/images/blog-preview.jpg">
+<meta property="og:image:height" content="258">
+<meta property="og:image:width" content="600">
+<meta name="twitter:title" content="Rethinking AI-Assisted Software Engineering – Atila Madai">
+<meta name="twitter:description" content="Why repositories may need to evolve from source code storage into operational memory for AI agents.">
+<meta name="twitter:image" content="https://atimad.github.io/posts/rethinking-ai-assisted-software-engineering/air-traffic-control.png">
+<meta name="twitter:image-height" content="258">
+<meta name="twitter:image-width" content="600">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -326,11 +272,11 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/logo.svg" alt="My Logo" class="navbar-logo light-content">
-    <img src="./images/logo.svg" alt="My Logo" class="navbar-logo dark-content">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/logo.svg" alt="My Logo" class="navbar-logo light-content">
+    <img src="../../images/logo.svg" alt="My Logo" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Atila Madai</span>
     </a>
   </div>
@@ -341,11 +287,11 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link active" href="../../index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -360,7 +306,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Machine Learning and Data Science Blog</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/rethinking-ai-assisted-software-engineering/index.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/rethinking-ai-assisted-software-engineering/index.html">Rethinking AI-Assisted Software Engineering</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -379,7 +325,7 @@ window.Quarto = {
         </div>
         </div>
         <div class="sidebar-tools-collapse">
-    <a href="./index.html" title="Machine Learning and Data Science Blog" class="quarto-navigation-tool px-1" aria-label="Machine Learning and Data Science Blog"><i class="bi bi-home"></i></a>
+    <a href="../../index.html" title="Machine Learning and Data Science Blog" class="quarto-navigation-tool px-1" aria-label="Machine Learning and Data Science Blog"><i class="bi bi-home"></i></a>
 </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
@@ -394,55 +340,55 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/rethinking-ai-assisted-software-engineering/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/rethinking-ai-assisted-software-engineering/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Rethinking AI-Assisted Software Engineering</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/Computer Vision/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/Computer Vision/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ML QA Computer Vision Assessment</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/covid19-analysis/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/covid19-analysis/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">COVID-19 Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/Dynamic Hotel Pricing Optimization/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/Dynamic Hotel Pricing Optimization/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Dynamic Pricing &amp; Demand Analysis Suite</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/Credit Card Fraud Detection/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/Credit Card Fraud Detection/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Credit Card Fraud Detection with Resampling and Tree-Based Models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/RAG/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/RAG/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">RAGEval: Evaluating Retrieval-Augmented Generation with LLMs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/Syncthing Data Science Friendly/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/Syncthing Data Science Friendly/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syncthing Setup: Remote Linux Desktop + WSL + Windows + macOS</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/A_B Test/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/A_B Test/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">A/B Test Dashboard – Search UX Evaluation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/cycles-analysis/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/cycles-analysis/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Adventure Works Cycles: Cost &amp; Elasticity Analysis</span></a>
   </div>
 </li>
@@ -454,27 +400,58 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(9)</span></div><div class="category" data-category="QSUyRkIlMjBUZXN0aW5n">A/B Testing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QWdlbnRpYyUyMFdvcmtmbG93cw==">Agentic Workflows <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QUk=">AI <span class="quarto-category-count">(2)</span></div><div class="category" data-category="YW5hbHl0aWNz">analytics <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Q2F0Qm9vc3Q=">CatBoost <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q29tcHV0ZXIlMjBWaXNpb24=">Computer Vision <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGF0YS12aXo=">data-viz <span class="quarto-category-count">(3)</span></div><div class="category" data-category="RW5naW5lZXJpbmclMjBHb3Zlcm5hbmNl">Engineering Governance <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RXZhbHVhdGlvbg==">Evaluation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZnJhdWQtZGV0ZWN0aW9u">fraud-detection <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TGlnaHRHQk0=">LightGBM <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGludXg=">linux <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TExNcw==">LLMs <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFjb3M=">macos <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bm90ZWJvb2s=">notebook <span class="quarto-category-count">(5)</span></div><div class="category" data-category="UENBRQ==">PCAE <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UG93ZXIlMjBCSQ==">Power BI <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHl0aG9u">python <span class="quarto-category-count">(5)</span></div><div class="category" data-category="UkFH">RAG <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U2VhcmNo">Search <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U29mdHdhcmUlMjBFbmdpbmVlcmluZw==">Software Engineering <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dG9vbHM=">tools <span class="quarto-category-count">(1)</span></div><div class="category" data-category="d2luZG93cw==">windows <span class="quarto-category-count">(1)</span></div><div class="category" data-category="d29ya2Zsb3c=">workflow <span class="quarto-category-count">(1)</span></div><div class="category" data-category="WEdCb29zdA==">XGBoost <span class="quarto-category-count">(2)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#the-engineering-skill-is-changing" id="toc-the-engineering-skill-is-changing" class="nav-link active" data-scroll-target="#the-engineering-skill-is-changing">The Engineering Skill Is Changing</a></li>
+  <li><a href="#the-repository-as-an-operating-model" id="toc-the-repository-as-an-operating-model" class="nav-link" data-scroll-target="#the-repository-as-an-operating-model">The Repository as an Operating Model</a></li>
+  <li><a href="#an-experiment-called-pcae" id="toc-an-experiment-called-pcae" class="nav-link" data-scroll-target="#an-experiment-called-pcae">An Experiment Called PCAE</a></li>
+  <li><a href="#what-pcae-v0.1-deliberately-does-not-do" id="toc-what-pcae-v0.1-deliberately-does-not-do" class="nav-link" data-scroll-target="#what-pcae-v0.1-deliberately-does-not-do">What PCAE v0.1 Deliberately Does Not Do</a></li>
+  <li><a href="#the-governance-system-caught-a-governance-bug" id="toc-the-governance-system-caught-a-governance-bug" class="nav-link" data-scroll-target="#the-governance-system-caught-a-governance-bug">The Governance System Caught a Governance Bug</a></li>
+  <li><a href="#a-broader-shift" id="toc-a-broader-shift" class="nav-link" data-scroll-target="#a-broader-shift">A Broader Shift</a></li>
+  <li><a href="#whats-next" id="toc-whats-next" class="nav-link" data-scroll-target="#whats-next">What’s Next</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/rethinking-ai-assisted-software-engineering/index.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/rethinking-ai-assisted-software-engineering/index.html">Rethinking AI-Assisted Software Engineering</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Machine Learning and Data Science Blog</h1>
-</div>
+<h1 class="title">Rethinking AI-Assisted Software Engineering</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">AI</div>
+    <div class="quarto-category">Software Engineering</div>
+    <div class="quarto-category">Agentic Workflows</div>
+    <div class="quarto-category">Engineering Governance</div>
+    <div class="quarto-category">PCAE</div>
+  </div>
+  </div>
 
 <div>
   <div class="description">
-    Exploring machine learning, data science, automation, and visual storytelling.
+    Why repositories may need to evolve from source code storage into operational memory for AI agents.
   </div>
 </div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Atila Madai </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 3, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -484,351 +461,179 @@ window.Quarto = {
 </header>
 
 
-<p>Welcome to my new Quarto blog! 🚀</p>
-<p>Here you’ll find posts about machine learning, data science, automation, and visual storytelling.</p>
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="listing-actions-group">
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="air-traffic-control.png" class="img-fluid figure-img"></p>
+<figcaption>Air traffic control room with operators and runway view</figcaption>
+</figure>
 </div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="QUklMkNTb2Z0d2FyZSUyMEVuZ2luZWVyaW5nJTJDQWdlbnRpYyUyMFdvcmtmbG93cyUyQ0VuZ2luZWVyaW5nJTIwR292ZXJuYW5jZSUyQ1BDQUU=" data-listing-date-sort="1783029600000" data-listing-file-modified-sort="1783106287144" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1061">
-<div class="thumbnail"><a href="./posts/rethinking-ai-assisted-software-engineering/index.html" class="no-external">
-
-<img loading="lazy" src="./posts/rethinking-ai-assisted-software-engineering/air-traffic-control.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/rethinking-ai-assisted-software-engineering/index.html" class="no-external">Rethinking AI-Assisted Software Engineering</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('QUk='); return false;">AI</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U29mdHdhcmUlMjBFbmdpbmVlcmluZw=='); return false;">Software Engineering</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('QWdlbnRpYyUyMFdvcmtmbG93cw=='); return false;">Agentic Workflows</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RW5naW5lZXJpbmclMjBHb3Zlcm5hbmNl'); return false;">Engineering Governance</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UENBRQ=='); return false;">PCAE</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/rethinking-ai-assisted-software-engineering/index.html" class="no-external">
 <p>Why repositories may need to evolve from source code storage into operational memory for AI agents.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/rethinking-ai-assisted-software-engineering/index.html" class="no-external">
-<div class="listing-date">
-Jul 3, 2026
-</div>
-<div class="listing-author">
-Atila Madai
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="QUklMkNSQUclMkNFdmFsdWF0aW9uJTJDTExNcyUyQ1NlYXJjaA==" data-listing-date-sort="1753480800000" data-listing-file-modified-sort="1783106679263" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="538">
-<div class="thumbnail"><a href="./posts/RAG/index.html" class="no-external">
+<p>Over the past two years, we’ve seen remarkable progress in AI coding.</p>
+<p>Models generate better code, use more tools, reason over larger contexts, and solve increasingly complex programming tasks.</p>
+<p>Those improvements matter.</p>
+<p>But after spending the last several months building long-running software projects with AI, I’ve become convinced they’re only part of the story.</p>
+<p>Anyone who has worked with AI on a real software project knows something still breaks.</p>
+<p>Not code generation.</p>
+<p>Continuity.</p>
+<p>You ask an AI to fix a bug.</p>
+<p>It understands the issue.</p>
+<p>Then, somewhere along the way, it decides the real solution is to refactor half the project, rename components you never asked it to touch, modify files outside the intended scope, forget decisions made yesterday, and confidently report:</p>
+<blockquote class="blockquote">
+<p>“Everything is done.”</p>
+</blockquote>
+<p>Sometimes that’s impressive.</p>
+<p>Sometimes it’s terrifying.</p>
+<p>The problem isn’t that AI can’t write code.</p>
+<p>The problem is that software engineering is about much more than writing code.</p>
+<p>Long-running projects require memory, boundaries, architectural discipline, and operational continuity.</p>
+<p>A bug fix should not become an accidental redesign.</p>
+<section id="the-engineering-skill-is-changing" class="level2">
+<h2 class="anchored" data-anchor-id="the-engineering-skill-is-changing">The Engineering Skill Is Changing</h2>
+<p>Interestingly, I don’t think the hardest part of AI-assisted software engineering is typing code anymore.</p>
+<p>The harder part is deciding what should be built, what should remain untouched, and how a project should evolve over time.</p>
+<p>That means architecture, judgment, decomposition, documentation, and engineering discipline become even more valuable.</p>
+<p>AI can generate code remarkably well.</p>
+<p>Humans still need to define the operating model.</p>
+<p>Small projects can often succeed with very little structure.</p>
+<p>Long-running engineering projects are different.</p>
+<p>Without boundaries, repositories gradually accumulate undocumented decisions, architectural drift, inconsistent patterns, and increasingly fragile changes.</p>
+<p>The challenge isn’t building version one.</p>
+<p>It’s safely evolving version two hundred.</p>
+</section>
+<section id="the-repository-as-an-operating-model" class="level2">
+<h2 class="anchored" data-anchor-id="the-repository-as-an-operating-model">The Repository as an Operating Model</h2>
+<p>That led me to a simple idea:</p>
+<p>The repository should become the control surface for the agent, and the operating model for AI-assisted software engineering.</p>
+<p>Today, most repositories are treated as collections of source files.</p>
+<p>I think they should become something much more valuable.</p>
+<p>They should preserve the operational memory of the project.</p>
+<p>Not just code.</p>
+<p>But also:</p>
+<ul>
+<li>Architectural decisions</li>
+<li>Task contracts</li>
+<li>Project status</li>
+<li>Protected boundaries</li>
+<li>Release state</li>
+<li>Engineering documentation</li>
+<li>Evidence explaining what changed and why</li>
+</ul>
+<p>In other words, the repository shouldn’t only describe the product.</p>
+<p>It should also describe how the product is safely evolved.</p>
+<p>If the repository contains enough operational knowledge, something interesting happens.</p>
+<p>The individual coding model becomes less important.</p>
+<p>Claude, Codex, Cursor, or whatever comes next, can all work from the same engineering memory.</p>
+<p>The repository becomes persistent.</p>
+<p>The execution intelligence becomes replaceable.</p>
+</section>
+<section id="an-experiment-called-pcae" class="level2">
+<h2 class="anchored" data-anchor-id="an-experiment-called-pcae">An Experiment Called PCAE</h2>
+<p>That is the idea behind PCAE: Persistent Constrained Agentic Engineering.</p>
+<p>PCAE isn’t an autonomous coding platform.</p>
+<p>It’s an experiment in governed AI-assisted software engineering.</p>
+<p>What I’m trying to build isn’t better autocomplete.</p>
+<p>It’s closer to persistent AI software engineering infrastructure.</p>
+<p>The goal isn’t to make an AI agent smarter by giving it unlimited freedom.</p>
+<p>The goal is to make AI more useful by giving it a clearly defined operating lane.</p>
+<p>Instead of relying on prompts alone, PCAE surrounds AI-assisted work with an engineering operating model that provides structure through:</p>
+<ul>
+<li>Task and phase contracts</li>
+<li>Scoped changes</li>
+<li>Protected boundaries</li>
+<li>Commit and release discipline</li>
+<li>Report trust gates</li>
+<li>Session bootstrapping</li>
+<li>Structured handoffs</li>
+<li>Release-readiness checks</li>
+<li>Outbound notifications</li>
+<li>Evidence-based reporting</li>
+</ul>
+<p>A bug-fix task shouldn’t mean:</p>
+<blockquote class="blockquote">
+<p>“Explore the repository and do whatever seems best.”</p>
+</blockquote>
+<p>It should mean:</p>
+<blockquote class="blockquote">
+<p>“Diagnose first. Stay within scope. Preserve architecture. Verify the result. Leave evidence behind.”</p>
+</blockquote>
+<p>That sounds obvious.</p>
+<p>Without tooling, it’s mostly a wish.</p>
+<p>PCAE is an experiment in turning that wish into a repeatable engineering workflow.</p>
+</section>
+<section id="what-pcae-v0.1-deliberately-does-not-do" class="level2">
+<h2 class="anchored" data-anchor-id="what-pcae-v0.1-deliberately-does-not-do">What PCAE v0.1 Deliberately Does Not Do</h2>
+<p>The current release candidate, v0.1.0-rc1, is intentionally conservative.</p>
+<p>It does not:</p>
+<ul>
+<li>Autonomously execute code</li>
+<li>Mediate shell commands</li>
+<li>Invoke AI backends</li>
+<li>Accept inbound Telegram control</li>
+<li>Replace human approval</li>
+</ul>
+<p>The focus isn’t autonomy.</p>
+<p>The focus is accountability.</p>
+<p>The release candidate has now been tagged and pushed.</p>
+<p>The core fast-green validation suite is fully green with 4,390 out of 4,390 tests passing, and editable installation, package builds, and installation smoke tests have all been verified.</p>
+<p>Those numbers are reassuring.</p>
+<p>But the most interesting part of the release wasn’t the tag.</p>
+</section>
+<section id="the-governance-system-caught-a-governance-bug" class="level2">
+<h2 class="anchored" data-anchor-id="the-governance-system-caught-a-governance-bug">The Governance System Caught a Governance Bug</h2>
+<p>After tagging the release candidate, I performed a post-release governance audit.</p>
+<p>It uncovered something unexpected.</p>
+<p>PCAE had developed a subtle inconsistency inside its own lifecycle.</p>
+<p>Two different completion paths evaluated report trust differently.</p>
+<p>One correctly rejected an incomplete completion report.</p>
+<p>Another could mistakenly accept it as final.</p>
+<p>In other words…</p>
+<p>The governance system had a governance bug.</p>
+<p>Ironically, that made me trust the project more, not less.</p>
+<p>The issue was reproduced through the CLI, repaired by moving both paths to a shared trust helper, and verified through live CLI reproduction and regression tests.</p>
+<p>Because the workflow was structured, the inconsistency became visible.</p>
+<p>It could be reproduced.</p>
+<p>It could be fixed.</p>
+<p>It could be verified.</p>
+<p>Without that structure, it would probably have remained just another vague “everything looks fine.”</p>
+<p>That experience reinforced something I’ve started believing more strongly:</p>
+<p>Completion claims are just text unless they’re tied to evidence.</p>
+</section>
+<section id="a-broader-shift" class="level2">
+<h2 class="anchored" data-anchor-id="a-broader-shift">A Broader Shift</h2>
+<p>I suspect the most interesting advances in AI-assisted software engineering won’t come from model capability alone.</p>
+<p>They will also come from engineering environments that remember, constrain, explain, and verify the work.</p>
+<p>Interestingly, many teams appear to be converging toward similar ideas.</p>
+<p>Repository instruction files, structured agent documentation, persistent handoffs, engineering memory, workflow contracts, and context systems all point in the same direction.</p>
+<p>The model is becoming one component of a much larger engineering system.</p>
+<p>Increasingly, I think AI-assisted software engineering isn’t limited by model intelligence.</p>
+<p>It’s limited by project continuity.</p>
+<p>By memory.</p>
+<p>By architecture.</p>
+<p>By operational workflow.</p>
+<p>By the engineering environment surrounding the model.</p>
+<p>The repository stops being passive storage.</p>
+<p>It becomes active operational memory.</p>
+<p>It becomes the engineering operating model that enables both humans and AI to continue complex projects safely over time.</p>
+</section>
+<section id="whats-next" class="level2">
+<h2 class="anchored" data-anchor-id="whats-next">What’s Next</h2>
+<p>PCAE is still early.</p>
+<p>Version 0.1 is deliberately non-executing.</p>
+<p>Version 0.2 will begin exploring the autonomy boundary through runtime enforcement, governed backend invocation, shell mediation, approval gates, durable audit, and eventually bounded execution.</p>
+<p>But I’m intentionally not starting there.</p>
+<p>Because if a system cannot reliably explain what happened…</p>
+<p>…it probably shouldn’t be trusted to do more on its own.</p>
+<p>My suspicion is that the biggest opportunity in AI-assisted software engineering isn’t simply building smarter models.</p>
+<p>It’s building engineering environments that preserve knowledge well enough that any capable agent can continue the work safely.</p>
+<p>PCAE is one experiment exploring what that might look like.</p>
+<p>This is very much a work in progress, and I expect many of these ideas to evolve as the project matures and I learn from using it on real software projects.</p>
+<p>If you’re exploring similar challenges around AI-assisted software engineering, long-running agent workflows, or engineering governance, I’d genuinely be interested in hearing your perspective.</p>
+<p>Before making AI agents more autonomous, make their work accountable.</p>
 
-<p class="card-img-top"><img loading='lazy' src="posts/RAG/rageval-diagram.webp"  class="thumbnail-image card-img"/></p>
 
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/RAG/index.html" class="no-external">RAGEval: Evaluating Retrieval-Augmented Generation with LLMs</a>
-</h3>
-<div class="listing-categories">
+</section>
 
-<div class="listing-category" onclick="window.quartoListingCategory('QUk='); return false;">AI</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UkFH'); return false;">RAG</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RXZhbHVhdGlvbg=='); return false;">Evaluation</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U2VhcmNo'); return false;">Search</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/RAG/index.html" class="no-external">
-A modular framework to assess trust, citation quality, and response relevance in RAG pipelines — powered by large language models.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/RAG/index.html" class="no-external">
-<div class="listing-date">
-Jul 26, 2025
-</div>
-<div class="listing-author">
-Atila Madai
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="dG9vbHMlMkN3b3JrZmxvdyUyQ2xpbnV4JTJDd2luZG93cyUyQ21hY29z" data-listing-date-sort="1752271200000" data-listing-file-modified-sort="1783105380015" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="737">
-<div class="thumbnail"><a href="./posts/Syncthing Data Science Friendly/index.html" class="no-external">
-
-<p class="card-img-top"><img loading='lazy' src="posts/Syncthing Data Science Friendly/image.jpg"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Syncthing Data Science Friendly/index.html" class="no-external">Syncthing Setup: Remote Linux Desktop + WSL + Windows + macOS</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('dG9vbHM='); return false;">tools</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('d29ya2Zsb3c='); return false;">workflow</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('bGludXg='); return false;">linux</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('d2luZG93cw=='); return false;">windows</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('bWFjb3M='); return false;">macos</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Syncthing Data Science Friendly/index.html" class="no-external">
-<p>Guide to syncing folders across a primary Linux data science machine, WSL laptop, Windows backup, and MacBook using Syncthing.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Syncthing Data Science Friendly/index.html" class="no-external">
-<div class="listing-date">
-Jul 12, 2025
-</div>
-<div class="listing-author">
-Atila Madai
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="QSUyRkIlMjBUZXN0aW5nJTJDbm90ZWJvb2slMkNweXRob24=" data-listing-date-sort="1751320800000" data-listing-file-modified-sort="1783105380009" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="267">
-<div class="thumbnail"><a href="./posts/A_B Test/index.html" class="no-external">
-
-<p class="card-img-top"><img loading='lazy' src="posts/A_B Test/images/ab-dashboard-preview.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/A_B Test/index.html" class="no-external">A/B Test Dashboard – Search UX Evaluation</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('QSUyRkIlMjBUZXN0aW5n'); return false;">A/B Testing</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('bm90ZWJvb2s='); return false;">notebook</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHl0aG9u'); return false;">python</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/A_B Test/index.html" class="no-external">
-This post summarizes an A/B test comparing two variants of a search experience using real usage logs. The goal was to evaluate:
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/A_B Test/index.html" class="no-external">
-<div class="listing-date">
-Jul 1, 2025
-</div>
-<div class="listing-author">
-Atila Madai
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="Q29tcHV0ZXIlMjBWaXNpb24lMkNub3RlYm9vayUyQ3B5dGhvbg==" data-listing-date-sort="1750543200000" data-listing-file-modified-sort="1783105380009" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="682">
-<div class="thumbnail"><a href="./posts/Computer Vision/index.html" class="no-external">
-
-<p class="card-img-top"><img loading='lazy' src="posts/Computer Vision/index_files/figure-html/cell-4-output-1.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Computer Vision/index.html" class="no-external">ML QA Computer Vision Assessment</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q29tcHV0ZXIlMjBWaXNpb24='); return false;">Computer Vision</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('bm90ZWJvb2s='); return false;">notebook</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHl0aG9u'); return false;">python</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Computer Vision/index.html" class="no-external">
-This notebook provides a robust framework for performing <strong>quality assurance (QA)</strong> on annotated image datasets used in <strong>computer vision (CV) pipelines</strong> for airport apron…
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Computer Vision/index.html" class="no-external">
-<div class="listing-date">
-Jun 22, 2025
-</div>
-<div class="listing-author">
-Atila Madai
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="ZGF0YS12aXolMkNYR0Jvb3N0JTJDYW5hbHl0aWNzJTJDbm90ZWJvb2slMkNweXRob24=" data-listing-date-sort="1750024800000" data-listing-file-modified-sort="1783105380014" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="361">
-<div class="thumbnail"><a href="./posts/Dynamic Hotel Pricing Optimization/index.html" class="no-external">
-
-<p class="card-img-top"><img loading='lazy' src="posts/Dynamic Hotel Pricing Optimization/index_files/figure-html/..-..-..-..-GitHub-DynamicHotelPricingOptimization-notebooks-01_EDA_Dynamic_Hotel_Pricing_Optimization-cell-5-output-2.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Dynamic Hotel Pricing Optimization/index.html" class="no-external">Dynamic Pricing &amp; Demand Analysis Suite</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YS12aXo='); return false;">data-viz</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('WEdCb29zdA=='); return false;">XGBoost</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHl0aWNz'); return false;">analytics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('bm90ZWJvb2s='); return false;">notebook</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHl0aG9u'); return false;">python</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Dynamic Hotel Pricing Optimization/index.html" class="no-external">
-This project explores how to build a <strong>trading floor-inspired, real-time dynamic pricing engine</strong> for hotel inventory.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Dynamic Hotel Pricing Optimization/index.html" class="no-external">
-<div class="listing-date">
-Jun 16, 2025
-</div>
-<div class="listing-author">
-Atila Madai
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="ZGF0YS12aXolMkNhbmFseXRpY3MlMkNub3RlYm9vayUyQ3B5dGhvbg==" data-listing-date-sort="1749938400000" data-listing-file-modified-sort="1783105380022" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1272">
-<div class="thumbnail"><a href="./posts/cycles-analysis/index.html" class="no-external">
-
-<p class="card-img-top"><img loading='lazy' src="posts/cycles-analysis/index_files/figure-html/cell-4-output-1.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/cycles-analysis/index.html" class="no-external">Adventure Works Cycles: Cost &amp; Elasticity Analysis</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YS12aXo='); return false;">data-viz</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHl0aWNz'); return false;">analytics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('bm90ZWJvb2s='); return false;">notebook</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHl0aG9u'); return false;">python</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/cycles-analysis/index.html" class="no-external">
-Presented with Jupyter Notebook using Python
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/cycles-analysis/index.html" class="no-external">
-<div class="listing-date">
-Jun 15, 2025
-</div>
-<div class="listing-author">
-Atila Madai
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-categories="ZnJhdWQtZGV0ZWN0aW9uJTJDWEdCb29zdCUyQ0xpZ2h0R0JNJTJDQ2F0Qm9vc3QlMkNub3RlYm9vayUyQ3B5dGhvbg==" data-listing-date-sort="1738796400000" data-listing-file-modified-sort="1783105380014" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2283">
-<div class="thumbnail"><a href="./posts/Credit Card Fraud Detection/index.html" class="no-external">
-
-<p class="card-img-top"><img loading='lazy' src="posts/Credit Card Fraud Detection/index_files/figure-html/cell-3-output-2.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Credit Card Fraud Detection/index.html" class="no-external">Credit Card Fraud Detection with Resampling and Tree-Based Models</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZnJhdWQtZGV0ZWN0aW9u'); return false;">fraud-detection</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('WEdCb29zdA=='); return false;">XGBoost</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TGlnaHRHQk0='); return false;">LightGBM</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q2F0Qm9vc3Q='); return false;">CatBoost</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('bm90ZWJvb2s='); return false;">notebook</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHl0aG9u'); return false;">python</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Credit Card Fraud Detection/index.html" class="no-external">
-This notebook implements a comprehensive fraud detection pipeline using tree-based models, SMOTE for class balancing, and robust evaluation practices.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Credit Card Fraud Detection/index.html" class="no-external">
-<div class="listing-date">
-Feb 6, 2025
-</div>
-<div class="listing-author">
-Atila Madai
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="8" data-categories="ZGF0YS12aXolMkNQb3dlciUyMEJJ" data-listing-date-sort="1587938400000" data-listing-file-modified-sort="1783105380015" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="17">
-<div class="thumbnail"><a href="./posts/covid19-analysis/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/covid19-analysis/index.html" class="no-external">COVID-19 Data Analysis</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YS12aXo='); return false;">data-viz</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UG93ZXIlMjBCSQ=='); return false;">Power BI</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/covid19-analysis/index.html" class="no-external">
-Presented in Microsoft Power BI using Python and DAX.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/covid19-analysis/index.html" class="no-external">
-<div class="listing-date">
-Apr 27, 2020
-</div>
-<div class="listing-author">
-Atila Madai
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

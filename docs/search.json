@@ -543,7 +543,7 @@
     "href": "index.html",
     "title": "Machine Learning and Data Science Blog",
     "section": "",
-    "text": "Welcome to my new Quarto blog! 🚀\nHere you’ll find posts about machine learning, data science, automation, and visual storytelling.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nRAGEval: Evaluating Retrieval-Augmented Generation with LLMs\n\n\n\nAI\n\nRAG\n\nEvaluation\n\nLLMs\n\nSearch\n\n\n\n\n\n\n\n\n\nJul 26, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nSyncthing Setup: Remote Linux Desktop + WSL + Windows + macOS\n\n\n\ntools\n\nworkflow\n\nlinux\n\nwindows\n\nmacos\n\n\n\nGuide to syncing folders across a primary Linux data science machine, WSL laptop, Windows backup, and MacBook using Syncthing.\n\n\n\n\n\nJul 12, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nA/B Test Dashboard – Search UX Evaluation\n\n\n\nA/B Testing\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJul 1, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nML QA Computer Vision Assessment\n\n\n\nComputer Vision\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 22, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nDynamic Pricing & Demand Analysis Suite\n\n\n\ndata-viz\n\nXGBoost\n\nanalytics\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 16, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nAdventure Works Cycles: Cost & Elasticity Analysis\n\n\n\ndata-viz\n\nanalytics\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 15, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nCredit Card Fraud Detection with Resampling and Tree-Based Models\n\n\n\nfraud-detection\n\nXGBoost\n\nLightGBM\n\nCatBoost\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nFeb 6, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nCOVID-19 Data Analysis\n\n\n\ndata-viz\n\nPower BI\n\n\n\n\n\n\n\n\n\nApr 27, 2020\n\n\nAtila Madai\n\n\n\n\n\nNo matching items"
+    "text": "Welcome to my new Quarto blog! 🚀\nHere you’ll find posts about machine learning, data science, automation, and visual storytelling.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nRethinking AI-Assisted Software Engineering\n\n\n\nAI\n\nSoftware Engineering\n\nAgentic Workflows\n\nEngineering Governance\n\nPCAE\n\n\n\nWhy repositories may need to evolve from source code storage into operational memory for AI agents.\n\n\n\n\n\nJul 3, 2026\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nRAGEval: Evaluating Retrieval-Augmented Generation with LLMs\n\n\n\nAI\n\nRAG\n\nEvaluation\n\nLLMs\n\nSearch\n\n\n\n\n\n\n\n\n\nJul 26, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nSyncthing Setup: Remote Linux Desktop + WSL + Windows + macOS\n\n\n\ntools\n\nworkflow\n\nlinux\n\nwindows\n\nmacos\n\n\n\nGuide to syncing folders across a primary Linux data science machine, WSL laptop, Windows backup, and MacBook using Syncthing.\n\n\n\n\n\nJul 12, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nA/B Test Dashboard – Search UX Evaluation\n\n\n\nA/B Testing\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJul 1, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nML QA Computer Vision Assessment\n\n\n\nComputer Vision\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 22, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nDynamic Pricing & Demand Analysis Suite\n\n\n\ndata-viz\n\nXGBoost\n\nanalytics\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 16, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nAdventure Works Cycles: Cost & Elasticity Analysis\n\n\n\ndata-viz\n\nanalytics\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 15, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nCredit Card Fraud Detection with Resampling and Tree-Based Models\n\n\n\nfraud-detection\n\nXGBoost\n\nLightGBM\n\nCatBoost\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nFeb 6, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nCOVID-19 Data Analysis\n\n\n\ndata-viz\n\nPower BI\n\n\n\n\n\n\n\n\n\nApr 27, 2020\n\n\nAtila Madai\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "DynamicHotelPricingOptimization/notebooks/03_PriceElasticityModeling.out.html",
@@ -1106,5 +1106,101 @@
     "title": "About",
     "section": "Contact",
     "text": "Contact\nFeel free to reach out:\n\n📧 Email: madaister@gmail.com\n💼 LinkedIn: linkedin.com/in/atilamadai\n💻 GitHub: github.com/atimad"
+  },
+  {
+    "objectID": "posts/rethinking-ai-assisted-software-engineering/index.html",
+    "href": "posts/rethinking-ai-assisted-software-engineering/index.html",
+    "title": "Rethinking AI-Assisted Software Engineering",
+    "section": "",
+    "text": "Air traffic control room with operators and runway view\nWhy repositories may need to evolve from source code storage into operational memory for AI agents.\nOver the past two years, we’ve seen remarkable progress in AI coding.\nModels generate better code, use more tools, reason over larger contexts, and solve increasingly complex programming tasks.\nThose improvements matter.\nBut after spending the last several months building long-running software projects with AI, I’ve become convinced they’re only part of the story.\nAnyone who has worked with AI on a real software project knows something still breaks.\nNot code generation.\nContinuity.\nYou ask an AI to fix a bug.\nIt understands the issue.\nThen, somewhere along the way, it decides the real solution is to refactor half the project, rename components you never asked it to touch, modify files outside the intended scope, forget decisions made yesterday, and confidently report:\nSometimes that’s impressive.\nSometimes it’s terrifying.\nThe problem isn’t that AI can’t write code.\nThe problem is that software engineering is about much more than writing code.\nLong-running projects require memory, boundaries, architectural discipline, and operational continuity.\nA bug fix should not become an accidental redesign.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Rethinking AI-Assisted Software Engineering"
+    ]
+  },
+  {
+    "objectID": "posts/rethinking-ai-assisted-software-engineering/index.html#the-engineering-skill-is-changing",
+    "href": "posts/rethinking-ai-assisted-software-engineering/index.html#the-engineering-skill-is-changing",
+    "title": "Rethinking AI-Assisted Software Engineering",
+    "section": "The Engineering Skill Is Changing",
+    "text": "The Engineering Skill Is Changing\nInterestingly, I don’t think the hardest part of AI-assisted software engineering is typing code anymore.\nThe harder part is deciding what should be built, what should remain untouched, and how a project should evolve over time.\nThat means architecture, judgment, decomposition, documentation, and engineering discipline become even more valuable.\nAI can generate code remarkably well.\nHumans still need to define the operating model.\nSmall projects can often succeed with very little structure.\nLong-running engineering projects are different.\nWithout boundaries, repositories gradually accumulate undocumented decisions, architectural drift, inconsistent patterns, and increasingly fragile changes.\nThe challenge isn’t building version one.\nIt’s safely evolving version two hundred.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Rethinking AI-Assisted Software Engineering"
+    ]
+  },
+  {
+    "objectID": "posts/rethinking-ai-assisted-software-engineering/index.html#the-repository-as-an-operating-model",
+    "href": "posts/rethinking-ai-assisted-software-engineering/index.html#the-repository-as-an-operating-model",
+    "title": "Rethinking AI-Assisted Software Engineering",
+    "section": "The Repository as an Operating Model",
+    "text": "The Repository as an Operating Model\nThat led me to a simple idea:\nThe repository should become the control surface for the agent, and the operating model for AI-assisted software engineering.\nToday, most repositories are treated as collections of source files.\nI think they should become something much more valuable.\nThey should preserve the operational memory of the project.\nNot just code.\nBut also:\n\nArchitectural decisions\nTask contracts\nProject status\nProtected boundaries\nRelease state\nEngineering documentation\nEvidence explaining what changed and why\n\nIn other words, the repository shouldn’t only describe the product.\nIt should also describe how the product is safely evolved.\nIf the repository contains enough operational knowledge, something interesting happens.\nThe individual coding model becomes less important.\nClaude, Codex, Cursor, or whatever comes next, can all work from the same engineering memory.\nThe repository becomes persistent.\nThe execution intelligence becomes replaceable.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Rethinking AI-Assisted Software Engineering"
+    ]
+  },
+  {
+    "objectID": "posts/rethinking-ai-assisted-software-engineering/index.html#an-experiment-called-pcae",
+    "href": "posts/rethinking-ai-assisted-software-engineering/index.html#an-experiment-called-pcae",
+    "title": "Rethinking AI-Assisted Software Engineering",
+    "section": "An Experiment Called PCAE",
+    "text": "An Experiment Called PCAE\nThat is the idea behind PCAE: Persistent Constrained Agentic Engineering.\nPCAE isn’t an autonomous coding platform.\nIt’s an experiment in governed AI-assisted software engineering.\nWhat I’m trying to build isn’t better autocomplete.\nIt’s closer to persistent AI software engineering infrastructure.\nThe goal isn’t to make an AI agent smarter by giving it unlimited freedom.\nThe goal is to make AI more useful by giving it a clearly defined operating lane.\nInstead of relying on prompts alone, PCAE surrounds AI-assisted work with an engineering operating model that provides structure through:\n\nTask and phase contracts\nScoped changes\nProtected boundaries\nCommit and release discipline\nReport trust gates\nSession bootstrapping\nStructured handoffs\nRelease-readiness checks\nOutbound notifications\nEvidence-based reporting\n\nA bug-fix task shouldn’t mean:\n\n“Explore the repository and do whatever seems best.”\n\nIt should mean:\n\n“Diagnose first. Stay within scope. Preserve architecture. Verify the result. Leave evidence behind.”\n\nThat sounds obvious.\nWithout tooling, it’s mostly a wish.\nPCAE is an experiment in turning that wish into a repeatable engineering workflow.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Rethinking AI-Assisted Software Engineering"
+    ]
+  },
+  {
+    "objectID": "posts/rethinking-ai-assisted-software-engineering/index.html#what-pcae-v0.1-deliberately-does-not-do",
+    "href": "posts/rethinking-ai-assisted-software-engineering/index.html#what-pcae-v0.1-deliberately-does-not-do",
+    "title": "Rethinking AI-Assisted Software Engineering",
+    "section": "What PCAE v0.1 Deliberately Does Not Do",
+    "text": "What PCAE v0.1 Deliberately Does Not Do\nThe current release candidate, v0.1.0-rc1, is intentionally conservative.\nIt does not:\n\nAutonomously execute code\nMediate shell commands\nInvoke AI backends\nAccept inbound Telegram control\nReplace human approval\n\nThe focus isn’t autonomy.\nThe focus is accountability.\nThe release candidate has now been tagged and pushed.\nThe core fast-green validation suite is fully green with 4,390 out of 4,390 tests passing, and editable installation, package builds, and installation smoke tests have all been verified.\nThose numbers are reassuring.\nBut the most interesting part of the release wasn’t the tag.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Rethinking AI-Assisted Software Engineering"
+    ]
+  },
+  {
+    "objectID": "posts/rethinking-ai-assisted-software-engineering/index.html#the-governance-system-caught-a-governance-bug",
+    "href": "posts/rethinking-ai-assisted-software-engineering/index.html#the-governance-system-caught-a-governance-bug",
+    "title": "Rethinking AI-Assisted Software Engineering",
+    "section": "The Governance System Caught a Governance Bug",
+    "text": "The Governance System Caught a Governance Bug\nAfter tagging the release candidate, I performed a post-release governance audit.\nIt uncovered something unexpected.\nPCAE had developed a subtle inconsistency inside its own lifecycle.\nTwo different completion paths evaluated report trust differently.\nOne correctly rejected an incomplete completion report.\nAnother could mistakenly accept it as final.\nIn other words…\nThe governance system had a governance bug.\nIronically, that made me trust the project more, not less.\nThe issue was reproduced through the CLI, repaired by moving both paths to a shared trust helper, and verified through live CLI reproduction and regression tests.\nBecause the workflow was structured, the inconsistency became visible.\nIt could be reproduced.\nIt could be fixed.\nIt could be verified.\nWithout that structure, it would probably have remained just another vague “everything looks fine.”\nThat experience reinforced something I’ve started believing more strongly:\nCompletion claims are just text unless they’re tied to evidence.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Rethinking AI-Assisted Software Engineering"
+    ]
+  },
+  {
+    "objectID": "posts/rethinking-ai-assisted-software-engineering/index.html#a-broader-shift",
+    "href": "posts/rethinking-ai-assisted-software-engineering/index.html#a-broader-shift",
+    "title": "Rethinking AI-Assisted Software Engineering",
+    "section": "A Broader Shift",
+    "text": "A Broader Shift\nI suspect the most interesting advances in AI-assisted software engineering won’t come from model capability alone.\nThey will also come from engineering environments that remember, constrain, explain, and verify the work.\nInterestingly, many teams appear to be converging toward similar ideas.\nRepository instruction files, structured agent documentation, persistent handoffs, engineering memory, workflow contracts, and context systems all point in the same direction.\nThe model is becoming one component of a much larger engineering system.\nIncreasingly, I think AI-assisted software engineering isn’t limited by model intelligence.\nIt’s limited by project continuity.\nBy memory.\nBy architecture.\nBy operational workflow.\nBy the engineering environment surrounding the model.\nThe repository stops being passive storage.\nIt becomes active operational memory.\nIt becomes the engineering operating model that enables both humans and AI to continue complex projects safely over time.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Rethinking AI-Assisted Software Engineering"
+    ]
+  },
+  {
+    "objectID": "posts/rethinking-ai-assisted-software-engineering/index.html#whats-next",
+    "href": "posts/rethinking-ai-assisted-software-engineering/index.html#whats-next",
+    "title": "Rethinking AI-Assisted Software Engineering",
+    "section": "What’s Next",
+    "text": "What’s Next\nPCAE is still early.\nVersion 0.1 is deliberately non-executing.\nVersion 0.2 will begin exploring the autonomy boundary through runtime enforcement, governed backend invocation, shell mediation, approval gates, durable audit, and eventually bounded execution.\nBut I’m intentionally not starting there.\nBecause if a system cannot reliably explain what happened…\n…it probably shouldn’t be trusted to do more on its own.\nMy suspicion is that the biggest opportunity in AI-assisted software engineering isn’t simply building smarter models.\nIt’s building engineering environments that preserve knowledge well enough that any capable agent can continue the work safely.\nPCAE is one experiment exploring what that might look like.\nThis is very much a work in progress, and I expect many of these ideas to evolve as the project matures and I learn from using it on real software projects.\nIf you’re exploring similar challenges around AI-assisted software engineering, long-running agent workflows, or engineering governance, I’d genuinely be interested in hearing your perspective.\nBefore making AI agents more autonomous, make their work accountable.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Rethinking AI-Assisted Software Engineering"
+    ]
   }
 ]
