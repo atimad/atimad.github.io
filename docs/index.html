@@ -87,9 +87,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -442,6 +442,12 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./posts/governing-the-machine-that-writes-code/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Governing the Machine That Writes Code</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./posts/cycles-analysis/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Adventure Works Cycles: Cost &amp; Elasticity Analysis</span></a>
   </div>
@@ -455,7 +461,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(9)</span></div><div class="category" data-category="QSUyRkIlMjBUZXN0aW5n">A/B Testing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QWdlbnRpYyUyMFdvcmtmbG93cw==">Agentic Workflows <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QUk=">AI <span class="quarto-category-count">(2)</span></div><div class="category" data-category="YW5hbHl0aWNz">analytics <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Q2F0Qm9vc3Q=">CatBoost <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q29tcHV0ZXIlMjBWaXNpb24=">Computer Vision <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGF0YS12aXo=">data-viz <span class="quarto-category-count">(3)</span></div><div class="category" data-category="RW5naW5lZXJpbmclMjBHb3Zlcm5hbmNl">Engineering Governance <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RXZhbHVhdGlvbg==">Evaluation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZnJhdWQtZGV0ZWN0aW9u">fraud-detection <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TGlnaHRHQk0=">LightGBM <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGludXg=">linux <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TExNcw==">LLMs <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFjb3M=">macos <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bm90ZWJvb2s=">notebook <span class="quarto-category-count">(5)</span></div><div class="category" data-category="UENBRQ==">PCAE <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UG93ZXIlMjBCSQ==">Power BI <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHl0aG9u">python <span class="quarto-category-count">(5)</span></div><div class="category" data-category="UkFH">RAG <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U2VhcmNo">Search <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U29mdHdhcmUlMjBFbmdpbmVlcmluZw==">Software Engineering <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dG9vbHM=">tools <span class="quarto-category-count">(1)</span></div><div class="category" data-category="d2luZG93cw==">windows <span class="quarto-category-count">(1)</span></div><div class="category" data-category="d29ya2Zsb3c=">workflow <span class="quarto-category-count">(1)</span></div><div class="category" data-category="WEdCb29zdA==">XGBoost <span class="quarto-category-count">(2)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(10)</span></div><div class="category" data-category="QSUyRkIlMjBUZXN0aW5n">A/B Testing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QWdlbnRpYyUyMFdvcmtmbG93cw==">Agentic Workflows <span class="quarto-category-count">(2)</span></div><div class="category" data-category="QUk=">AI <span class="quarto-category-count">(3)</span></div><div class="category" data-category="YW5hbHl0aWNz">analytics <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Q2F0Qm9vc3Q=">CatBoost <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q29tcHV0ZXIlMjBWaXNpb24=">Computer Vision <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGF0YS12aXo=">data-viz <span class="quarto-category-count">(3)</span></div><div class="category" data-category="RW5naW5lZXJpbmclMjBHb3Zlcm5hbmNl">Engineering Governance <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RXZhbHVhdGlvbg==">Evaluation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZnJhdWQtZGV0ZWN0aW9u">fraud-detection <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TGlnaHRHQk0=">LightGBM <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGludXg=">linux <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TExNcw==">LLMs <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFjb3M=">macos <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bm90ZWJvb2s=">notebook <span class="quarto-category-count">(5)</span></div><div class="category" data-category="UENBRQ==">PCAE <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UG93ZXIlMjBCSQ==">Power BI <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHl0aG9u">python <span class="quarto-category-count">(5)</span></div><div class="category" data-category="UkFH">RAG <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U2VhcmNo">Search <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U29mdHdhcmUlMjBFbmdpbmVlcmluZw==">Software Engineering <span class="quarto-category-count">(2)</span></div><div class="category" data-category="dG9vbHM=">tools <span class="quarto-category-count">(1)</span></div><div class="category" data-category="d2luZG93cw==">windows <span class="quarto-category-count">(1)</span></div><div class="category" data-category="d29ya2Zsb3c=">workflow <span class="quarto-category-count">(1)</span></div><div class="category" data-category="WEdCb29zdA==">XGBoost <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -498,7 +504,48 @@ window.Quarto = {
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="QUklMkNTb2Z0d2FyZSUyMEVuZ2luZWVyaW5nJTJDQWdlbnRpYyUyMFdvcmtmbG93cyUyQ0VuZ2luZWVyaW5nJTIwR292ZXJuYW5jZSUyQ1BDQUU=" data-listing-date-sort="1783029600000" data-listing-file-modified-sort="1783106287144" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1061">
+<div class="quarto-post image-right" data-index="0" data-categories="QUklMkNTb2Z0d2FyZSUyMEVuZ2luZWVyaW5nJTJDQWdlbnRpYyUyMFdvcmtmbG93cyUyQ0VuZ2luZWVyaW5nJTIwR292ZXJuYW5jZSUyQ1BDQUU=" data-listing-date-sort="1783375200000" data-listing-file-modified-sort="1783448985793" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2734">
+<div class="thumbnail"><a href="./posts/governing-the-machine-that-writes-code/index.html" class="no-external">
+
+<img loading="lazy" src="./posts/governing-the-machine-that-writes-code/Light1.jpg" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/governing-the-machine-that-writes-code/index.html" class="no-external">Governing the Machine That Writes Code</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/governing-the-machine-that-writes-code/index.html" class="no-external">What I Learned Building PCAE v0.2</a>
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('QUk='); return false;">AI</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U29mdHdhcmUlMjBFbmdpbmVlcmluZw=='); return false;">Software Engineering</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('QWdlbnRpYyUyMFdvcmtmbG93cw=='); return false;">Agentic Workflows</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RW5naW5lZXJpbmclMjBHb3Zlcm5hbmNl'); return false;">Engineering Governance</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UENBRQ=='); return false;">PCAE</div>
+
+</div>
+<div class="delink listing-description"><a href="./posts/governing-the-machine-that-writes-code/index.html" class="no-external">
+<p>PCAE v0.2 reframes AI-assisted software engineering around governance, evidence, repository memory, and the boundaries needed before autonomous execution can be trusted.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/governing-the-machine-that-writes-code/index.html" class="no-external">
+<div class="listing-date">
+Jul 7, 2026
+</div>
+<div class="listing-author">
+Atila Madai
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="QUklMkNTb2Z0d2FyZSUyMEVuZ2luZWVyaW5nJTJDQWdlbnRpYyUyMFdvcmtmbG93cyUyQ0VuZ2luZWVyaW5nJTIwR292ZXJuYW5jZSUyQ1BDQUU=" data-listing-date-sort="1783029600000" data-listing-file-modified-sort="1783106287144" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1061">
 <div class="thumbnail"><a href="./posts/rethinking-ai-assisted-software-engineering/index.html" class="no-external">
 
 <img loading="lazy" src="./posts/rethinking-ai-assisted-software-engineering/air-traffic-control.png" class="thumbnail-image">
@@ -508,6 +555,9 @@ window.Quarto = {
 <h3 class="no-anchor listing-title">
 <a href="./posts/rethinking-ai-assisted-software-engineering/index.html" class="no-external">Rethinking AI-Assisted Software Engineering</a>
 </h3>
+<div class="listing-subtitle">
+<a href="./posts/rethinking-ai-assisted-software-engineering/index.html" class="no-external"></a>
+</div>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('QUk='); return false;">AI</div>
@@ -536,7 +586,7 @@ Atila Madai
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="QUklMkNSQUclMkNFdmFsdWF0aW9uJTJDTExNcyUyQ1NlYXJjaA==" data-listing-date-sort="1753480800000" data-listing-file-modified-sort="1783106679263" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="538">
+<div class="quarto-post image-right" data-index="2" data-categories="QUklMkNSQUclMkNFdmFsdWF0aW9uJTJDTExNcyUyQ1NlYXJjaA==" data-listing-date-sort="1753480800000" data-listing-file-modified-sort="1783106679263" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="538">
 <div class="thumbnail"><a href="./posts/RAG/index.html" class="no-external">
 
 <p class="card-img-top"><img loading='lazy' src="posts/RAG/rageval-diagram.webp"  class="thumbnail-image card-img"/></p>
@@ -546,6 +596,9 @@ Atila Madai
 <h3 class="no-anchor listing-title">
 <a href="./posts/RAG/index.html" class="no-external">RAGEval: Evaluating Retrieval-Augmented Generation with LLMs</a>
 </h3>
+<div class="listing-subtitle">
+<a href="./posts/RAG/index.html" class="no-external"></a>
+</div>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('QUk='); return false;">AI</div>
@@ -574,7 +627,7 @@ Atila Madai
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="dG9vbHMlMkN3b3JrZmxvdyUyQ2xpbnV4JTJDd2luZG93cyUyQ21hY29z" data-listing-date-sort="1752271200000" data-listing-file-modified-sort="1783105380015" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="737">
+<div class="quarto-post image-right" data-index="3" data-categories="dG9vbHMlMkN3b3JrZmxvdyUyQ2xpbnV4JTJDd2luZG93cyUyQ21hY29z" data-listing-date-sort="1752271200000" data-listing-file-modified-sort="1783105380015" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="737">
 <div class="thumbnail"><a href="./posts/Syncthing Data Science Friendly/index.html" class="no-external">
 
 <p class="card-img-top"><img loading='lazy' src="posts/Syncthing Data Science Friendly/image.jpg"  class="thumbnail-image card-img"/></p>
@@ -584,6 +637,9 @@ Atila Madai
 <h3 class="no-anchor listing-title">
 <a href="./posts/Syncthing Data Science Friendly/index.html" class="no-external">Syncthing Setup: Remote Linux Desktop + WSL + Windows + macOS</a>
 </h3>
+<div class="listing-subtitle">
+<a href="./posts/Syncthing Data Science Friendly/index.html" class="no-external"></a>
+</div>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('dG9vbHM='); return false;">tools</div>
@@ -612,7 +668,7 @@ Atila Madai
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="QSUyRkIlMjBUZXN0aW5nJTJDbm90ZWJvb2slMkNweXRob24=" data-listing-date-sort="1751320800000" data-listing-file-modified-sort="1783105380009" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="267">
+<div class="quarto-post image-right" data-index="4" data-categories="QSUyRkIlMjBUZXN0aW5nJTJDbm90ZWJvb2slMkNweXRob24=" data-listing-date-sort="1751320800000" data-listing-file-modified-sort="1783105380009" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="267">
 <div class="thumbnail"><a href="./posts/A_B Test/index.html" class="no-external">
 
 <p class="card-img-top"><img loading='lazy' src="posts/A_B Test/images/ab-dashboard-preview.png"  class="thumbnail-image card-img"/></p>
@@ -622,6 +678,9 @@ Atila Madai
 <h3 class="no-anchor listing-title">
 <a href="./posts/A_B Test/index.html" class="no-external">A/B Test Dashboard – Search UX Evaluation</a>
 </h3>
+<div class="listing-subtitle">
+<a href="./posts/A_B Test/index.html" class="no-external"></a>
+</div>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('QSUyRkIlMjBUZXN0aW5n'); return false;">A/B Testing</div>
@@ -646,7 +705,7 @@ Atila Madai
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="Q29tcHV0ZXIlMjBWaXNpb24lMkNub3RlYm9vayUyQ3B5dGhvbg==" data-listing-date-sort="1750543200000" data-listing-file-modified-sort="1783105380009" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="682">
+<div class="quarto-post image-right" data-index="5" data-categories="Q29tcHV0ZXIlMjBWaXNpb24lMkNub3RlYm9vayUyQ3B5dGhvbg==" data-listing-date-sort="1750543200000" data-listing-file-modified-sort="1783105380009" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="682">
 <div class="thumbnail"><a href="./posts/Computer Vision/index.html" class="no-external">
 
 <p class="card-img-top"><img loading='lazy' src="posts/Computer Vision/index_files/figure-html/cell-4-output-1.png"  class="thumbnail-image card-img"/></p>
@@ -656,6 +715,9 @@ Atila Madai
 <h3 class="no-anchor listing-title">
 <a href="./posts/Computer Vision/index.html" class="no-external">ML QA Computer Vision Assessment</a>
 </h3>
+<div class="listing-subtitle">
+<a href="./posts/Computer Vision/index.html" class="no-external"></a>
+</div>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('Q29tcHV0ZXIlMjBWaXNpb24='); return false;">Computer Vision</div>
@@ -680,7 +742,7 @@ Atila Madai
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="ZGF0YS12aXolMkNYR0Jvb3N0JTJDYW5hbHl0aWNzJTJDbm90ZWJvb2slMkNweXRob24=" data-listing-date-sort="1750024800000" data-listing-file-modified-sort="1783105380014" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="361">
+<div class="quarto-post image-right" data-index="6" data-categories="ZGF0YS12aXolMkNYR0Jvb3N0JTJDYW5hbHl0aWNzJTJDbm90ZWJvb2slMkNweXRob24=" data-listing-date-sort="1750024800000" data-listing-file-modified-sort="1783105380014" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="361">
 <div class="thumbnail"><a href="./posts/Dynamic Hotel Pricing Optimization/index.html" class="no-external">
 
 <p class="card-img-top"><img loading='lazy' src="posts/Dynamic Hotel Pricing Optimization/index_files/figure-html/..-..-..-..-GitHub-DynamicHotelPricingOptimization-notebooks-01_EDA_Dynamic_Hotel_Pricing_Optimization-cell-5-output-2.png"  class="thumbnail-image card-img"/></p>
@@ -690,6 +752,9 @@ Atila Madai
 <h3 class="no-anchor listing-title">
 <a href="./posts/Dynamic Hotel Pricing Optimization/index.html" class="no-external">Dynamic Pricing &amp; Demand Analysis Suite</a>
 </h3>
+<div class="listing-subtitle">
+<a href="./posts/Dynamic Hotel Pricing Optimization/index.html" class="no-external"></a>
+</div>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('ZGF0YS12aXo='); return false;">data-viz</div>
@@ -718,7 +783,7 @@ Atila Madai
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="ZGF0YS12aXolMkNhbmFseXRpY3MlMkNub3RlYm9vayUyQ3B5dGhvbg==" data-listing-date-sort="1749938400000" data-listing-file-modified-sort="1783105380022" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1272">
+<div class="quarto-post image-right" data-index="7" data-categories="ZGF0YS12aXolMkNhbmFseXRpY3MlMkNub3RlYm9vayUyQ3B5dGhvbg==" data-listing-date-sort="1749938400000" data-listing-file-modified-sort="1783105380022" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1272">
 <div class="thumbnail"><a href="./posts/cycles-analysis/index.html" class="no-external">
 
 <p class="card-img-top"><img loading='lazy' src="posts/cycles-analysis/index_files/figure-html/cell-4-output-1.png"  class="thumbnail-image card-img"/></p>
@@ -728,6 +793,9 @@ Atila Madai
 <h3 class="no-anchor listing-title">
 <a href="./posts/cycles-analysis/index.html" class="no-external">Adventure Works Cycles: Cost &amp; Elasticity Analysis</a>
 </h3>
+<div class="listing-subtitle">
+<a href="./posts/cycles-analysis/index.html" class="no-external"></a>
+</div>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('ZGF0YS12aXo='); return false;">data-viz</div>
@@ -754,7 +822,7 @@ Atila Madai
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="ZnJhdWQtZGV0ZWN0aW9uJTJDWEdCb29zdCUyQ0xpZ2h0R0JNJTJDQ2F0Qm9vc3QlMkNub3RlYm9vayUyQ3B5dGhvbg==" data-listing-date-sort="1738796400000" data-listing-file-modified-sort="1783105380014" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2283">
+<div class="quarto-post image-right" data-index="8" data-categories="ZnJhdWQtZGV0ZWN0aW9uJTJDWEdCb29zdCUyQ0xpZ2h0R0JNJTJDQ2F0Qm9vc3QlMkNub3RlYm9vayUyQ3B5dGhvbg==" data-listing-date-sort="1738796400000" data-listing-file-modified-sort="1783105380014" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2283">
 <div class="thumbnail"><a href="./posts/Credit Card Fraud Detection/index.html" class="no-external">
 
 <p class="card-img-top"><img loading='lazy' src="posts/Credit Card Fraud Detection/index_files/figure-html/cell-3-output-2.png"  class="thumbnail-image card-img"/></p>
@@ -764,6 +832,9 @@ Atila Madai
 <h3 class="no-anchor listing-title">
 <a href="./posts/Credit Card Fraud Detection/index.html" class="no-external">Credit Card Fraud Detection with Resampling and Tree-Based Models</a>
 </h3>
+<div class="listing-subtitle">
+<a href="./posts/Credit Card Fraud Detection/index.html" class="no-external"></a>
+</div>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('ZnJhdWQtZGV0ZWN0aW9u'); return false;">fraud-detection</div>
@@ -794,7 +865,7 @@ Atila Madai
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="ZGF0YS12aXolMkNQb3dlciUyMEJJ" data-listing-date-sort="1587938400000" data-listing-file-modified-sort="1783105380015" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="17">
+<div class="quarto-post image-right" data-index="9" data-categories="ZGF0YS12aXolMkNQb3dlciUyMEJJ" data-listing-date-sort="1587938400000" data-listing-file-modified-sort="1783105380015" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="17">
 <div class="thumbnail"><a href="./posts/covid19-analysis/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -804,6 +875,9 @@ Atila Madai
 <h3 class="no-anchor listing-title">
 <a href="./posts/covid19-analysis/index.html" class="no-external">COVID-19 Data Analysis</a>
 </h3>
+<div class="listing-subtitle">
+<a href="./posts/covid19-analysis/index.html" class="no-external"></a>
+</div>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('ZGF0YS12aXo='); return false;">data-viz</div>

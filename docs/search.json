@@ -543,7 +543,7 @@
     "href": "index.html",
     "title": "Machine Learning and Data Science Blog",
     "section": "",
-    "text": "Welcome to my new Quarto blog! 🚀\nHere you’ll find posts about machine learning, data science, automation, and visual storytelling.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nRethinking AI-Assisted Software Engineering\n\n\n\nAI\n\nSoftware Engineering\n\nAgentic Workflows\n\nEngineering Governance\n\nPCAE\n\n\n\nWhy repositories may need to evolve from source code storage into operational memory for AI agents.\n\n\n\n\n\nJul 3, 2026\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nRAGEval: Evaluating Retrieval-Augmented Generation with LLMs\n\n\n\nAI\n\nRAG\n\nEvaluation\n\nLLMs\n\nSearch\n\n\n\n\n\n\n\n\n\nJul 26, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nSyncthing Setup: Remote Linux Desktop + WSL + Windows + macOS\n\n\n\ntools\n\nworkflow\n\nlinux\n\nwindows\n\nmacos\n\n\n\nGuide to syncing folders across a primary Linux data science machine, WSL laptop, Windows backup, and MacBook using Syncthing.\n\n\n\n\n\nJul 12, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nA/B Test Dashboard – Search UX Evaluation\n\n\n\nA/B Testing\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJul 1, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nML QA Computer Vision Assessment\n\n\n\nComputer Vision\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 22, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nDynamic Pricing & Demand Analysis Suite\n\n\n\ndata-viz\n\nXGBoost\n\nanalytics\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 16, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nAdventure Works Cycles: Cost & Elasticity Analysis\n\n\n\ndata-viz\n\nanalytics\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 15, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nCredit Card Fraud Detection with Resampling and Tree-Based Models\n\n\n\nfraud-detection\n\nXGBoost\n\nLightGBM\n\nCatBoost\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nFeb 6, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nCOVID-19 Data Analysis\n\n\n\ndata-viz\n\nPower BI\n\n\n\n\n\n\n\n\n\nApr 27, 2020\n\n\nAtila Madai\n\n\n\n\n\nNo matching items"
+    "text": "Welcome to my new Quarto blog! 🚀\nHere you’ll find posts about machine learning, data science, automation, and visual storytelling.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nGoverning the Machine That Writes Code\n\n\nWhat I Learned Building PCAE v0.2\n\n\n\nAI\n\nSoftware Engineering\n\nAgentic Workflows\n\nEngineering Governance\n\nPCAE\n\n\n\nPCAE v0.2 reframes AI-assisted software engineering around governance, evidence, repository memory, and the boundaries needed before autonomous execution can be trusted.\n\n\n\n\n\nJul 7, 2026\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nRethinking AI-Assisted Software Engineering\n\n\n\n\n\n\nAI\n\nSoftware Engineering\n\nAgentic Workflows\n\nEngineering Governance\n\nPCAE\n\n\n\nWhy repositories may need to evolve from source code storage into operational memory for AI agents.\n\n\n\n\n\nJul 3, 2026\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nRAGEval: Evaluating Retrieval-Augmented Generation with LLMs\n\n\n\n\n\n\nAI\n\nRAG\n\nEvaluation\n\nLLMs\n\nSearch\n\n\n\n\n\n\n\n\n\nJul 26, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nSyncthing Setup: Remote Linux Desktop + WSL + Windows + macOS\n\n\n\n\n\n\ntools\n\nworkflow\n\nlinux\n\nwindows\n\nmacos\n\n\n\nGuide to syncing folders across a primary Linux data science machine, WSL laptop, Windows backup, and MacBook using Syncthing.\n\n\n\n\n\nJul 12, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nA/B Test Dashboard – Search UX Evaluation\n\n\n\n\n\n\nA/B Testing\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJul 1, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nML QA Computer Vision Assessment\n\n\n\n\n\n\nComputer Vision\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 22, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nDynamic Pricing & Demand Analysis Suite\n\n\n\n\n\n\ndata-viz\n\nXGBoost\n\nanalytics\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 16, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nAdventure Works Cycles: Cost & Elasticity Analysis\n\n\n\n\n\n\ndata-viz\n\nanalytics\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nJun 15, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nCredit Card Fraud Detection with Resampling and Tree-Based Models\n\n\n\n\n\n\nfraud-detection\n\nXGBoost\n\nLightGBM\n\nCatBoost\n\nnotebook\n\npython\n\n\n\n\n\n\n\n\n\nFeb 6, 2025\n\n\nAtila Madai\n\n\n\n\n\n\n\n\n\n\n\n\nCOVID-19 Data Analysis\n\n\n\n\n\n\ndata-viz\n\nPower BI\n\n\n\n\n\n\n\n\n\nApr 27, 2020\n\n\nAtila Madai\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "DynamicHotelPricingOptimization/notebooks/03_PriceElasticityModeling.out.html",
@@ -1201,6 +1201,162 @@
       "Home",
       "Posts",
       "Rethinking AI-Assisted Software Engineering"
+    ]
+  },
+  {
+    "objectID": "posts/governing-the-machine-that-writes-code/index.html",
+    "href": "posts/governing-the-machine-that-writes-code/index.html",
+    "title": "Governing the Machine That Writes Code",
+    "section": "",
+    "text": "A lighthouse in fog, a fitting image for governance as visibility and constraint.\nContext length is a memory problem.\nIt is not an engineering memory system.\nThat distinction is where PCAE started, and it is still the most important lesson I have learned from building it.\nIn the first article, I argued that AI-assisted software engineering needs more than larger prompts and longer conversations. It needs repositories that can act as operational memory: places where decisions, constraints, task state, approvals, evidence, and boundaries are recorded in a form that survives the model, the chat window, and the human operator’s memory.\nThat was the original vision.\nPCAE v0.1 was built around that idea. It deliberately avoided execution. It did not try to make an AI agent more autonomous. It tried to make the surrounding engineering process more persistent, more inspectable, and harder to silently corrupt.\nPCAE v0.2 continued from that foundation, but the work changed my understanding of the problem.\nI originally thought the hard part would be AI capability.\nCould the model understand the repository? Could it keep track of a long-running task? Could it decide what to change? Could it produce useful code over many phases?\nThose questions still matter. But after months of building PCAE through governed phases, the more important question became different:\nCan the engineering system prevent an increasingly capable model from turning uncertainty into repository state?\nThat is the central problem PCAE v0.2 explored.\nNot whether an AI can write code.\nWhether the surrounding system can govern the machine that writes code.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Governing the Machine That Writes Code"
+    ]
+  },
+  {
+    "objectID": "posts/governing-the-machine-that-writes-code/index.html#why-i-built-pcae",
+    "href": "posts/governing-the-machine-that-writes-code/index.html#why-i-built-pcae",
+    "title": "Governing the Machine That Writes Code",
+    "section": "Why I Built PCAE",
+    "text": "Why I Built PCAE\nMost AI coding workflows still depend on a fragile loop.\nA human explains the task.\nA model proposes changes.\nThe model runs commands or asks to run commands.\nThe human approves.\nThe repository changes.\nThe conversation continues until the work appears done.\nThis works surprisingly well for small tasks.\nIt becomes much harder when the work spans days, weeks, or hundreds of intermediate decisions.\nThe failure mode is rarely dramatic. The model does not need to intentionally do something dangerous. It only needs to misremember a previous constraint, confuse a completed step with an intended step, summarize an unverified result as verified, or treat a local assumption as canonical truth.\nThat is enough.\nIn ordinary software engineering, we already know that memory cannot live only in people’s heads. We use version control, tests, issue trackers, code review, CI pipelines, release notes, deployment logs, and audit trails because engineering work needs durable structure.\nAI-assisted engineering needs the same thing, but closer to the act of generation.\nA model can produce code quickly. That is the obvious improvement.\nBut speed increases the cost of weak governance.\nIf a human developer makes one mistaken assumption, the review process may catch it. If an AI assistant makes ten small mistaken assumptions across a long session, the repository can gradually drift away from what the team actually approved. The result may still look coherent. It may even pass tests. But the system no longer knows why it is in that state.\nThat is what PCAE tries to address.\nPCAE is not a coding assistant. It is not a replacement for Claude, Codex, DeepSeek, or any other model. It is an engineering harness around AI-assisted work.\nIts purpose is to make the repository remember:\n\nwhat task is active\nwhat files are allowed\nwhat files are forbidden\nwhat phase is being worked on\nwhat evidence exists\nwhat checks passed\nwhat reports are canonical\nwhat boundaries are still unavailable\nwhat must not be silently crossed\n\nIn v0.1, this was mostly a governance foundation.\nIn v0.2, the question became whether that foundation could support more advanced automation without pretending that the system was ready for autonomous execution.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Governing the Machine That Writes Code"
+    ]
+  },
+  {
+    "objectID": "posts/governing-the-machine-that-writes-code/index.html#what-changed-my-mind",
+    "href": "posts/governing-the-machine-that-writes-code/index.html#what-changed-my-mind",
+    "title": "Governing the Machine That Writes Code",
+    "section": "What Changed My Mind",
+    "text": "What Changed My Mind\nWhen I started building PCAE, I expected the limiting factor to be the model.\nI assumed the main challenge would be getting AI systems to reason better across long-running software tasks. Larger context windows seemed relevant. Better coding models seemed relevant. Better prompting seemed relevant.\nThey are relevant.\nBut they were not the deepest problem.\nThe deeper problem was that the model could sound finished before the engineering system was finished.\nIt could report completion before the repository was truly in a valid lifecycle state. It could summarize the correct intention while missing a required artifact. It could treat a previous phase’s evidence as if it belonged to the current phase. It could produce a convincing final report that was almost correct but not canonical.\nThat “almost” matters.\nIn a casual chat, almost correct is often useful.\nIn an engineering lifecycle, almost correct can become structural damage.\nThe most important shift in PCAE v0.2 was moving from “Can the model do the work?” to “Can PCAE prevent invalid work from becoming official?”\nThat sounds less exciting than autonomy. It is also more important.\nBecause once AI systems become capable enough to make substantial changes, the bottleneck is no longer raw generation. The bottleneck is trust.\nNot trust as a feeling.\nTrust as an engineered property.\nCan the system prove what happened?\nCan it distinguish proposed state from accepted state?\nCan it stop stale metadata from becoming canonical?\nCan it prevent a release report from claiming a release happened if the release was not actually published?\nCan it preserve the difference between observation, advisory output, approval, execution, and repository mutation?\nPCAE v0.2 became an experiment in those questions.\nAnd the surprising result was this:\nThe architecture became less autonomous over time, not more.\nNot because autonomy stopped being interesting.\nBecause every serious step toward autonomy exposed another boundary that had to be made explicit first.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Governing the Machine That Writes Code"
+    ]
+  },
+  {
+    "objectID": "posts/governing-the-machine-that-writes-code/index.html#repository-state-became-the-center",
+    "href": "posts/governing-the-machine-that-writes-code/index.html#repository-state-became-the-center",
+    "title": "Governing the Machine That Writes Code",
+    "section": "Repository State Became the Center",
+    "text": "Repository State Became the Center\nOne of the strongest ideas from v0.1 was that the repository should become operational memory.\nIn v0.2, that idea became more concrete.\nThe repository is not only where code lives. It is where the engineering lifecycle becomes visible.\nA chat transcript can say many things. A model can summarize many things. But the repository state is where the system must eventually answer harder questions:\n\nIs there an active task?\nDoes the task allow these files?\nIs the phase complete?\nWere the reports generated?\nDo the reports match the metadata?\nWere checks run?\nWas the release actually tagged?\nWas the GitHub Release actually published?\nDid a corrective phase repair a gap?\nIs the current state clean enough to hand off to another agent?\n\nThis is why PCAE puts so much emphasis on canonical artifacts.\nA final report is not just a narrative. It is evidence.\nA task contract is not just a note. It is a boundary.\nA release tag is not just a label. It is a state transition.\nA notification is not just convenience. It is part of the operator’s visibility into the lifecycle.\nThe repository must be able to say: this is what happened, this is what was checked, this is what is allowed, and this is what remains unavailable.\nThat sounds bureaucratic until a model gets it wrong.\nThen it becomes engineering.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Governing the Machine That Writes Code"
+    ]
+  },
+  {
+    "objectID": "posts/governing-the-machine-that-writes-code/index.html#evidence-before-decision",
+    "href": "posts/governing-the-machine-that-writes-code/index.html#evidence-before-decision",
+    "title": "Governing the Machine That Writes Code",
+    "section": "Evidence Before Decision",
+    "text": "Evidence Before Decision\nA key progression in PCAE v0.2 was the movement from free-form model judgment toward evidence-driven decisions.\nThe model can still reason. It can still propose. It can still explain. But PCAE increasingly requires evidence before repository state changes.\nThis creates a different kind of workflow.\nInstead of:\nThe model says the phase is complete, therefore the phase is complete.\nThe intended flow becomes:\nThe model proposes completion.\nPCAE checks the repository state.\nPCAE verifies required artifacts.\nPCAE validates metadata consistency.\nPCAE confirms checks and reports.\nOnly then can completion become canonical.\nThat distinction is subtle but essential.\nAI systems are very good at producing plausible continuity. They can tell a coherent story about what happened. But engineering continuity cannot depend on a coherent story alone. It needs artifacts that can be inspected independently of the model that generated them.\nThis is why PCAE v0.2 focused so heavily on report trust, phase identity, transition validation, canonical artifact promotion, release verification, and handoff safety.\nThose are not glamorous features.\nThey are the difference between “the assistant says it finished” and “the repository can prove what state it is in.”",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Governing the Machine That Writes Code"
+    ]
+  },
+  {
+    "objectID": "posts/governing-the-machine-that-writes-code/index.html#decision-before-execution",
+    "href": "posts/governing-the-machine-that-writes-code/index.html#decision-before-execution",
+    "title": "Governing the Machine That Writes Code",
+    "section": "Decision Before Execution",
+    "text": "Decision Before Execution\nThe next progression was from evidence to decision.\nIt is tempting to imagine an autonomous coding system as a direct path:\nIntent -&gt; code change -&gt; tests -&gt; commit -&gt; push\nBut that path hides too much.\nPCAE’s emerging model separates the steps:\nIntent arrives.\nEvidence is gathered.\nA policy decision is made.\nApproval may be required.\nOnly then may execution eventually happen.\nThis matters because not all actions are equal.\nReading repository state is not the same as modifying files.\nGenerating a plan is not the same as applying it.\nRunning a test is not the same as pushing to main.\nPublishing a release is not the same as drafting release notes.\nA serious AI engineering system needs to understand those differences mechanically.\nIn PCAE v0.2, the permission broker and shell-gate concepts became important because they represent a more disciplined future model. The AI agent should not be the thing that directly decides whether its own proposed action is safe. The agent can propose an action. PCAE should evaluate that action against task scope, lifecycle state, policy, evidence, approval requirements, and known no-go boundaries.\nThat is a different architecture from simply giving a coding agent a terminal.\nIt is also slower.\nBut the slowness is part of the design.\nBefore a system can safely execute, it must first be able to say no.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Governing the Machine That Writes Code"
+    ]
+  },
+  {
+    "objectID": "posts/governing-the-machine-that-writes-code/index.html#repository-skills",
+    "href": "posts/governing-the-machine-that-writes-code/index.html#repository-skills",
+    "title": "Governing the Machine That Writes Code",
+    "section": "Repository Skills",
+    "text": "Repository Skills\nAnother important development in v0.2 was the idea of repository skills.\nA long-running engineering harness should not rely on one giant prompt that tries to explain every rule every time. The rules should live closer to the repository. The repository should teach agents how to operate inside it.\nThis is especially important for multi-agent work.\nIf Claude, Codex, DeepSeek, or another system enters the project, the repository should not depend on that model remembering a private conversation from last week. It should expose the current rules, contracts, commands, checks, and handoff expectations in a structured way.\nThat is what repository skills are meant to support.\nThey make the repository less passive.\nInstead of being only a target for modifications, the repository becomes a participant in the workflow. It can tell the agent how to inspect state, how to finalize a phase, how to validate a handoff, how to avoid bypassing governance, and what boundaries are still unavailable.\nThis is also where PCAE starts to feel less like a project-specific tool and more like a pattern.\nAI agents need local operating instructions. But those instructions should not be trapped in chat history. They should be versioned, testable, inspectable, and maintained with the system they govern.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Governing the Machine That Writes Code"
+    ]
+  },
+  {
+    "objectID": "posts/governing-the-machine-that-writes-code/index.html#advisory-is-not-execution",
+    "href": "posts/governing-the-machine-that-writes-code/index.html#advisory-is-not-execution",
+    "title": "Governing the Machine That Writes Code",
+    "section": "Advisory Is Not Execution",
+    "text": "Advisory Is Not Execution\nOne of the most important boundaries in PCAE v0.2 is the difference between advisory output and execution.\nPCAE can inspect.\nPCAE can evaluate.\nPCAE can report.\nPCAE can recommend.\nPCAE can reject invalid lifecycle transitions.\nBut the v0.2 runtime intentionally remains observed, with execution unavailable and maximum capability limited to observe.\nThis is not a weakness in the release.\nIt is the point of the release.\nA system that cannot reliably distinguish advisory behavior from execution is not ready to execute.\nThis boundary matters because AI coding tools often blur the line. A model suggests a command. The human approves it. The command runs. The result is summarized back into the conversation. It feels like a continuous workflow.\nBut from a governance perspective, those are separate events.\nAn advisory system can say:\nThis command appears consistent with the task contract.\nAn execution system can actually run it.\nThose two capabilities require different levels of trust, different failure handling, different audit requirements, and different approval semantics.\nPCAE v0.2 keeps them separate.\nThe architecture is preparing for governed execution, but it does not claim to provide it yet.\nThat restraint is deliberate.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Governing the Machine That Writes Code"
+    ]
+  },
+  {
+    "objectID": "posts/governing-the-machine-that-writes-code/index.html#the-release-repair-mattered",
+    "href": "posts/governing-the-machine-that-writes-code/index.html#the-release-repair-mattered",
+    "title": "Governing the Machine That Writes Code",
+    "section": "The Release Repair Mattered",
+    "text": "The Release Repair Mattered\nOne of the clearest examples of PCAE’s purpose came from the v0.2 release process itself.\nThe system reached an official v0.2.0 release state, but the publication lifecycle exposed a gap. The release process needed repair. Corrective Phase 117E.1 was used to close the release publication gap and restore consistency between the intended release state and the externally published GitHub Release.\nThat matters because it shows the value of the governance approach.\nIn many projects, a release gap like that might become a note in someone’s head or a message buried in chat. The team might say, “We fixed it,” and move on.\nPCAE treats that kind of gap as lifecycle state.\nIf the release was not fully published, the system should not simply pretend that it was. If a corrective phase repaired the gap, that repair should be visible. The release story should include the mistake and the correction, not because the mistake is embarrassing, but because the correction is part of the engineering record.\nThis is the kind of thing I want PCAE to make normal.\nNot perfect execution.\nRecoverable, inspectable execution of the engineering lifecycle.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Governing the Machine That Writes Code"
+    ]
+  },
+  {
+    "objectID": "posts/governing-the-machine-that-writes-code/index.html#scale-changed-the-problem",
+    "href": "posts/governing-the-machine-that-writes-code/index.html#scale-changed-the-problem",
+    "title": "Governing the Machine That Writes Code",
+    "section": "Scale Changed the Problem",
+    "text": "Scale Changed the Problem\nBy the time PCAE v0.2.0 was released, the project had gone through roughly 118 governed phases, reached an architecture freeze, established a fully green validation baseline, verified the tag, and published the release.\nThat scale changed the nature of the experiment.\nAt ten phases, governance can feel like overhead.\nAt one hundred phases, governance becomes the only reason the work is still understandable.\nThe value of PCAE is not that it eliminates complexity. It does not. In some ways it adds complexity, because it forces decisions, evidence, reports, and boundaries to be explicit.\nThe value is that the complexity becomes inspectable.\nA long-running AI-assisted project needs that.\nWithout it, every new session becomes a reconstruction exercise. What happened? What was allowed? What was completed? What failed? Which report is current? Which phase owns which commit? Is this artifact stale? Did the model just summarize a desired state or an actual state?\nPCAE exists to make those questions answerable.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Governing the Machine That Writes Code"
+    ]
+  },
+  {
+    "objectID": "posts/governing-the-machine-that-writes-code/index.html#this-is-bigger-than-pcae",
+    "href": "posts/governing-the-machine-that-writes-code/index.html#this-is-bigger-than-pcae",
+    "title": "Governing the Machine That Writes Code",
+    "section": "This Is Bigger Than PCAE",
+    "text": "This Is Bigger Than PCAE\nAlthough PCAE is a specific project, I do not think the underlying problem is specific to PCAE.\nThe broader industry is moving toward more capable AI engineering systems. Models will get better at writing code. Tool use will improve. Agents will become more persistent. IDEs, terminals, CI systems, issue trackers, and deployment tools will become more integrated with AI.\nThat direction is already visible.\nThe risk is that we treat capability as the main milestone.\nIt is not enough for an AI system to be able to make a change.\nA trustworthy engineering system must also know whether the change was authorized, whether it was within scope, whether it was tested, whether the reported result matches reality, whether the system can recover, and whether a future agent can understand what happened without relying on the previous agent’s memory.\nThis is the infrastructure problem around AI-assisted engineering.\nThe next generation of tools will not only need better models. They will need better boundaries.\nThey will need governance layers, evidence chains, approval models, audit trails, durable task state, and repository-native operating instructions.\nThat is the space PCAE is exploring.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Governing the Machine That Writes Code"
+    ]
+  },
+  {
+    "objectID": "posts/governing-the-machine-that-writes-code/index.html#less-autonomous-more-trustworthy",
+    "href": "posts/governing-the-machine-that-writes-code/index.html#less-autonomous-more-trustworthy",
+    "title": "Governing the Machine That Writes Code",
+    "section": "Less Autonomous, More Trustworthy",
+    "text": "Less Autonomous, More Trustworthy\nThe most interesting outcome of PCAE v0.2 is that the architecture became less autonomous, not more.\nEarly on, it is natural to imagine a path toward autonomy as a sequence of added powers:\nFirst the system observes.\nThen it plans.\nThen it writes.\nThen it tests.\nThen it commits.\nThen it pushes.\nThen it releases.\nBut PCAE’s actual path has been more cautious:\n\nObserve.\nRecord evidence.\nValidate state.\nSeparate advisory output from execution.\nReject invalid transitions.\nPromote canonical artifacts.\nRepair lifecycle gaps.\nMake boundaries explicit.\nOnly then consider execution.\n\nThis is not a retreat from autonomy.\nIt is what makes autonomy eventually possible.\nA system that cannot safely observe should not decide.\nA system that cannot validate should not mutate.\nA system that cannot audit should not execute.\nA system that cannot recover should not operate unattended.\nPCAE v0.2 is therefore not an autonomy release in the usual sense.\nIt is a governance release.\nIt says: before we let the machine write and apply code under its own control, we need an engineering system that can constrain it, inspect it, and correct it.\nThat is less dramatic than a demo where an agent builds an app by itself.\nBut it is closer to the kind of infrastructure I would trust.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Governing the Machine That Writes Code"
+    ]
+  },
+  {
+    "objectID": "posts/governing-the-machine-that-writes-code/index.html#what-pcae-v0.2-means",
+    "href": "posts/governing-the-machine-that-writes-code/index.html#what-pcae-v0.2-means",
+    "title": "Governing the Machine That Writes Code",
+    "section": "What PCAE v0.2 Means",
+    "text": "What PCAE v0.2 Means\nPCAE v0.2 is not production-ready autonomous coding.\nIt is not a universal agent framework.\nIt is not a claim that AI can now safely run software projects by itself.\nIt is a released, governed experiment in building the operational memory and lifecycle controls that AI-assisted engineering will need.\nIts current runtime remains intentionally observed. Execution is unavailable. The maximum capability is observe.\nThat sentence is important enough to repeat in different words:\nPCAE v0.2 is not powerful because it can execute.\nIt is useful because it knows that it cannot.\nThat self-knowledge is part of the architecture.\nThe system records what is possible, what is forbidden, what is advisory, what is canonical, and what must wait for future governance layers.\nIn a field that often rewards impressive demos, that may sound conservative.\nBut after building PCAE through the v0.2 release, I think this conservatism is exactly the right direction.\nThe limiting factor is no longer only model capability.\nThe limiting factor is trustworthy engineering governance.\nThe machine that writes code is becoming more capable.\nNow we need repositories, tools, and workflows capable of governing it.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Governing the Machine That Writes Code"
     ]
   }
 ]

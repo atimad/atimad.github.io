@@ -15,6 +15,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/governing-the-machine-that-writes-code/index.html",
       "/posts/rethinking-ai-assisted-software-engineering/index.html",
       "/posts/RAG/index.html",
       "/posts/Syncthing Data Science Friendly/index.html",

@@ -1,0 +1,477 @@
+---
+title: "Governing the Machine That Writes Code"
+subtitle: "What I Learned Building PCAE v0.2"
+description: "PCAE v0.2 reframes AI-assisted software engineering around governance, evidence, repository memory, and the boundaries needed before autonomous execution can be trusted."
+author: "Atila Madai"
+date: 2026-07-07
+categories: [AI, Software Engineering, Agentic Workflows, Engineering Governance, PCAE]
+tags: [AI coding, agentic engineering, repository memory, engineering governance, governed execution, PCAE]
+image: "Light1.jpg"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    code-fold: true
+    page-layout: article
+---
+
+![A lighthouse in fog, a fitting image for governance as visibility and constraint.](Light1.jpg){fig-alt="Lighthouse shining through fog over a dark coastal cliff."}
+
+Context length is a memory problem.
+
+It is not an engineering memory system.
+
+That distinction is where PCAE started, and it is still the most important lesson I have learned from building it.
+
+In the first article, I argued that AI-assisted software engineering needs more than larger prompts and longer conversations. It needs repositories that can act as operational memory: places where decisions, constraints, task state, approvals, evidence, and boundaries are recorded in a form that survives the model, the chat window, and the human operator's memory.
+
+That was the original vision.
+
+PCAE v0.1 was built around that idea. It deliberately avoided execution. It did not try to make an AI agent more autonomous. It tried to make the surrounding engineering process more persistent, more inspectable, and harder to silently corrupt.
+
+PCAE v0.2 continued from that foundation, but the work changed my understanding of the problem.
+
+I originally thought the hard part would be AI capability.
+
+Could the model understand the repository? Could it keep track of a long-running task? Could it decide what to change? Could it produce useful code over many phases?
+
+Those questions still matter. But after months of building PCAE through governed phases, the more important question became different:
+
+Can the engineering system prevent an increasingly capable model from turning uncertainty into repository state?
+
+That is the central problem PCAE v0.2 explored.
+
+Not whether an AI can write code.
+
+Whether the surrounding system can govern the machine that writes code.
+
+## Why I Built PCAE
+
+Most AI coding workflows still depend on a fragile loop.
+
+A human explains the task.
+
+A model proposes changes.
+
+The model runs commands or asks to run commands.
+
+The human approves.
+
+The repository changes.
+
+The conversation continues until the work appears done.
+
+This works surprisingly well for small tasks.
+
+It becomes much harder when the work spans days, weeks, or hundreds of intermediate decisions.
+
+The failure mode is rarely dramatic. The model does not need to intentionally do something dangerous. It only needs to misremember a previous constraint, confuse a completed step with an intended step, summarize an unverified result as verified, or treat a local assumption as canonical truth.
+
+That is enough.
+
+In ordinary software engineering, we already know that memory cannot live only in people's heads. We use version control, tests, issue trackers, code review, CI pipelines, release notes, deployment logs, and audit trails because engineering work needs durable structure.
+
+AI-assisted engineering needs the same thing, but closer to the act of generation.
+
+A model can produce code quickly. That is the obvious improvement.
+
+But speed increases the cost of weak governance.
+
+If a human developer makes one mistaken assumption, the review process may catch it. If an AI assistant makes ten small mistaken assumptions across a long session, the repository can gradually drift away from what the team actually approved. The result may still look coherent. It may even pass tests. But the system no longer knows why it is in that state.
+
+That is what PCAE tries to address.
+
+PCAE is not a coding assistant. It is not a replacement for Claude, Codex, DeepSeek, or any other model. It is an engineering harness around AI-assisted work.
+
+Its purpose is to make the repository remember:
+
+- what task is active
+- what files are allowed
+- what files are forbidden
+- what phase is being worked on
+- what evidence exists
+- what checks passed
+- what reports are canonical
+- what boundaries are still unavailable
+- what must not be silently crossed
+
+In v0.1, this was mostly a governance foundation.
+
+In v0.2, the question became whether that foundation could support more advanced automation without pretending that the system was ready for autonomous execution.
+
+## What Changed My Mind
+
+When I started building PCAE, I expected the limiting factor to be the model.
+
+I assumed the main challenge would be getting AI systems to reason better across long-running software tasks. Larger context windows seemed relevant. Better coding models seemed relevant. Better prompting seemed relevant.
+
+They are relevant.
+
+But they were not the deepest problem.
+
+The deeper problem was that the model could sound finished before the engineering system was finished.
+
+It could report completion before the repository was truly in a valid lifecycle state. It could summarize the correct intention while missing a required artifact. It could treat a previous phase's evidence as if it belonged to the current phase. It could produce a convincing final report that was almost correct but not canonical.
+
+That "almost" matters.
+
+In a casual chat, almost correct is often useful.
+
+In an engineering lifecycle, almost correct can become structural damage.
+
+The most important shift in PCAE v0.2 was moving from "Can the model do the work?" to "Can PCAE prevent invalid work from becoming official?"
+
+That sounds less exciting than autonomy. It is also more important.
+
+Because once AI systems become capable enough to make substantial changes, the bottleneck is no longer raw generation. The bottleneck is trust.
+
+Not trust as a feeling.
+
+Trust as an engineered property.
+
+Can the system prove what happened?
+
+Can it distinguish proposed state from accepted state?
+
+Can it stop stale metadata from becoming canonical?
+
+Can it prevent a release report from claiming a release happened if the release was not actually published?
+
+Can it preserve the difference between observation, advisory output, approval, execution, and repository mutation?
+
+PCAE v0.2 became an experiment in those questions.
+
+And the surprising result was this:
+
+The architecture became less autonomous over time, not more.
+
+Not because autonomy stopped being interesting.
+
+Because every serious step toward autonomy exposed another boundary that had to be made explicit first.
+
+## Repository State Became the Center
+
+One of the strongest ideas from v0.1 was that the repository should become operational memory.
+
+In v0.2, that idea became more concrete.
+
+The repository is not only where code lives. It is where the engineering lifecycle becomes visible.
+
+A chat transcript can say many things. A model can summarize many things. But the repository state is where the system must eventually answer harder questions:
+
+- Is there an active task?
+- Does the task allow these files?
+- Is the phase complete?
+- Were the reports generated?
+- Do the reports match the metadata?
+- Were checks run?
+- Was the release actually tagged?
+- Was the GitHub Release actually published?
+- Did a corrective phase repair a gap?
+- Is the current state clean enough to hand off to another agent?
+
+This is why PCAE puts so much emphasis on canonical artifacts.
+
+A final report is not just a narrative. It is evidence.
+
+A task contract is not just a note. It is a boundary.
+
+A release tag is not just a label. It is a state transition.
+
+A notification is not just convenience. It is part of the operator's visibility into the lifecycle.
+
+The repository must be able to say: this is what happened, this is what was checked, this is what is allowed, and this is what remains unavailable.
+
+That sounds bureaucratic until a model gets it wrong.
+
+Then it becomes engineering.
+
+## Evidence Before Decision
+
+A key progression in PCAE v0.2 was the movement from free-form model judgment toward evidence-driven decisions.
+
+The model can still reason. It can still propose. It can still explain. But PCAE increasingly requires evidence before repository state changes.
+
+This creates a different kind of workflow.
+
+Instead of:
+
+The model says the phase is complete, therefore the phase is complete.
+
+The intended flow becomes:
+
+The model proposes completion.
+
+PCAE checks the repository state.
+
+PCAE verifies required artifacts.
+
+PCAE validates metadata consistency.
+
+PCAE confirms checks and reports.
+
+Only then can completion become canonical.
+
+That distinction is subtle but essential.
+
+AI systems are very good at producing plausible continuity. They can tell a coherent story about what happened. But engineering continuity cannot depend on a coherent story alone. It needs artifacts that can be inspected independently of the model that generated them.
+
+This is why PCAE v0.2 focused so heavily on report trust, phase identity, transition validation, canonical artifact promotion, release verification, and handoff safety.
+
+Those are not glamorous features.
+
+They are the difference between "the assistant says it finished" and "the repository can prove what state it is in."
+
+## Decision Before Execution
+
+The next progression was from evidence to decision.
+
+It is tempting to imagine an autonomous coding system as a direct path:
+
+Intent -> code change -> tests -> commit -> push
+
+But that path hides too much.
+
+PCAE's emerging model separates the steps:
+
+Intent arrives.
+
+Evidence is gathered.
+
+A policy decision is made.
+
+Approval may be required.
+
+Only then may execution eventually happen.
+
+This matters because not all actions are equal.
+
+Reading repository state is not the same as modifying files.
+
+Generating a plan is not the same as applying it.
+
+Running a test is not the same as pushing to main.
+
+Publishing a release is not the same as drafting release notes.
+
+A serious AI engineering system needs to understand those differences mechanically.
+
+In PCAE v0.2, the permission broker and shell-gate concepts became important because they represent a more disciplined future model. The AI agent should not be the thing that directly decides whether its own proposed action is safe. The agent can propose an action. PCAE should evaluate that action against task scope, lifecycle state, policy, evidence, approval requirements, and known no-go boundaries.
+
+That is a different architecture from simply giving a coding agent a terminal.
+
+It is also slower.
+
+But the slowness is part of the design.
+
+Before a system can safely execute, it must first be able to say no.
+
+## Repository Skills
+
+Another important development in v0.2 was the idea of repository skills.
+
+A long-running engineering harness should not rely on one giant prompt that tries to explain every rule every time. The rules should live closer to the repository. The repository should teach agents how to operate inside it.
+
+This is especially important for multi-agent work.
+
+If Claude, Codex, DeepSeek, or another system enters the project, the repository should not depend on that model remembering a private conversation from last week. It should expose the current rules, contracts, commands, checks, and handoff expectations in a structured way.
+
+That is what repository skills are meant to support.
+
+They make the repository less passive.
+
+Instead of being only a target for modifications, the repository becomes a participant in the workflow. It can tell the agent how to inspect state, how to finalize a phase, how to validate a handoff, how to avoid bypassing governance, and what boundaries are still unavailable.
+
+This is also where PCAE starts to feel less like a project-specific tool and more like a pattern.
+
+AI agents need local operating instructions. But those instructions should not be trapped in chat history. They should be versioned, testable, inspectable, and maintained with the system they govern.
+
+## Advisory Is Not Execution
+
+One of the most important boundaries in PCAE v0.2 is the difference between advisory output and execution.
+
+PCAE can inspect.
+
+PCAE can evaluate.
+
+PCAE can report.
+
+PCAE can recommend.
+
+PCAE can reject invalid lifecycle transitions.
+
+But the v0.2 runtime intentionally remains observed, with execution unavailable and maximum capability limited to observe.
+
+This is not a weakness in the release.
+
+It is the point of the release.
+
+A system that cannot reliably distinguish advisory behavior from execution is not ready to execute.
+
+This boundary matters because AI coding tools often blur the line. A model suggests a command. The human approves it. The command runs. The result is summarized back into the conversation. It feels like a continuous workflow.
+
+But from a governance perspective, those are separate events.
+
+An advisory system can say:
+
+This command appears consistent with the task contract.
+
+An execution system can actually run it.
+
+Those two capabilities require different levels of trust, different failure handling, different audit requirements, and different approval semantics.
+
+PCAE v0.2 keeps them separate.
+
+The architecture is preparing for governed execution, but it does not claim to provide it yet.
+
+That restraint is deliberate.
+
+## The Release Repair Mattered
+
+One of the clearest examples of PCAE's purpose came from the v0.2 release process itself.
+
+The system reached an official v0.2.0 release state, but the publication lifecycle exposed a gap. The release process needed repair. Corrective Phase 117E.1 was used to close the release publication gap and restore consistency between the intended release state and the externally published GitHub Release.
+
+That matters because it shows the value of the governance approach.
+
+In many projects, a release gap like that might become a note in someone's head or a message buried in chat. The team might say, "We fixed it," and move on.
+
+PCAE treats that kind of gap as lifecycle state.
+
+If the release was not fully published, the system should not simply pretend that it was. If a corrective phase repaired the gap, that repair should be visible. The release story should include the mistake and the correction, not because the mistake is embarrassing, but because the correction is part of the engineering record.
+
+This is the kind of thing I want PCAE to make normal.
+
+Not perfect execution.
+
+Recoverable, inspectable execution of the engineering lifecycle.
+
+## Scale Changed the Problem
+
+By the time PCAE v0.2.0 was released, the project had gone through roughly 118 governed phases, reached an architecture freeze, established a fully green validation baseline, verified the tag, and published the release.
+
+That scale changed the nature of the experiment.
+
+At ten phases, governance can feel like overhead.
+
+At one hundred phases, governance becomes the only reason the work is still understandable.
+
+The value of PCAE is not that it eliminates complexity. It does not. In some ways it adds complexity, because it forces decisions, evidence, reports, and boundaries to be explicit.
+
+The value is that the complexity becomes inspectable.
+
+A long-running AI-assisted project needs that.
+
+Without it, every new session becomes a reconstruction exercise. What happened? What was allowed? What was completed? What failed? Which report is current? Which phase owns which commit? Is this artifact stale? Did the model just summarize a desired state or an actual state?
+
+PCAE exists to make those questions answerable.
+
+## This Is Bigger Than PCAE
+
+Although PCAE is a specific project, I do not think the underlying problem is specific to PCAE.
+
+The broader industry is moving toward more capable AI engineering systems. Models will get better at writing code. Tool use will improve. Agents will become more persistent. IDEs, terminals, CI systems, issue trackers, and deployment tools will become more integrated with AI.
+
+That direction is already visible.
+
+The risk is that we treat capability as the main milestone.
+
+It is not enough for an AI system to be able to make a change.
+
+A trustworthy engineering system must also know whether the change was authorized, whether it was within scope, whether it was tested, whether the reported result matches reality, whether the system can recover, and whether a future agent can understand what happened without relying on the previous agent's memory.
+
+This is the infrastructure problem around AI-assisted engineering.
+
+The next generation of tools will not only need better models. They will need better boundaries.
+
+They will need governance layers, evidence chains, approval models, audit trails, durable task state, and repository-native operating instructions.
+
+That is the space PCAE is exploring.
+
+## Less Autonomous, More Trustworthy
+
+The most interesting outcome of PCAE v0.2 is that the architecture became less autonomous, not more.
+
+Early on, it is natural to imagine a path toward autonomy as a sequence of added powers:
+
+First the system observes.
+
+Then it plans.
+
+Then it writes.
+
+Then it tests.
+
+Then it commits.
+
+Then it pushes.
+
+Then it releases.
+
+But PCAE's actual path has been more cautious:
+
+- Observe.
+- Record evidence.
+- Validate state.
+- Separate advisory output from execution.
+- Reject invalid transitions.
+- Promote canonical artifacts.
+- Repair lifecycle gaps.
+- Make boundaries explicit.
+- Only then consider execution.
+
+This is not a retreat from autonomy.
+
+It is what makes autonomy eventually possible.
+
+A system that cannot safely observe should not decide.
+
+A system that cannot validate should not mutate.
+
+A system that cannot audit should not execute.
+
+A system that cannot recover should not operate unattended.
+
+PCAE v0.2 is therefore not an autonomy release in the usual sense.
+
+It is a governance release.
+
+It says: before we let the machine write and apply code under its own control, we need an engineering system that can constrain it, inspect it, and correct it.
+
+That is less dramatic than a demo where an agent builds an app by itself.
+
+But it is closer to the kind of infrastructure I would trust.
+
+## What PCAE v0.2 Means
+
+PCAE v0.2 is not production-ready autonomous coding.
+
+It is not a universal agent framework.
+
+It is not a claim that AI can now safely run software projects by itself.
+
+It is a released, governed experiment in building the operational memory and lifecycle controls that AI-assisted engineering will need.
+
+Its current runtime remains intentionally observed. Execution is unavailable. The maximum capability is observe.
+
+That sentence is important enough to repeat in different words:
+
+PCAE v0.2 is not powerful because it can execute.
+
+It is useful because it knows that it cannot.
+
+That self-knowledge is part of the architecture.
+
+The system records what is possible, what is forbidden, what is advisory, what is canonical, and what must wait for future governance layers.
+
+In a field that often rewards impressive demos, that may sound conservative.
+
+But after building PCAE through the v0.2 release, I think this conservatism is exactly the right direction.
+
+The limiting factor is no longer only model capability.
+
+The limiting factor is trustworthy engineering governance.
+
+The machine that writes code is becoming more capable.
+
+Now we need repositories, tools, and workflows capable of governing it.
