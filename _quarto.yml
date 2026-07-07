@@ -30,7 +30,19 @@ website:
       # — uncomment if you create an about.qmd —
       # - icon: info-circle
       #   href: about.qmd
-    contents: posts
+    contents:
+      - section: "Posts"
+        contents:
+          - posts/governing-the-machine-that-writes-code/index.qmd
+          - posts/rethinking-ai-assisted-software-engineering/index.qmd
+          - posts/RAG/index.qmd
+          - posts/Syncthing Data Science Friendly/index.qmd
+          - posts/A_B Test/index.qmd
+          - posts/Computer Vision/index.qmd
+          - posts/Dynamic Hotel Pricing Optimization/index.qmd
+          - posts/cycles-analysis/index.qmd
+          - posts/Credit Card Fraud Detection/index.qmd
+          - posts/covid19-analysis/index.qmd
       #- index.qmd
       # — uncomment to enable once you create these pages —
       # - section: "Categories"
