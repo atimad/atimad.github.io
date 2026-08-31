@@ -2,3 +2,6 @@
 # Ignore Quarto's build directory
 /quarto-build/
 posts/Credit Card Fraud Detection/Data/
+
+# MLflow experiment output generated when notebooks run locally
+**/mlruns/
